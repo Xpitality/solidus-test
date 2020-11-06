@@ -29,6 +29,7 @@ RUN useradd --no-log-init --uid $USER_ID --gid $GROUP_ID user --create-home
 # Remove existing running server
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
+RUN chown $USER_ID:$GROUP_ID /usr/bin/entrypoint.sh
 
 # Permissions crap
 RUN mkdir -p $APP_DIR
