@@ -58,7 +58,7 @@ COPY --chown=$USER_ID:$GROUP_ID . .
 RUN yarn install --check-files
 
 
-ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+ENTRYPOINT ["sh", "/usr/bin/entrypoint.sh"]
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
