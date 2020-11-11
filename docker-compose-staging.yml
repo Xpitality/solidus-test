@@ -1,7 +1,8 @@
 version: "3"
 
 services:
-  web:
+  solidus_test:
+    restart: unless-stopped
     environment:
       NODE_ENV: development
       RAILS_ENV: staging
