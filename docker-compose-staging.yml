@@ -3,11 +3,7 @@ version: "3"
 services:
   solidus_test:
     restart: unless-stopped
-    environment:
-      NODE_ENV: development
-      RAILS_ENV: staging
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-      DB_PORT: 3306
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile.staging

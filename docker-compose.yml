@@ -1,16 +1,8 @@
 version: "3"
 
 services:
-  web:
-    environment:
-      NODE_ENV: development
-      RAILS_ENV: development
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-      DB_USERNAME: root
-      DB_PASSWORD: root
-      DB_NAME: solidus_test
-      DB_PORT: 3306
-      DB_HOST: db
+  solidus_test:
+    env_file: .env
     build:
       context: .
       args:
@@ -34,11 +26,6 @@ services:
 
   db:
     image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USERNAME: root
-      MYSQL_PASSWORD: root
-        - '3306:3306'
     expose:
       - '3306'
     volumes:
