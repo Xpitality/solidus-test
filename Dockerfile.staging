@@ -61,6 +61,7 @@ RUN yarn install --check-files
 
 ENTRYPOINT ["sh", "/usr/bin/entrypoint.sh"]
 
+ARG SECRET_KEY_BASE
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
 RUN RAILS_ENV=staging SECRET_KEY_BASE=$SECRET_KEY_BASE bundle exec rake assets:precompile
