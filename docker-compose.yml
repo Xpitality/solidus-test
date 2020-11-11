@@ -16,7 +16,7 @@ services:
       args:
         USER_ID: 1000
         GROUP_ID: 1000
-        APP_DIR: /home/user/solidus_test
+        APP_DIR: /solidus_test
 
     command: bash -c "rm -f tmp/pids/server.pid &&
       ./bin/webpack-dev-server &
@@ -24,7 +24,7 @@ services:
 
     volumes:
       # make sure this lines up with APP_DIR above
-      - .:/home/user/solidus_test
+      - .:/solidus_test
 
     ports:
       - "3000:3000"
