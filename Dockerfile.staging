@@ -17,36 +17,15 @@ FROM builder as rails-app
 #EXPOSE 3000
 #EXPOSE 3035
 
-# This is to fix an issue on Linux with permissions issues
-ARG USER_ID=1000
-ARG GROUP_ID=1000
 ARG APP_DIR=/solidus_test
-
-# Create a non-root user
-RUN groupadd --gid $GROUP_ID user
-RUN useradd --no-log-init --uid $USER_ID --gid $GROUP_ID user --create-home
-
-# Remove existing running server
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-RUN chown $USER_ID:$GROUP_ID /usr/bin/entrypoint.sh
-
-# Permissions crap
-RUN mkdir -p $APP_DIR
-RUN chown -R $USER_ID:$GROUP_ID $APP_DIR
-
-
-# Define the user running the container
-USER $USER_ID:$GROUP_ID
-
 WORKDIR $APP_DIR
 
 # Install rails related dependencies
-COPY --chown=$USER_ID:$GROUP_ID Gemfile* $APP_DIR/
+COPY Gemfile* $APP_DIR/
 
 # For webpacker / node_modules
-COPY --chown=$USER_ID:$GROUP_ID package.json $APP_DIR
-COPY --chown=$USER_ID:$GROUP_ID yarn.lock $APP_DIR
+COPY package.json $APP_DIR
+COPY yarn.lock $APP_DIR
 
 ENV BUNDLER_VERSION=2.1.4
 RUN bundle config set without 'development test'
@@ -54,7 +33,7 @@ RUN gem install bundler -v 2.1.4
 RUN bundle install
 
 # Copy over all files
-COPY --chown=$USER_ID:$GROUP_ID . .
+COPY . .
 
 RUN yarn install --check-files
 
