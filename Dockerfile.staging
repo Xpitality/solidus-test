@@ -10,6 +10,8 @@ RUN curl https://deb.nodesource.com/setup_12.x | bash \
 
 FROM builder as rails-app
 
+EXPOSE 3000
+
 ARG APP_DIR=/solidus_test
 WORKDIR $APP_DIR
 
