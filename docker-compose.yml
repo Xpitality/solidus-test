@@ -24,12 +24,17 @@ services:
 
   db:
     image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+        - '3306:3306'
     expose:
       - '3306'
     volumes:
       - db_data:/var/run/mysqld
-    logging:
-      driver: none
+#    logging:
+#      driver: none
     ports:
       - 3306
 
