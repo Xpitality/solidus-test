@@ -6,8 +6,6 @@ services:
     build:
       context: .
       args:
-        USER_ID: 1000
-        GROUP_ID: 1000
         APP_DIR: /solidus_test
 
     command: bash -c "rm -f tmp/pids/server.pid &&
