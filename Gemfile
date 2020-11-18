@@ -34,7 +34,7 @@ gem 'solidus_auth_devise'
 
 gem 'bugsnag'
 # gem 'slack-notify'
-gem 'xpitality-notifier', git: 'https://github.com/Xpitality/xpitality-notifier', tag: 'v0.0.5'
+# gem 'xpitality-notifier', git: 'https://github.com/Xpitality/xpitality-notifier', tag: 'v0.0.5'
 
 
 group :staging do
