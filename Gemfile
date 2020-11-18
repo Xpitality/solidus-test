@@ -37,6 +37,10 @@ gem 'bugsnag'
 gem 'xpitality-notifier', git: 'https://github.com/Xpitality/xpitality-notifier', tag: 'v0.0.5'
 
 
+group :staging do
+  gem 'fog-aws'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
