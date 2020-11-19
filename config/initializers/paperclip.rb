@@ -1,10 +1,10 @@
-if ENV.fetch['AWS_ACCESS_KEY_ID'] && ENV.fetch['AWS_SECRET_ACCESS_KEY']
+if ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
   Paperclip::Attachment.default_options.merge!(
       storage: :fog,
       fog_credentials: {
           provider: 'AWS',
-          aws_access_key_id: ENV.fetch['AWS_ACCESS_KEY_ID'],
-          aws_secret_access_key: ENV.fetch['AWS_SECRET_ACCESS_KEY'],
+          aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+          aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
           region: "eu-west-1",
       },
       fog_directory: 'com.xptesting.solidus'
