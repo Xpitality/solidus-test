@@ -1,18 +1,18 @@
-if ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
-  Paperclip::Attachment.default_options.merge!(
-      storage: :fog,
-      fog_credentials: {
-          provider: 'AWS',
-          aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-          aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-          region: "eu-west-1",
-      },
-      fog_directory: 'com.xptesting.solidus'
-  )
-
-  Spree::Image.attachment_definitions[:attachment].delete(:url)
-  Spree::Image.attachment_definitions[:attachment].delete(:path)
-end
+# if ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
+#   Paperclip::Attachment.default_options.merge!(
+#       storage: :fog,
+#       fog_credentials: {
+#           provider: 'AWS',
+#           aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+#           aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+#           region: "eu-west-1",
+#       },
+#       fog_directory: 'com.xptesting.solidus'
+#   )
+#
+#   Spree::Image.attachment_definitions[:attachment].delete(:url)
+#   Spree::Image.attachment_definitions[:attachment].delete(:path)
+# end
 
 
 if ENV['CLOUDINARY_URL']
