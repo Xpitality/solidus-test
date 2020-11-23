@@ -37,11 +37,12 @@ gem 'bugsnag'
 # gem 'slack-notify'
 # gem 'xpitality-notifier', git: 'https://github.com/Xpitality/xpitality-notifier', tag: 'v0.0.5'
 
-gem 'tzinfo', '1.2.8'
+# gem 'tzinfo', '1.2.8'
+gem "aws-sdk-s3", require: false
 
-group :staging do
-  gem 'fog-aws'
-end
+# group :staging do
+#   gem 'fog-aws'
+# end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
