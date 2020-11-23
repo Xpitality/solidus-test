@@ -30,12 +30,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'solidus'
-# gem 'solidus_auth_devise'
+gem 'solidus_auth_devise'
+gem 'solidus_paypal_commerce_platform'
 
 gem 'bugsnag'
 # gem 'slack-notify'
 # gem 'xpitality-notifier', git: 'https://github.com/Xpitality/xpitality-notifier', tag: 'v0.0.5'
 
+gem 'tzinfo', '1.2.8'
 
 group :staging do
   gem 'fog-aws'
@@ -65,3 +67,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
