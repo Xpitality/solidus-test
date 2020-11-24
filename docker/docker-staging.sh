@@ -8,6 +8,9 @@
 
 /home/deployer/bin/docker-compose -f docker-compose-staging.yml run --rm solidus_test bundle exec rake assets:precompile
 
+/home/deployer/bin/docker-compose -f docker-compose-staging.yml run --rm solidus_test rails spree_sample:load
+
+
 #bin/rails railties:install:migrations
 #bin/rails db:migrate
 #bin/rails db:seed

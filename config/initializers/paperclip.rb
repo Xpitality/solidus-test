@@ -7,7 +7,7 @@ if ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
           aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
           region: "eu-west-1",
       },
-      fog_directory: 'com.xptesting.solidus'
+      fog_directory: 'com-xptesting-solidus'
   )
 
   Spree::Image.attachment_definitions[:attachment].delete(:url)
