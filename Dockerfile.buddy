@@ -12,7 +12,7 @@ FROM builder as rails-app
 
 EXPOSE 3001
 
-ARG APP_DIR=/solidus_test
+ARG APP_DIR=/buddy/solidus_test
 WORKDIR $APP_DIR
 
 COPY Gemfile* $APP_DIR/
