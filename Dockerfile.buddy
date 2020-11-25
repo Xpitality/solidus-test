@@ -1,6 +1,8 @@
 FROM ruby:2.7.2 as solidus-buddy
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-EXPOSE 3001
 WORKDIR /buddy/solidus_test
+COPY Gemfile /buddy/solidus_test
+COPY Gemfile.lock  /buddy/solidus_test
 COPY . /buddy/solidus_test
+EXPOSE 3001
 CMD ["rails", "server", "-b", "0.0.0.0"]
