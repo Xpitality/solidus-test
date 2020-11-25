@@ -5,4 +5,4 @@ COPY Gemfile /buddy/solidus_test/
 COPY Gemfile.lock  /buddy/solidus_test/
 COPY . /buddy/solidus_test/
 EXPOSE 3001
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
