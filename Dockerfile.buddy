@@ -19,7 +19,7 @@ COPY Gemfile.lock  /buddy/solidus_test/
 COPY package.json /buddy/solidus_test/
 COPY yarn.lock /buddy/solidus_test/
 
-RUN bundle config set without 'development test' && gem install bundler -v 2.1.4 && bundle install
+RUN bundle config set without 'test' && gem install bundler -v 2.1.4 && bundle install
 
 COPY . /buddy/solidus_test/
 
