@@ -15,18 +15,15 @@ RUN curl https://deb.nodesource.com/setup_12.x | bash \
 
 FROM builder as solidus-buddy
 
-WORKDIR /buddy/solidus_test
+ENV HOME /buddy/solidus_test
+WORKDIR $HOME
 
-COPY Gemfile*  /buddy/solidus_test/
-COPY Gemfile.lock  /buddy/solidus_test/
-COPY package.json /buddy/solidus_test/
-COPY yarn.lock /buddy/solidus_test/
+COPY ["Gemfile*", "package.json", "yarn.lock", "$HOME/"]
 
+RUN yarn install --pure-lockfile
 RUN bundle config set without 'development test' && gem install bundler -v 2.1.4 && bundle install
 
-COPY . /buddy/solidus_test/
-
-RUN yarn install --check-files
+COPY . $HOME
 
 EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
