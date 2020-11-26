@@ -2,9 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Allows any xptesting.com hosts
-  # config.hosts << "/[a-z0-9]+\.xptesting\.com/"
-  
-  config.hosts << "solidus-buddy.xptesting.com"
+  config.hosts << "/[a-z0-9]+\.xptesting\.com/"
   
   # Code is not reloaded between requests.
   config.cache_classes = true
