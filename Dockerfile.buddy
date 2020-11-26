@@ -2,6 +2,9 @@ FROM ruby:2.7.2 as builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+ENV RAILS_ENV='staging'
+ENV RAKE_ENV='staging'
+
 # Add Yarn to the repository
 RUN curl https://deb.nodesource.com/setup_12.x | bash \
     && curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
@@ -19,11 +22,11 @@ COPY Gemfile.lock  /buddy/solidus_test/
 COPY package.json /buddy/solidus_test/
 COPY yarn.lock /buddy/solidus_test/
 
-RUN bundle config set without 'test' && gem install bundler -v 2.1.4 && bundle install
+RUN bundle config set without 'development test' && gem install bundler -v 2.1.4 && bundle install
 
 COPY . /buddy/solidus_test/
 
 RUN yarn install --check-files
 
-EXPOSE 3001
+EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
