@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Allows any xptesting.com hosts
+config.hosts << /[a-z0-9]+\.xptesting\.com/
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -31,7 +34,7 @@ Rails.application.configure do
   config.serve_static_assets = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'https://solidus.xptesting.com'
+  # config.action_controller.asset_host = 'https://solidus.xptesting.com'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
