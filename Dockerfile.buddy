@@ -25,6 +25,7 @@ RUN bundle config set without 'development test' && gem install bundler -v 2.1.4
 
 COPY . $HOME
 
+RUN chmod +x /buddy/solidus_test/entrypoint.sh
 ENTRYPOINT ["/buddy/solidus_test/buddy-entrypoint.sh"]
 
 EXPOSE 3000
