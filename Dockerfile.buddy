@@ -26,4 +26,4 @@ COPY . /buddy/solidus_test/
 RUN yarn install --check-files
 
 EXPOSE 3001
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
