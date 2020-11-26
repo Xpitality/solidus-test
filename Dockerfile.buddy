@@ -25,7 +25,7 @@ RUN bundle config set without 'development test' && gem install bundler -v 2.1.4
 
 COPY . $HOME
 
-ENTRYPOINT ["buddy-entrypoint.sh"]
+ENTRYPOINT ["/buddy-entrypoint.sh"]
 
 EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
