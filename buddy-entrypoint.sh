@@ -1,4 +1,6 @@
 #! /bin/bash
+set -e
+
 bundle exec rake db:migrate
 
 if [[ $? != 0 ]]; then
@@ -8,5 +10,8 @@ if [[ $? != 0 ]]; then
   bundle exec rake db:setup
 fi
 
-# Execute the given or default command:
+# Remove a potentially pre-existing server.pid for Rails.
+rm -f /buddy/solidus_test/tmp/pids/server.pid
+
+# Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"
