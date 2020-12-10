@@ -42,6 +42,8 @@ gem 'solidus_social'
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
 
 
+gem 'solidus_stripe', '~> 3.0'
+
 gem 'bugsnag'
 
 gem "aws-sdk-s3", require: false

@@ -452,6 +452,10 @@ GEM
       solidus_auth_devise
       solidus_core (>= 1.0, < 3)
       solidus_support
+    solidus_stripe (3.2.1)
+      activemerchant (>= 1.100)
+      solidus_core (>= 2.3, < 3)
+      solidus_support (~> 0.4)
     solidus_support (0.7.0)
     solidus_webhooks (0.3.0)
       solidus_core (>= 2.0.0, < 3)
@@ -534,6 +538,7 @@ DEPENDENCIES
   solidus_related_products
   solidus_sitemap!
   solidus_social
+  solidus_stripe (~> 3.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
