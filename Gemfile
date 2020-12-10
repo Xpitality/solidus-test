@@ -3,20 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
-# Use mysql as the database for Active Record
 gem 'mysql2'
-# gem 'mysql2', '~> 0.4.0'
-# Use Puma as the app server
 gem 'puma', '~> 4.1'
-# Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -33,11 +25,11 @@ gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'solidus_paypal_commerce_platform'
 
-gem 'bugsnag'
-# gem 'slack-notify'
-# gem 'xpitality-notifier', git: 'https://github.com/Xpitality/xpitality-notifier', tag: 'v0.0.5'
+# https://github.com/solidusio-contrib/solidus_related_products
+gem 'solidus_related_products'
 
-# gem 'tzinfo', '1.2.8'
+gem 'bugsnag'
+
 gem "aws-sdk-s3", require: false
 
 group :staging do

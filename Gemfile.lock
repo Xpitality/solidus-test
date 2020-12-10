@@ -366,6 +366,9 @@ GEM
       solidus_core (>= 2.0.0, < 3)
       solidus_support (>= 0.5.1, < 1)
       solidus_webhooks (~> 0.2)
+    solidus_related_products (1.1.0)
+      deface (~> 1.0)
+      solidus_backend (>= 1.0, < 3)
     solidus_sample (2.11.3)
       solidus_core (= 2.11.3)
     solidus_support (0.7.0)
@@ -443,10 +446,10 @@ DEPENDENCIES
   solidus
   solidus_auth_devise
   solidus_paypal_commerce_platform
+  solidus_related_products
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
-  tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
