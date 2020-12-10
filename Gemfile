@@ -31,6 +31,13 @@ gem 'solidus_related_products'
 # https://github.com/solidusio-contrib/solidus_product_feed
 gem 'solidus_product_feed'
 
+# https://github.com/solidusio-contrib/solidus_sitemap
+gem 'solidus_sitemap', github: 'solidusio-contrib/solidus_sitemap'
+
+# https://github.com/solidusio-contrib/solidus_social
+gem 'solidus_social'
+
+
 gem 'bugsnag'
 
 gem "aws-sdk-s3", require: false
