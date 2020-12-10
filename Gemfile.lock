@@ -366,6 +366,10 @@ GEM
       solidus_core (>= 2.0.0, < 3)
       solidus_support (>= 0.5.1, < 1)
       solidus_webhooks (~> 0.2)
+    solidus_product_feed (1.1.0)
+      deface
+      solidus_core (>= 2.0.0, < 3)
+      solidus_support (~> 0.5)
     solidus_related_products (1.1.0)
       deface (~> 1.0)
       solidus_backend (>= 1.0, < 3)
@@ -446,6 +450,7 @@ DEPENDENCIES
   solidus
   solidus_auth_devise
   solidus_paypal_commerce_platform
+  solidus_product_feed
   solidus_related_products
   spring
   spring-watcher-listen (~> 2.0.0)

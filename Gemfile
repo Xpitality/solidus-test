@@ -28,6 +28,9 @@ gem 'solidus_paypal_commerce_platform'
 # https://github.com/solidusio-contrib/solidus_related_products
 gem 'solidus_related_products'
 
+# https://github.com/solidusio-contrib/solidus_product_feed
+gem 'solidus_product_feed'
+
 gem 'bugsnag'
 
 gem "aws-sdk-s3", require: false
