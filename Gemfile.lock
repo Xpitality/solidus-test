@@ -444,9 +444,6 @@ GEM
       deface
       solidus_core (>= 2.0.0, < 3)
       solidus_support (~> 0.5)
-    solidus_related_products (1.1.0)
-      deface (~> 1.0)
-      solidus_backend (>= 1.0, < 3)
     solidus_sample (2.11.3)
       solidus_core (= 2.11.3)
     solidus_social (1.2.0)
@@ -543,7 +540,6 @@ DEPENDENCIES
   solidus_editor!
   solidus_paypal_commerce_platform
   solidus_product_feed
-  solidus_related_products
   solidus_sitemap!
   solidus_social
   solidus_stripe (~> 3.0)
