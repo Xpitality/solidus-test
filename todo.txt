@@ -7,13 +7,6 @@
 questions:
 - localization?
 
-
-depricated:
-- https://github.com/solidusio-contrib/solidus_related_products
-DEPRECATION WARNING: SolidusSupport::EngineExtensions::Decorators is deprecated! Use SolidusSupport::EngineExtensions instead. (called from <class:Engine> at /usr/local/bundle/bundler/gems/solidus_abandoned_carts-64bf777b9649/lib/solidus_abandoned_carts/engine.rb:7)
-[/usr/local/bundle/gems/zeitwerk-2.4.1/lib/zeitwerk/loader/callbacks.rb:16:in `on_file_autoloaded': expected file /usr/local/bundle/bundler/gems/solidus_abandoned_carts-64bf777b9649/app/decorators/models/spree/order_decorator.rb to define constant Spree::OrderDecorator, but didn't (Zeitwerk::NameError)
-
-
 installed:
 - solidus_related_products
 - solidus_paypal_commerce_platform

@@ -41,8 +41,12 @@ gem 'solidus_social'
 # https://github.com/galetahub/ckeditor
 gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
 
-
+# https://github.com/solidusio/solidus_stripe
 gem 'solidus_stripe', '~> 3.0'
+
+# https://github.com/boomerdigital/solidus_user_roles
+gem 'solidus_user_roles', github: 'boomerdigital/solidus_user_roles'
+
 
 gem 'bugsnag'
 
