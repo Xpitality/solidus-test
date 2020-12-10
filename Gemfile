@@ -37,6 +37,10 @@ gem 'solidus_sitemap', github: 'solidusio-contrib/solidus_sitemap'
 # https://github.com/solidusio-contrib/solidus_social
 gem 'solidus_social'
 
+# https://github.com/solidusio-contrib/solidus_editor
+# https://github.com/galetahub/ckeditor
+gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
+
 
 gem 'bugsnag'
 

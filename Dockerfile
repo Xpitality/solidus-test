@@ -13,16 +13,14 @@ FROM builder as rails-app
 ARG APP_DIR=/solidus_test
 WORKDIR $APP_DIR
 
-COPY Gemfile* $APP_DIR/
-COPY package.json $APP_DIR
-COPY yarn.lock $APP_DIR
+COPY ["Gemfile*", "package.json", "yarn.lock", "$APP_DIR/"]
+
+RUN yarn install --pure-lockfile
 
 ENV BUNDLER_VERSION=2.1.4
 RUN gem install bundler -v 2.1.4 \
     && bundle install
 
 COPY . .
-
-RUN yarn install --check-files
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
