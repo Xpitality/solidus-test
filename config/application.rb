@@ -19,7 +19,7 @@ module SolidusTest
       end
     end
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    # config.load_defaults 6.0
     config.autoload = :classic
     config.action_controller.default_protect_from_forgery = true
 
