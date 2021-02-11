@@ -52,6 +52,8 @@ gem 'bugsnag'
 
 gem "aws-sdk-s3", require: false
 
+gem 'alchemy-solidus', '~> 2.4.0'
+
 group :staging do
   gem 'fog-aws'
 end

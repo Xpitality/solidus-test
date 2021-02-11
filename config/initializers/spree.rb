@@ -104,16 +104,26 @@ Spree::Frontend::Config.configure do |config|
 end
 
 Spree::Backend::Config.configure do |config|
+  # AlchemyCMS admin tabs
+  config.menu_items << config.class::MenuItem.new(
+    [:pages, :sites, :languages, :tags, :users, :pictures, :attachments],
+    'copy',
+    label: :cms,
+    condition: -> { can?(:index, :alchemy_admin_dashboard) },
+    partial: 'spree/admin/shared/alchemy_sub_menu',
+    url: '/admin/pages',
+    match_path: '/pages'
+  )
   config.locale = 'en'
-
-  # Uncomment and change the following configuration if you want to add
-  # a new menu item:
-  #
-  # config.menu_items << config.class::MenuItem.new(
-  #   [:section],
-  #   'icon-name',
-  #   url: 'https://solidus.io/'
-  # )
+#
+#   # Uncomment and change the following configuration if you want to add
+#   # a new menu item:
+#   #
+#   # config.menu_items << config.class::MenuItem.new(
+#   #   [:section],
+#   #   'icon-name',
+#   #   url: 'https://solidus.io/'
+#   # )
 end
 
 Spree::Api::Config.configure do |config|
@@ -121,6 +131,9 @@ Spree::Api::Config.configure do |config|
 end
 
 Spree.user_class = "Spree::LegacyUser"
+# Spree.user_class = "Alchemy::User"
+# Alchemy.user_class_name = 'Spree::LegacyUser'
+
 
 # Rules for avoiding to store the current path into session for redirects
 # When at least one rule is matched, the request path will not be stored
@@ -129,3 +142,6 @@ Spree.user_class = "Spree::LegacyUser"
 # the class name:
 #
 # Spree::UserLastUrlStorer.rules << 'Spree::UserLastUrlStorer::Rules::AuthenticationRule'
+# Rails.application.config.to_prepare do
+#   require_dependency 'spree/authentication_helpers'
+# end

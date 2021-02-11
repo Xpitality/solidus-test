@@ -11,3 +11,4 @@ Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
         
 
 SolidusUserRoles::Engine.load_seed if defined?(SolidusUserRoles::Engine)
+Alchemy::Seeder.seed!
