@@ -17,4 +17,5 @@ test:
   <<: *default
   database: solidus_test_test
 
-
+staging:
+  <<: *default
