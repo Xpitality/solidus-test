@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Spree::Image::ActiveStorageAttachment
+module Spree::TaxonImage::ActiveStorageAttachment
   extend ActiveSupport::Concern
   include Spree::ActiveStorageAdapter
 
