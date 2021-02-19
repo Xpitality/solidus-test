@@ -30,6 +30,7 @@ Spree.config do |config|
   # Enable Paperclip adapter for attachments on images and taxons
   config.image_attachment_module = 'Spree::Image::PaperclipAttachment'
   config.taxon_attachment_module = 'Spree::Taxon::PaperclipAttachment'
+  # config.taxon_image_attachment_module = 'Spree::TaxonImage::PaperclipAttachment'
 
   # Disable legacy Solidus custom CanCanCan actions aliases
   config.use_custom_cancancan_actions = false
@@ -128,7 +129,6 @@ end
 
 Spree::Api::Config.configure do |config|
   config.requires_authentication = true
-  config.use_static_preferences!
 end
 
 Spree.user_class = "Spree::LegacyUser"
