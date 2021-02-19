@@ -16,6 +16,9 @@ development:
 staging:
   <<: *default
 
+staging2:
+  adapter: nulldb
+
 test:
   <<: *default
   database: solidus_test_test
