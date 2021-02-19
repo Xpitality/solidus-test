@@ -2,13 +2,7 @@
 
 module Spree
   class TaxonImage < Asset
-    if Rails.env.staging?
-      include ::Spree::TaxonImage::ActiveStorageAttachment
-    else
-      include ::Spree::TaxonImage::PaperclipAttachment
-    end
-
-    # include ::Spree::Config.taxon_image_attachment_module
+    include ::Spree::TaxonImage::PaperclipAttachment
 
     def mini_url
       Spree::Deprecation.warn(
