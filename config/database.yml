@@ -14,7 +14,7 @@ development:
   socket: /var/run/mysqld/mysqlx.sock
 
 staging:
-  adapter: <%= ENV['DB_ADAPTER'] ||= 'mysql2' %>
+  adapter: <%= ENV['DB_ADAPTER'] || 'mysql2' %>
 
 test:
   <<: *default
