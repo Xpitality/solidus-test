@@ -7,6 +7,8 @@ ARG NODE_ENV=$NODE_ENV
 ARG DOMAIN_NAME=$DOMAIN_NAME
 ARG SECRET_KEY_BASE=$SECRET_KEY_BASE
 
+ARG DB_ADAPTER=$DB_ADAPTER
+
 ENV HOME /app
 WORKDIR $HOME
 
@@ -34,7 +36,7 @@ RUN yarn install --pure-lockfile
 
 COPY . $HOME
 
-RUN DB_ADAPTER=nulldb bundle exec rails assets:precompile
+RUN bundle exec rails assets:precompile
 
 # Remove folders not needed in resulting image
 RUN rm -rf node_modules tmp/cache app/assets/images app/assets/stylesheets vendor/assets spec
