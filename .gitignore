@@ -38,3 +38,5 @@ yarn-debug.log*
 .env
 
 .idea
+/docker-compose.yml
+/Dockerfile.dev

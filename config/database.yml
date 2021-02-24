@@ -1,5 +1,5 @@
 default: &default
-  adapter: mysql2
+  adapter: <%= ENV['DB_ADAPTER'] || 'mysql2' %>
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV['DB_USERNAME'] %>
@@ -13,11 +13,9 @@ development:
   database: solidus_test_development
   socket: /var/run/mysqld/mysqlx.sock
 
-staging:
-  <<: *default
-
 test:
   <<: *default
   database: solidus_test_test
 
-
+staging:
+  <<: *default
