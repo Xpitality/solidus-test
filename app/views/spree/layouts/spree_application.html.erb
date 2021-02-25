@@ -11,20 +11,12 @@
 
       <%= render partial: 'spree/shared/header' %>
 
-        <div id="content" data-hook>
+      <%= taxon_breadcrumbs(@taxon) %>
 
-          <%= taxon_breadcrumbs(@taxon) %>
+      <%= flash_messages %>
+      <%= yield %>
 
-          <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
-
-          <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
-            <%= flash_messages %>
-            <%= yield %>
-          </div>
-
-          <%= yield :templates %>
-
-        </div>
+      <%= yield :templates %>
 
       <%= render partial: 'spree/shared/footer' %>
 

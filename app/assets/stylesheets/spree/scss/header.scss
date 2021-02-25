@@ -3,10 +3,10 @@ header#header {
   flex-direction: column;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   background: $white;
-  margin-bottom: 25px;
   &.sticky {
     position: sticky;
     top: 0;
+    z-index: 1;
   }
   .header-top-bar {
     background: $primary-light;

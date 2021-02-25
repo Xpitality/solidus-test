@@ -1,12 +1,26 @@
-<% content_for :sidebar do %>
-  <div data-hook="homepage_sidebar_navigation">
-    <%= render partial: 'spree/shared/taxonomies' %>
-  </div>
+<% if false %>
+  <% content_for :sidebar do %>
+    <div data-hook="homepage_sidebar_navigation">
+      <%= render partial: 'spree/shared/taxonomies' %>
+    </div>
+  <% end %>
 <% end %>
 
-<div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
-  <% end %>
+
+<div class="home-content">
+  <div class="home-hero">
+    <%= image_tag("home/home-hero.png", class: "home-hero-image exceptSmallScreen") %>
+    <%= image_tag("home/home-hero-mobile.png", class: "home-hero-image smallScreen") %>
+    <div class="home-button-holder">
+      <button class="btn btn-primary">vai al catalogo</button>
+    </div>
+  </div>
 </div>
 
+<% if false %>
+  <div data-hook="homepage_products">
+    <% cache(cache_key_for_products) do %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+    <% end %>
+  </div>
+<% end %>
