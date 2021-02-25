@@ -22,6 +22,11 @@ module SolidusTest
     # config.load_defaults 6.0
     config.autoload = :classic
     config.action_controller.default_protect_from_forgery = true
+    
+# Disable concurrent assets compilation to avoid sassc segfault
+    config.assets.configure do |env|
+          env.export_concurrent = false
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
