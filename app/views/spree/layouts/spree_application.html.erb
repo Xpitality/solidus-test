@@ -9,8 +9,6 @@
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
 
-    <div class="container">
-
       <%= render partial: 'spree/shared/header' %>
 
       <%= taxon_breadcrumbs(@taxon) %>
@@ -21,8 +19,6 @@
       <%= yield :templates %>
 
       <%= render partial: 'spree/shared/footer' %>
-
-    </div>
 
   </body>
 </html>
