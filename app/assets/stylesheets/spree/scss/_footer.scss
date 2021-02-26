@@ -1,118 +1,173 @@
 footer#footer {
+  .footer-top {
+    background: $light-grey;
+    padding: 55px 0;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 991px) {
+        flex-direction: column;
+        align-items: center;
+      }
+      .col {
+        flex: 0 0 30%;
+        max-width: 30%;
+        display: flex;
+        align-items: center;
+        @media (max-width: 991px) {
+          flex: 0 0 100%;
+          max-width: 100%;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          margin-bottom: 30px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        .col-image-holder {
+          margin-right: 20px;
+          @media (max-width: 991px) {
+            margin-right: 0;
+          }
+        }
+        .col-info {
+          .info-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: $text-color;
+            margin-bottom: 8px;
+          }
+          .info-mail {
+            color: $primary;
+            font-weight: bold;
+          }
+          .info-text {
+            font-weight: 300;
+          }
+          .payments-image {
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+  }
   .footer-bottom {
     background: $black;
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 15px 40px 15px;
-    @media (max-width: $footerBreak) {
-      flex-direction: column;
-    }
-    .cols-wrapper {
+    .container {
       display: flex;
-      flex: 1;
-      max-width: 30%;
       justify-content: space-between;
+      padding: 40px 15px 40px 15px;
       @media (max-width: $footerBreak) {
-        order: 2;
-        margin-top: 25px;
-        max-width: unset;
-        width: fit-content;
-      }
-      @media (max-width: $small) {
-        width: 100%;
-      }
-    }
-    .col {
-      .nav-holder {
-        .nav-title {
-          font-weight: 700;
-          color: $white;
-          letter-spacing: 2px;
-          margin-bottom: 16px;
-          @media (max-width: $footerBreak) {
-            margin-bottom: 5px;
-          }
-        }
-        .nav-text {
-          color: $white;
-          font-weight: 300;
-        }
-        .nav {
-          display: flex;
-          flex-direction: column;
-          a {
-            color: $white;
-          }
-        }
-      }
-      &.logo-col {
-        display: flex;
         flex-direction: column;
-        margin-right: 75px;
-        @media (max-width: $large) {
-          margin-right: 30px;
+      }
+      .cols-wrapper {
+        display: flex;
+        flex: 1;
+        max-width: 30%;
+        justify-content: space-between;
+        @media (max-width: $footerBreak) {
+          order: 2;
+          margin-top: 25px;
+          max-width: unset;
+          width: fit-content;
         }
-        .logo-image {
-          margin-bottom: 25px;
-        }
-        .logo-social {
-          display: flex;
-          align-items: center;
-          a {
-            margin-right: 10px;
-          }
-        }
-        .footerBreak {
-          color: $white;
-          font-size: 14px;
-          text-decoration: underline;
-          margin-top: 27px;
-          font-weight: bold;
+        @media (max-width: $small) {
+          width: 100%;
         }
       }
-      &.address-col {
-        min-width: 140px;
-        width: 140px;
-        address {
-          margin-bottom: 16px;
-          p {
+      .col {
+        .nav-holder {
+          .nav-title {
+            font-weight: 700;
             color: $white;
-            font-style: normal;
-            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            @media (max-width: $footerBreak) {
+              margin-bottom: 5px;
+            }
+          }
+          .nav-text {
+            color: $white;
+            font-weight: 300;
+          }
+          .nav {
+            display: flex;
+            flex-direction: column;
+            a {
+              color: $white;
+            }
           }
         }
-        @media (max-width: $footerBreak) {
-          min-width: unset;
-          width: auto;
+        &.logo-col {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          .nav-holder {
-            .nav-title {
-              display: none;
+          margin-right: 75px;
+          @media (max-width: $large) {
+            margin-right: 30px;
+          }
+          .logo-image {
+            margin-bottom: 25px;
+          }
+          .logo-social {
+            display: flex;
+            align-items: center;
+            a {
+              margin-right: 10px;
             }
-            .nav-text {
-              white-space: nowrap;
+          }
+          .footerBreak {
+            color: $white;
+            font-size: 14px;
+            text-decoration: underline;
+            margin-top: 27px;
+            font-weight: bold;
+          }
+        }
+        &.address-col {
+          min-width: 140px;
+          width: 140px;
+          address {
+            margin-bottom: 16px;
+            p {
+              color: $white;
+              font-style: normal;
+              font-size: 14px;
+            }
+          }
+          @media (max-width: $footerBreak) {
+            min-width: unset;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .nav-holder {
+              .nav-title {
+                display: none;
+              }
+              .nav-text {
+                white-space: nowrap;
+              }
             }
           }
         }
-      }
-      &.nav-col {
-        @media (max-width: $footerBreak) {
-          display: none;
+        &.nav-col {
+          @media (max-width: $footerBreak) {
+            display: none;
+          }
         }
-      }
-      &.bigger-col {
-        max-width: 315px;
-        @media (max-width: $footerBreak) {
-          order: 1;
-          border-bottom: 1px solid $text-color;
-          max-width: unset;
-        }
-        .nav-holder {
-          &:first-child {
-            .nav-text {
-              margin-bottom: 16px;
+        &.bigger-col {
+          max-width: 315px;
+          @media (max-width: $footerBreak) {
+            order: 1;
+            border-bottom: 1px solid $text-color;
+            max-width: unset;
+          }
+          .nav-holder {
+            &:first-child {
+              .nav-text {
+                margin-bottom: 16px;
+              }
             }
           }
         }

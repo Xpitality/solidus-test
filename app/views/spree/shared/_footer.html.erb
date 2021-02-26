@@ -1,68 +1,102 @@
 <footer id="footer" data-hook>
   <div class="footer-top">
-    <%= image_tag("icons/icon-footer-secure.svg") %>
-    <%= image_tag("icons/icon-footer-transport.svg") %>
-    <%= image_tag("icons/icon-footer-help.svg") %>
+    <div class="container">
+      <div class="col">
+        <div class="col-image-holder">
+          <%= image_tag("icons/icon-footer-secure.svg") %>
+        </div>
+        <div class="col-info">
+          <p class="info-title">Shopping sicuro</p>
+          <p class="info-text">I tuoi pagamenti online sono protetti</p>
+          <%= image_tag("footer/footer-payments.svg", class: "payments-image") %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-image-holder">
+          <%= image_tag("icons/icon-footer-transport.svg") %>
+        </div>
+        <div class="col-info">
+          <p class="info-title">Shopping sicuro</p>
+          <p class="info-text">
+            <strong>GRATIS</strong> per ordini superiori ai 79€ <br /> <strong>10,90€</strong> per tutti gli altri ordini
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-image-holder">
+          <%= image_tag("icons/icon-footer-help.svg") %>
+        </div>
+        <div class="col-info">
+          <p class="info-title">Serve aiuto?</p>
+          <a class="info-mail" href="mailto:enotecanaturale@gmail.com">enotecanaturale@gmail.com</a>
+          <p class="info-text">
+            o chiama al 33376786946556045
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer-bottom">
-    <div class="cols-wrapper">
-      <div class="col logo-col">
-        <%= image_tag("footer/footer-logo.svg", class: "logo-image") %>
-        <div class="logo-social">
-          <%= link_to 'https://www.instagram.com' do %>
-            <%= image_tag("icons/icon-instagram-white.svg") %>
-          <% end %>
-          <%= link_to 'https://www.facebook.com', target: :_blank do %>
-            <%= image_tag("icons/icon-facebook-white.svg") %>
-          <% end %>
+    <div class="container">
+      <div class="cols-wrapper">
+        <div class="col logo-col">
+          <%= image_tag("footer/footer-logo.svg", class: "logo-image") %>
+          <div class="logo-social">
+            <%= link_to 'https://www.instagram.com' do %>
+              <%= image_tag("icons/icon-instagram-white.svg") %>
+            <% end %>
+            <%= link_to 'https://www.facebook.com', target: :_blank do %>
+              <%= image_tag("icons/icon-facebook-white.svg") %>
+            <% end %>
+          </div>
+          <%= link_to "Privacy Policy", "/", class: "footerBreak" %>
         </div>
-        <%= link_to "Privacy Policy", "/", class: "footerBreak" %>
+        <div class="col address-col">
+          <address>
+            <%= content_tag :p, "Dati societari" %>
+            <%= content_tag :p, "Pet Nat srl Società" %>
+            <%= content_tag :p, "Benefit" %>
+            <%= content_tag :p, "Via Santa Croce, 19" %>
+            <%= content_tag :p, "20122 Milano" %>
+            <%= content_tag :p, "C.F./P.IVA" %>
+            <%= content_tag :p, "10431760965" %>
+          </address>
+          <div class="nav-holder">
+            <p class="nav-title">Privacy Policy</p>
+            <p class="nav-text">&copy; 2020, enoteca naturale</p>
+          </div>
+        </div>
       </div>
-      <div class="col address-col">
-        <address>
-          <%= content_tag :p, "Dati societari" %>
-          <%= content_tag :p, "Pet Nat srl Società" %>
-          <%= content_tag :p, "Benefit" %>
-          <%= content_tag :p, "Via Santa Croce, 19" %>
-          <%= content_tag :p, "20122 Milano" %>
-          <%= content_tag :p, "C.F./P.IVA" %>
-          <%= content_tag :p, "10431760965" %>
-        </address>
+      <div class="col nav-col">
         <div class="nav-holder">
-          <p class="nav-title">Privacy Policy</p>
-          <p class="nav-text">&copy; 2020, enoteca naturale</p>
+          <p class="nav-title">Sito</p>
+          <div class="nav">
+            <%= link_to "Novità", "/" %>
+            <%= link_to "Catalogo Vini", "/" %>
+            <%= link_to "Tipologia", "/" %>
+            <%= link_to "Paese", "/" %>
+            <%= link_to "Produttori", "/" %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col nav-col">
-      <div class="nav-holder">
-        <p class="nav-title">Sito</p>
-        <div class="nav">
-          <%= link_to "Novità", "/" %>
-          <%= link_to "Catalogo Vini", "/" %>
-          <%= link_to "Tipologia", "/" %>
-          <%= link_to "Paese", "/" %>
-          <%= link_to "Produttori", "/" %>
+      <div class="col nav-col">
+        <div class="nav-holder">
+          <p class="nav-title">Info</p>
+          <div class="nav">
+            <%= link_to "Chi siamo", "/" %>
+            <%= link_to "FAQ", "/" %>
+            <%= link_to "Spedizione", "/" %>
+            <%= link_to "Contatti", "/" %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col nav-col">
-      <div class="nav-holder">
-        <p class="nav-title">Info</p>
-        <div class="nav">
-          <%= link_to "Chi siamo", "/" %>
-          <%= link_to "FAQ", "/" %>
-          <%= link_to "Spedizione", "/" %>
-          <%= link_to "Contatti", "/" %>
+      <div class="col bigger-col">
+        <div class="nav-holder">
+          <p class="nav-title">Chi siamo</p>
+          <p class="nav-text">Attraverso questo sito, si possono ordinare con consegna a domicilio  vini della selezione di e/n enoteca naturale. Consegna a domicilio su Milano città.</p>
+          <p class="nav-title">e/n sostiene Emergency</p>
+          <p class="nav-text">e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà</p>
         </div>
-      </div>
-    </div>
-    <div class="col bigger-col">
-      <div class="nav-holder">
-        <p class="nav-title">Chi siamo</p>
-        <p class="nav-text">Attraverso questo sito, si possono ordinare con consegna a domicilio  vini della selezione di e/n enoteca naturale. Consegna a domicilio su Milano città.</p>
-        <p class="nav-title">e/n sostiene Emergency</p>
-        <p class="nav-text">e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà</p>
       </div>
     </div>
   </div>
