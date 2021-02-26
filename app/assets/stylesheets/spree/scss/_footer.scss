@@ -1,28 +1,30 @@
 footer#footer {
-  background: $black;
-  display: flex;
-  padding: 40px 15px 110px 15px;
-  .col {
-    &.logo-col {
-      display: flex;
-      flex-direction: column;
-      .logo-image {
-        margin-bottom: 25px;
-      }
-      .logo-social {
+  .footer-bottom {
+    background: $black;
+    display: flex;
+    padding: 40px 15px 110px 15px;
+    .col {
+      &.logo-col {
         display: flex;
-        align-items: center;
-        a {
-          margin-right: 10px;
+        flex-direction: column;
+        .logo-image {
+          margin-bottom: 25px;
+        }
+        .logo-social {
+          display: flex;
+          align-items: center;
+          a {
+            margin-right: 10px;
+          }
         }
       }
-    }
-    &.address-col {
-      address {
-        p {
-          color: $white;
-          font-style: normal;
-          font-size: 14px;
+      &.address-col {
+        address {
+          p {
+            color: $white;
+            font-style: normal;
+            font-size: 14px;
+          }
         }
       }
     }
