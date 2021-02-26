@@ -35,3 +35,15 @@ body {
     display: none;
   }
 }
+
+.footerBreak {
+  @media (min-width: $exceptFooterBreak) {
+    display: none;
+  }
+}
+
+.exceptFooterBreak {
+  @media (max-width: $footerBreak) {
+    display: none;
+  }
+}
