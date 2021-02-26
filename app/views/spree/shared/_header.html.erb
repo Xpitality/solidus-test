@@ -1,5 +1,23 @@
-<header id="header" class="row" data-hook>
-  <figure id="logo" class="columns six" data-hook><%= logo %></figure>
-  <%= render partial: 'spree/shared/nav_bar' %>
-  <%= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
+<header id="header" class="sticky" data-hook>
+  <%= content_tag :div, class: "header-top-bar" do -%>
+    <%= image_tag("icons/icon-delivery.svg") %>
+    <%= content_tag :p, "in tutta Italia consegna a casa tua in 96 ore", class: "exceptSmallScreen" %>
+    <%= content_tag :p, "consegna a casa tua in 96 ore", class: "smallScreen" %>
+  <% end -%>
+  <%= content_tag :div, class: "header-content" do -%>
+    <figure id="logo" data-hook><%= logo %></figure>
+    <div class="header-right">
+      <%= render partial: 'spree/shared/nav_bar' %>
+      <div class="header-actions">
+        <div id="search-bar" data-hook>
+          <%= render partial: 'spree/shared/search' %>
+        </div>
+        <%= render partial: 'spree/shared/user_nav' %>
+        <%= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
+        <div class="hamburger">
+          <span></span>
+        </div>
+      </div>
+    </div>
+  <% end -%>
 </header>

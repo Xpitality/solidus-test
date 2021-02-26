@@ -1,9 +1,178 @@
-<nav id="top-nav-bar" class="columns ten">
-  <ul id="nav-bar" class="inline" data-hook>
-    <%= render 'spree/shared/locale_selector' %>
-    <%= render 'spree/shared/login_bar_items' %>
-    <li id="search-bar" data-hook>
-      <%= render partial: 'spree/shared/search' %>
-    </li>
-  </ul>
+<nav class="navbar" data-hook>
+  <div class="nav-link-holder">
+    <%= link_to "HOME", "/", class: "nav-link" %>
+  </div>
+  <div class="nav-link-holder">
+    <%= link_to "NOVITÀ", "/", class: "nav-link" %>
+  </div>
+  <div class="nav-link-holder">
+    <%= link_to "CATALOGO", "/", class: "nav-link" %>
+  </div>
+  <div class="nav-link-holder">
+    <%= link_to "TIPOLOGIA", "/", class: "nav-link nav-link-with-drop" %>
+    <%= content_tag :div, class: "nav-drop-holder" do -%>
+      <%= content_tag :div, class: "nav-dropdown" do -%>
+        <div class="col title-col">
+          <%= image_tag("icons/icon-tipologia.svg") %>
+          <%= content_tag :p, "TIPOLOGIA" %>
+        </div>
+        <div class="col dropdown-col">
+          <div class="drop-link-holder">
+            <%= link_to "Bianco", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Birra", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Champagne", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Distillati", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Macerato", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Rifermentato", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Rosato", "/", class: "drop-link" %>
+          </div>
+        </div>
+        <div class="col dropdown-col">
+          <div class="drop-link-holder">
+            <%= link_to "Rosso", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Spumante", "/", class: "drop-link" %>
+          </div>
+        </div>
+      <% end -%>
+    <% end -%>
+  </div>
+  <div class="nav-link-holder">
+    <%= link_to "ORIGINE", "/", class: "nav-link nav-link-with-drop" %>
+    <%= content_tag :div, class: "nav-drop-holder" do -%>
+      <%= content_tag :div, class: "nav-dropdown" do -%>
+        <div class="col title-col">
+          <%= image_tag("icons/icon-origine.svg") %>
+          <%= content_tag :p, "ORIGINE" %>
+        </div>
+        <div class="col dropdown-col">
+          <div class="drop-link-holder">
+            <%= link_to "Australia", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Austria", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Francia", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Germania", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Grecia", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Italia", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Republica Ceca", "/", class: "drop-link" %>
+          </div>
+        </div>
+        <div class="col dropdown-col">
+          <div class="drop-link-holder">
+            <%= link_to "Slovenia", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Spagna", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Svizzera", "/", class: "drop-link" %>
+          </div>
+        </div>
+      <% end -%>
+    <% end -%>
+  </div>
+  <div class="nav-link-holder">
+    <%= link_to "PRODUTTORI", "/", class: "nav-link nav-link-with-drop active" %>
+    <%= content_tag :div, class: "nav-drop-holder" do -%>
+      <%= content_tag :div, class: "nav-dropdown" do -%>
+        <div class="col title-col">
+          <%= image_tag("icons/icon-produttore.svg") %>
+          <%= content_tag :p, "PRODUTTORI IN EVIDENZA" %>
+        </div>
+        <div class="col dropdown-col">
+          <div class="drop-link-holder">
+            <%= link_to "Cherubini", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Chateau Pre vert", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Colle Formica", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Domain de la Garreliere", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Ottomani", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Apiua", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Birrificio Rurale", "/", class: "drop-link" %>
+          </div>
+        </div>
+        <div class="col dropdown-col">
+          <div class="drop-link-holder">
+            <%= link_to "Frai i Monti", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "I muretti", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Il Ceo", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Klinec", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Petracavallo", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Masseria del Pino", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Menat", "/", class: "drop-link" %>
+          </div>
+        </div>
+        <div class="col dropdown-col">
+          <div class="drop-link-holder">
+            <%= link_to "La Distesa", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Lissner", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Masseria del Pino", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Menat", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Terra della Luna", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Domain de la Garreliere", "/", class: "drop-link" %>
+          </div>
+          <div class="drop-link-holder">
+            <%= link_to "Ottomani", "/", class: "drop-link" %>
+          </div>
+        </div>
+      <% end -%>
+    <% end -%>
+  </div>
 </nav>
