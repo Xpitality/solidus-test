@@ -1,2 +1,5 @@
 it:
   store:
+    home:
+      hero:
+        catalog_button: vai al catalogo
