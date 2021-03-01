@@ -48,6 +48,9 @@ gem 'solidus_stripe', '~> 3.0'
 # https://github.com/boomerdigital/solidus_user_roles
 gem 'solidus_user_roles', github: 'boomerdigital/solidus_user_roles'
 
+gem 'solidus_i18n', '~> 2.0'
+gem 'rails-i18n', '~> 6.0'
+gem 'kaminari-i18n', '~> 0.5.0'
 
 gem 'bugsnag'
 
