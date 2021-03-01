@@ -22,7 +22,10 @@ module SolidusTest
     # config.load_defaults 6.0
     config.autoload = :classic
     config.action_controller.default_protect_from_forgery = true
-    
+
+    config.i18n.available_locales = [:it, :en]
+    config.i18n.default_locale = :it
+
 # Disable concurrent assets compilation to avoid sassc segfault
     config.assets.configure do |env|
           env.export_concurrent = false
