@@ -1,0 +1,127 @@
+$colMinWidth: 280px;
+$colPadding: 10px;
+
+.products-holder {
+  display: flex;
+  padding: 30px 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: -$colPadding;
+  margin-right: -$colPadding;
+  .product-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 $colPadding;
+    margin-bottom: 30px;
+    min-width: $colMinWidth;
+    @media (max-width: calc(#{$colMinWidth * 4 + $colPadding * 4})) {
+      flex: 0 0 33%;
+      max-width: 33%;
+    }
+    @media (max-width: calc(#{$colMinWidth * 3 + $colPadding * 3})) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    @media (max-width: $small) {
+      min-width: 150px;
+    }
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e5e5;
+  .product-image-holder {
+    img {
+      width: 100%;
+    }
+    .new-mark-top {
+      display: none;
+    }
+    .new-mark-bottom {
+      display: none;
+    }
+  }
+  .product-card-body {
+    padding: 24px 16px;
+    .body-info {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0 16px 16px 16px;
+      text-align: center;
+      @media (max-width: $small) {
+        padding: 0 0 16px 0;
+      }
+      p {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .body-actions-holder {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 0 0;
+      @media (max-width: $small) {
+        flex-direction: column;
+      }
+      .price {
+        @media (max-width: $small) {
+          margin-bottom: 20px;
+        }
+        p {
+          color: $light-text-color;
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+      .body-actions {
+        display: flex;
+        align-items: center;
+        .add-to-cart {
+          display: flex;
+          align-items: center;
+        }
+        .favourite {
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  &.new-product {
+    .product-image-holder {
+      padding: 23px 18px 38px 18px;
+      position: relative;
+      .new-mark-top {
+        display: block;
+        background: $primary;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85px;
+        height: 23px;
+      }
+      .new-mark-bottom {
+        background: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85px;
+        height: 38px;
+        p {
+          font-size: 12px;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: $white;
+        }
+      }
+    } 
+  }
+}
