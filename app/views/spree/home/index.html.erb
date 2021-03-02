@@ -15,10 +15,18 @@
       <button class="btn btn-primary"><%= t('store.home.hero.catalog_button') %></button>
     </div>
   </div>
-</div>
 
-<div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
-  <% end %>
+  <div data-hook="homepage_products">
+    <% cache(cache_key_for_products) do %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+    <% end %>
+  </div>
+
+  <div class="arrivals-section">
+    <%= render partial: 'spree/shared/arrivals_section' %>
+  </div>
+
+  <div class="arrivals-section">
+    <%= render partial: 'spree/shared/our_selection' %>
+  </div>
 </div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="col info-col">
+    <%= image_tag("arrivals/our-selection-background.jpg") %>
+    <h1 class="title"><%= t("store.home.our_selection.title") %></h1>
+    <h3 class="subtitle"><%= t("store.home.our_selection.subtitle") %></h3>
+    <p class="text"><%= t("store.home.our_selection.text") %></p>
+    <button class="btn btn-white-transparent"><%= t("store.home.our_selection.button") %></button>
+  </div>
+  <div class="col products-col">
+    <% 4.times do %>
+      <div class="product-wrapper">
+        <div class="product-card product-side">
+          <div class="product-image-holder">
+            <div class="new-mark-top"></div>
+            <%= image_tag("products/product-default.jpg") %>
+            <div class="new-mark-bottom">
+              <p>NEW</p>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="body-info">
+              <p>Masseria Del Pino ''I Nove Fratelli'' 2018</p>
+            </div>
+            <div class="body-actions-holder">
+              <div class="price">
+                <p>90,00&euro;</p>
+              </div>
+              <div class="body-actions">
+                <div class="add-to-cart">
+                  <%= image_tag("icons/icon-add-to-cart.svg") %>
+                </div>
+                <div class="favourite">
+                  <%= image_tag("icons/icon-favourite.svg") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

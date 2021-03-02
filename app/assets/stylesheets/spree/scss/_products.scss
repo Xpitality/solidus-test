@@ -8,23 +8,24 @@ $colPadding: 10px;
   flex-wrap: wrap;
   margin-left: -$colPadding;
   margin-right: -$colPadding;
-  .product-col {
-    flex: 0 0 25%;
-    max-width: 25%;
-    padding: 0 $colPadding;
-    margin-bottom: 30px;
-    min-width: $colMinWidth;
-    @media (max-width: calc(#{$colMinWidth * 4 + $colPadding * 4})) {
-      flex: 0 0 33%;
-      max-width: 33%;
-    }
-    @media (max-width: calc(#{$colMinWidth * 3 + $colPadding * 3})) {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-    @media (max-width: $small) {
-      min-width: 150px;
-    }
+}
+
+.product-col {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 $colPadding;
+  margin-bottom: 30px;
+  min-width: $colMinWidth;
+  @media (max-width: calc(#{$colMinWidth * 4 + $colPadding * 4})) {
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
+  @media (max-width: calc(#{$colMinWidth * 3 + $colPadding * 3})) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  @media (max-width: $small) {
+    min-width: 150px;
   }
 }
 
@@ -123,5 +124,36 @@ $colPadding: 10px;
         }
       }
     } 
+  }
+  &.product-side {
+    flex-direction: row;
+    .product-image-holder {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .product-card-body {
+      display: flex;
+      flex-direction: column;
+      .body-info {
+        border-bottom: none;
+        text-align: left;
+        padding: 0 0 16px 0;
+      }
+      .body-actions-holder {
+        margin-top: auto;
+        border-top: 1px solid #e5e5e5;
+        @media (max-width: $small) {
+          flex-direction: row;
+        }
+        .price {
+          @media (max-width: $small) {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
   }
 }

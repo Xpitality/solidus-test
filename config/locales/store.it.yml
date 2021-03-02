@@ -3,3 +3,13 @@ it:
     home:
       hero:
         catalog_button: vai al catalogo
+      arrivals:
+        title: GLI ULTIMI ARRIVI
+        subtitle: questo mese abbiamo assaggiato
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci
+        button: NOVITÀ
+      our_selection:
+        title: LA NOSTRA SELEZIONE
+        subtitle: consigliati da Rocco
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci
+        button: SCOPRI I PRODOTTI
