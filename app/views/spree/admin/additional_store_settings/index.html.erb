@@ -1,0 +1,27 @@
+<%= render 'spree/admin/shared/general_tabs' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:additional_store_settings) %>
+<% end %>
+
+<% admin_breadcrumb(link_to(plural_resource_name(Spree::Store), admin_stores_path)) %>
+<% admin_breadcrumb(@store.name) %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= link_to t('spree.new_store'), new_admin_store_url, class: 'btn btn-primary' %>
+  </li>
+<% end %>
+
+<%= form_for [:admin, @store, @delivery_location], url: @delivery_location.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @delivery_location.id) do |f| %>
+  <fieldset class="no-border-top">
+    <%= render 'delivery_location_form', f: f %>
+    <% if can? :update, @store %>
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button_tag t('spree.actions.update'), class: 'btn btn-primary' %>
+
+      </div>
+
+  <% end %>
+  </fieldset>
+<% end %>

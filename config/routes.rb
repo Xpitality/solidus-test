@@ -7,6 +7,9 @@ Spree::Core::Engine.routes.draw do
         end
       end
     end
+    resources :stores do
+      resources :additional_store_settings, only: [:create, :update, :index]
+    end
   end
 
   namespace :api, defaults: { format: 'json' } do
