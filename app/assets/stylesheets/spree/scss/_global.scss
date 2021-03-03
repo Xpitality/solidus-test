@@ -24,6 +24,10 @@ body {
   overflow: hidden;
 }
 
+.align-self-start {
+  align-self: flex-start;
+}
+
 .smallScreen {
   @media (min-width: $exceptSmall) {
     display: none;
