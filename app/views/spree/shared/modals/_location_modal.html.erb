@@ -1,0 +1,27 @@
+<% if show_delivery_location_modal? %>
+  <div class="modal fade" id="location-modal" role="dialog" aria-labelledby="location-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="location-modal-title"><%= t("store.modals.location.title") %></h5>
+<!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+        </div>
+        <div class="modal-body">
+          <p><%= t('store.modals.location.body') %></p>
+        </div>
+        <div class="modal-footer">
+          <form action="/delivery_settings" method="post">
+            <%= radio_button(:delivery_location_modal, :delivery_location, :local) %>
+            <%= label(:delivery_location_modal, t('store.modals.location.form.local')) %>
+            <%= radio_button(:delivery_location_modal, :delivery_location, :normal, checked: true) %>
+            <%= label(:delivery_location_modal, t('store.modals.location.form.normal')) %>
+            <%= submit_tag t('store.modals.location.form.submit') %>
+          </form>
+<!--          <button type="button" class="btn btn-default" data-dismiss="modal"><%#= t('store.general.close') %></button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_114849) do
+ActiveRecord::Schema.define(version: 2021_03_02_115827) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -407,6 +407,15 @@ ActiveRecord::Schema.define(version: 2021_02_11_114849) do
     t.string "refund_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_additional_store_settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.string "label"
+    t.text "text_value"
+    t.boolean "boolean_value"
+    t.integer "number_value"
+    t.index ["store_id"], name: "index_spree_additional_store_settings_on_store_id"
   end
 
   create_table "spree_addresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

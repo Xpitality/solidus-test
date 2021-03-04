@@ -1,0 +1,3 @@
+<% if @store && can?(:edit, Spree::Store) %>
+    <%= settings_tab_item Spree.t(:additional_store_settings), admin_store_additional_store_settings_url(@store) %>
+<% end %>

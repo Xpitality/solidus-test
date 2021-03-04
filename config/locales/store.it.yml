@@ -1,8 +1,10 @@
 it:
   store:
+    general:
+      close: "close"
     home:
       hero:
-        catalog_button: vai al catalogo
+        catalog_button: "vai al catalogo"
       arrivals:
         title: GLI ULTIMI ARRIVI
         subtitle: questo mese abbiamo assaggiato
@@ -16,7 +18,7 @@ it:
       the_winery_of_the_month:
         title: LA CANTINA DEL MESE
         subtitle: Podere Cipolla
-        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana. 
+        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
         button: SCOPRI I PRODOTTI
       fast_delivery:
         title: CONSEGNA VELOCE
@@ -32,3 +34,11 @@ it:
         button: FOLLOW US ON INSTAGRAM
       
         
+    modals:
+      location:
+        title: "please set delivery location"
+        body: "please pick your location (body...)"
+        form:
+          local: "Local"
+          normal: "Normal"
+          submit: "Submit"
