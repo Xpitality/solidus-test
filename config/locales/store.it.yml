@@ -15,7 +15,16 @@ it:
         subtitle: consigliati da Rocco
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci
         button: SCOPRI I PRODOTTI
-        catalog_button: "vai al catalogo"
+      the_winery_of_the_month:
+        title: LA CANTINA DEL MESE
+        subtitle: Podere Cipolla
+        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
+        button: SCOPRI I PRODOTTI
+      fast_delivery:
+        title: CONSEGNA VELOCE
+        subtitle: Sei di Milano?
+        text: Consegna veloce su una selezione di vini
+        button: SCOPRI I PRODOTTI
     modals:
       location:
         title: "please set delivery location"
