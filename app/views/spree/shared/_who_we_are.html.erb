@@ -1,0 +1,42 @@
+<div class="container">
+  <h1 class="title"><%= t("store.home.who_we_are.title") %></h1>
+  <h3 class="subtitle"><%= t("store.home.who_we_are.subtitle") %></h3>
+
+  <div class="content-holder">
+    <div class="content-top">
+      <div class="col col-left">
+        <div class="img-holder">
+          <%= image_tag("who-we-are/who-we-are-group.png") %>
+        </div>
+        <div class="text-holder">
+          <p class="text"><%= t("store.home.who_we_are.text") %></p>
+        </div>
+      </div>
+      <div class="col col-right">
+        <%= image_tag("who-we-are/who-we-are-emergency.png") %>
+      </div>
+    </div>
+
+    <div class="content-bottom">
+      <div class="title-holder">
+        <h1 class="title"><%= t("store.home.follow_us.title") %></h1>
+        <%= image_tag("icons/icon-instagram-black.svg") %>
+        <%= image_tag("icons/icon-facebook-black.svg") %>
+      </div>
+      <div class="image-columns">
+        <div class="col image-col">
+          <%= image_tag("who-we-are/follow-us-1.png") %>
+        </div>
+        <div class="col image-col">
+          <%= image_tag("who-we-are/follow-us-2.png") %>
+        </div>
+        <div class="col image-col">
+          <%= image_tag("who-we-are/follow-us-3.png") %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-dark-transparent"><%= t("store.home.follow_us.button") %></button>
+
+</div>

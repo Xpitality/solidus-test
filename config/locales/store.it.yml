@@ -23,5 +23,12 @@ it:
         subtitle: Sei di Milano?
         text: Consegna veloce su una selezione di vini
         button: SCOPRI I PRODOTTI
+      who_we_are:
+        title: chi siamo
+        subtitle: Serviamo da bere vini veri, promuoviamo l’inclusione sociale di richiedenti asilo e sosteniamo Emergency.
+        text: e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà
+      follow_us:
+        title: SEGUICI SUI SOCIAL
+        button: FOLLOW US ON INSTAGRAM
       
         
