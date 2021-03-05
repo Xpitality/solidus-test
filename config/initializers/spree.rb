@@ -99,6 +99,8 @@ Spree.config do |config|
     v3_elements: false,
     v3_intents: true
   )
+
+  config.searcher_class = 'Xpitality::Core::Search::Base'
 end
 
 Spree::Frontend::Config.configure do |config|
