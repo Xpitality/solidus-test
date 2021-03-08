@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_115827) do
+ActiveRecord::Schema.define(version: 2021_03_08_094624) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -1612,6 +1612,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_115827) do
     t.integer "zone_members_count", default: 0
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
+    t.text "zipcodes"
   end
 
   create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

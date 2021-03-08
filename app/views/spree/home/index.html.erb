@@ -23,7 +23,7 @@
   </div>
 
   <div class="arrivals-section">
-    <%= render partial: 'spree/shared/arrivals_section' %>
+    <%= render partial: 'spree/shared/arrivals_section', locals: { products: @new_products } %>
   </div>
 
   <div class="slider-and-info-section">
