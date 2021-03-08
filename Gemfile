@@ -52,6 +52,13 @@ gem 'solidus_i18n', '~> 2.0'
 gem 'rails-i18n', '~> 6.0'
 gem 'kaminari-i18n', '~> 0.5.0'
 
+# https://github.com/karmakatahdin/solidus_seo
+gem 'solidus_seo'
+
+# https://github.com/nebulab/solidus_zip_zones
+gem 'solidus_zip_zones', github: 'nebulab/solidus_zip_zones', branch: 'master'
+
+
 gem 'bugsnag'
 
 gem "aws-sdk-s3", require: false

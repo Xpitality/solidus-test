@@ -12,3 +12,4 @@
 //= require spree/backend/solidus_editor
 //= require spree/backend/solidus_user_roles
 //= require spree/backend/taxon_images/upload
+//= require spree/backend/solidus_zip_zones
