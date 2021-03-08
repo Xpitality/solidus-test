@@ -1,7 +1,24 @@
 en:
   additional_store_settings:
     delivery_location:
+      title: Delivery location modal
       attributes:
         boolean_value: "Show modal"
         number_value: "Number of hours until cookie is expired"
         text_value: "Modal text"
+    store_email:
+      title: Store email
+      attributes:
+        text_value: "Store email"
+    store_phone:
+      title: Store phone
+      attributes:
+        text_value: "Store phone"
+    store_instagram:
+      title: Store instagram
+      attributes:
+        text_value: "Store instagram"
+    store_facebook:
+      title: Store facebook
+      attributes:
+        text_value: "Store facebook"
