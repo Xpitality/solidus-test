@@ -1,3 +1,28 @@
+<% if ENV["GA_MEASUREMENT_ID"] && order_just_completed?(@order) %>
+  <% content_for :gtag do %>
+    <% gtag_purchase_items = [] %>
+    <% order.line_items.each do |line_item| %>
+      <% gtag_purchase_items.push({
+                                      'name': line_item.variant.name,
+                                      'id': line_item.variant.sku,
+                                      'price': line_item.total,
+                                      'variant': line_item.variant.options_text,
+                                      'quantity': line_item.quantity
+                                  }) %>
+    <% end %>
+
+    gtag('event', 'purchase', {
+    "transaction_id": '<%= order.number %>',
+    "affiliation": '<%= current_store.name %>',
+    "value": '<%= order.total %>',
+    "currency": '<%= order.currency %>',
+    "tax": '<%= order.tax_total %>',
+    "shipping": '<%= order.ship_total %>',
+    "items": <%= raw gtag_purchase_items.to_json %>
+    });
+  <% end %>
+<% end %>
+
 <fieldset id="order_summary" data-hook>
   <legend><%= t('spree.order_number', number: @order.number) %></legend>
   <h1><%= accurate_title %></h1>
