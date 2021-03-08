@@ -36,9 +36,10 @@ it:
         
     modals:
       location:
-        title: "please set delivery location"
-        body: "please pick your location (body...)"
-        form:
-          local: "Local"
-          normal: "Normal"
-          submit: "Submit"
+        title: "ATTENZIONE"
+        title_big: "Stai cambiando catalogo"
+        subtitle: "Cambiando catalogo i prodotti nel tuo carrello verranno eliminati. 
+Se vuoi completare l’ordine in corso, clicca su Annulla, altrimenti Conferma"
+        actions:
+          cancel: "ANNULLA"
+          confirm: "CONFERMA"

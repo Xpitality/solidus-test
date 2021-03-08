@@ -40,3 +40,4 @@ yarn-debug.log*
 .idea
 /docker-compose.yml
 /Dockerfile.dev
+.vscode

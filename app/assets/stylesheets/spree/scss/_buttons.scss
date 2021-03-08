@@ -27,4 +27,8 @@
     letter-spacing: 2px;
     font-weight: normal;
   }
+  &.btn-light-text {
+    color: $white;
+    background: $light-text-color;
+  }
 }

@@ -1,27 +1,46 @@
-<% if show_delivery_location_modal? %>
-  <div class="modal fade" id="location-modal" role="dialog" aria-labelledby="location-modal-title" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="location-modal-title"><%= t("store.modals.location.title") %></h5>
-<!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--            <span aria-hidden="true">&times;</span>-->
-<!--          </button>-->
+<div class="modal" id="location-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="location-modal-title">
+          <%= t("store.modals.location.title") %>
+        </h5>
+        <h1 class="modal-title-big">
+          <%= t("store.modals.location.title_big") %>
+        </h1>
+        <p class="modal-subtitle">
+          <%= t("store.modals.location.subtitle") %>
+        </p>
+        <!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+        <!--            <span aria-hidden="true">&times;</span>-->
+        <!--          </button>-->
+      </div>
+      <!-- <div class="modal-body">
+          <p>
+            <%= t('store.modals.location.body') %>
+          </p>
+        </div> -->
+      <div class="modal-footer">
+        <div class="modal-actions">
+          <button class="btn btn-light-text btn-modal-action" data-dismiss="location-modal">
+            <%= t('store.modals.location.actions.cancel') %>
+          </button>
+          <button class="btn btn-primary btn-modal-action">
+            <%= t('store.modals.location.actions.confirm') %>
+          </button>
         </div>
-        <div class="modal-body">
-          <p><%= t('store.modals.location.body') %></p>
-        </div>
-        <div class="modal-footer">
-          <form action="/delivery_settings" method="post">
+        <p class="footer-text">
+          Ti ricordiamo che la consegna locale è al momento disponibile solo nella città di Milano.
+        </p>
+        <!-- <form action="/delivery_settings" method="post">
             <%= radio_button(:delivery_location_modal, :delivery_location, :local) %>
             <%= label(:delivery_location_modal, t('store.modals.location.form.local')) %>
-            <%= radio_button(:delivery_location_modal, :delivery_location, :normal, checked: true) %>
-            <%= label(:delivery_location_modal, t('store.modals.location.form.normal')) %>
-            <%= submit_tag t('store.modals.location.form.submit') %>
-          </form>
-<!--          <button type="button" class="btn btn-default" data-dismiss="modal"><%#= t('store.general.close') %></button>-->
-        </div>
+              <%= radio_button(:delivery_location_modal, :delivery_location, :normal, checked: true) %>
+                <%= label(:delivery_location_modal, t('store.modals.location.form.normal')) %>
+                  <%= submit_tag t('store.modals.location.form.submit') %>
+          </form> -->
+        <!--          <button type="button" class="btn btn-default" data-dismiss="modal"><%#= t('store.general.close') %></button>-->
       </div>
     </div>
   </div>
-<% end %>
+</div>
