@@ -28,10 +28,15 @@
         </div>
         <div class="col-info">
           <p class="info-title">Serve aiuto?</p>
-          <a class="info-mail" href="mailto:enotecanaturale@gmail.com">enotecanaturale@gmail.com</a>
-          <p class="info-text">
-            o chiama al 33376786946556045
-          </p>
+          <% if store_email %>
+            <a class="info-mail" href="mailto:<%= store_email %>"><%= store_email %></a>
+          <% end %>
+          <% if store_phone %>
+            <p class="info-text">
+              o chiama al <%= store_phone %>
+            </p>
+          <% end %>
+
         </div>
       </div>
     </div>
@@ -42,11 +47,15 @@
         <div class="col logo-col">
           <%= image_tag("footer/footer-logo.svg", class: "logo-image") %>
           <div class="logo-social">
-            <%= link_to 'https://www.instagram.com' do %>
-              <%= image_tag("icons/icon-instagram-white.svg") %>
+            <% if store_instagram %>
+              <%= link_to store_instagram do %>
+                <%= image_tag("icons/icon-instagram-white.svg") %>
+              <% end %>
             <% end %>
-            <%= link_to 'https://www.facebook.com', target: :_blank do %>
-              <%= image_tag("icons/icon-facebook-white.svg") %>
+            <% if store_facebook %>
+              <%= link_to store_facebook, target: :_blank do %>
+                <%= image_tag("icons/icon-facebook-white.svg") %>
+              <% end %>
             <% end %>
           </div>
           <%= link_to "Privacy Policy", "/", class: "footerBreak" %>

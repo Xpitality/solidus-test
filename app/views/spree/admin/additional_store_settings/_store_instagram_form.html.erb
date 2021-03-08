@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-12 col-md-6">
+    <%= f.field_container :text_value do %>
+      <%= f.label :text_value, t('additional_store_settings.store_instagram.attributes.text_value') %>
+      <%= f.text_field :text_value, class: 'fullwidth' %>
+      <%= f.error_message_on :text_value %>
+    <% end %>
+    <% if @store_instagram.new_record? %>
+      <%= f.hidden_field :label %>
+    <% end %>
+  </div>
+</div>
