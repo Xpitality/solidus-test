@@ -7,6 +7,17 @@ GIT
       solidus_support (~> 0.5)
 
 GIT
+  remote: https://github.com/nebulab/solidus_zip_zones.git
+  revision: 980f76ddfc8c38fa87ecc294bf4465706420910e
+  branch: master
+  specs:
+    solidus_zip_zones (0.0.1)
+      deface (~> 1.0)
+      solidus_backend (>= 1.0, < 3)
+      solidus_core (>= 1.0, < 3)
+      solidus_support
+
+GIT
   remote: https://github.com/solidusio-contrib/solidus_editor.git
   revision: 1fe3ed8fd77e4b527ad108ae4810651392ff55ee
   branch: master
@@ -765,6 +776,7 @@ DEPENDENCIES
   solidus_social
   solidus_stripe (~> 3.0)
   solidus_user_roles!
+  solidus_zip_zones!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

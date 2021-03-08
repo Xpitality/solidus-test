@@ -55,8 +55,8 @@ gem 'kaminari-i18n', '~> 0.5.0'
 # https://github.com/karmakatahdin/solidus_seo
 gem 'solidus_seo'
 
-# https://github.com/spree-contrib/spree_analytics_trackers
-# gem 'spree_analytics_trackers', '~> 2.0'
+# https://github.com/nebulab/solidus_zip_zones
+gem 'solidus_zip_zones', github: 'nebulab/solidus_zip_zones', branch: 'master'
 
 
 gem 'bugsnag'
