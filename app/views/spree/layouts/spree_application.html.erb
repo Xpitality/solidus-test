@@ -6,6 +6,7 @@
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
   <head data-hook="inside_head">
     <%= render partial: 'spree/shared/head' %>
+    <%= render 'solidus_seo/analytics' %>
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
 
@@ -15,7 +16,7 @@
 
       <div id="wrapper" class="row" data-hook>
 
-        <%= taxon_breadcrumbs(@taxon) %>
+        <%= taxon_breadcrumbs_jsonld(@taxon) %>
 
         <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
 
@@ -32,5 +33,6 @@
 
     </div>
 
+    <%= dump_jsonld %>
   </body>
 </html>
