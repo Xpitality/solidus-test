@@ -27,7 +27,7 @@
       "memoryReservation": 256,
       "image": "934187374409.dkr.ecr.eu-central-1.amazonaws.com/enoteca-naturale:app-production",
       "essential": true,
-      "name": "EnotecaNaturaleApp"
+      "name": "enoteca-naturale-app"
     }
   ],
   "memory": "512",
