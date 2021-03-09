@@ -21,4 +21,4 @@ staging:
   <<: *default
 
 production:
-<<: *default
+  <<: *default
