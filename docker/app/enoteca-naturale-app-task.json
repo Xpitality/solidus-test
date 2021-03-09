@@ -69,36 +69,8 @@
       ],
       "secrets": [
         {
-          "valueFrom": "Bosco-Gurin-App-AWS-Access-Key",
-          "name": "AWS_ACCESS_KEY_ID"
-        },
-        {
-          "valueFrom": "Bosco-Gurin-App-AWS-Secret-Key",
-          "name": "AWS_SECRET_ACCESS_KEY"
-        },
-        {
-          "valueFrom": "Bosco-Gurin-App-Bugsnag-Key",
-          "name": "BUGSNAG_API_KEY"
-        },
-        {
-          "valueFrom": "Bosco-Gurin-App-DB-Pass",
-          "name": "DB_PASSWORD"
-        },
-        {
-          "valueFrom": "Bosco-Gurin-App-Sendgrid-Key",
-          "name": "EMAIL_PROVIDER_PASSWORD"
-        },
-        {
-          "valueFrom": "Bosco-Gurin-App-OpenWeather-Key",
-          "name": "OPENWEATHER_KEY"
-        },
-        {
-          "valueFrom": "Bosco-Gurin-App-Secret-Key-Base",
+          "valueFrom": "Enoteca-Naturale-App-Secret-Key-Base",
           "name": "SECRET_KEY_BASE"
-        },
-        {
-          "valueFrom": "Bosco-Gurin-App-FCM-Key",
-          "name": "FCM_SERVER_KEY"
         }
       ],
       "memory": 512,
