@@ -17,56 +17,6 @@
           "containerPort": 3000
         }
       ],
-      "environment": [
-        {
-          "name": "AWS_REGION",
-          "value": "eu-central-1"
-        },
-        {
-          "name": "DB_HOST",
-          "value": "db.xpitality.com"
-        },
-        {
-          "name": "DB_NAME",
-          "value": "bosco-gurin-app"
-        },
-        {
-          "name": "DB_PORT",
-          "value": "3306"
-        },
-        {
-          "name": "DB_USERNAME",
-          "value": "bosco-gurin-app"
-        },
-        {
-          "name": "DOMAIN_NAME",
-          "value": "app.bosco-gurin.ch"
-        },
-        {
-          "name": "EMAIL_PROVIDER_ADDRESS",
-          "value": "smtp.sendgrid.net"
-        },
-        {
-          "name": "EMAIL_PROVIDER_USERNAME",
-          "value": "apikey"
-        },
-        {
-          "name": "NODE_ENV",
-          "value": "production"
-        },
-        {
-          "name": "RAILS_ENV",
-          "value": "production"
-        },
-        {
-          "name": "S3_BUCKET_NAME",
-          "value": "ch-bosco-gurin-app"
-        },
-        {
-          "name": "S3_HOST_ALIAS",
-          "value": "d4nkwlh4yu184.cloudfront.net"
-        }
-      ],
       "secrets": [
         {
           "valueFrom": "Enoteca-Naturale-App-Secret-Key-Base",
