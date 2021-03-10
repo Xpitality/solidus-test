@@ -1,35 +1,35 @@
-default: &default
-  adapter: <%= ENV['DB_ADAPTER'] || 'mysql2' %>
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#  username: <%= Rails.application.credentials.config[:db][:username] %>
-#  password: <%= Rails.application.credentials.config[:db][:password] %>
-#  port: <%= Rails.application.credentials.config[:db][:port] %>
-#  host: <%= Rails.application.credentials.config[:db][:host] %>
-#  database: <%= Rails.application.credentials.config[:db][:name] %>
-  username: <%= Rails.application.credentials.config[:db_username] %>
-  password: <%= Rails.application.credentials.config[:db_password] %>
-  port: <%= Rails.application.credentials.config[:db_port] %>
-  host: <%= Rails.application.credentials.config[:db_host] %>
-  database: <%= Rails.application.credentials.config[:db_name] %>
-
-development:
-  <<: *default
-  database: solidus_test_development
-  socket: /var/run/mysqld/mysqlx.sock
-
-test:
-  <<: *default
-  database: solidus_test_test
-
-staging:
-  <<: *default
-  username: <%= Rails.application.credentials.config[:db_username] %>
-  password: <%= Rails.application.credentials.config[:db_password] %>
-  port: <%= Rails.application.credentials.config[:db_port] %>
-  host: <%= Rails.application.credentials.config[:db_host] %>
-  database: <%= Rails.application.credentials.config[:db_name] %>
-
-
-production:
-  <<: *default
+#default: &default
+#  adapter: <%= ENV['DB_ADAPTER'] || 'mysql2' %>
+#  encoding: utf8mb4
+#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+##  username: <%= Rails.application.credentials.config[:db][:username] %>
+##  password: <%= Rails.application.credentials.config[:db][:password] %>
+##  port: <%= Rails.application.credentials.config[:db][:port] %>
+##  host: <%= Rails.application.credentials.config[:db][:host] %>
+##  database: <%= Rails.application.credentials.config[:db][:name] %>
+#  username: <%= Rails.application.credentials.config[:db_username] %>
+#  password: <%= Rails.application.credentials.config[:db_password] %>
+#  port: <%= Rails.application.credentials.config[:db_port] %>
+#  host: <%= Rails.application.credentials.config[:db_host] %>
+#  database: <%= Rails.application.credentials.config[:db_name] %>
+#
+#development:
+#  <<: *default
+#  database: solidus_test_development
+#  socket: /var/run/mysqld/mysqlx.sock
+#
+#test:
+#  <<: *default
+#  database: solidus_test_test
+#
+#staging:
+#  <<: *default
+#  username: <%= Rails.application.credentials.config[:db_username] %>
+#  password: <%= Rails.application.credentials.config[:db_password] %>
+#  port: <%= Rails.application.credentials.config[:db_port] %>
+#  host: <%= Rails.application.credentials.config[:db_host] %>
+#  database: <%= Rails.application.credentials.config[:db_name] %>
+#
+#
+#production:
+#  <<: *default
