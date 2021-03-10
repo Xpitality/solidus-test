@@ -5,15 +5,15 @@
 <!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
   <head data-hook="inside_head">
-    <% if ENV["GA_MEASUREMENT_ID"] %>
+    <% if Rails.application.credentials.config[:ga_measurement_id] %>
       <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV["GA_MEASUREMENT_ID"] %>"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.credentials.config[:ga_measurement_id] %>"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', '<%= ENV["GA_MEASUREMENT_ID"] %>');
+        gtag('config', '<%= Rails.application.credentials.config[:ga_measurement_id] %>');
 
         <%= yield :gtag %>
       </script>
