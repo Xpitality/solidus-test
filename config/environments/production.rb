@@ -1,9 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # Allows any xptesting.com hosts
-  # config.hosts << ".xptesting.com"
-
   # Allow all hosts
   config.hosts.clear
 
