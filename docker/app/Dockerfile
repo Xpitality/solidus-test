@@ -39,7 +39,7 @@ RUN yarn install --pure-lockfile
 
 COPY . $HOME
 
-RUN bundle exec rails credentials:show
+RUN bundle exec rails credentials:show --environment staging
 RUN bundle exec rails assets:precompile
 
 # Remove folders not needed in resulting image
