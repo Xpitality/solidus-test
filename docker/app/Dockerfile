@@ -3,18 +3,11 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG RAILS_ENV=$RAILS_ENV
 ARG NODE_ENV=$NODE_ENV
-
 ARG RAILS_MASTER_KEY=$RAILS_MASTER_KEY
-
-#ARG DOMAIN_NAME=$DOMAIN_NAME
-#ARG SECRET_KEY_BASE=$SECRET_KEY_BASE
-
 ARG DB_ADAPTER=$DB_ADAPTER
 
 ENV HOME /app
 WORKDIR $HOME
-
-RUN echo "$DB_ADAPTER" "$RAILS_ENV" "$RAILS_MASTER_KEY"
 
 # Add Nodejs, Yarn to the repository and install necessary packages
 ARG BUILD_PACKAGES="build-essential"
@@ -40,7 +33,6 @@ RUN yarn install --pure-lockfile
 
 COPY . $HOME
 
-RUN bundle exec rails credentials:show --environment staging
 RUN bundle exec rails assets:precompile
 
 # Remove folders not needed in resulting image
