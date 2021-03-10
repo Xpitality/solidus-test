@@ -15,7 +15,7 @@ ARG DB_ADAPTER=$DB_ADAPTER
 ENV HOME /app
 WORKDIR $HOME
 
-RUN echo $DB_ADAPTER $RAILS_ENV $RAILS_STAGING_KEY
+RUN echo "$DB_ADAPTER" "$RAILS_ENV" "$RAILS_STAGING_KEY"
 
 # Add Nodejs, Yarn to the repository and install necessary packages
 ARG BUILD_PACKAGES="build-essential"
