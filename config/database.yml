@@ -1,12 +1,12 @@
 default: &default
-  adapter: <%= ENV['DB_ADAPTER'] || 'mysql2' %>
+  adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  port: <%= ENV['DB_PORT'] %>
-  host: <%= ENV['DB_HOST'] %>
-  database: <%= ENV['DB_NAME'] %>
+  username: <%= Rails.application.credentials.config[:db][:username] %>
+  password: <%= Rails.application.credentials.config[:db][:password] %>
+  port: <%= Rails.application.credentials.config[:db][:port] %>
+  host: <%= Rails.application.credentials.config[:db][:host] %>
+  database: <%= Rails.application.credentials.config[:db][:name] %>
 
 development:
   <<: *default
@@ -18,4 +18,7 @@ test:
   database: solidus_test_test
 
 staging:
+  <<: *default
+
+production:
   <<: *default
