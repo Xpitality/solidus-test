@@ -17,6 +17,16 @@
           "containerPort": 3000
         }
       ],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "RAILS_ENV",
+          "value": "production"
+        }
+      ],
       "secrets": [
         {
           "valueFrom": "Enoteca-Naturale-App-Secret-Key-Base",
