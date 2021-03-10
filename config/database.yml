@@ -19,6 +19,12 @@ test:
 
 staging:
   <<: *default
+  username: <%= Rails.application.credentials.config[:db_username] %>
+  password: <%= Rails.application.credentials.config[:db_password] %>
+  port: <%= Rails.application.credentials.config[:db_port] %>
+  host: <%= Rails.application.credentials.config[:db_host] %>
+  database: <%= Rails.application.credentials.config[:db_name] %>
+
 
 production:
   <<: *default
