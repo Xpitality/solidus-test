@@ -87,8 +87,7 @@
   </div>
 </div>
 
-<% if false %>
-  <% if products.any? %>
+<% if products.any? %>
     <ul id="products" class="inline product-listing" data-hook>
       <% products.each do |product| %>
         <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
@@ -112,7 +111,6 @@
       <% reset_cycle("classes") %>
     </ul>
   <% end %>
-<% end %>
 
 <% if paginated_products.respond_to?(:total_pages) %>
   <%= paginate paginated_products %>

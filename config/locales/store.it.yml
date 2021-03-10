@@ -32,6 +32,15 @@ it:
       follow_us:
         title: SEGUICI SUI SOCIAL
         button: FOLLOW US ON INSTAGRAM
+
+    product:
+      add_to_cart_button: AGGIUNGI AL CARRELLO
+      delivery: Disponibile con consegna in 48 ore
+      slider_and_info:
+        title: DALLA STESSA REGIONE
+        subtitle: Sicilia
+        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
+        button: SCOPRI I PRODOTTI
       
         
     modals:

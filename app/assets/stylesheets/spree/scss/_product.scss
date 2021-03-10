@@ -1,0 +1,268 @@
+.product-hero {
+  border: 1px solid #E5E5E5;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.15);
+  padding: 50px 0;
+  .container {
+    display: flex;
+    @media (max-width: $medium) {
+      flex-direction: column;
+    }
+    .col {
+      &.col-left {
+        flex: 1;
+        display: flex;
+        @media (max-width: $medium) {
+          flex-direction: row-reverse;
+        }
+        .product-social {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-right: 60px;
+          @media (max-width: $medium) {
+            margin-right: 0;
+            margin-left: 60px;
+          }
+        }
+        .product-image-holder {
+          flex: 1;
+          overflow: hidden;
+          height: 0;
+          padding-bottom: 125%;
+          position: relative;
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      &.col-right {
+        flex: 1;
+        .product-info {
+          padding: 0 35px;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          @media (max-width: $medium) {
+            padding: 0;
+          }
+          .title {
+            font-family: "chainprinter", sans-serif;
+            font-size: 14px;
+            margin-bottom: 8px;
+          }
+          .title-big {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-align: center;
+          }
+          .product-info-tags-holder {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            .product-tag {
+              padding: 0 20px;
+            }
+          }
+          .price-holder {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            .price {
+              padding: 0 15px;
+              p {
+                font-size: 30px;
+                font-weight: bold;
+                color: $primary;
+              }
+            }
+            .controls {
+              display: flex;
+              align-items: center;
+              padding: 0 15px;
+              p {
+                font-size: 14px;
+                font-weight: bold;
+                margin: 0 10px;
+              }
+              .btn {
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+                border: 1px solid #E5E5E5;
+                background: $white;
+                font-size: 24px;
+                padding: 0;
+                width: 40px;
+                height: 40px;
+              }
+            } 
+          }
+          .btn-add-to-cart {
+            font-family: "chainprinter", sans-serif;
+            font-size: 14px;
+            padding: 15px 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+          }
+          .delivery {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            img {
+              margin-right: 5px;
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.product-tags {
+  border-bottom: 1px solid #E5E5E5;
+  padding: 70px 0 40px 0;
+  .container {
+    display: flex;
+    .col {
+      flex: 0 0 50%;
+      max-width: 50%;
+      @media (max-width: $medium) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      &.col-left {
+        display: flex;
+        flex-wrap: wrap;
+        .product-tag {
+          flex: 0 0 33.3333%;
+          max-width: 33.3333%;
+          padding: 30px 0;
+          @media (max-width: $mobile) {
+            flex: 0 0 50%;
+            max-width: 50%;
+          }
+        }
+      }
+      &.col-right {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 100px 0 30px;
+        @media (max-width: $medium) {
+          display: none;
+        }
+        .title {
+          font-family: "chainprinter", sans-serif;
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+        .text {
+          font-size: 16px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+
+.product-cellar {
+  padding: 50px 0;
+  .container {
+    &.cellar-top {
+      position: relative;
+      display: flex;
+      @media (max-width: $mobileHeader) {
+        flex-direction: column;
+      }
+      .background-image {
+        position: absolute;
+        z-index: -1;
+        width: 100vw;
+        height: 193px;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        @media (max-width: $mobileHeader) {
+          height: 400px;
+        }
+        @media (max-width: $mobile) {
+          height: 300px;
+        }
+      }
+      .col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        flex: 0 0 50%;
+        max-width: 50%;
+        &.col-left {
+          @media (max-width: $mobileHeader) {
+            margin-bottom: 40px;
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+          .title {
+            font-family: "chainprinter", sans-serif;
+            margin-bottom: 15px;
+          }
+          .title-big {
+            margin-bottom: 15px;
+          }
+          img {
+            width: 100%;
+          }
+        }
+        &.col-right {
+          align-items: center;
+          padding-bottom: 28px;
+          @media (max-width: $mobileHeader) {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+          img {
+            margin-bottom: 25px;
+          }
+        }
+      }
+    }
+    &.cellar-bottom {
+      padding: 70px 250px 30px 90px;
+      @media (max-width: $mobileHeader) {
+        padding: 40px 15px 0 70px;
+      }
+      p {
+        font-size: 300px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.product-tag {
+  display: flex;
+  align-items: center;
+  .tag-icon {
+    margin-right: 10px;
+  }
+  .tag-info {
+    .title {
+      font-family: "chainprinter", sans-serif;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .text {
+      font-size: 12px;
+    }
+  }
+}
