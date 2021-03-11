@@ -1,7 +1,9 @@
 #! /bin/bash
 set -e
 
-bundle exec rake db:migrate
+echo "starting migrations"
+RAILS_ENV=production bundle exec rake db:migrate
+#echo "starting seeding"
 #bundle exec rake db:seed
 
 if [[ $? != 0 ]]; then
