@@ -2,7 +2,7 @@
 set -e
 
 bundle exec rake db:migrate
-bundle exec rake db:seed
+#bundle exec rake db:seed
 
 if [[ $? != 0 ]]; then
   echo
