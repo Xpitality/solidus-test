@@ -39,10 +39,6 @@
         {
           "valueFrom": "Enoteca-Naturale-App-Rails-Master-Key",
           "name": "RAILS_MASTER_KEY"
-        },
-        {
-          "valueFrom": "Enoteca-Naturale-App-Rails-Production-Key",
-          "name": "RAILS_PRODUCTION_KEY"
         }
       ],
       "memory": 512,
