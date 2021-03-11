@@ -59,7 +59,7 @@ RUN chmod +x docker/app/entrypoint.sh
 
 ENV RAILS_ENV=$RAILS_ENV
 ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
-ENTRYPOINT [docker/app/entrypoint.sh"]
+ENTRYPOINT ["docker/app/entrypoint.sh"]
 
 EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
