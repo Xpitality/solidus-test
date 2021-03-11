@@ -44,6 +44,7 @@ FROM public.ecr.aws/bitnami/ruby:2.7-prod
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV HOME /app
+
 WORKDIR $HOME
 
 # Add Nodejs to the repository and install necessary packages
@@ -55,7 +56,10 @@ RUN curl https://deb.nodesource.com/setup_12.x | bash \
 COPY --from=build-env $HOME $HOME
 
 RUN chmod +x docker/app/entrypoint.sh
-ENTRYPOINT ["docker/app/entrypoint.sh"]
+
+ENV RAILS_ENV=$RAILS_ENV
+ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
+ENTRYPOINT ["/bin/bash", "-c" "docker/app/entrypoint.sh"]
 
 EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
