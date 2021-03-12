@@ -6,18 +6,18 @@ echo $RAILS_ENV
 echo $RAILS_MASTER_KEY
 
 echo "MIGRATIONS START"
-bundle exec rake db:migrate
+RAILS_ENV=$RAILS_ENV bundle exec rake db:migrate
 echo "MIGRATIONS END"
 
 if [[ $? != 0 ]]; then
   echo
   echo "== Failed to migrate. Running setup first."
   echo
-  bundle exec rake db:setup
+RAILS_ENV=$RAILS_ENV bundle exec rake db:setup
 fi
 
 #echo "SEEDING START"
-#bundle exec rake db:seed
+#RAILS_ENV=$RAILS_ENV bundle exec rake db:seed
 #echo "SEEDING END"
 
 # Remove a potentially pre-existing server.pid for Rails.
