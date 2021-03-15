@@ -31,4 +31,10 @@
     color: $white;
     background: $light-text-color;
   }
+  &.btn-white-strong {
+    font-family: "chainprinter", sans-serif;
+    color: $text-color;
+    background: $white;
+    border: 3px solid $black;
+  }
 }

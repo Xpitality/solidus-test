@@ -295,17 +295,19 @@ header#header {
           display: flex;
           align-items: center;
           margin-left: 30px;
+          position: relative;
           @media (max-width: $small) {
             margin-left: 20px;
             height: 100%;
           }
-          a {
+          .cart-nav-button {
             background: $primary;
             display: flex;
             align-items: center;
             color: $white;
             padding: 10px 15px;
             font-size: 14px;
+            border: none;
             @media (max-width: $small) {
               height: 100%;
             }
@@ -321,6 +323,11 @@ header#header {
                 margin-left: 0;
               }
             }
+          }
+          .cart-modal {
+            position: absolute;
+            top: 100%;
+            right: 0;
           }
         }
         .hamburger {

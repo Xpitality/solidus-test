@@ -1,10 +1,10 @@
 <%= content_tag :div, class: "cart-nav" do -%>
-  <%= link_to t('spree.cart') do %>
-    <%#= spree.cart_path %>
+  <button class="cart-nav-button">
     <span class="cart-text">
       <%= "CARRELLO(0)" %>
     </span>
     <%= image_tag("icons/icon-cart.svg") %>
-  <% end %>
+  </button>
+  <%= render partial: 'spree/cart/cart_modal' %>
 <% end -%>
 <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>

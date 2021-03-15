@@ -1,0 +1,99 @@
+<div class="container title-container">
+  <p class="cart-title">
+    <%= t('store.cart.cart_title') %>
+  </p>
+</div>
+<div class="container content-container">
+  <div class="col items-col">
+    <div class="cart-item">
+      <div class="cart-item-image">
+        <%= image_tag("products/product-default.jpg") %>
+      </div>
+      <div class="cart-item-info">
+        <div class="name">
+          <p>Cantina Del Malandrino ''Etienne'' 2019</p>
+        </div>
+        <div class="price">
+          <p>30.00&euro;</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn btn-control-cart">-</button>
+        <p>1</p>
+        <button class="btn btn-control-cart">+</button>
+      </div>
+      <div class="close-button">
+        <%= image_tag("icons/icon-cart-x.svg") %>
+      </div>
+    </div>
+    <div class="cart-item">
+      <div class="cart-item-image">
+        <%= image_tag("products/product-default.jpg") %>
+      </div>
+      <div class="cart-item-info">
+        <div class="name">
+          <p>Cantina Del Malandrino ''Etienne'' 2019</p>
+        </div>
+        <div class="price">
+          <p>30.00&euro;</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn btn-control-cart">-</button>
+        <p>1</p>
+        <button class="btn btn-control-cart">+</button>
+      </div>
+      <div class="close-button">
+        <%= image_tag("icons/icon-cart-x.svg") %>
+      </div>
+    </div>
+  </div>
+  <div class="col info-col">
+    <div class="info-holder">
+      <p class="info-title">
+        <%= t('store.cart.cart_info_title') %>
+      </p>
+      <div class="info-prices">
+        <div class="price-row">
+          <div class="text-holder">
+            <p>
+              <%= t('store.cart.cart_info_subtotal') %>
+            </p>
+          </div>
+          <p class="price">30,00&euro;</p>
+        </div>
+        <div class="price-row">
+          <div class="text-holder">
+            <p>
+              <%= t('store.cart.cart_info_shipping') %>
+            </p>
+            <small>Consegna stimata 20 - 22 Novembre</small>
+          </div>
+          <p class="price">9,90&euro;</p>
+        </div>
+        <div class="price-row total-row">
+          <div class="text-holder">
+            <p>
+              <%= t('store.cart.cart_info_total') %>
+            </p>
+          </div>
+          <p class="price">39,90&euro;</p>
+        </div>
+      </div>
+    </div>
+    <div class="code-holder">
+      <p class="code-title">
+        <%= t('store.cart.cart_info_code') %>
+      </p>
+      <div class="code-input-holder">
+        <input type="text" placeholder="Inserisci codice">
+        <button class="btn btn-white-strong">
+          <%= t('store.cart.cart_info_button') %>
+        </button>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-to-checkout">
+      <%= t('store.cart.cart_button') %>
+    </button>
+  </div>
+</div>
