@@ -1,4 +1,5 @@
 <% @body_id = 'cart' %>
+<% if false %>
 <div data-hook="cart_container">
   <h1><%= t('spree.shopping_cart') %></h1>
 
@@ -43,4 +44,9 @@
     </div>
 
   <% end %>
+</div>
+<% end %>
+
+<div class="cart">
+  <%= render partial: 'spree/cart/cart' %>
 </div>
