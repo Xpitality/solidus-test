@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_094624) do
+ActiveRecord::Schema.define(version: 2021_03_15_162330) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -433,9 +433,11 @@ ActiveRecord::Schema.define(version: 2021_03_08_094624) do
     t.integer "country_id"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
+    t.string "name"
     t.index ["country_id"], name: "index_spree_addresses_on_country_id"
     t.index ["firstname"], name: "index_addresses_on_firstname"
     t.index ["lastname"], name: "index_addresses_on_lastname"
+    t.index ["name"], name: "index_spree_addresses_on_name"
     t.index ["state_id"], name: "index_spree_addresses_on_state_id"
   end
 
