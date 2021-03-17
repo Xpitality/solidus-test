@@ -230,24 +230,24 @@ ActiveRecord::Schema.define(version: 2021_03_15_162330) do
     t.index ["page_id", "user_id"], name: "index_alchemy_folded_pages_on_page_id_and_user_id", unique: true
   end
 
-  # create_table "alchemy_languages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-  #   t.string "name"
-  #   t.string "language_code"
-  #   t.string "frontpage_name"
-  #   t.string "page_layout", default: "intro"
-  #   t.boolean "public", default: false
-  #   t.datetime "created_at", precision: 6, null: false
-  #   t.datetime "updated_at", precision: 6, null: false
-  #   t.integer "creator_id"
-  #   t.integer "updater_id"
-  #   t.boolean "default", default: false
-  #   t.string "country_code", default: "", null: false
-  #   t.integer "site_id", null: false
-  #   t.string "locale"
-  #   t.index ["language_code", "country_code"], name: "index_alchemy_languages_on_language_code_and_country_code"
-  #   t.index ["language_code"], name: "index_alchemy_languages_on_language_code"
-  #   t.index ["site_id"], name: "index_alchemy_languages_on_site_id"
-  # end
+  create_table "alchemy_languages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "language_code"
+    t.string "frontpage_name"
+    t.string "page_layout", default: "intro"
+    t.boolean "public", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "creator_id"
+    t.integer "updater_id"
+    t.boolean "default", default: false
+    t.string "country_code", default: "", null: false
+    t.integer "site_id", null: false
+    t.string "locale"
+    t.index ["language_code", "country_code"], name: "index_alchemy_languages_on_language_code_and_country_code"
+    t.index ["language_code"], name: "index_alchemy_languages_on_language_code"
+    t.index ["site_id"], name: "index_alchemy_languages_on_site_id"
+  end
 
   create_table "alchemy_legacy_page_urls", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "urlname", null: false
@@ -1646,7 +1646,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_162330) do
   add_foreign_key "alchemy_contents", "alchemy_elements", column: "element_id", name: "alchemy_contents_element_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_pages", column: "page_id", name: "alchemy_elements_page_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_essence_pages", "alchemy_pages", column: "page_id"
-  # add_foreign_key "alchemy_nodes", "alchemy_languages", column: "language_id"
+  add_foreign_key "alchemy_nodes", "alchemy_languages", column: "language_id"
   add_foreign_key "alchemy_nodes", "alchemy_pages", column: "page_id", on_delete: :cascade
   add_foreign_key "alchemy_nodes", "alchemy_sites", column: "site_id", on_delete: :cascade
   add_foreign_key "spree_promotion_code_batches", "spree_promotions", column: "promotion_id"

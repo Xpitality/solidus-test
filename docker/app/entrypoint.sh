@@ -13,7 +13,7 @@ echo "MIGRATIONS END"
 #  echo
 #  echo "== Failed to migrate. Running setup first."
 #  echo
-RAILS_ENV=$RAILS_ENV bundle exec rake db:setup
+#RAILS_ENV=$RAILS_ENV bundle exec rake db:setup
 #fi
 
 #echo "SEEDING START"
