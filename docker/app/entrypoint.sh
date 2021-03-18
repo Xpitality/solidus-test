@@ -6,16 +6,17 @@ echo $RAILS_ENV
 echo $RAILS_MASTER_KEY
 
 echo "MIGRATIONS START"
-RAILS_ENV=$RAILS_ENV bundle exec rake db:drop
-#RAILS_ENV=$RAILS_ENV bundle exec rake db:migrate
+RAILS_ENV=$RAILS_ENV bundle exec rake db:migrate
 echo "MIGRATIONS END"
 
-#if [[ $? != 0 ]]; then
-#  echo
-#  echo "== Failed to migrate. Running setup first."
-#  echo
-#RAILS_ENV=$RAILS_ENV bundle exec rake db:setup
-#fi
+if [[ $? != 0 ]]; then
+  echo
+  echo "== Failed to migrate. Running setup first."
+  echo
+  RAILS_ENV=$RAILS_ENV bundle exec rake db:create
+  RAILS_ENV=$RAILS_ENV bundle exec rake db:migrate
+  RAILS_ENV=$RAILS_ENV bundle exec rake db:seed
+fi
 
 #echo "SEEDING START"
 #RAILS_ENV=$RAILS_ENV bundle exec rake db:seed
