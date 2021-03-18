@@ -7,9 +7,7 @@ echo $RAILS_MASTER_KEY
 
 echo "MIGRATIONS START"
 RAILS_ENV=$RAILS_ENV bundle exec rake db:drop
-RAILS_ENV=$RAILS_ENV bundle exec rake db:create
-RAILS_ENV=$RAILS_ENV bundle exec rake db:migrate
-RAILS_ENV=$RAILS_ENV bundle exec rake db:seed
+#RAILS_ENV=$RAILS_ENV bundle exec rake db:migrate
 echo "MIGRATIONS END"
 
 #if [[ $? != 0 ]]; then
