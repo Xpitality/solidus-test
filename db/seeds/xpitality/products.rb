@@ -32,6 +32,27 @@ products = [
             'Annata' => 2019
         }
     },
+    {
+        name: 'Koppitsch "TOUCH" 2019',
+        description: "Un airone bianco maggiore si posa sempre sul vigneto sul lago Neusiedl da cui proviene questa cuvée. Un tocco di classe, come Maradona. Solo, austriaco. Quattordici giorni sulle bucce, succo multivitaminico, il Touch di Koppitsch vi farà migrare.",
+        slug: 'koppitsch-touch-2019',
+        sku: 'KOPTOU19',
+        tax_category: tax_category,
+        shipping_category: shipping_category,
+        price: 26.0,
+        cost_price: 13.80,
+        weight: 1.8,
+        height: 20,
+        width: 10,
+        depth: 5,
+        available_on: Time.current,
+        taxons: ['Bianco', 'Field blend', '0,75l', 'Burgenland', 'Riesling Italico', 'Koppitsch'],
+        properties: {
+            'Occasione' => "in quella famosa notte di mezz'estate",
+            'Alcool' => 13,
+            'Annata' => 2019
+        }
+    },
 ]
 
 images = {}

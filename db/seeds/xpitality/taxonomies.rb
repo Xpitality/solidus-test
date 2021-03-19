@@ -25,6 +25,7 @@ taxons = [
     { name: "Cantina del Malandrino", taxonomy: t_produttore, parent: "Produttore" },
     { name: "Benoit Delorme", taxonomy: t_produttore, parent: "Produttore" },
     { name: "Rennersistas", taxonomy: t_produttore, parent: "Produttore" },
+    { name: "Koppitsch", taxonomy: t_produttore, parent: "Produttore" },
 
     { name: "Paese", taxonomy: t_paese, position: 1 },
     { name: "Italia", taxonomy: t_paese, parent: "Paese" },
@@ -62,6 +63,8 @@ taxons = [
     { name: "Cabernet Sauvignon", taxonomy: t_uve, parent: "Uve" },
     { name: "Pinot nero", taxonomy: t_uve, parent: "Uve" },
     { name: "Pinot bianco", taxonomy: t_uve, parent: "Uve" },
+    { name: "Riesling Italico", taxonomy: t_uve, parent: "Uve" },
+    { name: "Field blend", taxonomy: t_uve, parent: "Uve" },
 
     { name: "Formato", taxonomy: t_formato, position: 4 },
     { name: "0,75l", taxonomy: t_formato, parent: "Formato" },
