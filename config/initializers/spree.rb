@@ -98,6 +98,7 @@ Spree.config do |config|
     v3_elements: false,
     v3_intents: true
   )
+  config.allow_guest_checkout = false
 end
 
 Spree::Frontend::Config.configure do |config|
