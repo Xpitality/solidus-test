@@ -101,6 +101,8 @@ Spree.config do |config|
   )
 
   config.searcher_class = 'Xpitality::Core::Search::Base'
+
+  config.allow_guest_checkout = false
 end
 
 Spree::Frontend::Config.configure do |config|
