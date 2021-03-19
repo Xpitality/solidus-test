@@ -22,6 +22,9 @@
 <% else %>
 
   <div data-hook="homepage_products">
+    <%= render partial: 'spree/shared/catalogue_filters' %>
+    <%= render partial: 'spree/products/producer_section' %>
+    <%= render partial: 'spree/shared/products_sort' %>
     <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
   </div>
 <% end %>

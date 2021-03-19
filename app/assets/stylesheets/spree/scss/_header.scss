@@ -328,6 +328,9 @@ header#header {
             position: absolute;
             top: 100%;
             right: 0;
+            @media (max-width: $mobile) {
+              right: -50px;
+            }
           }
         }
         .hamburger {

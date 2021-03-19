@@ -6,6 +6,11 @@
   &.btn-primary {
     color: $white;
     background: $primary;
+    &.inverted {
+      color: $primary;
+      background: $white;
+      border: 2px solid $primary;
+    }
   }
   &.btn-white-transparent {
     padding: 15px 30px;
