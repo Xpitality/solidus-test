@@ -9,6 +9,8 @@ module Spree
         @store_phone = @store.additional_store_settings.where(label: :store_phone).first || @store.additional_store_settings.new(label: :store_phone)
         @store_instagram = @store.additional_store_settings.where(label: :store_instagram).first || @store.additional_store_settings.new(label: :store_instagram)
         @store_facebook = @store.additional_store_settings.where(label: :store_facebook).first || @store.additional_store_settings.new(label: :store_facebook)
+        @hidden_taxonomies = @store.additional_store_settings.where(label: :hidden_taxonomies).first || @store.additional_store_settings.new(label: :hidden_taxonomies)
+        @quantity_limit_taxonomy = @store.additional_store_settings.where(label: :quantity_limit_taxonomy).first || @store.additional_store_settings.new(label: :quantity_limit_taxonomy)
       end
 
       def create

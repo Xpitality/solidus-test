@@ -1,2 +1,68 @@
 it:
   store:
+    general:
+      close: "close"
+    home:
+      hero:
+        catalog_button: "vai al catalogo"
+      arrivals:
+        title: GLI ULTIMI ARRIVI
+        subtitle: questo mese abbiamo assaggiato
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci
+        button: NOVITÀ
+      our_selection:
+        title: LA NOSTRA SELEZIONE
+        subtitle: consigliati da Rocco
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci
+        button: SCOPRI I PRODOTTI
+      the_winery_of_the_month:
+        title: LA CANTINA DEL MESE
+        subtitle: Podere Cipolla
+        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
+        button: SCOPRI I PRODOTTI
+      fast_delivery:
+        title: CONSEGNA VELOCE
+        subtitle: Sei di Milano?
+        text: Consegna veloce su una selezione di vini
+        button: SCOPRI I PRODOTTI
+      who_we_are:
+        title: chi siamo
+        subtitle: Serviamo da bere vini veri, promuoviamo l’inclusione sociale di richiedenti asilo e sosteniamo Emergency.
+        text: e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà
+      follow_us:
+        title: SEGUICI SUI SOCIAL
+        button: FOLLOW US ON INSTAGRAM
+
+    product:
+      add_to_cart_button: AGGIUNGI AL CARRELLO
+      delivery: Disponibile con consegna in 48 ore
+      slider_and_info:
+        title: DALLA STESSA REGIONE
+        subtitle: Sicilia
+        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
+        button: SCOPRI I PRODOTTI
+
+    cart:
+      cart_title: CARRELLO
+      cart_info_title: Riepilogo
+      cart_info_subtotal: Subtotale
+      cart_info_shipping: Spese di Spedizione
+      cart_info_total: TOTALE
+      cart_info_code: Hai una gift card o un codice sconto?
+      cart_info_button: APPLICA
+      cart_button: AVANTI
+      modal:
+        subtotal: Subtotale
+        total: TOTALE
+        button: PROSEGUI
+
+
+    modals:
+      location:
+        title: "ATTENZIONE"
+        title_big: "Stai cambiando catalogo"
+        subtitle: "Cambiando catalogo i prodotti nel tuo carrello verranno eliminati.
+Se vuoi completare l’ordine in corso, clicca su Annulla, altrimenti Conferma"
+        actions:
+          cancel: "ANNULLA"
+          confirm: "CONFERMA"

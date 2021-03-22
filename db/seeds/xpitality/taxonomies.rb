@@ -17,6 +17,7 @@ t_tipologia = Spree::Taxonomy.find_by!(name: "Tipologia")
 t_uve = Spree::Taxonomy.find_by!(name: "Uve")
 t_formato = Spree::Taxonomy.find_by!(name: "Formato")
 t_collezioni = Spree::Taxonomy.find_by!(name: "Collezioni")
+t_quantita_limitata = Spree::Taxonomy.find_by!(name: "Quantità limitata")
 
 taxons = [
     { name: "Produttore", taxonomy: t_produttore, position: 0 },
@@ -25,6 +26,7 @@ taxons = [
     { name: "Cantina del Malandrino", taxonomy: t_produttore, parent: "Produttore" },
     { name: "Benoit Delorme", taxonomy: t_produttore, parent: "Produttore" },
     { name: "Rennersistas", taxonomy: t_produttore, parent: "Produttore" },
+    { name: "Koppitsch", taxonomy: t_produttore, parent: "Produttore" },
 
     { name: "Paese", taxonomy: t_paese, position: 1 },
     { name: "Italia", taxonomy: t_paese, parent: "Paese" },
@@ -62,6 +64,8 @@ taxons = [
     { name: "Cabernet Sauvignon", taxonomy: t_uve, parent: "Uve" },
     { name: "Pinot nero", taxonomy: t_uve, parent: "Uve" },
     { name: "Pinot bianco", taxonomy: t_uve, parent: "Uve" },
+    { name: "Riesling Italico", taxonomy: t_uve, parent: "Uve" },
+    { name: "Field blend", taxonomy: t_uve, parent: "Uve" },
 
     { name: "Formato", taxonomy: t_formato, position: 4 },
     { name: "0,75l", taxonomy: t_formato, parent: "Formato" },
@@ -73,6 +77,13 @@ taxons = [
     { name: "Collezioni", taxonomy: t_collezioni, position: 5 },
     { name: "La Slovenia del vino", taxonomy: t_collezioni, parent: "Collezioni" },
     { name: "Vini imperiali", taxonomy: t_collezioni, parent: "Collezioni" },
+
+    { name: "Quantità limitata", taxonomy: t_quantita_limitata, position: 6 },
+    { name: "1", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
+    { name: "2", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
+    { name: "3", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
+    { name: "10", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
+
 ]
 
 taxons.each do |taxon_attrs|

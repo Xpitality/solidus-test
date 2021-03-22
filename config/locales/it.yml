@@ -1,3 +1,29 @@
 it:
+  additional_store_settings:
+    store_email:
+      title: Store email
+      attributes:
+        text_value: "Store email"
+    store_phone:
+      title: Store phone
+      attributes:
+        text_value: "Store phone"
+    store_instagram:
+      title: Store instagram
+      attributes:
+        text_value: "Store instagram"
+    store_facebook:
+      title: Store facebook
+      attributes:
+        text_value: "Store facebook"
+    hidden_taxonomies:
+      title: Hidden taxonomies
+      attributes:
+        text_value: "CSV list of taxonomy names"
+    quantity_limit_taxonomy:
+      title: Taxonomy containing product quantity limits
+      attributes:
+        text_value: "Quantity limit taxonomy"
   spree:
     apply_code: 'Apply code'
+    additional_store_settings: Additional store settings
