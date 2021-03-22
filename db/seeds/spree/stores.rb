@@ -14,7 +14,7 @@ unless Spree::Store.where(code: 'enoteca-naturale').exists?
 
   {
       store_email: 'shop@enotecanaturale.it',
-      store_phone: '0123',
+      store_phone: '+390282770589',
       store_instagram: 'https://instagram.com/enotecanaturale',
       store_facebook: 'https://facebook.com/enotecanaturale'
   }.each { |label, text_value| store.additional_store_settings.create(label: label, text_value: text_value) }
