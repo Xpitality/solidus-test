@@ -17,8 +17,6 @@ Spree::Core::Engine.routes.draw do
       resources :images
     end
   end
-
-  post '/delivery_settings', to: 'settings#delivery_settings'
 end
 
 Rails.application.routes.draw do

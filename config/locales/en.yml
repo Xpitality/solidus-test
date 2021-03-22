@@ -1,11 +1,5 @@
 en:
   additional_store_settings:
-    delivery_location:
-      title: Delivery location modal
-      attributes:
-        boolean_value: "Show modal"
-        number_value: "Number of hours until cookie is expired"
-        text_value: "Modal text"
     store_email:
       title: Store email
       attributes:
