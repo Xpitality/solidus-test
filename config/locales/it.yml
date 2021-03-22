@@ -18,3 +18,4 @@ it:
         text_value: "Store facebook"
   spree:
     apply_code: 'Apply code'
+    additional_store_settings: Additional store settings

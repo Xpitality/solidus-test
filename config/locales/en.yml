@@ -16,3 +16,8 @@ en:
       title: Store facebook
       attributes:
         text_value: "Store facebook"
+  spree:
+    additional_store_settings: Additional store settings
+    admin:
+      tab:
+        relation_types: Relation Types
