@@ -5,6 +5,8 @@ taxonomies = [
     { name: "Uve" },
     { name: "Formato" },
     { name: "Collezioni" },
+    { name: "Quantità limitata" },
+    { name: "Novità" },
 ]
 
 taxonomies.each do |taxonomy_attrs|
@@ -18,6 +20,7 @@ t_uve = Spree::Taxonomy.find_by!(name: "Uve")
 t_formato = Spree::Taxonomy.find_by!(name: "Formato")
 t_collezioni = Spree::Taxonomy.find_by!(name: "Collezioni")
 t_quantita_limitata = Spree::Taxonomy.find_by!(name: "Quantità limitata")
+t_novita = Spree::Taxonomy.find_by!(name: "Novità")
 
 taxons = [
     { name: "Produttore", taxonomy: t_produttore, position: 0 },
@@ -84,6 +87,7 @@ taxons = [
     { name: "3", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
     { name: "10", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
 
+    { name: "Novità", taxonomy: t_novita, position: 7 },
 ]
 
 taxons.each do |taxon_attrs|

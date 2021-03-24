@@ -98,6 +98,9 @@ Spree.config do |config|
     v3_elements: false,
     v3_intents: true
   )
+
+  config.searcher_class = 'Xpitality::Core::Search::Base'
+
   config.allow_guest_checkout = false
 end
 

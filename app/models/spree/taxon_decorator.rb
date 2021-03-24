@@ -27,4 +27,9 @@ Spree::Taxon.class_eval do
     Spree::Taxon.find_by(name: quantity_limit_taxonomy)
   end
 
+  def self.new_product_taxon(store:)
+    new_product_taxon_name = store.additional_store_settings.new_product_taxon_name.first&.text_value
+    Spree::Taxon.where(name: new_product_taxon_name).first
+  end
+
 end
