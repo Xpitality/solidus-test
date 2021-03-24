@@ -17,12 +17,8 @@ module Xpitality
         # end
 
         def new_products
-          taxon_new = Spree::Taxon.where(name: 'Novità').first
-          if taxon_new
-            Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon_new.id }).available.order('created_at DESC').limit(4)
-          else
-            Spree::Product.where('0=1')
-          end
+          store = Spree::Store.first
+          Spree::Product.new_products(store: store)
         end
 
       end
