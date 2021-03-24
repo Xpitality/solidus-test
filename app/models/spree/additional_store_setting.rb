@@ -17,6 +17,15 @@ module Spree
       def store_facebook
         where(label: :store_facebook)
       end
+      def hidden_taxonomies
+        where(label: :hidden_taxonomies)
+      end
+      def quantity_limit_taxonomy
+        where(label: :quantity_limit_taxonomy)
+      end
+      def new_product_taxon_name
+        where(label: :new_product_taxon_name)
+      end
     end
   end
 end

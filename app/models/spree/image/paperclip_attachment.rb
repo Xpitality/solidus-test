@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-module Spree::TaxonImage::PaperclipAttachment
+module Spree::Image::PaperclipAttachment
   extend ActiveSupport::Concern
 
   included do
     validate :no_attachment_errors
 
     has_attached_file :attachment,
-                      styles: { small: '690x388>', large: '1076x604>' },
+                      styles: { mini: '314x478>', small: '504x630>', large: '898x1130>' },
                       default_style: :small,
                       default_url: 'noimage/:style.png',
-                      url: '/spree/taxons/:id/:style/:basename.:extension',
-                      path: ':rails_root/public/spree/taxons/:id/:style/:basename.:extension',
+                      url: '/spree/products/:id/:style/:basename.:extension',
+                      path: ':rails_root/public/spree/products/:id/:style/:basename.:extension',
                       convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
     validates_attachment :attachment,
       presence: true,
