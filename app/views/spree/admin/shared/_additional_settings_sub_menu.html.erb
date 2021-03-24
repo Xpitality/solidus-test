@@ -1,5 +1,0 @@
-<ul class="admin-subnav">
-  <% if @store && can?(:edit, Spree::Store) %>
-    <%= tab :delivery_location_modal, label: :delivery_location_modal, url: admin_store_additional_store_settings_path(@store) %>
-  <% end %>
-</ul>
