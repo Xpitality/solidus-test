@@ -16,12 +16,15 @@ module ApplicationHelper
     current_store.additional_store_settings.store_facebook.first&.text_value
   end
 
-  def max_product_quantity(variant)
-    user = try_spree_current_user
-    if user
+  def hidden_taxonomies
+    current_store.additional_store_settings.hidden_taxonomies.first&.text_value.split(',').map{|e| e.strip }
+  end
 
-    else
-      variant.total_on_hand
-    end
+  def quantity_limit_taxonomy
+    current_store.additional_store_settings.quantity_limit_taxonomy.first&.text_value
+  end
+
+  def max_product_quantity(variant)
+    variant.max_product_quantity(user: try_spree_current_user, store: current_store)
   end
 end
