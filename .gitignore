@@ -29,6 +29,8 @@
 /config/master.key
 /config/credentials/staging.key
 /config/credentials/production.key
+/config/credentials/staging.txt
+
 
 /public/packs
 /public/packs-test
