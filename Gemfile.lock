@@ -18,6 +18,15 @@ GIT
       solidus_support
 
 GIT
+  remote: https://github.com/solidusio-contrib/solidus_abandoned_carts.git
+  revision: 753ab9ebfc8ec8d1f7fce7dc08b7af33c36fb4f4
+  specs:
+    solidus_abandoned_carts (2.0.0)
+      deface (~> 1.0)
+      solidus (>= 2.0.0, < 3)
+      solidus_support (~> 0.5)
+
+GIT
   remote: https://github.com/solidusio-contrib/solidus_editor.git
   revision: 1fe3ed8fd77e4b527ad108ae4810651392ff55ee
   branch: master
@@ -175,7 +184,7 @@ GEM
     aws-sdk-kms (1.43.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.92.0)
+    aws-sdk-s3 (1.93.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -796,6 +805,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   solidus
+  solidus_abandoned_carts!
   solidus_auth_devise
   solidus_editor!
   solidus_i18n (~> 2.0)

@@ -58,6 +58,9 @@ gem 'solidus_seo'
 # https://github.com/nebulab/solidus_zip_zones
 gem 'solidus_zip_zones', github: 'nebulab/solidus_zip_zones', branch: 'master'
 
+gem 'solidus_abandoned_carts', github: 'solidusio-contrib/solidus_abandoned_carts'
+
+
 
 gem 'bugsnag'
 
