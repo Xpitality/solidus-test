@@ -27,10 +27,20 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials/staging.key
+/config/credentials/production.key
+/config/credentials/staging.txt
+
 
 /public/packs
 /public/packs-test
+/public/spree
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.env
+
+.idea
+/docker-compose.yml
+/Dockerfile.dev

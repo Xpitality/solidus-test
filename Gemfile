@@ -3,19 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
-# Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4'
-# Use Puma as the app server
+gem 'mysql2'
+gem 'activerecord-nulldb-adapter'
 gem 'puma', '~> 4.1'
-# Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -30,6 +24,52 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'solidus'
 gem 'solidus_auth_devise'
+gem 'solidus_paypal_commerce_platform'
+
+# https://github.com/solidusio-contrib/solidus_related_products
+gem 'solidus_related_products'
+
+# https://github.com/solidusio-contrib/solidus_product_feed
+gem 'solidus_product_feed'
+
+# https://github.com/solidusio-contrib/solidus_sitemap
+gem 'solidus_sitemap', github: 'solidusio-contrib/solidus_sitemap'
+
+# https://github.com/solidusio-contrib/solidus_social
+gem 'solidus_social'
+
+# https://github.com/solidusio-contrib/solidus_editor
+# https://github.com/galetahub/ckeditor
+gem 'solidus_editor', github: 'solidusio-contrib/solidus_editor', branch: 'master'
+
+# https://github.com/solidusio/solidus_stripe
+gem 'solidus_stripe', '~> 3.0'
+
+# https://github.com/boomerdigital/solidus_user_roles
+gem 'solidus_user_roles', github: 'boomerdigital/solidus_user_roles'
+
+gem 'solidus_i18n', '~> 2.0'
+gem 'rails-i18n', '~> 6.0'
+gem 'kaminari-i18n', '~> 0.5.0'
+
+# https://github.com/karmakatahdin/solidus_seo
+gem 'solidus_seo'
+
+# https://github.com/nebulab/solidus_zip_zones
+gem 'solidus_zip_zones', github: 'nebulab/solidus_zip_zones', branch: 'master'
+
+# https://github.com/solidusio-contrib/solidus_abandoned_carts
+gem 'solidus_abandoned_carts', github: 'solidusio-contrib/solidus_abandoned_carts'
+
+gem 'bugsnag'
+
+gem "aws-sdk-s3", require: false
+
+gem 'alchemy-solidus', '~> 2.4.0'
+
+group :staging, :production do
+  gem 'fog-aws'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,5 +93,3 @@ group :test do
   gem 'webdrivers'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
