@@ -1,3 +1,6 @@
+# Ignore git files
+.git
+
 # Ignore bundler config.
 /.bundle
 
@@ -27,3 +30,4 @@
 /node_modules
 /yarn-error.log
 yarn-debug.log*
+.env

@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  solidus_test:
+    restart: unless-stopped
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile.staging
+      args:
+        APP_DIR: /solidus_test
+
+    command: bash -c "rm -f tmp/pids/server.pid &&
+      ./bin/webpack-dev-server &
+      bundle exec rails server puma -p 3001 -b '0.0.0.0'"
+
+    volumes:
+      # make sure this lines up with APP_DIR above
+      - .:/solidus_test
+
+    ports:
+      - "3001:3001"
