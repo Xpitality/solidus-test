@@ -1,4 +1,4 @@
-en:
+it:
   additional_store_settings:
     store_email:
       title: "Store email"
@@ -29,6 +29,5 @@ en:
       attributes:
         text_value: "Taxon name"
   spree:
-    admin:
-      tab:
-        relation_types: "Relation Types"
+    apply_code: 'Apply code'
+    additional_store_settings: Additional store settings
