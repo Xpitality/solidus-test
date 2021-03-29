@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+require 'xpitality/core/search/base'
+
+module Spree
+  class HomeController < Spree::StoreController
+    helper 'spree/products'
+    respond_to :html
+
+    def index
+      @searcher = build_searcher(params.merge(include_images: true))
+      @products = @searcher.retrieve_products
+      @new_products = @searcher.new_products
+      @taxonomies = Spree::Taxonomy.includes(root: :children)
+    end
+  end
+end
