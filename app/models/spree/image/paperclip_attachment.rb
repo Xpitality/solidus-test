@@ -7,7 +7,7 @@ module Spree::Image::PaperclipAttachment
     validate :no_attachment_errors
 
     has_attached_file :attachment,
-                      styles: { mini: '314x478>', small: '504x630>', large: '898x1130>' },
+                      styles: { mini: '48x48', small: '314x478>', medium: '504x630>', large: '898x1130>' },
                       default_style: :small,
                       default_url: 'noimage/:style.png',
                       url: '/spree/products/:id/:style/:basename.:extension',
