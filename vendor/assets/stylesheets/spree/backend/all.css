@@ -11,4 +11,6 @@
  *= require spree/backend/solidus_user_roles
  *= require spree/backend/taxon_images
  *= require spree/backend/solidus_zip_zones
+ *= require spree/backend/solidus_additional_store_settings
+ *= require spree/backend/solidus_taxon_images
 */

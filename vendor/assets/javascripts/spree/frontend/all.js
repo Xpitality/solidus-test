@@ -6,11 +6,11 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require spree/backend
+//= require spree/frontend
 //= require_tree .
-//= require spree/backend/solidus_paypal_commerce_platform
-//= require spree/backend/solidus_editor
-//= require spree/backend/solidus_user_roles
-//= require spree/backend/solidus_zip_zones
-//= require spree/backend/solidus_taxon_images
-//= require spree/backend/solidus_additional_store_settings
+//= require spree/frontend/solidus_paypal_commerce_platform
+//= require spree/frontend/solidus_stripe
+//= require spree/frontend/solidus_user_roles
+//= require spree/frontend/solidus_zip_zones
+//= require spree/frontend/solidus_additional_store_settings
+//= require spree/frontend/solidus_taxon_images
