@@ -16,4 +16,13 @@ Spree::Product.class_eval do
     end
   end
 
+  def max_product_quantity(user:, store:)
+    if quantity_limit(store: store)
+      user_quantity = Spree::LineItem.where(order_id: user.orders.pluck(:id)).where(variant_id: self.id).sum(:quantity)
+      quantity_limit(store: store) - user_quantity
+    else
+      total_on_hand
+    end
+  end
+
 end
