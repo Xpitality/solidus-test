@@ -103,10 +103,10 @@ Spree.config do |config|
 
   config.allow_guest_checkout = false
 end
-
-Spree::Frontend::Config.configure do |config|
-  config.locale = 'it'
-end
+#
+# Spree::Frontend::Config.configure do |config|
+#   config.locale = 'it'
+# end
 
 Spree::Backend::Config.configure do |config|
   # AlchemyCMS admin tabs

@@ -25,6 +25,7 @@ module SolidusTest
 
     config.i18n.available_locales = [:it, :en]
     config.i18n.default_locale = :it
+    config.eager_load_paths << Rails.root.join('lib')
 
 # Disable concurrent assets compilation to avoid sassc segfault
     config.assets.configure do |env|

@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/Xpitality/solidus_taxon_images.git
-  revision: 113f03d091dc66e96c751bd37dafbbd6a8f73b49
+  revision: 91c723081adad255a8b8deb9c512cb3f41ad2a7c
   specs:
     solidus_taxon_images (0.0.1)
       solidus_core (>= 2.11.0, < 3)
@@ -191,7 +191,7 @@ GEM
     awesome_nested_set (3.4.0)
       activerecord (>= 4.0.0, < 7.0)
     aws-eventstream (1.1.1)
-    aws-partitions (1.437.0)
+    aws-partitions (1.438.0)
     aws-sdk-core (3.113.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -336,7 +336,7 @@ GEM
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
     hashie (4.1.0)
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     image_optim (0.28.0)
       exifr (~> 1.2, >= 1.2.2)
@@ -385,7 +385,7 @@ GEM
       rails
     launchy (2.5.0)
       addressable (~> 2.7)
-    listen (3.5.0)
+    listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.9.0)
@@ -810,21 +810,26 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bugsnag
   byebug
+  canonical-rails (~> 0.2.10)
   capybara (>= 2.15)
   fog-aws
+  font-awesome-rails (~> 4.0)
   jbuilder (~> 2.7)
+  jquery-rails
+  kaminari (~> 1.1)
   kaminari-i18n (~> 0.5.0)
   listen (~> 3.2)
   mysql2
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-i18n (~> 6.0)
+  responders
   sass-rails (>= 6)
   selenium-webdriver
-  solidus
   solidus_abandoned_carts!
   solidus_additional_store_settings!
   solidus_auth_devise
+  solidus_core
   solidus_editor!
   solidus_i18n (~> 2.0)
   solidus_paypal_commerce_platform
@@ -839,6 +844,7 @@ DEPENDENCIES
   solidus_zip_zones!
   spring
   spring-watcher-listen (~> 2.0.0)
+  truncate_html (~> 0.9, >= 0.9.2)
   turbolinks (~> 5)
   web-console (>= 3.3.0)
   webdrivers

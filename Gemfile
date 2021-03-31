@@ -22,7 +22,17 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'solidus'
+# gem 'solidus'
+gem 'solidus_core'
+
+# needed for frontend:
+gem 'canonical-rails', '~> 0.2.10'
+gem 'font-awesome-rails', '~> 4.0'
+gem 'jquery-rails'
+gem 'kaminari', '~> 1.1'
+gem 'responders'
+gem 'truncate_html', '~> 0.9', '>= 0.9.2'
+
 gem 'solidus_auth_devise'
 gem 'solidus_paypal_commerce_platform'
 
