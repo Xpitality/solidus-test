@@ -29,7 +29,11 @@ taxons = [
     { name: "Cantina del Malandrino", taxonomy: t_produttore, parent: "Produttore" },
     { name: "Benoit Delorme", taxonomy: t_produttore, parent: "Produttore" },
     { name: "Rennersistas", taxonomy: t_produttore, parent: "Produttore" },
+    { name: "Rennersistas 2", taxonomy: t_produttore, parent: "Produttore" },
+    { name: "Rennersistas 3", taxonomy: t_produttore, parent: "Produttore" },
     { name: "Koppitsch", taxonomy: t_produttore, parent: "Produttore" },
+    { name: "Koppitsch 2", taxonomy: t_produttore, parent: "Produttore" },
+    { name: "Koppitsch 3", taxonomy: t_produttore, parent: "Produttore" },
 
     { name: "Paese", taxonomy: t_paese, position: 1 },
     { name: "Italia", taxonomy: t_paese, parent: "Paese" },
