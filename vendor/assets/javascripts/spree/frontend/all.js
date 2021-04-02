@@ -12,5 +12,3 @@
 //= require spree/frontend/solidus_stripe
 //= require spree/frontend/solidus_user_roles
 //= require spree/frontend/solidus_zip_zones
-//= require spree/frontend/solidus_additional_store_settings
-//= require spree/frontend/solidus_taxon_images

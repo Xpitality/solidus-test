@@ -1,0 +1,76 @@
+.login {
+  padding: 100px 0;
+  @media (max-width: $small) {
+    padding: 20px 0 100px 0;
+  }
+  .container {
+    display: flex;
+    @media (max-width: $large) {
+      padding: 0;
+    }
+    @media (max-width: $small) {
+      flex-direction: column;
+    }
+    .col {
+      flex: 1;
+      padding: 0 120px;
+      display: flex;
+      flex-direction: column;
+      @media (max-width: $large) {
+        padding: 0 15px;
+      }
+      .col-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+      .or {
+        margin: 40px 0;
+        align-self: center;
+        color: $light-text-color;
+      }
+      .btn-facebook {
+        margin-bottom: 15px;
+      }
+      .btn-primary {
+        padding: 20px 0;
+        font-weight: bold;
+      }
+      &.login-col {
+        border-right: 1px solid #e5e5e5;
+        @media (max-width: $small) {
+          margin-bottom: 70px;
+        }
+        .login-form {
+          display: flex;
+          flex-direction: column;
+          .input-holder {
+            margin-bottom: 15px;
+          }
+          .forgot-password-link {
+            color: $primary;
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.input-holder {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  input {
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    height: 45px;
+    background: $white;
+  }
+}

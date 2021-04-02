@@ -4,9 +4,19 @@
   </div>
 <% end %>
 
-<div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
-  <% end %>
+<div class="home-content">
+  <div class="home-hero">
+    <%= image_tag("home/home-hero.png", class: "home-hero-image exceptSmallScreen") %>
+    <%= image_tag("home/home-hero-mobile.png", class: "home-hero-image smallScreen") %>
+    <div class="home-button-holder">
+      <button class="btn btn-primary"><%= t('store.home.hero.catalog_button') %></button>
+    </div>
+  </div>
+
+  <div data-hook="homepage_products">
+    <% cache(cache_key_for_products) do %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+    <% end %>
+  </div>
 </div>
 

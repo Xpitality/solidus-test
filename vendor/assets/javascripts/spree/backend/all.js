@@ -11,6 +11,5 @@
 //= require spree/backend/solidus_paypal_commerce_platform
 //= require spree/backend/solidus_editor
 //= require spree/backend/solidus_user_roles
+//= require spree/backend/taxon_images/upload
 //= require spree/backend/solidus_zip_zones
-//= require spree/backend/solidus_taxon_images
-//= require spree/backend/solidus_additional_store_settings

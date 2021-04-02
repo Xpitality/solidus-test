@@ -1,0 +1,29 @@
+.home-content {
+  .home-hero {
+    position: relative;
+    .home-hero-image {
+      width: 100%;
+    }
+    .home-button-holder {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @media (max-width: $small) {
+        opacity: 0.9;
+        padding: 20px;
+        background: $primary;
+      }
+      .btn {
+        padding: 25px 40px;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        @media (max-width: $small) {
+          padding: 15px 30px;
+          border: 3px solid $white;
+          background: rgba(255, 255, 255, 0.37);
+        }
+      }
+    }
+  }
+}
