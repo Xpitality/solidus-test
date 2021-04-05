@@ -71,6 +71,8 @@ gem 'solidus_zip_zones', github: 'nebulab/solidus_zip_zones', branch: 'master'
 # https://github.com/solidusio-contrib/solidus_abandoned_carts
 gem 'solidus_abandoned_carts', github: 'solidusio-contrib/solidus_abandoned_carts'
 
+gem 'alchemy-solidus', '~> 2.4.0'
+
 gem 'solidus_additional_store_settings', github: 'Xpitality/solidus_additional_store_settings'
 gem 'solidus_taxon_images', github: 'Xpitality/solidus_taxon_images'
 
@@ -78,7 +80,8 @@ gem 'bugsnag'
 
 gem "aws-sdk-s3", require: false
 
-gem 'alchemy-solidus', '~> 2.4.0'
+
+gem 'premailer-rails'
 
 group :staging, :production do
   gem 'fog-aws'
