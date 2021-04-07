@@ -79,7 +79,7 @@ gem 'bugsnag'
 
 gem "aws-sdk-s3", require: false
 
-
+gem 'mail-x_smtpapi'
 gem 'premailer-rails'
 
 group :staging, :production do
