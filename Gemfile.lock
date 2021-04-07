@@ -837,6 +837,7 @@ DEPENDENCIES
   responders
   sass-rails (>= 6)
   selenium-webdriver
+  solidus
   solidus_abandoned_carts!
   solidus_additional_store_settings!
   solidus_auth_devise

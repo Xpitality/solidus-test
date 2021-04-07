@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '~> 2.7.2'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'mysql2'
@@ -22,16 +22,15 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-# gem 'solidus'
-gem 'solidus_core'
+gem 'solidus'
 
 # needed for frontend:
-gem 'canonical-rails', '~> 0.2.10'
-gem 'font-awesome-rails', '~> 4.0'
-gem 'jquery-rails'
-gem 'kaminari', '~> 1.1'
-gem 'responders'
-gem 'truncate_html', '~> 0.9', '>= 0.9.2'
+# gem 'canonical-rails', '~> 0.2.10'
+# gem 'font-awesome-rails', '~> 4.0'
+# gem 'jquery-rails'
+# gem 'kaminari', '~> 1.1'
+# gem 'responders'
+# gem 'truncate_html', '~> 0.9', '>= 0.9.2'
 
 gem 'solidus_auth_devise'
 gem 'solidus_paypal_commerce_platform'
