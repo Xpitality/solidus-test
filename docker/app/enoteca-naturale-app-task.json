@@ -19,18 +19,6 @@
       ],
       "environment": [
         {
-          "name": "ADMIN_NAME",
-          "value": "Marko Boskovic"
-        },
-        {
-          "name": "ADMIN_EMAIL",
-          "value": "marko@xpitality.com"
-        },
-        {
-          "name": "ADMIN_PASSWORD",
-          "value": "changeme"
-        },
-        {
           "name": "NODE_ENV",
           "value": "production"
         },
