@@ -25,12 +25,6 @@
     }
   ],
   "memory": "512",
-    "tags": [
-        {
-            "key": "client",
-            "value": "enoteca-naturale"
-        }
-    ],
   "taskRoleArn": "arn:aws:iam::934187374409:role/ecsTaskExecutionRole",
   "family": "enoteca-naturale-web-task",
   "requiresCompatibilities": [
@@ -38,4 +32,10 @@
   ],
   "networkMode": "awsvpc",
   "cpu": "256"
+    "tags": [
+        {
+            "key": "client",
+            "value": "enoteca-naturale"
+        }
+    ],
 }

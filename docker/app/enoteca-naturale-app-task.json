@@ -68,4 +68,10 @@
   ],
   "networkMode": "awsvpc",
   "cpu": "256"
+    "tags": [
+        {
+            "key": "client",
+            "value": "enoteca-naturale"
+        }
+    ],
 }
