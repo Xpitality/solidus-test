@@ -2,6 +2,7 @@ it:
   store:
     general:
       close: "close"
+      new_product: "NOVITÀ"
     shared:
       main_menu:
         home: "HOME"

@@ -5,18 +5,18 @@
       <h1 class="title"><%= t("store.home.arrivals.title") %></h1>
       <h3 class="subtitle"><%= t("store.home.arrivals.subtitle") %></h3>
       <p class="text"><%= t("store.home.arrivals.text") %></p>
-      <button class="btn btn-white-transparent"><%= t("store.home.arrivals.button") %></button>
+      <%= link_to t("store.home.arrivals.button"), seo_url(new_products_taxon), class: "btn btn-white-transparent" %>
     </div>
     <div class="col products-col">
       <% @new_products.each do |product| %>
         <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
         <div class="product-wrapper">
-          <div class="product-card product-side" id="product_<%= product.id %>">
+          <div class="product-card product-side new-product" id="product_<%= product.id %>">
             <div class="product-image-holder">
               <div class="new-mark-top"></div>
               <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
               <div class="new-mark-bottom">
-                <p>NEW</p>
+                <p><%= t('store.general.new_product') %></p>
               </div>
             </div>
             <div class="product-card-body">
