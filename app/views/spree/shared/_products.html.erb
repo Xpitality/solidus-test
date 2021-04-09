@@ -33,11 +33,7 @@
         <div class="product-card new-product"  id="product_<%= product.id %>">
           <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
             <div class="product-image-holder">
-              <!-- <div class="new-mark-top"></div> -->
               <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
-              <!-- <div class="new-mark-bottom">
-                <p>NEW</p>
-              </div> -->
             </div>
             <div class="product-card-body">
               <div class="body-info">

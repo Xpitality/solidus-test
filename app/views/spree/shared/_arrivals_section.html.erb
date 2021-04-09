@@ -1,0 +1,49 @@
+<% unless @new_products.empty? %>
+  <div class="container">
+    <div class="col info-col">
+      <%= image_tag("arrivals/new-arrivals-background.jpg") %>
+      <h1 class="title"><%= t("store.home.arrivals.title") %></h1>
+      <h3 class="subtitle"><%= t("store.home.arrivals.subtitle") %></h3>
+      <p class="text"><%= t("store.home.arrivals.text") %></p>
+      <button class="btn btn-white-transparent"><%= t("store.home.arrivals.button") %></button>
+    </div>
+    <div class="col products-col">
+      <% @new_products.each do |product| %>
+        <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
+        <div class="product-wrapper">
+          <div class="product-card product-side" id="product_<%= product.id %>">
+            <div class="product-image-holder">
+              <div class="new-mark-top"></div>
+              <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
+              <div class="new-mark-bottom">
+                <p>NEW</p>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="body-info">
+                <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
+              </div>
+              <div class="body-actions-holder">
+                <div class="price">
+                  <p>
+                    <% if price = product.price_for(current_pricing_options) %>
+                      <%= price.to_html %>
+                    <% end %>
+                  </p>
+                </div>
+                <div class="body-actions">
+                  <div class="add-to-cart">
+                    <%= image_tag("icons/icon-add-to-cart.svg") %>
+                  </div>
+                  <div class="favourite">
+                    <%= image_tag("icons/icon-favourite.svg") %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
