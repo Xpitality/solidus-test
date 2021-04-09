@@ -2,6 +2,51 @@ it:
   store:
     general:
       close: "close"
+    shared:
+      main_menu:
+        home: "HOME"
+        new_products: "NOVITÀ"
+        products: "CATALOGO"
+        wine_type: "TIPOLOGIA"
+        origin: "ORIGINE"
+        producers:
+          label: "PRODUTTORI"
+          title: "PRODUTTORI IN EVIDENZA"
+      footer:
+        secure_shopping:
+          title: "Shopping sicuro"
+          text: "I tuoi pagamenti online sono protetti"
+        shipping:
+          title: "Costi di spedizione"
+          text_html: "<strong>GRATIS</strong> per ordini superiori ai 79€ <br /> <strong>10,90€</strong> per tutti gli altri ordini"
+        contact:
+          title: "Serve aiuto?"
+          phone_text_html: "o chiama al <a href='tel:%{phone}'>%{phone}</a>"
+        address:
+          - "Dati societari"
+          - "Pet Nat srl Società"
+          - "Benefit"
+          - "Via Santa Croce, 19"
+          - "20122 Milano"
+          - "C.F./P.IVA"
+          - "10431760965"
+        site:
+          title: "Sito"
+          new: "Novità"
+          products: "Catalogo Vini"
+          home: "Home"
+        info:
+          title: "Info"
+          about_us: "Chi siamo"
+          faq: "FAQ"
+          shipping: "Spedizione"
+          contacts: "Contatti"
+        about_us:
+          title: "Chi siamo"
+          text: "Attraverso questo sito, si possono ordinare con consegna a domicilio  vini della selezione di e/n enoteca naturale. Consegna a domicilio su Milano città."
+        emergency:
+          title: "e/n sostiene Emergency"
+          text: "e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà"
     home:
       hero:
         catalog_button: "vai al catalogo"

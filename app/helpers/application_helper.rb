@@ -23,4 +23,19 @@ module ApplicationHelper
     product.max_product_quantity(user: try_spree_current_user, store: current_store)
   end
 
+  def taxon_by_key(key)
+    Spree::Taxon.find_by_key(key)
+  end
+
+  def taxon_children(parent_key)
+    Spree::Taxon.by_parent_key(parent_key)
+  end
+
+  def new_products_taxon
+    Spree::Taxon.find_by_key(:new)
+  end
+
+  def conditionally_active_for(target_path)
+    current_page?(target_path) ? 'active' : ''
+  end
 end
