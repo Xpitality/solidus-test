@@ -55,5 +55,11 @@
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "cpu": "256"
+  "cpu": "256",
+    "tags":[
+        {
+            "key":"client",
+            "value":"enoteca-naturale"
+        }
+    ]
 }
