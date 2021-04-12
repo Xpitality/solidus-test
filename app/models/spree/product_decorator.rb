@@ -6,22 +6,43 @@ Spree::Product.class_eval do
     quantity_limit_taxon ? quantity_limit_taxon.name.to_i : nil
   end
 
-  def self.new_products(store:)
-    taxon_new = Spree::Taxon.new_product_taxon(store: store)
-
-    if taxon_new
-      Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon_new.id }).available.order('created_at DESC').limit(4)
-    else
-      Spree::Product.where('0=1')
-    end
-  end
-
   def max_product_quantity(user:, store:)
     if quantity_limit(store: store)
       user_quantity = Spree::LineItem.where(order_id: user.orders.pluck(:id)).where(variant_id: self.id).sum(:quantity)
       quantity_limit(store: store) - user_quantity
     else
       total_on_hand
+    end
+  end
+
+  def self.new_products(taxon_new)
+    taxon_new ||= Spree::Taxon.find_by_key(:new)
+    self.products_for_taxon(taxon: taxon_new, limit: 4)
+  end
+
+  def self.milano_products
+    Spree::Product.joins(:taxons).available.order('created_at DESC').limit(2)
+  end
+
+  def self.producer_products(producer_taxon)
+    self.products_for_taxon(taxon: producer_taxon)
+  end
+
+  def self.collection_products(collection_taxon)
+    self.products_for_taxon(taxon: collection_taxon)
+  end
+
+  private
+
+  def self.products_for_taxon(taxon:, limit: nil, order: 'DESC')
+    if taxon
+      if limit
+        Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}").limit(limit)
+      else
+        Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}")
+      end
+    else
+      Spree::Product.where('0=1')
     end
   end
 

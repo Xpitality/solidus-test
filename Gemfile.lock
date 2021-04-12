@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Xpitality/solidus_additional_store_settings.git
-  revision: a363c6f9cd9acf9260dd3cea9dcc7287caecf84f
+  revision: bdfd5c6f7c2aa9a065367b0b13dd5c977346ee2b
   specs:
     solidus_additional_store_settings (0.0.1)
       solidus_core (>= 2.11.0, < 3)
@@ -168,7 +168,7 @@ GEM
       sprockets (>= 3.0, < 5)
       turbolinks (>= 2.5)
     ast (2.4.2)
-    async (1.28.9)
+    async (1.29.0)
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
@@ -191,7 +191,7 @@ GEM
     awesome_nested_set (3.4.0)
       activerecord (>= 4.0.0, < 7.0)
     aws-eventstream (1.1.1)
-    aws-partitions (1.441.0)
+    aws-partitions (1.444.0)
     aws-sdk-core (3.113.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -200,7 +200,7 @@ GEM
     aws-sdk-kms (1.43.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.93.0)
+    aws-sdk-s3 (1.93.1)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -247,7 +247,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
-    console (1.10.2)
+    console (1.11.1)
       fiber-local
     crass (1.0.6)
     css_parser (1.9.0)
@@ -391,7 +391,7 @@ GEM
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.9.0)
+    loofah (2.9.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -422,7 +422,7 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nio4r (2.5.7)
-    nokogiri (1.11.2)
+    nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     non-stupid-digest-assets (1.0.9)

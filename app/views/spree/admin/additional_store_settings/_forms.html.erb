@@ -70,10 +70,10 @@
   </fieldset>
 <% end %>
 
-<%= form_for [:admin, @store, @new_product_taxon_name], url: @new_product_taxon_name.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @new_product_taxon_name.id) do |f| %>
-  <h4><%= t('additional_store_settings.new_product_taxon_name.title') %></h4>
+<%= form_for [:admin, @store, @featured_producer_taxon_name], url: @featured_producer_taxon_name.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @featured_producer_taxon_name.id) do |f| %>
+  <h4><%= t('additional_store_settings.featured_producer_taxon_name.title') %></h4>
   <fieldset class="no-border-top">
-    <%= render 'new_product_taxon_name_form', f: f %>
+    <%= render 'featured_producer_taxon_name_form', f: f %>
     <% if can? :update, @store %>
       <div class="form-buttons filter-actions actions" data-hook="buttons">
         <%= button_tag t('spree.actions.update'), class: 'btn btn-primary' %>
@@ -81,3 +81,16 @@
     <% end %>
   </fieldset>
 <% end %>
+
+<%= form_for [:admin, @store, @featured_collection_taxon_name], url: @featured_collection_taxon_name.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @featured_collection_taxon_name.id) do |f| %>
+  <h4><%= t('additional_store_settings.featured_collection_taxon_name.title') %></h4>
+  <fieldset class="no-border-top">
+    <%= render 'featured_collection_taxon_name_form', f: f %>
+    <% if can? :update, @store %>
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button_tag t('spree.actions.update'), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </fieldset>
+<% end %>
+

@@ -25,7 +25,7 @@ products = [
         width: 10,
         depth: 5,
         available_on: Time.current,
-        taxons: ['Bianco', 'Chardonnay', '0,75l', 'Burgenland', 'Pinot bianco', 'Rennersistas'],
+        taxons: ['Bianco', 'Chardonnay', '0,75l', 'Burgenland', 'Pinot bianco', 'Rennersistas', 'La Slovenia del vino'],
         properties: {
             'Occasione' => "in quella famosa notte di mezz'estate",
             'Alcool' => 13,
@@ -46,7 +46,7 @@ products = [
         width: 10,
         depth: 5,
         available_on: Time.current,
-        taxons: ['Bianco', 'Field blend', '0,75l', 'Burgenland', 'Riesling Italico', 'Koppitsch'],
+        taxons: ['Bianco', 'Field blend', '0,75l', 'Burgenland', 'Riesling Italico', 'Koppitsch', 'La Slovenia del vino'],
         properties: {
             'Occasione' => "in quella famosa notte di mezz'estate",
             'Alcool' => 13,
@@ -69,7 +69,7 @@ products = [
         width: 10,
         depth: 5,
         available_on: Time.current,
-        taxons: ['Bianco', 'Chardonnay', '0,75l', 'Burgenland', 'Pinot bianco', 'Rennersistas'],
+        taxons: ['Bianco', 'Chardonnay', '0,75l', 'Burgenland', 'Pinot bianco', 'Rennersistas', 'La Slovenia del vino'],
         properties: {
             'Occasione' => "in quella famosa notte di mezz'estate",
             'Alcool' => 13,
@@ -90,7 +90,7 @@ products = [
         width: 10,
         depth: 5,
         available_on: Time.current,
-        taxons: ['Bianco', 'Chardonnay', '0,75l', 'Burgenland', 'Pinot bianco', 'Rennersistas 2', 'Novità'],
+        taxons: ['Bianco', 'Chardonnay', '0,75l', 'Burgenland', 'Pinot bianco', 'Rennersistas 2', 'Novità', 'La Slovenia del vino'],
         properties: {
             'Occasione' => "in quella famosa notte di mezz'estate",
             'Alcool' => 13,

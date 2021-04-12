@@ -1,0 +1,22 @@
+<% collection = featured_collection_taxon %>
+<% products = @searcher.collection_products(featured_collection_taxon) if featured_collection_taxon %>
+<% if collection && !products.empty? %>
+  <% cache(cache_key_for_home_products(:featured_collection, collection)) do %>
+    <div class="container">
+      <div class="col info-col">
+        <%= image_tag("home/featured-collection-background.jpg") %>
+        <h1 class="title"><%= t("store.home.featured_collection.title") %></h1>
+        <h3 class="subtitle"><%= collection.name %></h3>
+        <p class="text"><%= collection.description %></p>
+        <%= link_to t("store.home.featured_collection.button"), seo_url(collection), class: "btn btn-white-transparent" %>
+      </div>
+      <div class="col products-col">
+        <% products.each do |product| %>
+          <div class="product-wrapper">
+            <%= render partial: 'spree/shared/product_card', locals: { product: product, section: :featured_collection, css_classes: 'product-side' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

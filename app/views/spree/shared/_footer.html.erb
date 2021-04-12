@@ -72,7 +72,7 @@
           <p class="nav-title"><%= t("store.shared.footer.site.title") %></p>
           <div class="nav">
             <%= link_to t("store.shared.footer.site.home"), '/' %>
-            <%= link_to t("store.shared.footer.site.new"), seo_url(new_products_taxon) %>
+            <%= link_to t("store.shared.footer.site.new"), seo_url(taxon_by_key(:new)) %>
             <%= link_to t("store.shared.footer.site.products"), "/products" %>
           </div>
         </div>

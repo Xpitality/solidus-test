@@ -3,7 +3,8 @@ Spree::Taxon.class_eval do
       tipologia: 'Tipologia',
       country: 'Paese',
       producers: 'Produttore',
-      new: 'Novità'
+      new: 'Novità',
+      collection: 'Collezioni'
   }
 
   class << self
@@ -12,13 +13,18 @@ Spree::Taxon.class_eval do
     end
 
     def quantity_limit_taxon(store:)
-      quantity_limit_taxonomy = store.additional_store_settings.quantity_limit_taxonomy.first&.text_value
+      quantity_limit_taxonomy = store.additional_store_settings.find_by_label(:quantity_limit_taxonomy)&.text_value
       Spree::Taxon.find_by_name(quantity_limit_taxonomy)
     end
 
-    def new_product_taxon(store:)
-      new_product_taxon_name = store.additional_store_settings.new_product_taxon_name.first&.text_value
-      Spree::Taxon.find_by_name(new_product_taxon_name)
+    def featured_producer_taxon(store:)
+      featured_producer_taxon_name = store.additional_store_settings.find_by_label(:featured_producer_taxon_name)&.text_value
+      Spree::Taxon.where(name: featured_producer_taxon_name).first
+    end
+
+    def featured_collection_taxon(store:)
+      featured_collection_taxon_name = store.additional_store_settings.find_by_label(:featured_collection_taxon_name)&.text_value
+      Spree::Taxon.where(name: featured_collection_taxon_name).first
     end
 
     def by_parent_key(key)
