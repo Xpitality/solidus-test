@@ -1,176 +1,63 @@
 <nav class="navbar" data-hook>
   <div class="nav-link-holder">
-    <%= link_to "HOME", "/", class: "nav-link" %>
+    <%= link_to t("store.shared.main_menu.home"), "/", class: "nav-link" %>
   </div>
   <div class="nav-link-holder">
-    <%= link_to "NOVITÀ", "/", class: "nav-link" %>
+    <%= link_to t("store.shared.main_menu.new_products"), seo_url(new_products_taxon), class: "nav-link #{conditionally_active_for(seo_url(new_products_taxon))}" %>
   </div>
   <div class="nav-link-holder">
-    <%= link_to "CATALOGO", "/products", class: "nav-link" %>
+    <%= link_to t("store.shared.main_menu.products"), "/products", class: "nav-link #{conditionally_active_for(products_path)}" %>
   </div>
   <div class="nav-link-holder">
-    <%= link_to "TIPOLOGIA", "/", class: "nav-link nav-link-with-drop" %>
+    <%= link_to t("store.shared.main_menu.wine_type"), "/", class: "nav-link nav-link-with-drop" %>
     <%= content_tag :div, class: "nav-drop-holder" do -%>
       <%= content_tag :div, class: "nav-dropdown" do -%>
         <div class="col title-col">
           <%= image_tag("icons/icon-tipologia.svg") %>
-          <%= content_tag :p, "TIPOLOGIA" %>
+          <%= content_tag :p, t("store.shared.main_menu.wine_type") %>
         </div>
         <div class="col dropdown-col">
-          <div class="drop-link-holder">
-            <%= link_to "Bianco", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Birra", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Champagne", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Distillati", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Macerato", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Rifermentato", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Rosato", "/", class: "drop-link" %>
-          </div>
-        </div>
-        <div class="col dropdown-col">
-          <div class="drop-link-holder">
-            <%= link_to "Rosso", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Spumante", "/", class: "drop-link" %>
-          </div>
+          <% taxon_children(:tipologia).each do |taxon| %>
+            <div class="drop-link-holder">
+              <%= link_to taxon.name, seo_url(taxon), class: "drop-link" %>
+            </div>
+          <% end %>
         </div>
       <% end -%>
     <% end -%>
   </div>
   <div class="nav-link-holder">
-    <%= link_to "ORIGINE", "/", class: "nav-link nav-link-with-drop" %>
+    <%= link_to t('store.shared.main_menu.origin'), "/", class: "nav-link nav-link-with-drop" %>
     <%= content_tag :div, class: "nav-drop-holder" do -%>
       <%= content_tag :div, class: "nav-dropdown" do -%>
         <div class="col title-col">
           <%= image_tag("icons/icon-origine.svg") %>
-          <%= content_tag :p, "ORIGINE" %>
+          <%= content_tag :p, t('store.shared.main_menu.origin') %>
         </div>
         <div class="col dropdown-col">
-          <div class="drop-link-holder">
-            <%= link_to "Australia", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Austria", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Francia", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Germania", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Grecia", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Italia", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Republica Ceca", "/", class: "drop-link" %>
-          </div>
-        </div>
-        <div class="col dropdown-col">
-          <div class="drop-link-holder">
-            <%= link_to "Slovenia", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Spagna", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Svizzera", "/", class: "drop-link" %>
-          </div>
+          <% taxon_children(:country).each do |taxon| %>
+            <div class="drop-link-holder">
+              <%= link_to taxon.name, seo_url(taxon), class: "drop-link" %>
+            </div>
+          <% end %>
         </div>
       <% end -%>
     <% end -%>
   </div>
   <div class="nav-link-holder">
-    <%= link_to "PRODUTTORI", "/", class: "nav-link nav-link-with-drop active" %>
+    <%= link_to t('store.shared.main_menu.producers.label'), "/", class: "nav-link nav-link-with-drop" %>
     <%= content_tag :div, class: "nav-drop-holder" do -%>
       <%= content_tag :div, class: "nav-dropdown" do -%>
         <div class="col title-col">
           <%= image_tag("icons/icon-produttore.svg") %>
-          <%= content_tag :p, "PRODUTTORI IN EVIDENZA" %>
+          <%= content_tag :p, t('store.shared.main_menu.producers.title') %>
         </div>
         <div class="col dropdown-col">
-          <div class="drop-link-holder">
-            <%= link_to "Cherubini", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Chateau Pre vert", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Colle Formica", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Domain de la Garreliere", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Ottomani", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Apiua", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Birrificio Rurale", "/", class: "drop-link" %>
-          </div>
-        </div>
-        <div class="col dropdown-col">
-          <div class="drop-link-holder">
-            <%= link_to "Frai i Monti", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "I muretti", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Il Ceo", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Klinec", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Petracavallo", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Masseria del Pino", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Menat", "/", class: "drop-link" %>
-          </div>
-        </div>
-        <div class="col dropdown-col">
-          <div class="drop-link-holder">
-            <%= link_to "La Distesa", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Lissner", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Masseria del Pino", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Menat", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Terra della Luna", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Domain de la Garreliere", "/", class: "drop-link" %>
-          </div>
-          <div class="drop-link-holder">
-            <%= link_to "Ottomani", "/", class: "drop-link" %>
-          </div>
+          <% taxon_children(:producers).each do |taxon| %>
+            <div class="drop-link-holder">
+              <%= link_to taxon.name, seo_url(taxon), class: "drop-link" %>
+            </div>
+          <% end %>
         </div>
       <% end -%>
     <% end -%>

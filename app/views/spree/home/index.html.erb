@@ -9,7 +9,7 @@
     <%= image_tag("home/home-hero.png", class: "home-hero-image exceptSmallScreen") %>
     <%= image_tag("home/home-hero-mobile.png", class: "home-hero-image smallScreen") %>
     <div class="home-button-holder">
-      <button class="btn btn-primary"><%= t('store.home.hero.catalog_button') %></button>
+      <%= link_to t('store.home.hero.catalog_button'), products_path, class:"btn btn-primary" %>
     </div>
   </div>
 
@@ -20,7 +20,25 @@
   </div>
 
   <div class="arrivals-section">
-    <%= render partial: 'spree/shared/arrivals_section', locals: { products: @new_products } %>
+    <%= render partial: 'spree/home/sections/arrivals_section', locals: { products: @new_products } %>
+  </div>
+
+  <div class="slider-and-info-section">
+    <%= image_tag("slider-and-info/slider-and-info-background.png", class: "background-image") %>
+    <%= render partial: 'spree/home/sections/slider_and_info' %>
+  </div>
+
+  <div class="arrivals-section">
+    <%= render partial: 'spree/home/sections/our_selection' %>
+  </div>
+
+  <div class="slider-and-info-section reverse">
+    <%= image_tag("slider-and-info/slider-and-info-background.png", class: "background-image") %>
+    <%= render partial: 'spree/home/sections/fast_delivery' %>
+  </div>
+
+  <div class="who-we-are">
+    <%= image_tag("who-we-are/who-we-are-background.png", class: "background-image") %>
+    <%= render partial: 'spree/home/sections/who_we_are' %>
   </div>
 </div>
-

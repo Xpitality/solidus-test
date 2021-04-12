@@ -1,6 +1,101 @@
-<footer id="footer" class="sixteen columns" data-hook>
-  <div id="footer-left" class="columns alpha eight" data-hook>
-    <p><%= t 'spree.powered_by' %> <%= link_to 'Solidus', 'http://solidus.io/' %></p>
+<footer id="footer" data-hook>
+  <div class="footer-top">
+    <div class="container">
+      <div class="col">
+        <div class="col-image-holder">
+          <%= image_tag("icons/icon-footer-secure.svg") %>
+        </div>
+        <div class="col-info">
+          <p class="info-title"><%= t('store.shared.footer.secure_shopping.title') %></p>
+          <p class="info-text"><%= t('store.shared.footer.secure_shopping.text') %></p>
+          <%= image_tag("footer/footer-payments.svg", class: "payments-image") %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-image-holder">
+          <%= image_tag("icons/icon-footer-transport.svg") %>
+        </div>
+        <div class="col-info">
+          <p class="info-title"><%= t('store.shared.footer.shipping.title') %></p>
+          <p class="info-text"><%= t('store.shared.footer.shipping.text_html') %></p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-image-holder">
+          <%= image_tag("icons/icon-footer-help.svg") %>
+        </div>
+        <div class="col-info">
+          <p class="info-title"><%= t('store.shared.footer.contact.title') %></p>
+          <% if store_email %>
+            <a class="info-mail" href="mailto:<%= store_email %>"><%= store_email %></a>
+          <% end %>
+          <% if store_phone %>
+            <p class="info-text"><%= t('store.shared.footer.contact.phone_text_html', phone: store_phone) %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div id="footer-right" class="columns omega eight" data-hook></div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="cols-wrapper">
+        <div class="col logo-col">
+          <%= image_tag("footer/footer-logo.svg", class: "logo-image") %>
+          <div class="logo-social">
+            <% if store_instagram %>
+              <%= link_to store_instagram do %>
+                <%= image_tag("icons/icon-instagram-white.svg") %>
+              <% end %>
+            <% end %>
+            <% if store_facebook %>
+              <%= link_to store_facebook, target: :_blank do %>
+                <%= image_tag("icons/icon-facebook-white.svg") %>
+              <% end %>
+            <% end %>
+          </div>
+          <%= link_to "Privacy Policy", "/", class: "footerBreak" %>
+        </div>
+        <div class="col address-col">
+          <address>
+            <% t('store.shared.footer.address').each do |adr| %>
+              <%= content_tag :p, adr %>
+            <% end %>
+          </address>
+          <div class="nav-holder">
+            <p class="nav-title">Privacy Policy</p>
+            <p class="nav-text">&copy; 2020, enoteca naturale</p>
+          </div>
+        </div>
+      </div>
+      <div class="col nav-col">
+        <div class="nav-holder">
+          <p class="nav-title"><%= t("store.shared.footer.site.title") %></p>
+          <div class="nav">
+            <%= link_to t("store.shared.footer.site.home"), '/' %>
+            <%= link_to t("store.shared.footer.site.new"), seo_url(new_products_taxon) %>
+            <%= link_to t("store.shared.footer.site.products"), "/products" %>
+          </div>
+        </div>
+      </div>
+      <div class="col nav-col">
+        <div class="nav-holder">
+          <p class="nav-title"><%= t('store.shared.footer.info.title') %></p>
+          <div class="nav">
+            <%= link_to t('store.shared.footer.info.about_us'), "/" %>
+            <%= link_to t('store.shared.footer.info.faq'), "/" %>
+            <%= link_to t('store.shared.footer.info.shipping'), "/" %>
+            <%= link_to t('store.shared.footer.info.contacts'), "/" %>
+          </div>
+        </div>
+      </div>
+      <div class="col bigger-col">
+        <div class="nav-holder">
+          <p class="nav-title"><%= t('store.shared.footer.about_us.title') %></p>
+          <p class="nav-text"><%= t('store.shared.footer.about_us.text') %></p>
+          <p class="nav-title"><%= t('store.shared.footer.emergency.title') %></p>
+          <p class="nav-text"><%= t('store.shared.footer.emergency.text') %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
