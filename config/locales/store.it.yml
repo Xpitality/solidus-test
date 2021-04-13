@@ -79,8 +79,16 @@ it:
         subtitle: Sicilia
         text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
         button: SCOPRI I PRODOTTI
-      taxons:
-        wine_type: TIPO
+      taxon:
+        wine_type: tipo
+        grape_type: vitigni
+        country: nazione
+        region: regione
+        format: formato
+      property:
+        vintage: annata
+        alcohol: alcol
+        occasion: occasione
 
     cart:
       cart_title: CARRELLO

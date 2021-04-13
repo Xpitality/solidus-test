@@ -1,0 +1,11 @@
+<% if tag = product.tag(type: type, key: key) %>
+  <div class="product-tag">
+    <div class="tag-icon">
+      <%= image_tag("icons/product/#{type}/#{key}.svg") %>
+    </div>
+    <div class="tag-info">
+      <p class="title"><%= t("store.product.#{type}.#{key}") %></p>
+      <p class="text"><%= tag %></p>
+    </div>
+  </div>
+<% end %>

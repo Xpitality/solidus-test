@@ -1,5 +1,33 @@
 Spree::Product.class_eval do
 
+  class << self
+    def new_products(taxon_new)
+      taxon_new ||= Spree::Taxon.find_by_key(:new)
+      self.products_for_taxon(taxon: taxon_new, limit: 4)
+    end
+
+    def producer_products(producer_taxon)
+      self.products_for_taxon(taxon: producer_taxon)
+    end
+
+    def collection_products(collection_taxon)
+      self.products_for_taxon(taxon: collection_taxon)
+    end
+
+    def products_for_taxon(taxon:, limit: nil, order: 'DESC')
+      if taxon
+        if limit
+          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}").limit(limit)
+        else
+          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}")
+        end
+      else
+        Spree::Product.where('0=1')
+      end
+    end
+  end
+
+
   def quantity_limit(store:)
     quantity_limit_parent_taxon = Spree::Taxon.quantity_limit_taxon(store: store)
     quantity_limit_taxon = self.taxons.where(parent_id: quantity_limit_parent_taxon.id).first
@@ -15,35 +43,49 @@ Spree::Product.class_eval do
     end
   end
 
-  def self.new_products(taxon_new)
-    taxon_new ||= Spree::Taxon.find_by_key(:new)
-    self.products_for_taxon(taxon: taxon_new, limit: 4)
+
+
+  def grape_type_taxon_names
+    self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(:grape_type).id).pluck(:name)
   end
 
-  def self.producer_products(producer_taxon)
-    self.products_for_taxon(taxon: producer_taxon)
-  end
-
-  def self.collection_products(collection_taxon)
-    self.products_for_taxon(taxon: collection_taxon)
-  end
-
-  def wine_type_taxon
-    self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(:wine_type).id).first
-  end
-
-  private
-
-  def self.products_for_taxon(taxon:, limit: nil, order: 'DESC')
-    if taxon
-      if limit
-        Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}").limit(limit)
+  def tag(type:, key:)
+    if type == :property
+      p = self.product_properties.where(property_id: Spree::Property.find_by_key(key)).first&.value
+      if key == :alcohol && p
+        "#{p}%"
       else
-        Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}")
+        p
       end
-    else
-      Spree::Product.where('0=1')
+    elsif type == :taxon
+      t = self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(key).id).first
+
+      if Spree::Taxon.tree.values.flatten.include?(key)
+        taxon_tree(taxon: t, key: key)
+      else
+        t&.name
+      end
     end
   end
+
+
+  def taxon_tree(taxon:, key:)
+    tree = []
+    t = taxon
+
+    taxonomy = nil
+    Spree::Taxon.tree.each do |taxon_key, taxon_values|
+      taxonomy ||= taxon_key if taxon_values.include?(key)
+    end
+
+    while t.name != Spree::Taxon.basic_taxons[taxonomy]
+      tree << t
+      t = t.parent
+    end
+    tree.reverse!
+    tree[Spree::Taxon.tree[taxonomy].index(key)]&.name
+  end
+
+
 
 end

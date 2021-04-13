@@ -32,8 +32,8 @@
                   <%= image_tag("icons/icon-product-type.svg") %>
                 </div>
                 <div class="tag-info">
-                  <p class="title"><%= t('store.product.taxons.wine_type') %></p>
-                  <p class="text"><%= @product.wine_type_taxon.name %></p>
+                  <p class="title"><%= t('store.product.taxon.wine_type') %></p>
+                  <p class="text"><%= @product.tag(type: :taxon, key: :wine_type) %></p>
                 </div>
               </div>
               <div class="product-tag">
@@ -41,12 +41,8 @@
                   <%= image_tag("icons/icon-product-vine.svg") %>
                 </div>
                 <div class="tag-info">
-                  <p class="title">
-                    Vitigni
-                  </p>
-                  <p class="text">
-                    100% Nerello Cappuccio
-                  </p>
+                  <p class="title"><%= t('store.product.taxon.grape_type') %></p>
+                  <p class="text"><%= @product.grape_type_taxon_names.join(', ') %></p>
                 </div>
               </div>
             </div>
@@ -73,18 +69,18 @@
         </div>
       </div>
     </div>
-  
+
     <div class="product-tags">
-      <%= render partial: 'product_tags' %>
+      <%= render partial: 'spree/products/product_tags', locals: { product: @product } %>
     </div>
-    
+
     <div class="product-cellar">
-      <%= render partial: 'product_cellar' %>
+      <%= render partial: 'spree/products/product_cellar' %>
     </div>
-  
+
     <div class="slider-and-info-section">
       <%= image_tag("slider-and-info/slider-and-info-background.png", class: "background-image") %>
-      <%= render partial: 'product_slider_and_info' %>
+      <%= render partial: 'spree/products/product_slider_and_info' %>
     </div>
 
   </div>

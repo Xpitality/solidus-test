@@ -7,6 +7,10 @@ Spree::Taxon.class_eval do
       collection: 'Collezioni'
   }
 
+  TREE = {
+      country: [:country, :region, :zone]
+  }
+
   class << self
     def find_by_key(key)
       Spree::Taxon.find_by_name(BASIC_TAXONS[key])
@@ -34,6 +38,14 @@ Spree::Taxon.class_eval do
       else
         Spree::Taxon.none
       end
+    end
+
+    def tree
+      TREE
+    end
+
+    def basic_taxons
+      BASIC_TAXONS
     end
   end
 
