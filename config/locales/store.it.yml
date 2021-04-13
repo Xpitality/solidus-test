@@ -3,6 +3,8 @@ it:
     general:
       close: "close"
       new_product: "NOVITÀ"
+      sign_in: "Accedi"
+      sign_out: "Logout"
     shared:
       main_menu:
         home: "HOME"
