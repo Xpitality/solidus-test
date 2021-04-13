@@ -29,7 +29,7 @@ Spree::Product.class_eval do
   end
 
   def wine_type_taxon
-    self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(:wine_type))
+    self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(:wine_type).id).first
   end
 
   private

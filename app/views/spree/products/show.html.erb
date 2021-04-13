@@ -6,6 +6,7 @@
     <div class="product-hero">
       <div class="container">
         <div class="col col-left">
+          <!-- TODO: add correct social icon actions -->
           <div class="product-social">
             <%= link_to "https://www.facebook.com" do %>
               <%= image_tag("icons/icon-facebook-original.svg") %>
@@ -31,12 +32,8 @@
                   <%= image_tag("icons/icon-product-type.svg") %>
                 </div>
                 <div class="tag-info">
-                  <p class="title">
-                    TIPO
-                  </p>
-                  <p class="text">
-                    Rosso
-                  </p>
+                  <p class="title"><%= t('store.product.taxons.wine_type') %></p>
+                  <p class="text"><%= @product.wine_type_taxon.name %></p>
                 </div>
               </div>
               <div class="product-tag">
