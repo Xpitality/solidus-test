@@ -20,8 +20,16 @@
     <div class="content-bottom">
       <div class="title-holder">
         <h1 class="title"><%= t("store.home.follow_us.title") %></h1>
-        <%= image_tag("icons/icon-instagram-black.svg") %>
-        <%= image_tag("icons/icon-facebook-black.svg") %>
+        <% if store_instagram %>
+          <%= link_to store_instagram, target: :_blank do %>
+            <%= image_tag("icons/icon-instagram-black.svg") %>
+          <% end %>
+        <% end %>
+        <% if store_facebook %>
+          <%= link_to store_facebook, target: :_blank do %>
+            <%= image_tag("icons/icon-facebook-black.svg") %>
+          <% end %>
+        <% end %>
       </div>
       <div class="image-columns">
         <div class="col image-col">
@@ -36,7 +44,7 @@
       </div>
     </div>
   </div>
-
-  <button class="btn btn-dark-transparent"><%= t("store.home.follow_us.button") %></button>
-
+  <% if store_instagram %>
+    <%= link_to t("store.home.follow_us.button"), store_instagram, class: 'btn btn-dark-transparent', target: :_blank %>
+  <% end %>
 </div>
