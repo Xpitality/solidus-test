@@ -1,0 +1,18 @@
+<div class="product-tags">
+  <div class="container">
+    <div class="col col-left">
+      <% [[:property, :vintage],
+          [:taxon, :country],
+          [:taxon, :region],
+          [:property, :alcohol],
+          [:taxon, :format],
+          [:property, :occasion]].each do |type, key| %>
+        <%= render partial: 'spree/products/show/tag', locals: { product: product, type: type, key: key } %>
+      <% end %>
+    </div>
+    <div class="col col-right">
+      <p class="title"><%= t('store.product.tags.description_label') %></p>
+      <p class="text"><%= product.description %></p>
+    </div>
+  </div>
+</div>

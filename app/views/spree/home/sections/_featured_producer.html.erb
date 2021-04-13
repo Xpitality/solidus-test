@@ -17,7 +17,7 @@
         <% if producer_image %>
           <%= render('spree/shared/image', image: producer_image, size: :small, itemprop: "image") %>
         <% else %>
-          <%= image_tag("home/featured-producer-generic.png") %>
+          <%= image_tag("producers/default-image.jpg") %>
         <% end %>
         <h1 class="title"><%= t("store.home.featured_producer.title") %></h1>
         <h3 class="subtitle"><%= producer.name %></h3>

@@ -74,10 +74,8 @@ it:
     product:
       add_to_cart_button: AGGIUNGI AL CARRELLO
       delivery: Disponibile con consegna in 48 ore
-      slider_and_info:
+      region:
         title: DALLA STESSA REGIONE
-        subtitle: Sicilia
-        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
         button: SCOPRI I PRODOTTI
       taxon:
         wine_type: tipo
@@ -89,7 +87,10 @@ it:
         vintage: annata
         alcohol: alcol
         occasion: occasione
-
+      tags:
+        description_label: COSA NE PENSIAMO
+      producer:
+        title: CANTINA
     cart:
       cart_title: CARRELLO
       cart_info_title: Riepilogo

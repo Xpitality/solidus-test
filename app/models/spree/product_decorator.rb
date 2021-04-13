@@ -43,7 +43,9 @@ Spree::Product.class_eval do
     end
   end
 
-
+  def producer
+    self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(:producer).id).first
+  end
 
   def grape_type_taxon_names
     self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(:grape_type).id).pluck(:name)
@@ -58,16 +60,18 @@ Spree::Product.class_eval do
         p
       end
     elsif type == :taxon
-      t = self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(key).id).first
-
-      if Spree::Taxon.tree.values.flatten.include?(key)
-        taxon_tree(taxon: t, key: key)
-      else
-        t&.name
-      end
+      taxon_by_key(key: key)&.name
     end
   end
 
+  def taxon_by_key(key:)
+    t = self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(key).id).first
+
+    if Spree::Taxon.tree.values.flatten.include?(key)
+      t = taxon_tree(taxon: t, key: key)
+    end
+    t
+  end
 
   def taxon_tree(taxon:, key:)
     tree = []
@@ -83,7 +87,7 @@ Spree::Product.class_eval do
       t = t.parent
     end
     tree.reverse!
-    tree[Spree::Taxon.tree[taxonomy].index(key)]&.name
+    tree[Spree::Taxon.tree[taxonomy].index(key)]
   end
 
 

@@ -53,7 +53,7 @@
           <%= content_tag :p, t('store.shared.main_menu.producers.title') %>
         </div>
         <div class="col dropdown-col">
-          <% taxon_children(:producers).each do |taxon| %>
+          <% taxon_children(:producer).each do |taxon| %>
             <div class="drop-link-holder">
               <%= link_to taxon.name, seo_url(taxon), class: "drop-link" %>
             </div>

@@ -3,7 +3,8 @@ Spree::Taxonomy.class_eval do
       wine_type: 'Tipologia',
       grape_type: 'Uve',
       country: 'Paese',
-      format: 'Formato'
+      format: 'Formato',
+      producer: 'Produttore'
   }
 
   class << self

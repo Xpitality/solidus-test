@@ -2,7 +2,7 @@ Spree::Taxon.class_eval do
   BASIC_TAXONS = {
       tipologia: 'Tipologia',
       country: 'Paese',
-      producers: 'Produttore',
+      producer: 'Produttore',
       new: 'Novità',
       collection: 'Collezioni'
   }

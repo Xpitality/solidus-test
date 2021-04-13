@@ -1,0 +1,23 @@
+<div class="product-cellar">
+  <div class="container cellar-top">
+    <%= image_tag("product/cellar-background.png", class: "background-image") %>
+    <div class="col col-left">
+      <p class="title"><%= t('store.product.producer.title') %></p>
+      <h1 class="title-big"><%= producer.name %></h1>
+
+      <% producer_image = producer.gallery.images.first %>
+      <% if producer_image %>
+        <%= render('spree/shared/image', image: producer_image, size: :small, itemprop: "image") %>
+      <% else %>
+        <%= image_tag("producers/default-image.jpg") %>
+      <% end %>
+    </div>
+    <div class="col col-right">
+      <%= image_tag(producer.icon.url(:original)) %>
+    </div>
+  </div>
+
+  <div class="container cellar-bottom">
+    <p><%== producer.description %></p>
+  </div>
+</div>
