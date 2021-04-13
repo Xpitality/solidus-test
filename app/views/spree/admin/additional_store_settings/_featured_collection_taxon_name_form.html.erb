@@ -2,7 +2,7 @@
   <div class="col-12 col-md-6">
     <%= f.field_container :text_value do %>
       <%= f.label :text_value, t('additional_store_settings.featured_collection_taxon_name.attributes.text_value') %>
-      <%= f.text_field :text_value, class: 'fullwidth' %>
+      <%= f.select :text_value, Spree::Taxon.by_parent_key(:collection).pluck(:name), class: 'fullwidth', include_blank: true %>
       <%= f.error_message_on :text_value %>
     <% end %>
     <% if @featured_collection_taxon_name.new_record? %>
