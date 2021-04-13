@@ -63,11 +63,6 @@ it:
       featured_producer:
         title: LA CANTINA DEL MESE
         button: SCOPRI I PRODOTTI
-      milano_delivery:
-        title: CONSEGNA VELOCE
-        subtitle: Sei di Milano?
-        text: Consegna veloce su una selezione di vini
-        button: SCOPRI I PRODOTTI
       who_we_are:
         title: chi siamo
         subtitle: Serviamo da bere vini veri, promuoviamo l’inclusione sociale di richiedenti asilo e sosteniamo Emergency.
@@ -84,6 +79,8 @@ it:
         subtitle: Sicilia
         text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
         button: SCOPRI I PRODOTTI
+      taxons:
+        wine_type: TIPO
 
     cart:
       cart_title: CARRELLO

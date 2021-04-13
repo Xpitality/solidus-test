@@ -32,10 +32,6 @@ module Xpitality
           Spree::Product.featured_collection_products
         end
 
-        def milano_products
-          Spree::Product.milano_products
-        end
-
       end
     end
   end

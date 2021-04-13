@@ -20,16 +20,16 @@ Spree::Product.class_eval do
     self.products_for_taxon(taxon: taxon_new, limit: 4)
   end
 
-  def self.milano_products
-    Spree::Product.joins(:taxons).available.order('created_at DESC').limit(2)
-  end
-
   def self.producer_products(producer_taxon)
     self.products_for_taxon(taxon: producer_taxon)
   end
 
   def self.collection_products(collection_taxon)
     self.products_for_taxon(taxon: collection_taxon)
+  end
+
+  def wine_type_taxon
+    self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(:wine_type))
   end
 
   private
