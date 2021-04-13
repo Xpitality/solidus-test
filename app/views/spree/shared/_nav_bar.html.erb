@@ -3,7 +3,7 @@
     <%= link_to t("store.shared.main_menu.home"), "/", class: "nav-link" %>
   </div>
   <div class="nav-link-holder">
-    <%= link_to t("store.shared.main_menu.new_products"), seo_url(new_products_taxon), class: "nav-link #{conditionally_active_for(seo_url(new_products_taxon))}" %>
+    <%= link_to t("store.shared.main_menu.new_products"), seo_url(taxon_by_key(:new)), class: "nav-link #{conditionally_active_for(seo_url(taxon_by_key(:new)))}" %>
   </div>
   <div class="nav-link-holder">
     <%= link_to t("store.shared.main_menu.products"), "/products", class: "nav-link #{conditionally_active_for(products_path)}" %>

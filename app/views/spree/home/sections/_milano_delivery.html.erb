@@ -1,0 +1,20 @@
+<% products = @searcher.milano_products %>
+
+<% unless products.empty? %>
+  <div class="container">
+    <div class="col slider-col">
+      <% products.each do |product| %>
+        <div class="product-col">
+          <%= render partial: 'spree/shared/product_card', locals: { product: product, section: :milano_delivery, css_classes: '' } %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col info-col">
+      <%= image_tag("home/milano-delivery-background.png") %>
+      <h1 class="title"><%= t("store.home.milano_delivery.title") %></h1>
+      <h3 class="subtitle"><%= t("store.home.milano_delivery.subtitle") %></h3>
+      <p class="text"><%= t("store.home.milano_delivery.text") %></p>
+      <button class="btn btn-white-transparent align-self-start"><%= t("store.home.milano_delivery.button") %></button>
+    </div>
+  </div>
+<% end %>

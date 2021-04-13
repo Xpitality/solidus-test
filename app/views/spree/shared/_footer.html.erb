@@ -43,7 +43,7 @@
           <%= image_tag("footer/footer-logo.svg", class: "logo-image") %>
           <div class="logo-social">
             <% if store_instagram %>
-              <%= link_to store_instagram do %>
+              <%= link_to store_instagram, target: :_blank do %>
                 <%= image_tag("icons/icon-instagram-white.svg") %>
               <% end %>
             <% end %>
@@ -72,7 +72,7 @@
           <p class="nav-title"><%= t("store.shared.footer.site.title") %></p>
           <div class="nav">
             <%= link_to t("store.shared.footer.site.home"), '/' %>
-            <%= link_to t("store.shared.footer.site.new"), seo_url(new_products_taxon) %>
+            <%= link_to t("store.shared.footer.site.new"), seo_url(taxon_by_key(:new)) %>
             <%= link_to t("store.shared.footer.site.products"), "/products" %>
           </div>
         </div>

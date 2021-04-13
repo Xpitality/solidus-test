@@ -9,36 +9,36 @@
     <%= image_tag("home/home-hero.png", class: "home-hero-image exceptSmallScreen") %>
     <%= image_tag("home/home-hero-mobile.png", class: "home-hero-image smallScreen") %>
     <div class="home-button-holder">
-      <%= link_to t('store.home.hero.catalog_button'), products_path, class:"btn btn-primary" %>
+      <%= link_to t('store.home.hero.catalog_button'), products_path, class: "btn btn-primary" %>
     </div>
   </div>
 
-  <div data-hook="homepage_products">
+  <div data-hook="homepage_products" class="all-available-products">
     <% cache(cache_key_for_products) do %>
       <%= render partial: 'spree/shared/products', locals: { products: @products } %>
     <% end %>
   </div>
 
-  <div class="arrivals-section">
-    <%= render partial: 'spree/home/sections/arrivals_section', locals: { products: @new_products } %>
+  <div class="new-products-section">
+    <%= render partial: 'spree/home/sections/new_products' %>
   </div>
 
-  <div class="slider-and-info-section">
-    <%= image_tag("slider-and-info/slider-and-info-background.png", class: "background-image") %>
-    <%= render partial: 'spree/home/sections/slider_and_info' %>
+  <div class="featured-producer-section">
+    <%= image_tag("home/slider-and-info-background.png", class: "background-image") %>
+    <%= render partial: 'spree/home/sections/featured_producer' %>
   </div>
 
-  <div class="arrivals-section">
-    <%= render partial: 'spree/home/sections/our_selection' %>
+  <div class="featured-collection-products-section">
+    <%= render partial: 'spree/home/sections/featured_collection' %>
   </div>
 
-  <div class="slider-and-info-section reverse">
-    <%= image_tag("slider-and-info/slider-and-info-background.png", class: "background-image") %>
-    <%= render partial: 'spree/home/sections/fast_delivery' %>
+  <div class="milano-delivery-section reverse">
+    <%= image_tag("home/slider-and-info-background.png", class: "background-image") %>
+    <%= render partial: 'spree/home/sections/milano_delivery' %>
   </div>
 
   <div class="who-we-are">
-    <%= image_tag("who-we-are/who-we-are-background.png", class: "background-image") %>
+    <%= image_tag("home/who-we-are/who-we-are-background.png", class: "background-image") %>
     <%= render partial: 'spree/home/sections/who_we_are' %>
   </div>
 </div>

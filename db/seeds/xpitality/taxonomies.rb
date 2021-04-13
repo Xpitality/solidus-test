@@ -1,3 +1,12 @@
+def image(name, type = "jpg")
+  images_path = Pathname.new(File.dirname(__FILE__)) + "images"
+  path = images_path + "#{name}.#{type}"
+
+  return false if !File.exist?(path)
+
+  path
+end
+
 taxonomies = [
     { name: "Produttore" },
     { name: "Paese" },
@@ -22,18 +31,22 @@ t_collezioni = Spree::Taxonomy.find_by!(name: "Collezioni")
 t_quantita_limitata = Spree::Taxonomy.find_by!(name: "Quantità limitata")
 t_novita = Spree::Taxonomy.find_by!(name: "Novità")
 
+generic_producer_description = 'È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.'
+generic_collection_description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci'
+generic_taxon_new_description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci'
+
 taxons = [
     { name: "Produttore", taxonomy: t_produttore, position: 0 },
-    { name: "Klinec", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Kmetija Štekar", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Cantina del Malandrino", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Benoit Delorme", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Rennersistas", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Rennersistas 2", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Rennersistas 3", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Koppitsch", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Koppitsch 2", taxonomy: t_produttore, parent: "Produttore" },
-    { name: "Koppitsch 3", taxonomy: t_produttore, parent: "Produttore" },
+    { name: "Klinec", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Kmetija Štekar", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Cantina del Malandrino", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Benoit Delorme", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Rennersistas", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Rennersistas 2", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Rennersistas 3", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Koppitsch", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Koppitsch 2", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
+    { name: "Koppitsch 3", taxonomy: t_produttore, parent: "Produttore", description: generic_producer_description },
 
     { name: "Paese", taxonomy: t_paese, position: 1 },
     { name: "Italia", taxonomy: t_paese, parent: "Paese" },
@@ -82,8 +95,8 @@ taxons = [
     { name: "Lattina", taxonomy: t_formato, parent: "Formato" },
 
     { name: "Collezioni", taxonomy: t_collezioni, position: 5 },
-    { name: "La Slovenia del vino", taxonomy: t_collezioni, parent: "Collezioni" },
-    { name: "Vini imperiali", taxonomy: t_collezioni, parent: "Collezioni" },
+    { name: "La Slovenia del vino", taxonomy: t_collezioni, parent: "Collezioni", description: generic_collection_description },
+    { name: "Vini imperiali", taxonomy: t_collezioni, parent: "Collezioni", description: generic_collection_description },
 
     { name: "Quantità limitata", taxonomy: t_quantita_limitata, position: 6 },
     { name: "1", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
@@ -91,12 +104,20 @@ taxons = [
     { name: "3", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
     { name: "10", taxonomy: t_quantita_limitata, parent: "Quantità limitata" },
 
-    { name: "Novità", taxonomy: t_novita, position: 7 },
+    { name: "Novità", taxonomy: t_novita, position: 7, description: generic_taxon_new_description },
 ]
 
 taxons.each do |taxon_attrs|
   if taxon_attrs[:parent]
     taxon_attrs[:parent] = Spree::Taxon.find_by!(name: taxon_attrs[:parent])
-    Spree::Taxon.create!(taxon_attrs)
+    t = Spree::Taxon.create!(taxon_attrs)
+
+    if taxon_attrs[:parent].name == "Produttore"
+      puts "Loading image for taxon #{t.name}"
+      main_image = image('la-cantina-del-mese-background', "png")
+      File.open(main_image) do |f|
+        t.images.create!(attachment: f)
+      end
+    end
   end
 end

@@ -51,22 +51,17 @@ it:
     home:
       hero:
         catalog_button: "vai al catalogo"
-      arrivals:
+      new_products:
         title: GLI ULTIMI ARRIVI
         subtitle: questo mese abbiamo assaggiato
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci
         button: NOVITÀ
-      our_selection:
+      featured_collection:
         title: LA NOSTRA SELEZIONE
-        subtitle: consigliati da Rocco
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus risus id est ultrices, convallis lacinia risus congue. Sed ultricies velit orci
         button: SCOPRI I PRODOTTI
-      the_winery_of_the_month:
+      featured_producer:
         title: LA CANTINA DEL MESE
-        subtitle: Podere Cipolla
-        text: È anche grazie al lavoro sulla tradizione di vignaioli come Denny Bini se oggi è possibile parlare di una vera e propria rinascita della viticoltura emiliana.
         button: SCOPRI I PRODOTTI
-      fast_delivery:
+      milano_delivery:
         title: CONSEGNA VELOCE
         subtitle: Sei di Milano?
         text: Consegna veloce su una selezione di vini

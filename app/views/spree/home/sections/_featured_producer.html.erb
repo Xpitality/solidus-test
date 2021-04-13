@@ -1,0 +1,29 @@
+<% producer = featured_producer_taxon %>
+<% products = @searcher.producer_products(featured_producer_taxon) if featured_producer_taxon %>
+<% if producer && !products.empty? %>
+  <% cache(cache_key_for_home_products(:featured_producer, producer)) do %>
+    <div class="container">
+      <div class="col slider-col">
+        <% products.each do |product| %>
+          <div class="product-col">
+            <% cache(@taxon.present? ? [I18n.locale, :featured_producer, current_pricing_options, @taxon, product] : [I18n.locale, :featured_producer, current_pricing_options, product]) do %>
+              <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: '' } %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col info-col">
+        <% producer_image = producer.gallery.images.first %>
+        <% if producer_image %>
+          <%= render('spree/shared/image', image: producer_image, size: :small, itemprop: "image") %>
+        <% else %>
+          <%= image_tag("home/featured-producer-generic.png") %>
+        <% end %>
+        <h1 class="title"><%= t("store.home.featured_producer.title") %></h1>
+        <h3 class="subtitle"><%= producer.name %></h3>
+        <p class="text"><%= producer.description %></p>
+        <%= link_to t("store.home.featured_producer.button"), seo_url(producer), class: "btn btn-white-transparent align-self-start" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

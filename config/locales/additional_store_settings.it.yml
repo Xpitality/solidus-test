@@ -24,7 +24,11 @@ it:
       title: "Taxonomy containing product quantity limits"
       attributes:
         text_value: "Quantity limit taxonomy"
-    new_product_taxon_name:
-      title: "Taxon used for indicating new products"
+    featured_producer_taxon_name:
+      title: "Name of producer featured on the home page"
+      attributes:
+        text_value: "Taxon name"
+    featured_collection_taxon_name:
+      title: "Name of collection featured on the home page"
       attributes:
         text_value: "Taxon name"

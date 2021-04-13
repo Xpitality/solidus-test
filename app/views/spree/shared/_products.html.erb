@@ -19,46 +19,19 @@
       <div data-hook="products_search_results_heading_results_found">
         <h6 class="search-results-title"><%= t('spree.search_results', keywords: h(params[:keywords])) %></h6>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
-  
-  <div class="container">
-    <% if products.any? %>
-    
+</div>
+
+<div class="container">
+  <% if products.any? %>
+
     <div class="products-holder">
       <% products.each do |product| %>
-      <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
-      <div class="product-col">
-        <div class="product-card new-product"  id="product_<%= product.id %>">
-          <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
-            <div class="product-image-holder">
-              <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
-            </div>
-            <div class="product-card-body">
-              <div class="body-info">
-                <p>
-                  <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
-                </p>
-              </div>
-              <div class="body-actions-holder">
-                <div class="price">
-                  <% if price = product.price_for(current_pricing_options) %>
-                    <%= price.to_html %>
-                  <% end %>
-                </div>
-                <div class="body-actions">
-                  <div class="add-to-cart">
-                    <%= image_tag("icons/icon-add-to-cart.svg") %>
-                  </div>
-                  <div class="favourite">
-                    <%= image_tag("icons/icon-favourite.svg") %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </div>
+        <div class="product-col">
+          <% cache(@taxon.present? ? [I18n.locale, :products, current_pricing_options, @taxon, product] : [I18n.locale, :products, current_pricing_options, product]) do %>
+            <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: ''} %>
+          <% end %>
         </div>
       <% end %>
       <% reset_cycle("classes") %>

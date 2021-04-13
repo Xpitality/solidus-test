@@ -16,9 +16,24 @@ module Xpitality
         #   @products = @products.page(curr_page).per(@properties[:per_page])
         # end
 
-        def new_products
-          store = Spree::Store.first
-          Spree::Product.new_products(store: store)
+        def new_products(taxon_new=nil)
+          Spree::Product.new_products(taxon_new)
+        end
+
+        def producer_products(producer_taxon)
+          Spree::Product.producer_products(producer_taxon)
+        end
+
+        def collection_products(collection_taxon)
+          Spree::Product.collection_products(collection_taxon)
+        end
+
+        def featured_collection_products
+          Spree::Product.featured_collection_products
+        end
+
+        def milano_products
+          Spree::Product.milano_products
         end
 
       end

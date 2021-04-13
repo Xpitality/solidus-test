@@ -1,0 +1,22 @@
+<% taxon_new = taxon_by_key(:new) %>
+<% products = @searcher.new_products(taxon_new) if taxon_new %>
+<% if taxon_new && !products.empty? %>
+  <% cache(cache_key_for_home_products(:new_products)) do %>
+    <div class="container">
+      <div class="col info-col">
+        <%= image_tag("home/new-products-background.jpg") %>
+        <h1 class="title"><%= t("store.home.new_products.title") %></h1>
+        <h3 class="subtitle"><%= t("store.home.new_products.subtitle") %></h3>
+        <p class="text"><%= taxon_new.description %></p>
+        <%= link_to t("store.home.new_products.button"), seo_url(taxon_new), class: "btn btn-white-transparent" %>
+      </div>
+      <div class="col products-col">
+        <% products.each do |product| %>
+          <div class="product-wrapper">
+            <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'new-product product-side' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -19,7 +19,8 @@ unless Spree::Store.where(code: 'enoteca-naturale').exists?
       store_facebook: 'https://facebook.com/enotecanaturale',
       hidden_taxonomies: 'Collezioni,Quantità limitata,Novità',
       quantity_limit_taxonomy: 'Quantità limitata',
-      new_product_taxon_name: 'Novità'
+      featured_producer_taxon_name: 'Koppitsch',
+      featured_collection_taxon_name: 'La Slovenia del vino'
   }.each { |label, text_value| store.additional_store_settings.create(label: label, text_value: text_value) }
 
 end
