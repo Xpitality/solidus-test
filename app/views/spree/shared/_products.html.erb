@@ -29,7 +29,9 @@
     <div class="products-holder">
       <% products.each do |product| %>
         <div class="product-col">
-          <%= render partial: 'spree/shared/product_card', locals: { product: product, section: :products, css_classes: ''} %>
+          <% cache(@taxon.present? ? [I18n.locale, :products, current_pricing_options, @taxon, product] : [I18n.locale, :products, current_pricing_options, product]) do %>
+            <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: ''} %>
+          <% end %>
         </div>
       <% end %>
       <% reset_cycle("classes") %>

@@ -13,7 +13,9 @@
       <div class="col products-col">
         <% products.each do |product| %>
           <div class="product-wrapper">
-            <%= render partial: 'spree/shared/product_card', locals: { product: product, section: :featured_collection, css_classes: 'product-side' } %>
+            <% cache(@taxon.present? ? [I18n.locale, :featured_collection, current_pricing_options, @taxon, product] : [I18n.locale, :featured_collection, current_pricing_options, product]) do %>
+              <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'product-side' } %>
+            <% end %>
           </div>
         <% end %>
       </div>
