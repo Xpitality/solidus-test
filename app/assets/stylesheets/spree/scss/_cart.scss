@@ -25,91 +25,6 @@
             max-width: 100%;
           }
         }
-        &.info-col {
-          flex: 0 0 30%;
-          max-width: 30%;
-          @media (max-width: $medium) {
-            flex: 0 0 100%;
-            max-width: 100%;
-          }
-          .info-holder {
-            background: $light-grey;
-            padding: 20px 15px;
-            .info-title {
-              font-size: 16px;
-              font-weight: bold;
-              margin-bottom: 25px;
-            }
-            .info-prices {
-              border-top: 1px solid #e5e5e5;
-              padding-top: 15px;
-              .price-row {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 30px;
-                .text-holder {
-                  p {
-                    font-weight: bold;
-                  }
-                  small {
-                    font-size: 12px;
-                    color: $light-text-color;
-                  }
-                }
-                .price {
-                  font-size: 16px;
-                  font-weight: bold;
-                  color: $light-text-color;
-                }
-                &.total-row {
-                  margin-bottom: 0;
-                  .text-holder {
-                    p {
-                      font-size: 16px;
-                    }
-                  }
-                  .price {
-                    color: $text-color;
-                  }
-                }
-              }
-            }
-          }
-          .code-holder {
-            margin-top: 20px;
-            .code-title {
-              font-weight: bold;
-              margin-bottom: 10px;
-            }
-            .code-input-holder {
-              display: flex;
-              justify-content: space-between;
-              input {
-                font-size: 12px;
-                border: 1px solid #e5e5e5;
-                height: 42px;
-                padding: 0 15px;
-                flex: 1;
-                min-width: 0;
-                &::placeholder {
-                  color: $light-text-color;
-                }
-              }
-              .btn {
-                height: 42px;
-                padding: 0 15px;
-                margin-left: 5px;
-              }
-            }
-          }
-          .btn-to-checkout {
-            font-family: "chainprinter", sans-serif;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-            margin-top: 20px;
-            width: 100%;
-            padding: 20px;
-          }
-        }
       }
     }
   }
@@ -253,5 +168,91 @@
       padding: 20px 0;
       text-align: center;
     }
+  }
+}
+
+.summary {
+  flex: 0 0 30%;
+  max-width: 30%;
+  @media (max-width: $medium) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .info-holder {
+    background: $light-grey;
+    padding: 20px 15px;
+    .info-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+    .info-prices {
+      border-top: 1px solid #e5e5e5;
+      padding-top: 15px;
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        .text-holder {
+          p {
+            font-weight: bold;
+          }
+          small {
+            font-size: 12px;
+            color: $light-text-color;
+          }
+        }
+        .price {
+          font-size: 16px;
+          font-weight: bold;
+          color: $light-text-color;
+        }
+        &.total-row {
+          margin-bottom: 0;
+          .text-holder {
+            p {
+              font-size: 16px;
+            }
+          }
+          .price {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+  .code-holder {
+    margin-top: 20px;
+    .code-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .code-input-holder {
+      display: flex;
+      justify-content: space-between;
+      input {
+        font-size: 12px;
+        border: 1px solid #e5e5e5;
+        height: 42px;
+        padding: 0 15px;
+        flex: 1;
+        min-width: 0;
+        &::placeholder {
+          color: $light-text-color;
+        }
+      }
+      .btn {
+        height: 42px;
+        padding: 0 15px;
+        margin-left: 5px;
+      }
+    }
+  }
+  .btn-to-checkout {
+    font-family: "chainprinter", sans-serif;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
   }
 }

@@ -1,0 +1,49 @@
+<div class="login">
+  <div class="container">
+    <div class="col login-col">
+      <h1 class="col-title">
+        Ho già un account
+      </h1>
+      <form class="login-form">
+        <div class="input-holder">
+          <label>Email</label>
+          <input type="email">
+        </div>
+        <div class="input-holder">
+          <label>Password</label>
+          <input type="password">
+        </div>
+        <a href="#" class="forgot-password-link">Password dimenticata?</a>
+        <button class="btn btn-primary">
+          ACCEDI
+        </button>
+      </form>
+      <p class="or">oppure</p>
+      <button class="btn btn-facebook">
+        <%= image_tag("auth/btn-facebook.png") %>
+          <span>Continua con Facebook</span>
+      </button>
+      <button class="btn btn-google">
+        <%= image_tag("auth/btn-google.png") %>
+          <span>Sign in with Google</span>
+      </button>
+    </div>
+    <div class="col register-col">
+      <h1 class="col-title">
+        Non ho un account
+      </h1>
+      <button class="btn btn-primary">
+        REGISTRATI
+      </button>
+      <p class="or">oppure</p>
+      <button class="btn btn-facebook">
+        <%= image_tag("auth/btn-facebook.png") %>
+          <span>Continua con Facebook</span>
+      </button>
+      <button class="btn btn-google">
+        <%= image_tag("auth/btn-google.png") %>
+          <span>Sign in with Google</span>
+      </button>
+    </div>
+  </div>
+</div>

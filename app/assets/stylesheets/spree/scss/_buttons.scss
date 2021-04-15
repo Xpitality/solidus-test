@@ -42,4 +42,30 @@
     background: $white;
     border: 3px solid $black;
   }
+  &.btn-facebook {
+    background: #1477F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-right: 10px;
+    }
+    span {
+      color: $white;
+      font-weight: bold;
+    }
+  }
+  &.btn-google {
+    background: #EEEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-right: 10px;
+    }
+    span {
+      color: #6D6D6D;
+      font-weight: bold;
+    }
+  }
 }
