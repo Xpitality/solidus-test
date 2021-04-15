@@ -1,0 +1,54 @@
+<div class="summary">
+  <div class="info-holder">
+    <p class="info-title">
+      <%= t('store.cart.cart_info_title') %>
+    </p>
+    <div class="info-prices">
+      <div class="price-row">
+        <div class="text-holder">
+          <p>
+            <%= t('store.cart.cart_info_subtotal') %>
+          </p>
+        </div>
+        <p class="price"><%= order.display_item_total.to_html %></p>
+      </div>
+      <% if true || order.passed_checkout_step?("delivery") && order.shipments.any? %>
+        <div class="price-row">
+          <div class="text-holder">
+            <p>
+              <%= t('store.cart.cart_info_shipping') %>
+            </p>
+            <small>Consegna stimata 20 - 22 Novembre</small>
+          </div>
+          <p class="price"><%= Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency).to_html %></p>
+        </div>
+      <% end %>
+      <div class="price-row total-row">
+        <div class="text-holder">
+          <p>
+            <%= t('store.cart.cart_info_total') %>
+          </p>
+        </div>
+        <p class="price"><%= order.display_order_total_after_store_credit.to_html %></p>
+      </div>
+    </div>
+  </div>
+  <div class="code-holder">
+    <p class="code-title">
+      <%= t('store.cart.cart_info_code') %>
+    </p>
+    <div id="coupon_code" data-hook="coupon_code" class="code-input-holder">
+      <%= form_tag order_coupon_codes_path(@order), method: :post do %>
+        <%= text_field_tag :coupon_code, nil, placeholder: "Inserisci codice", size: 10 %>
+        <%= submit_tag t('store.cart.cart_info_button'), class:'btn btn-white-strong' %>
+      <% end %>
+    </div>
+
+
+  </div>
+
+  <%= button_tag class: 'btn btn-primary btn-to-checkout checkout primary', id: 'checkout-link', name: 'checkout' do %>
+    <%= t('store.cart.cart_button') %>
+  <% end %>
+
+</div>
