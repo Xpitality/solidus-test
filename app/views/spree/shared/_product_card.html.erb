@@ -10,6 +10,7 @@
   </div>
   <div class="product-card-body">
     <div class="body-info">
+      <p><%= product.producer.name %></p>
       <p>
         <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
       </p>
