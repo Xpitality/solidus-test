@@ -316,6 +316,12 @@ header#header {
               @media (max-width: $mobileHeader) {
                 display: none;
               }
+              a {
+                color: $white;
+                span {
+                  color: $white !important;
+                }
+              }
             }
             img {
               margin-left: 10px;
