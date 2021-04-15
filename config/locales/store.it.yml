@@ -55,13 +55,13 @@ it:
         subtotal: Subtotale
         total: TOTALE
         button: PROSEGUI
-      
-        
+
+
     modals:
       location:
         title: "ATTENZIONE"
         title_big: "Stai cambiando catalogo"
-        subtitle: "Cambiando catalogo i prodotti nel tuo carrello verranno eliminati. 
+        subtitle: "Cambiando catalogo i prodotti nel tuo carrello verranno eliminati.
 Se vuoi completare l’ordine in corso, clicca su Annulla, altrimenti Conferma"
         actions:
           cancel: "ANNULLA"

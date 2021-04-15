@@ -5,9 +5,6 @@ module Spree
     validates :label, presence: true, uniqueness: {scope: :store_id}
 
     class << self
-      def delivery_location
-        where(label: :delivery_location)
-      end
       def store_email
         where(label: :store_email)
       end
@@ -20,15 +17,15 @@ module Spree
       def store_facebook
         where(label: :store_facebook)
       end
+      def hidden_taxonomies
+        where(label: :hidden_taxonomies)
+      end
+      def quantity_limit_taxonomy
+        where(label: :quantity_limit_taxonomy)
+      end
+      def new_product_taxon_name
+        where(label: :new_product_taxon_name)
+      end
     end
-
-    def show_modal?
-      label == 'delivery_location' && boolean_value
-    end
-
-    def hours_until_delivery_location_expiry
-      number_value || 1
-    end
-
   end
 end

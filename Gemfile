@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '~> 2.7.2'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'mysql2'
@@ -57,6 +57,9 @@ gem 'solidus_seo'
 
 # https://github.com/nebulab/solidus_zip_zones
 gem 'solidus_zip_zones', github: 'nebulab/solidus_zip_zones', branch: 'master'
+
+gem 'solidus_abandoned_carts', github: 'solidusio-contrib/solidus_abandoned_carts'
+
 
 
 gem 'bugsnag'
