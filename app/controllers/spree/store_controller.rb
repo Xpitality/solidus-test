@@ -5,8 +5,6 @@ module Spree
     include Spree::Core::ControllerHelpers::Pricing
     include Spree::Core::ControllerHelpers::Order
 
-    before_action :set_current_order
-
     def unauthorized
       render 'spree/shared/unauthorized', layout: Spree::Config[:layout], status: 401
     end
@@ -17,10 +15,6 @@ module Spree
     end
 
     private
-
-    def set_current_order
-      @order = current_order(build_order_if_necessary: true)
-    end
 
     def config_locale
       # Spree::Frontend::Config[:locale]
