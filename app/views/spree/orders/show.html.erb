@@ -23,12 +23,23 @@
   <% end %>
 <% end %>
 
+<% if order_just_completed?(@order) %>
+  <div class="step-four">
+    <%= image_tag("checkout/order-confirmed.png") %>
+    <p class="cheers">Cheers!</p>
+    <h1 class="step-four-title">
+      Ordine confermato!
+    </h1>
+    <button class="btn btn-primary">
+      TORNA AL CATALOGO
+    </button>
+    <p class="step-four-text">Ricordati che puoi controllare lo stato del tuo ordine accedendo alla tua <a href="#">area personale</a></p>
+  </div>
+<% end %>
+
 <fieldset id="order_summary" data-hook>
   <legend><%= t('spree.order_number', number: @order.number) %></legend>
   <h1><%= accurate_title %></h1>
-  <% if order_just_completed?(@order) %>
-    <strong><%= t('spree.thank_you_for_your_order') %></strong>
-  <% end %>
 
   <div id="order" data-hook>
     <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
