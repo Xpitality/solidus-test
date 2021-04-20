@@ -1,27 +1,35 @@
 <div class="cart-modal">
-  <div class="cart-item">
-    <div class="cart-item-image">
-      <%= image_tag("products/product-default.jpg") %>
+
+  <% if @order.line_items.empty? %>
+
+    <div data-hook="empty_cart">
+      <p><%= t('spree.your_cart_is_empty') %></p>
+      <p><%= link_to t('spree.continue_shopping'), products_path, class: 'button continue' %></p>
     </div>
-    <div class="item-modal-col">
-      <div class="cart-item-info">
-        <div class="name">
-          <p>Cantina Del Malandrino ''Etienne'' 2019</p>
+
+  <% else %>
+
+    <div data-hook="outside_cart_form">
+      <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
+        <div data-hook="inside_cart_form">
+
+          <div data-hook="cart_items">
+            <% order = order_form.object %>
+            <%= render 'spree/shared/error_messages', target: order %>
+
+
+            <div id="cart-detail" data-hook>
+              <div id="line_items" class="col items-col" data-hook>
+                <%= render partial: 'spree/orders/line_item', collection: order.line_items, as: :line_item, locals: { order_form: order_form } %>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="price">
-          <p>30.00&euro;</p>
-        </div>
-      </div>
-      <div class="controls">
-        <button class="btn btn-control-cart">-</button>
-        <p>1</p>
-        <button class="btn btn-control-cart">+</button>
-      </div>
+      <% end %>
     </div>
-    <div class="close-button">
-      <%= image_tag("icons/icon-cart-x.svg") %>
-    </div>
-  </div>
+
+  <% end %>
+
   <div class="cart-modal-info">
     <div class="info-row">
       <p class="info-row-text info">

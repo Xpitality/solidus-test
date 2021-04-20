@@ -1,6 +1,8 @@
 <% @body_id = 'cart' %>
-<div data-hook="cart_container">
-  <h1><%= t('spree.shopping_cart') %></h1>
+<div data-hook="cart_container" class="cart">
+  <div class="container title-container">
+    <h1 class="cart-title"><%= t('spree.shopping_cart') %></h1>
+  </div>
 
   <% if @order.line_items.empty? %>
 

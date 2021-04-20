@@ -1,5 +1,7 @@
 @import url("https://p.typekit.net/p.css?s=1&k=ogs6wud&ht=tk&f=188&a=50063149&app=typekit&e=css");
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @font-face {
   font-family: "chainprinter";
   src: url("https://use.typekit.net/af/3adfe3/000000000000000077359588/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
@@ -38,6 +40,9 @@ a {
 button {
   font-family: "Roboto", sans-serif;
   cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   &:focus {
     box-shadow: none;
     outline: none;
