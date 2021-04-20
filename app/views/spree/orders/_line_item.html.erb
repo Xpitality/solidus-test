@@ -6,7 +6,7 @@
                          image: (variant.gallery.images.first || variant.product.gallery.images.first),
                          size: :small), variant.product) %>
     </div>
-    <div class="cart-item-info-holder">
+    <div class="cart-item-info-holder item-modal-col">
       <div class="cart-item-info">
         <div class="name">
           <p><%= link_to line_item.name, product_path(variant.product) %></p>
