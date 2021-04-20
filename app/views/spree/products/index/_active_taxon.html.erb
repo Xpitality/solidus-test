@@ -1,0 +1,33 @@
+<% if taxon %>
+  <div class="producer-section">
+    <div class="producer-tags-holder">
+      <div class="container">
+        <div class="tag">
+          <p><%= taxon.name %></p>
+          <%= link_to products_path do %>
+            <div class="close-tag">
+              <%= image_tag("icons/icon-tag-close.svg") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% taxon_image = taxon.gallery.images.first %>
+    <% if taxon_image || !taxon.description.blank? %>
+      <div class="producer-content-holder">
+        <div class="container">
+          <div class="col col-left">
+            <% if taxon_image %>
+              <%= render('spree/shared/image', image: taxon_image, size: :small, itemprop: "image") %>
+              <%# else %>
+              <%#= image_tag("producers/default-image.jpg") %>
+            <% end %>
+          </div>
+          <div class="col col-right">
+            <%== taxon.description %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
