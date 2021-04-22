@@ -3,6 +3,8 @@
   <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
     <% @body_id = 'product-details' %>
 
+    <%= render partial: 'spree/products/show/breadcrumbs', locals: { product: @product } %>
+
     <div class="product-hero">
       <div class="container">
         <div class="col col-left">
@@ -76,7 +78,6 @@
                         <p id="quantity" class="quantity-value" data-quantity="1" data-max-product-quantity="<%= max_product_quantity(@product) %>">1</p>
                         <span class="btn btn-control-cart plus">+</span>
                       </div>
-                      <%#= number_field_tag :quantity, 1, class: 'title', min: 0, max: max_product_quantity(@product) %>
                     </div>
                     </div>
 
