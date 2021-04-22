@@ -1,24 +1,37 @@
 <div class="profile">
   <div class="container">
-    <h3 class="profile-title-small">Bentortata</h3>
-    <h1 class="profile-title-big">Bentortata, Chiara</h1>
-    <div class="line"></div>
-    <div class="col profile-nav-col">
-      <div class="profile-nav">
-        <div class="profile-nav-link">
-          <p>Il mio profilo</p>
-          <%= image_tag("icons/icon-chevron-right-primary.svg") %>
-        </div>
-        <div class="profile-nav-link">
-          <p>I miei ordini</p>
-          <%= image_tag("icons/icon-chevron-right.svg") %>
-        </div>
-        <div class="profile-nav-link">
-          <p>Indirizzi salvati</p>
-          <%= image_tag("icons/icon-chevron-right.svg") %>
+    <div class="profile-title-holder">
+      <h3 class="profile-title-small">Bentortata</h3>
+      <h1 class="profile-title-big">Bentortata, Chiara</h1>
+    </div>
+    <div class="profile-content-holder">
+      <div class="col profile-nav-col">
+        <div class="profile-nav">
+          <div class="profile-nav-link active" profile-nav-for="profile-info">
+            <p>Il mio profilo</p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="profile-nav-link" profile-nav-for="profile-orders">
+            <p>I miei ordini</p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="profile-nav-link" profile-nav-for="profile-addresses">
+            <p>Indirizzi salvati</p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="logout-btn-holder">
+            <a href="">Logout</a>
+          </div>
         </div>
       </div>
+      <div class="col profile-content-col">
+        <%= render partial: 'spree/profile/profile_info' %>
+        <%= render partial: 'spree/profile/profile_orders' %>
+        <%= render partial: 'spree/profile/profile_addresses' %>
+      </div>
     </div>
-    <div class="col profile-content-col"></div>
   </div>
 </div>
