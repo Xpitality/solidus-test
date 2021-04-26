@@ -6,3 +6,6 @@
   unique: true
   elements: [article]
   autogenerate: [article]
+- name: basic
+  elements: [article]
+  layoutpage: true

@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Alchemy::ElementsHelper
+
   def max_variant_quantity(variant)
     variant.max_product_quantity(user: try_spree_current_user, store: current_store)
   end

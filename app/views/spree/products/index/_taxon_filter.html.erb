@@ -1,0 +1,24 @@
+<div class="filters-holder">
+  <div class="container title-container">
+    <h1 class="title-small">RISULTATI PER:</h1>
+    <h1 class="title-big">
+      <% if taxon %>
+        <%= taxon.name %>
+      <% else %>
+        Catalogo
+      <% end %>
+    </h1>
+  </div>
+  <div class="container filters-container">
+    <div class="filters-mobile-btn-holder">
+      <button class="btn btn-primary inverted">
+        <span>FILTRI (1)</span>
+        <%= image_tag("icons/icon-filter-primary.svg") %>
+      </button>
+    </div>
+    <div class="filters">
+      <% filters = [:wine_type, :country, :producer, :grape_type, :format] %>
+      <%= render partial: 'spree/products/index/taxon_filter/select_holder', collection: filters, as: :taxon_key %>
+    </div>
+  </div>
+</div>

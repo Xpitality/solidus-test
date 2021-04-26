@@ -1,0 +1,10 @@
+<div class="filter-select-holder">
+  <div class="filter-select">
+    <%= image_tag("icons/taxon_filter/#{taxon_key}.svg") %>
+    <p><%= t("store.product.index.filters.#{taxon_key}") %></p>
+    <%= image_tag("icons/icon-chevron-down.svg") %>
+  </div>
+  <div class="filter-dropdown">
+    <%= render partial: 'spree/products/index/taxon_filter/dropdown_item', collection: taxon_children(taxon_key), as: :taxon %>
+  </div>
+</div>

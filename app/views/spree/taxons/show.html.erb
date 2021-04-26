@@ -1,21 +1,28 @@
-<h1 class="taxon-title"><%= @taxon.name %></h1>
-
-<!--todo: remove -->
-<%# content_for :sidebar do %>
-<!--  <div data-hook="taxon_sidebar_navigation">-->
-    <%#= render partial: 'spree/shared/taxonomies' %>
-    <%#= render partial: 'spree/shared/filters' if @taxon.children.empty? %>
+<%# unless params[:keywords].present? %>
+<!--  <div data-hook="taxon_children">-->
+    <%# cache [I18n.locale, @taxon] do %>
+      <%#= render partial: 'taxon', collection: @taxon.children %>
+    <%# end %>
 <!--  </div>-->
 <%# end %>
 
-<div data-hook="taxon_products">
-  <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-</div>
 
-<% unless params[:keywords].present? %>
-  <div data-hook="taxon_children">
-    <% cache [I18n.locale, @taxon] do %>
-      <%= render partial: 'taxon', collection: @taxon.children %>
+<% if params[:keywords] %>
+
+  <div data-hook="search_results">
+    <% if @products.empty? %>
+      <h6 class="search-results-title"><%= t('spree.no_products_found') %></h6>
+    <% else %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
     <% end %>
+  </div>
+
+<% else %>
+
+  <div data-hook="homepage_products">
+    <%= render partial: 'spree/products/index/taxon_filter', locals: { taxon: @taxon } %>
+    <%= render partial: 'spree/products/index/active_taxon', locals: { taxon: @taxon } %>
+    <%= render partial: 'spree/products/index/products_sort' %>
+    <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
   </div>
 <% end %>

@@ -7,14 +7,17 @@ it:
       sign_out: "Logout"
     shared:
       main_menu:
-        home: "HOME"
-        new_products: "NOVITÀ"
-        products: "CATALOGO"
-        wine_type: "TIPOLOGIA"
-        origin: "ORIGINE"
-        producers:
-          label: "PRODUTTORI"
-          title: "PRODUTTORI IN EVIDENZA"
+        label:
+          home: "HOME"
+          new_products: "NOVITÀ"
+          products: "CATALOGO"
+          wine_type: "TIPOLOGIA"
+          country: "ORIGINE"
+          producer: "PRODUTTORI"
+        title:
+          wine_type: "TIPOLOGIA"
+          country: "ORIGINE"
+          producer: "PRODUTTORI IN EVIDENZA"
       footer:
         secure_shopping:
           title: "Shopping sicuro"
@@ -91,6 +94,13 @@ it:
         description_label: COSA NE PENSIAMO
       producer:
         title: CANTINA
+      index:
+        filters:
+          wine_type: Tipologia
+          origin: Origine
+          producer: Produttore
+          grape_type: Vitigno
+          format: Formato
     cart:
       cart_title: CARRELLO
       cart_info_title: Riepilogo
