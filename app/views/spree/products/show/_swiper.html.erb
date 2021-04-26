@@ -1,0 +1,52 @@
+<div class="swiper-section container">
+  <p class="swiper-title">
+    DALLA STESSA CANTINA
+  </p>
+  <!-- Slider main container -->
+  <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <% 9.times do %>
+        <div class="swiper-slide">
+          <div class="product-card product-side">
+            <div class="product-image-holder">
+              <div class="new-mark-top"></div>
+              <%= image_tag("products/product-default.jpg") %>
+                <div class="new-mark-bottom">
+                  <p>NEW</p>
+                </div>
+            </div>
+            <div class="product-card-body">
+              <div class="body-info">
+                <p>Masseria Del Pino ''I Nove Fratelli'' 2018</p>
+              </div>
+              <div class="body-actions-holder">
+                <div class="price">
+                  <p>90,00&euro;</p>
+                </div>
+                <div class="body-actions">
+                  <div class="add-to-cart">
+                    <%= image_tag("icons/icon-add-to-cart.svg") %>
+                  </div>
+                  <div class="favourite">
+                    <%= image_tag("icons/icon-favourite.svg") %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-navigation">
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button swiper-button-prev">
+        <%= image_tag("icons/icon-chevron-left.svg") %>
+      </div>
+      <div class="swiper-button swiper-button-next">
+        <%= image_tag("icons/icon-chevron-right.svg") %>
+      </div>
+    </div>
+  </div>
+</div>

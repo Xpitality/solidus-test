@@ -1,6 +1,6 @@
 <div class="cart-modal">
 
-  <% if @order.line_items.empty? %>
+  <% if @order.nil? || @order.line_items.empty? %>
 
     <div data-hook="empty_cart">
       <p><%= t('spree.your_cart_is_empty') %></p>

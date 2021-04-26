@@ -4,4 +4,5 @@ window.addEventListener("load", () => {
   handleFilters();
   handleRadios();
   handleProductCart();
+  handleSwiper();
 });
