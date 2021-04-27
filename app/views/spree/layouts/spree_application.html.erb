@@ -22,6 +22,8 @@
     <%= render 'solidus_seo/analytics' %>
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="hr4sz2Vv"></script>
 
     <%= render partial: 'spree/shared/header' %>
 

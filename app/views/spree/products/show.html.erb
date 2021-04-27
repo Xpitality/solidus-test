@@ -8,17 +8,16 @@
     <div class="product-hero">
       <div class="container">
         <div class="col col-left">
-          <!-- TODO: add correct social icon actions -->
           <div class="product-social">
-            <%= link_to "https://www.facebook.com" do %>
-              <%= image_tag("icons/icon-facebook-original.svg") %>
+            <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{url_encode product_url(@product)}" do %>
+              <%= image_tag("icons/social/icon-facebook-original.svg") %>
             <% end %>
-            <%= link_to "https://www.twitter.com" do %>
-              <%= image_tag("icons/icon-twitter-original.svg") %>
+            <%= link_to "https://twitter.com/intent/tweet?text='#{@product.name}'&url=#{url_encode product_url(@product)}", class: 'twitter-share-button' do %>
+              <%= image_tag("icons/social/icon-twitter-original.svg") %>
             <% end %>
-            <%= link_to "https://www.twitter.com" do %>
-              <%= image_tag("icons/icon-favourite.svg") %>
-            <% end %>
+            <%#= link_to "https://www.twitter.com" do %>
+              <%#= image_tag("icons/icon-favourite.svg") %>
+            <%# end %>
           </div>
           <div class="product-image-holder">
             <%= render partial: 'spree/products/show/image' %>
