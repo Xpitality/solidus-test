@@ -116,7 +116,12 @@ it:
         subtotal: Subtotale
         total: TOTALE
         button: PROSEGUI
-
+    checkout:
+      confirmed:
+        cheers: "Cheers!"
+        order_confirmed: "Ordine confermato!"
+        back_to_products: "TORNA AL CATALOGO"
+        hint_html: "Ricordati che puoi controllare lo stato del tuo ordine accedendo alla tua <a href='/account'>area personale</a>"
 
     modals:
       location:

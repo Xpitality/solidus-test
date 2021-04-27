@@ -18,7 +18,7 @@ italian_layoutroot_page = Alchemy::Page.create(name: 'Layoutroot for Italian', p
     { name: 'faq', urlname: 'faq', title: 'FAQ', visible: true, layoutpage: true, parent: italian_layoutroot_page, page_layout: 'basic', language: language },
     { name: 'spedizione', urlname: 'spedizione', title: 'Spedizione', visible: true, layoutpage: true, parent: italian_layoutroot_page, page_layout: 'basic', language: language },
     { name: 'contatti', urlname: 'contatti', title: 'Contatti', visible: true, layoutpage: true, parent: italian_layoutroot_page, page_layout: 'basic', language: language },
-    { name: 'terms of service', urlname: 'terms-of-service', title: 'Terms of service', visible: true, layoutpage: true, parent: italian_layoutroot_page, page_layout: 'basic', language: language },
+    { name: 'terms-of-service', urlname: 'terms-of-service', title: 'Terms of service', visible: true, layoutpage: true, parent: italian_layoutroot_page, page_layout: 'basic', language: language },
     { name: 'il-locale', urlname: 'il-locale', title: 'Il locale', visible: true, layoutpage: true, parent: italian_layoutroot_page, page_layout: 'basic', language: language },
 ].each do |page_attributes|
   Alchemy::Page.create page_attributes

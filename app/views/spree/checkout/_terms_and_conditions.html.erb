@@ -1,4 +1,4 @@
-<% terms_of_service_page = Alchemy::Page.where(name: 'terms of service').first %>
+<% terms_of_service_page = Alchemy::Page.where(name: 'terms-of-service').first %>
 <% if terms_of_service_page %>
   <% terms_of_service_page.elements.each do |element| %>
     <% cache element do %>
