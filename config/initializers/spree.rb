@@ -19,6 +19,8 @@ Spree.config do |config|
   # Use the legacy address' state validation logic
   config.use_legacy_address_state_validator = false
 
+  config.default_country_iso = 'it'
+
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
 
