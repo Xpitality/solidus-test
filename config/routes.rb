@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   mount Alchemy::Engine => '/'
 end
 
+Spree::Core::Engine.routes.draw do
+  get '/p/:id', to: 'pages#show'
+end
+
 # Spree::Core::Engine.routes.draw do
 #   root to: 'home#index'
 #

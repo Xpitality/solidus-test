@@ -1,12 +1,12 @@
-<% if spree_user_signed_in? %>
-  <%= link_to destroy_spree_user_session_path, method: :delete do %>
+<% if spree_current_user %>
+  <%= link_to spree.logout_path, method: Devise.sign_out_via do %>
     <%= content_tag :div, class: "user-nav" do -%>
       <%= image_tag("icons/icon-user.svg") %>
       <%= content_tag :p, t('store.general.sign_out') %>
     <% end %>
   <% end -%>
 <% else %>
-  <%= link_to new_spree_user_session_path do %>
+  <%= link_to spree.login_path do %>
     <%= content_tag :div, class: "user-nav" do -%>
       <%= image_tag("icons/icon-user.svg") %>
       <%= content_tag :p, t('store.general.sign_in') %>

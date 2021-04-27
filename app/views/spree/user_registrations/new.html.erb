@@ -3,38 +3,20 @@
   <div class="container">
     <div class="col login-col">
       <h1 class="col-title">
-        Ho già un account
+        <% if session[:omniauth] %>
+          <h6><%= I18n.t('spree.please_confirm_your_email') %></h6>
+        <% else %>
+          <h6><%= I18n.t('spree.new_customer') %></h6>
+        <% end %>
       </h1>
       <%= form_for resource, as: :spree_user, url: spree.registration_path(resource) do |f| %>
-        <div class="input-holder">
-          <%= f.label :email, t('spree.email') %><br />
-          <%= f.email_field :email, class: 'title' %>
-        </div>
-        <div id="password-credentials">
-          <div class="input-holder">
-            <%= f.label :password, t('spree.password') %><br />
-            <%= f.password_field :password, class: 'title' %>
-          </div>
-
-          <div class="input-holder">
-            <%= f.label :password_confirmation, t('spree.confirm_password') %><br />
-            <%= f.password_field :password_confirmation, class: 'title' %>
-          </div>
-        </div>
-
-
+        <%= render partial: 'spree/shared/devise/user_form', locals: { f: f } %>
         <%= f.submit t('spree.create'), class: 'btn btn-primary', tabindex: 4 %>
       <% end %>
       <p class="or">oppure</p>
       <%= link_to t('spree.login_as_existing'), spree.login_path, class: 'btn btn-primary' %>
-      <button class="btn btn-facebook">
-        <%= image_tag("auth/btn-facebook.png") %>
-        <span>Continua con Facebook</span>
-      </button>
-      <button class="btn btn-google">
-        <%= image_tag("auth/btn-google.png") %>
-        <span>Sign in with Google</span>
-      </button>
+
+      <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
     </div>
   </div>
 </div>

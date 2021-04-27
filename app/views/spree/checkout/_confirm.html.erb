@@ -18,7 +18,7 @@
 
   <%= submit_tag t('spree.place_order'),
     disabled: requires_acceptance,
-    class: "continue button primary #{ 'disabled' if requires_acceptance }" %>
+    class: "continue btn btn-primary #{ 'disabled' if requires_acceptance }" %>
 
 
   <script>Spree.disableSaveOnClick();</script>

@@ -25,6 +25,7 @@ Alchemy::Seeder.seed!
   shipping
   taxonomies
   products
+  alchemy
 ).each do |seed|
   puts "Loading seed file: #{seed}"
   require_relative "seeds/xpitality/#{seed}"

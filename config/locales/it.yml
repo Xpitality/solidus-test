@@ -2,3 +2,4 @@ it:
   spree:
     apply_code: 'Apply code'
     taxon_details: "Taxon Details"
+    new_customer: "Ho già un account"
