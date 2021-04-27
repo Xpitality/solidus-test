@@ -1,19 +1,16 @@
-<div class="row" data-hook="checkout_header">
-  <h1 class="columns three alpha" data-hook="checkout_title"><%= t('spree.checkout') %></h1>
-  <div class="columns thirteen omega" data-hook="checkout_progress"><%= checkout_progress %></div>
-</div>
-
 <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
 
 <div class="checkout">
   <div class="container">
     <div class="col left-col">
+      <%= checkout_progress %>
+
       <%= form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}" } do |form| %>
         <% if @order.state == 'address' || !@order.email? %>
           <div class="form-row">
             <div class="form-col">
-              <div class="input-holder"%>
-                <%= form.label :email %><br />
+              <div class="input-holder" %>
+                <%= form.label :email %><br/>
                 <%= form.email_field :email, required: true %>
               </div>
             </div>
@@ -32,6 +29,6 @@
 </div>
 
 <script>
-Spree.current_order_id = "<%= @order.number %>"
-Spree.current_order_token = "<%= @order.guest_token %>"
+  Spree.current_order_id = "<%= @order.number %>"
+  Spree.current_order_token = "<%= @order.guest_token %>"
 </script>
