@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount SolidusPaypalCommercePlatform::Engine, at: '/solidus_paypal_commerce_platform'
   mount Spree::Core::Engine, at: '/'
-  mount Alchemy::Engine => '/'
+  mount Alchemy::Engine => '/alchemy/'
 end
 
 Spree::Core::Engine.routes.draw do
