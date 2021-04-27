@@ -14,10 +14,12 @@ it:
           wine_type: "TIPOLOGIA"
           country: "ORIGINE"
           producer: "PRODUTTORI"
+          locale: "Il locale"
         title:
           wine_type: "TIPOLOGIA"
           country: "ORIGINE"
           producer: "PRODUTTORI IN EVIDENZA"
+          locale: "Il locale"
       footer:
         secure_shopping:
           title: "Shopping sicuro"

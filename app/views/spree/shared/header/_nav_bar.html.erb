@@ -9,5 +9,10 @@
     <%= link_to t("store.shared.main_menu.label.products"), "/products", class: "nav-link #{conditionally_active_for(products_path)}" %>
   </div>
   <% taxon_keys = [:wine_type, :country, :producer] %>
-  <%= render partial: 'spree/shared/nav_bar/nav_link_holder', collection: taxon_keys, as: :taxon_key %>
+  <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', collection: taxon_keys, as: :taxon_key %>
+
+  <div class="nav-link-holder">
+    <%= link_to t("store.shared.main_menu.label.locale"), "/p/il-locale", class: "nav-link" %>
+  </div>
+
 </nav>
