@@ -1,0 +1,10 @@
+.flash{
+  &.alert{}
+  &.notice{}
+  &.error{}
+  &.added_to_cart{
+    // this flash is used for SEO purposes, the text should be present but not visible (the color should match the background color
+    color: white;
+  }
+
+}
