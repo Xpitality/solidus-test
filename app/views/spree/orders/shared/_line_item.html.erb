@@ -1,30 +1,58 @@
 <% variant = line_item.variant -%>
-<%= order_form.fields_for :line_items, line_item do |item_form| -%>
-  <div class="cart-item line-item">
-    <div class="cart-item-image">
+
+<div class="cart-item line-item">
+  <div class="cart-item-image">
+    <% if source == :cart %>
+      <%= render('spree/shared/image', image: (variant.gallery.images.first || variant.product.gallery.images.first), size: :small) %>
+    <% else %>
       <%= link_to(render('spree/shared/image',
                          image: (variant.gallery.images.first || variant.product.gallery.images.first),
                          size: :small), variant.product) %>
-    </div>
-    <div class="cart-item-info-holder item-modal-col">
-      <div class="cart-item-info">
-        <div class="name">
-          <p><%= link_to line_item.name, product_path(variant.product) %></p>
-          <% if line_item.insufficient_stock? %>
-            <span class="out-of-stock">
-              <%= t('spree.out_of_stock') %>&nbsp;&nbsp;<br />
-            </span>
+    <% end %>
+  </div>
+  <div class="cart-item-info-holder item-modal-col">
+    <div class="cart-item-info">
+      <div class="name">
+        <p>
+          <% if source == :cart %>
+            <%= line_item.name %>
+          <% else %>
+            <%= link_to line_item.name, product_path(variant.product) %>
           <% end %>
-        </div>
-        <div class="price">
-          <p><%= line_item.single_money.to_html %></p>
-        </div>
+        </p>
+        <% if source == :order && line_item.insufficient_stock? %>
+                        <span class="out-of-stock">
+                          <%= t('spree.out_of_stock') %>&nbsp;&nbsp;<br/>
+                        </span>
+        <% end %>
       </div>
-      <%= render partial: 'spree/products/shared/product_controls_form_for', locals: { variant: variant, line_item: line_item, item_form: item_form } %>
+      <div class="price">
+        <p><%= line_item.single_money.to_html %></p>
+      </div>
     </div>
-    <div class="close-button cart-item-delete" data-hook="cart_item_delete">
-      <%= link_to image_tag('icons/icon-cart-x.svg'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}" %>
+
+    <div class="product-controls cart-item-quantity">
+      <% if line_item.quantity == 1 %>
+        <span class="btn btn-control-cart disabled">-</span>
+      <% else %>
+        <%= link_to minus_orders_path(id: variant.id), remote: true do %>
+          <span class="btn btn-control-cart minus">-</span>
+        <% end %>
+      <% end %>
+
+      <p class="quantity-value"><%= line_item.quantity %></p>
+
+      <% if line_item.quantity >= max_product_quantity(variant) %>
+        <span class="btn btn-control-cart disabled">+</span>
+      <% else %>
+        <%= link_to plus_orders_path(id: variant.id), remote: true do %>
+          <span class="btn btn-control-cart plus">+</span>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
-<% end -%>
+  <div class="close-button">
+    <%= link_to image_tag('icons/icon-cart-x.svg'), remove_orders_path(id: line_item.id), remote: true, class: 'delete' %>
+  </div>
+</div>

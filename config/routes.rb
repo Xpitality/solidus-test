@@ -7,6 +7,13 @@ end
 
 Spree::Core::Engine.routes.draw do
   get '/p/:id', to: 'pages#show'
+
+    resources :orders do
+      get :plus, on: :collection
+      get :minus, on: :collection
+      get :remove, on: :collection
+      get :refresh, on: :collection
+    end
 end
 
 # Spree::Core::Engine.routes.draw do

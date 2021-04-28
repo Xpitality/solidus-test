@@ -20,7 +20,7 @@
 
         <% if @order.state != 'confirm' %>
           <div id="checkout-summary">
-            <%= render partial: 'spree/orders/shared/summary', locals: { order: @order } %>
+            <%= render partial: 'spree/checkout/edit/summary', locals: { order: @order } %>
           </div>
         <% end %>
       <% end %>

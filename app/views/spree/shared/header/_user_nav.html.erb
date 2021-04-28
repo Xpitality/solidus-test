@@ -1,7 +1,14 @@
 <% if spree_current_user %>
-  <%= link_to spree.logout_path, method: Devise.sign_out_via do %>
-    <%= content_tag :div, class: "user-nav" do -%>
+
+  <%= content_tag :div, class: "user-nav" do -%>
+    <% if try_spree_current_user && respond_to?(:account_path) %>
+      <%= link_to spree.account_path do %>
+        <%= image_tag("icons/icon-user.svg") %>
+      <% end %>
+    <% else %>
       <%= image_tag("icons/icon-user.svg") %>
+    <% end %>
+    <%= link_to spree.logout_path, method: Devise.sign_out_via do %>
       <%= content_tag :p, t('store.general.sign_out') %>
     <% end %>
   <% end -%>

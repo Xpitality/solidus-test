@@ -12,7 +12,7 @@
         </div>
         <p class="price"><%= order.display_item_total.to_html %></p>
       </div>
-      <% if true || order.passed_checkout_step?("delivery") && order.shipments.any? %>
+      <% if order.passed_checkout_step?("delivery") && order.shipments.any? %>
         <div class="price-row">
           <div class="text-holder">
             <p>
@@ -38,7 +38,7 @@
       <%= t('store.cart.cart_info_code') %>
     </p>
     <div id="coupon_code" data-hook="coupon_code" class="code-input-holder">
-      <%= form_tag order_coupon_codes_path(@order), method: :post do %>
+      <%= form_tag order_coupon_codes_path(order), method: :post do %>
         <%= text_field_tag :coupon_code, nil, placeholder: "Inserisci codice", size: 10 %>
         <%= submit_tag t('store.cart.cart_info_button'), class:'btn btn-white-strong' %>
       <% end %>

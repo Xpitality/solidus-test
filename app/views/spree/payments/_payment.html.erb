@@ -12,7 +12,17 @@
   <span class="full-name"><%= source.name %></span>
 <% elsif source.is_a?(Spree::StoreCredit) %>
   <%= content_tag(:span, payment.payment_method.name) %>:
+  <% if payment.source.respond_to?(:paypal_email) %>
+    <br />
+    <%= t('payment_email', email: payment.source.paypal_email) %>
+  <% end %>
+
   <%= content_tag(:span, payment.display_amount) %>
 <% else %>
   <%= content_tag(:span, payment.payment_method.name) %>
+
+  <% if payment.source.respond_to?(:paypal_email) %>
+    <br />
+    <%= t('payment_email', email: payment.source.paypal_email) %>
+  <% end %>
 <% end %>

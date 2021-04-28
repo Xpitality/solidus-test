@@ -28,3 +28,12 @@ Spree.fetch_cart = function(cartLinkUrl) {
     }
   });
 };
+
+Spree.fetch_cart_with_items = function() {
+  Spree.ajax({
+    url: '/orders/refresh',
+    success: function(data) {
+      $('*[data-hook="cart_with_items"]').html(data);
+    }
+  });
+};

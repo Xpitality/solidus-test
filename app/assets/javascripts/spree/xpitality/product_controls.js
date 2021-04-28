@@ -1,7 +1,7 @@
 Spree.ready(function ($) {
   Spree.handleProductControls = function () {
-    var plusButtons = $(".product-controls .btn-control-cart.plus");
-    var minusButtons = $(".product-controls .btn-control-cart.minus");
+    var plusButtons = $("form .product-controls .btn-control-cart.plus");
+    var minusButtons = $("form .product-controls .btn-control-cart.minus");
     
     plusButtons.each(function () {
       var $plusButton = $(this);

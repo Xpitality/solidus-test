@@ -1,0 +1,11 @@
+var $cartModal = $("#cart-modal");
+
+$cartModal.html("<%= escape_javascript(render partial:"spree/shared/header/cart_modal") %>");
+Spree.fetch_cart("<%= j spree.cart_link_path %>");
+
+if ($('*[data-hook="cart_with_items"]').length > 0) {
+  Spree.fetch_cart_with_items();
+}
+else{
+  $cartModal.addClass("show");
+}

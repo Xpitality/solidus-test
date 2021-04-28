@@ -28,11 +28,13 @@
       </div>
       <div class="body-actions">
         <div class="add-to-cart">
-          <%= image_tag("icons/icon-add-to-cart.svg") %>
+          <%= link_to plus_orders_path(id: product.master.id), remote: true do %>
+            <%= image_tag("icons/icon-add-to-cart.svg") %>
+          <% end %>
         </div>
-<!--        <div class="favourite">-->
-          <%#= image_tag("icons/icon-favourite.svg") %>
-<!--        </div>-->
+        <!--        <div class="favourite">-->
+        <%#= image_tag("icons/icon-favourite.svg") %>
+        <!--        </div>-->
       </div>
     </div>
   </div>
