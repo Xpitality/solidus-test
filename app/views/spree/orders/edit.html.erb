@@ -24,11 +24,14 @@
 
             <div id="cart-detail" class="container content-container" data-hook>
               <div id="line_items" class="col items-col" data-hook>
-                <%= render partial: 'spree/orders/line_item', collection: order.line_items, as: :line_item, locals: { order_form: order_form } %>
+                <%= render partial: 'spree/orders/shared/line_item', collection: order.line_items, as: :line_item, locals: { order_form: order_form } %>
               </div>
-              <%= render partial: 'spree/orders/summary', locals: { order: order } %>
+              <%= render partial: 'spree/orders/shared/summary', locals: { order: order } %>
             </div>
           </div>
+          <% Spree::PaymentMethod.available_to_users.select{ |payment_method| payment_method.try(:display_on_cart) }.each do |payment_method| %>
+            <%= render partial: "spree/orders/payment/#{payment_method.cart_partial_name}", locals: {payment_method: payment_method} %>
+          <% end %>
         </div>
       <% end %>
     </div>

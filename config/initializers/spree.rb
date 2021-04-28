@@ -102,6 +102,17 @@ Spree.config do |config|
     v3_intents: true
   )
 
+  config.static_model_preferences.add(
+      SolidusPaypalCommercePlatform::PaymentMethod,
+      'paypal_commerce_platform_credentials', {
+          test_mode: !Rails.env.production?,
+          client_id: Rails.application.credentials.config[:paypal_client_id],
+          client_secret: Rails.application.credentials.config[:paypal_client_secret],
+          display_on_product_page: true,
+          display_on_cart: true,
+      }
+  )
+
   config.searcher_class = 'Xpitality::Core::Search::Base'
 
   config.allow_guest_checkout = false

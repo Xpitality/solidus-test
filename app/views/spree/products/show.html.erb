@@ -16,7 +16,7 @@
               <%= image_tag("icons/social/icon-twitter-original.svg") %>
             <% end %>
             <%#= link_to "https://www.twitter.com" do %>
-              <%#= image_tag("icons/icon-favourite.svg") %>
+            <%#= image_tag("icons/icon-favourite.svg") %>
             <%# end %>
           </div>
           <div class="product-image-holder">
@@ -71,13 +71,7 @@
                           <span class="out-of-stock"><%= t('spree.out_of_stock') %></span>
                         <% end %>
                       </div>
-                      <div class="controls">
-                        <%= hidden_field_tag :quantity, 1, min: 0, max: max_product_quantity(@product), class: "quantity-input" %>
-                        <span class="btn btn-control-cart minus">-</span>
-                        <p id="quantity" class="quantity-value" data-quantity="1" data-max-product-quantity="<%= max_product_quantity(@product) %>">1</p>
-                        <span class="btn btn-control-cart plus">+</span>
-                      </div>
-                    </div>
+                      <%= render partial: 'spree/products/shared/product_controls', locals: { product: @product } %>
                     </div>
 
                     <%= button_tag class: 'btn btn-primary btn-add-to-cart', id: 'add-to-cart-button', type: :submit do %>
@@ -93,16 +87,21 @@
                       </div>
                     </div>
                   <% end %>
-                  </div>
-              <% end %>
+                </div>
 
-              <div class="delivery">
-                <%= image_tag("icons/icon-product-delivery.svg") %>
-                <p>
-                  <%= t('store.product.delivery') %>
-                </p>
-              </div>
+                <% Spree::PaymentMethod.available_to_users.select { |payment_method| payment_method.try(:display_on_product_page) }.each do |payment_method| %>
+                  <%= render partial: "spree/products/payment/#{payment_method.product_page_partial_name}", locals: { payment_method: payment_method } %>
+                <% end %>
+              <% end %>
             </div>
+
+            <div class="delivery">
+              <%= image_tag("icons/icon-product-delivery.svg") %>
+              <p>
+                <%= t('store.product.delivery') %>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,47 @@
+<div class="cart-modal">
+
+  <% if current_order.nil? || current_order.line_items.empty? %>
+    <div data-hook="empty_cart">
+      <p><%= t('spree.your_cart_is_empty') %></p>
+      <p><%= link_to t('spree.continue_shopping'), products_path %></p>
+    </div>
+
+  <% else %>
+    <div data-hook="outside_cart_form">
+      <%= form_for current_order, url: update_cart_path, html: { id: 'update-cart' } do |order_form| %>
+        <div data-hook="inside_cart_form">
+
+          <div data-hook="cart_items">
+            <% order = order_form.object %>
+            <%= render 'spree/shared/error_messages', target: order %>
+
+
+            <div id="cart-detail" data-hook>
+              <div id="line_items" class="col items-col" data-hook>
+                <%= render partial: 'spree/orders/shared/line_item', collection: order.line_items, as: :line_item, locals: { order_form: order_form } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-modal-info">
+          <div class="info-row">
+            <p class="info-row-text info">
+              <%= t('store.cart.modal.subtotal') %>
+            </p>
+            <p class="info-row-text price"><%= order.display_item_total.to_html %></p>
+          </div>
+          <div class="info-row total">
+            <p class="info-row-text info">
+              <%= t('store.cart.modal.total') %>
+            </p>
+            <p class="info-row-text price"><%= order.display_order_total_after_store_credit.to_html %></p>
+          </div>
+          <%= submit_tag t('store.cart.modal.button'), class: 'btn btn-primary btn-to-checkout' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<!--<script>Spree.fetch_cart_modal('<%#= j spree.cart_link_path %>')</script>-->

@@ -3,6 +3,5 @@ window.addEventListener("load", () => {
   handleHeader();
   handleFilters();
   handleRadios();
-  handleProductCart();
   handleSwiper();
 });

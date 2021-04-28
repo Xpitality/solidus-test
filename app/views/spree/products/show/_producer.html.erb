@@ -13,7 +13,11 @@
       <% end %>
     </div>
     <div class="col col-right">
-      <%= image_tag(producer.icon.url(:original)) %>
+      <% if producer.icon.file? %>
+        <%= image_tag(producer.icon.url(:original)) %>
+      <% else %>
+        <%= producer.name %>
+      <% end %>
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 <%= content_tag :div, class: "cart-nav" do -%>
-  <button class="cart-nav-button">
+  <a href="#" class="cart-nav-button">
     <span class="cart-text" id="link-to-cart">
       <noscript>
         <%= t('spree.cart') %>
@@ -7,7 +7,7 @@
       &nbsp;
     </span>
     <%= image_tag("icons/icon-cart.svg") %>
-  </button>
-  <%= render partial: 'spree/cart/cart_modal' %>
+  </a>
+  <%= render partial: 'spree/shared/header/cart_modal' %>
 <% end -%>
 <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>

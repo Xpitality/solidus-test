@@ -3,7 +3,7 @@
 //= require spree/frontend/product
 //= require spree/frontend/cart
 //= require spree/frontend/locale_selector
-//= require spree/xpitality/product
+//= require spree/xpitality/product_controls
 //= require spree/xpitality/cartModal
 //= require spree/xpitality/header
 //= require spree/xpitality/main
