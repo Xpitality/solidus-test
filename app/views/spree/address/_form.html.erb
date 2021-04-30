@@ -11,9 +11,15 @@
   </div>
   <div class="form-row">
     <div class="form-col">
-      <div class="input-holder" id=<%="#{address_id}city" %>>
-        <%= form.label :city, t('spree.city') %>
-        <%= form.text_field :city, class: 'required', autocomplete: address_type + ' address-level2',  required: true %>
+      <div class="input-holder" id=<%="#{address_id}country" %>>
+        <%= form.label :country_id, t('spree.country') %>
+        <span id=<%="#{address_id}country-selection" %>>
+      <%= form.collection_select :country_id, available_countries, :id, :name, {},
+                                 class: 'required',
+                                 autocomplete: address_type + ' country-name',
+                                 required: true
+      %>
+    </span>
       </div>
     </div>
   </div>
@@ -55,18 +61,13 @@
   <% end %>
   <div class="form-row">
     <div class="form-col">
-      <div class="input-holder" id=<%="#{address_id}country" %>>
-        <%= form.label :country_id, t('spree.country') %>
-        <span id=<%="#{address_id}country-selection" %>>
-      <%= form.collection_select :country_id, available_countries, :id, :name, {},
-                                 class: 'required',
-                                 autocomplete: address_type + ' country-name',
-                                 required: true
-      %>
-    </span>
+      <div class="input-holder" id=<%="#{address_id}city" %>>
+        <%= form.label :city, t('spree.city') %>
+        <%= form.text_field :city, class: 'required', autocomplete: address_type + ' address-level2',  required: true %>
       </div>
     </div>
   </div>
+
   <div class="form-row">
     <div class="form-col">
       <div class="input-holder" id=<%="#{address_id}zipcode" %>>
@@ -94,6 +95,16 @@
       </div>
     </div>
   </div>
+  <% if parent_form %>
+    <div class="form-row">
+      <div class="form-col">
+        <div class="input-holder" %>
+          <%= parent_form.label :email %><br/>
+          <%= parent_form.email_field :email, required: true %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <% if Spree::Config[:alternative_shipping_phone] %>
     <div class="form-row">
       <div class="form-col">
