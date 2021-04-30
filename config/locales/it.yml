@@ -4,3 +4,4 @@ it:
     taxon_details: "Taxon Details"
     new_customer: "Ho già un account"
     state: "Provincia"
+    checkout_back: "< Indietro"
