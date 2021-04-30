@@ -8,7 +8,7 @@
     </span>
     <%= image_tag("icons/icon-cart.svg") %>
   </a>
-  <div id="cart-modal">
+  <div id="cart-modal" class="<%= "show" if params['show_cart'] %>">
     <%= render partial: 'spree/shared/header/cart_modal' %>
   </div>
 <% end -%>

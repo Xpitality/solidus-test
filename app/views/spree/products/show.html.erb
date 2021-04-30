@@ -52,7 +52,7 @@
             </div>
 
             <div id="cart-form" data-hook="cart_form">
-              <%= form_for :order, url: populate_orders_path do |f| %>
+              <%= form_for :order, url: populate_orders_path(redirect_back_to_product: true) do |f| %>
 
                 <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                   <%= hidden_field_tag "variant_id", @product.master.id %>
