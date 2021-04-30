@@ -18,7 +18,6 @@
             <p>
               <%= t('store.cart.cart_info_shipping') %>
             </p>
-            <small>Consegna stimata 20 - 22 Novembre</small>
           </div>
           <p class="price"><%= Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency).to_html %></p>
         </div>
