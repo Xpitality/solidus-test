@@ -1,10 +1,36 @@
 .flash{
+  padding: 10px;
+  margin-bottom: 10px;
   &.alert{}
-  &.notice{}
-  &.error{}
+  &.notice{
+    background-color: #d9edf7;
+    color: #317499;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Roboto";
+  }
+  &.error{
+    background-color: #f2dede;
+    color: #ac5d65;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Roboto";
+  }
+  &.success {
+    background-color: #dff0d8;
+    color: #3c7e65;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Roboto";
+  }
   &.added_to_cart{
     // this flash is used for SEO purposes, the text should be present but not visible (the color should match the background color
     color: white;
   }
-
+}
+.required{
+  border-color: #ff3860;
 }
