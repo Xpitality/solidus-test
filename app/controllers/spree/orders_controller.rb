@@ -80,7 +80,11 @@ module Spree
             redirect_back_or_default(spree.root_path)
             return
           else
-            redirect_to cart_path
+            if params['redirect_back_to_product']
+              redirect_to product_path(variant, show_cart: true)
+            else
+              redirect_to cart_path
+            end
           end
         end
       end
