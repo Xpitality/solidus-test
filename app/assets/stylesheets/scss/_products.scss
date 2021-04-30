@@ -33,6 +33,7 @@ $colPadding: 10px;
   display: flex;
   flex-direction: column;
   border: 1px solid #e5e5e5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   .product-image-holder {
     img {
       width: 100%;
@@ -58,6 +59,12 @@ $colPadding: 10px;
       p {
         font-size: 16px;
         font-weight: bold;
+      }
+      .title{
+        font-family: "chainprinter", sans-serif;
+        font-size: 12px;
+        margin-bottom: 8px;
+        font-weight: normal;
       }
     }
     .body-actions-holder {

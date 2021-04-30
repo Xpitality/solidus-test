@@ -10,7 +10,7 @@
   </div>
   <div class="product-card-body">
     <div class="body-info">
-      <p><%= product.producer&.name %></p>
+      <p class='title'><%= product.producer&.name %></p>
       <p>
         <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
       </p>
@@ -20,7 +20,7 @@
         <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <% if price = product.price_for(current_pricing_options) %>
             <span class="price selling" itemprop="price" content="<%= price.to_d %>">
-              <%= price.to_html %>
+              <%= price.to_html %>  
             </span>
           <% end %>
           <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
@@ -32,9 +32,9 @@
             <%= image_tag("icons/icon-add-to-cart.svg") %>
           <% end %>
         </div>
-        <!--        <div class="favourite">-->
-        <%#= image_tag("icons/icon-favourite.svg") %>
-        <!--        </div>-->
+        <div class="favourite">
+          <%= image_tag("icons/icon-favourite.svg") %>
+        </div>
       </div>
     </div>
   </div>
