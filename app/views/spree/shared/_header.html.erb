@@ -11,8 +11,16 @@
         <div id="search-bar" data-hook>
           <%= render partial: 'spree/shared/header/search' %>
           <div class="header-social">
-            <%= image_tag("icons/nav_bar/facebook.svg") %>
-            <%= image_tag("icons/nav_bar/instagram.svg") %>
+            <% if store_facebook %>
+              <%= link_to store_facebook, target: :_blank do %>
+                <%= image_tag("icons/nav_bar/facebook.svg") %>
+              <% end %>
+            <% end %>
+            <% if store_instagram %>
+              <%= link_to store_instagram, target: :_blank do %>
+                <%= image_tag("icons/nav_bar/instagram.svg") %>
+              <% end %>
+            <% end %>
           </div>          
         </div>
         <%= render partial: 'spree/shared/header/nav_bar' %>
