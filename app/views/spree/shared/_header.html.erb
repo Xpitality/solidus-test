@@ -7,13 +7,21 @@
   <%= content_tag :div, class: "header-content" do -%>
     <figure id="logo" data-hook><%= logo %></figure>
     <div class="header-right">
-      <%= render partial: 'spree/shared/header/nav_bar' %>
-      <div class="header-actions">
+      <div>
         <div id="search-bar" data-hook>
           <%= render partial: 'spree/shared/header/search' %>
+          <div class="header-social">
+            <%= image_tag("icons/nav_bar/facebook.svg") %>
+            <%= image_tag("icons/nav_bar/instagram.svg") %>
+          </div>          
         </div>
-        <%= render partial: 'spree/shared/header/user_nav' %>
-        <%= render partial: 'spree/shared/header/main_nav_bar' %>
+        <%= render partial: 'spree/shared/header/nav_bar' %>
+      </div>
+      <div class="header-actions">
+        <div class="header-card-user-wrapper">
+          <%= render partial: 'spree/shared/header/user_nav' %>
+          <%= render partial: 'spree/shared/header/main_nav_bar' %>
+        </div>
         <div class="hamburger">
           <span></span>
         </div>
