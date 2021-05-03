@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'xpitality/core/search/base'
+
 module Spree
   class ProductsController < Spree::StoreController
     before_action :load_product, only: :show
@@ -47,7 +49,10 @@ module Spree
     end
 
     def load_taxon
-      @taxon = Spree::Taxon.find(params[:taxon]) if params[:taxon].present?
+      if params[:taxon].present?
+        @taxon = Spree::Taxon.find(params[:taxon])
+        @selected_taxons[@taxon.taxonomy.taxonomy_key] = @taxon
+      end
     end
   end
 end

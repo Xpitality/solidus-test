@@ -75,7 +75,6 @@ it:
       follow_us:
         title: SEGUICI SUI SOCIAL
         button: FOLLOW US ON INSTAGRAM
-
     product:
       new : new
       add_to_cart_button: AGGIUNGI AL CARRELLO
@@ -123,13 +122,10 @@ it:
         order_confirmed: "Ordine confermato!"
         back_to_products: "TORNA AL CATALOGO"
         hint_html: "Ricordati che puoi controllare lo stato del tuo ordine accedendo alla tua <a href='/account'>area personale</a>"
+    taxonomy_key:
+      wine_type: 'Tipologia'
+      grape_type: 'Uve'
+      country: 'Paese'
+      format: 'Formato'
+      producer: 'Produttore'
 
-    modals:
-      location:
-        title: "ATTENZIONE"
-        title_big: "Stai cambiando catalogo"
-        subtitle: "Cambiando catalogo i prodotti nel tuo carrello verranno eliminati.
-Se vuoi completare l’ordine in corso, clicca su Annulla, altrimenti Conferma"
-        actions:
-          cancel: "ANNULLA"
-          confirm: "CONFERMA"

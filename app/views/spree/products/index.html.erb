@@ -23,8 +23,8 @@
 <% else %>
 
   <div data-hook="homepage_products">
-    <%= render partial: 'spree/products/index/taxon_filter', locals: { taxon: @taxon } %>
-    <%= render partial: 'spree/products/index/active_taxon', locals: { taxon: @taxon } %>
+    <%= render partial: 'spree/products/index/taxon_filter', locals: { taxon: @taxon, selected_taxons: @selected_taxons } %>
+    <%= render partial: 'spree/products/index/active_taxon', locals: { taxon: @taxon, selected_taxons: @selected_taxons } %>
     <%= render partial: 'spree/products/index/products_sort' %>
     <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
   </div>

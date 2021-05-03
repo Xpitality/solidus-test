@@ -2,16 +2,19 @@
   <div class="producer-section">
     <div class="producer-tags-holder">
       <div class="container">
-        <div class="tag">
-          <p><%= taxon.name %></p>
-          <%= link_to products_path do %>
-            <div class="close-tag">
-              <%= image_tag("icons/icon-tag-close.svg") %>
-            </div>
-          <% end %>
-        </div>
+        <% selected_taxons.each do |key, selected_taxon| %>
+          <div class="tag">
+            <p><%= selected_taxon.name %></p>
+            <%= link_to taxon_seo_url(taxon:nil, selected_taxons:selected_taxons, excluded:selected_taxon) do %>
+              <div class="close-tag">
+                <%= image_tag("icons/icon-tag-close.svg") %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
+
     <% taxon_image = taxon.gallery.images.first %>
     <% if taxon_image || !taxon.description.blank? %>
       <div class="producer-content-holder">
