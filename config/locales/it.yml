@@ -5,3 +5,6 @@ it:
     new_customer: "Ho già un account"
     state: "Provincia"
     checkout_back: "< Indietro"
+    create_new_account: "Non hai un account?"
+    registration_title: "Non ho un account"
+    have_account: "Hai già un account?"

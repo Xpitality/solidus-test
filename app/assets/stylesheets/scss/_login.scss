@@ -30,11 +30,22 @@
         color: $light-text-color;
       }
       .btn-facebook {
-        margin-bottom: 15px;
+        margin: 15px 0;
         display: flex;
         justify-content: center;
         align-items: center;
         font-weight: bold;
+      }
+      .route-account{
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        .route-to-link {
+          color: $primary;
+          text-decoration: underline;
+          font-weight: bold;
+          font-size: 14px;
+        }
       }
       .forgot-password-wrapper{
         margin: 20px 0;

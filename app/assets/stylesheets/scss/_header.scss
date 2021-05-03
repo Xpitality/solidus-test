@@ -151,8 +151,13 @@ header#header {
                   }
                 }
                 &.dropdown-col {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-wrap: wrap;
                   .drop-link-holder {
                     display: flex;
+                    flex: 0 0 40%;
                     .drop-link {
                       font-size: 14px;
                       padding: 10px 0;

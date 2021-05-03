@@ -21,17 +21,19 @@
           </div>
         </div>
         <div class="order-body">
+          <% order.line_items.each do |item| %>
           <div class="box">
             <div class="left">
-              <p class="name">Cantina Del Malandrino ''Etienne'' 2019</p>
+              <p class="name"><%= item.variant.product.name %></p>
             </div>
             <div class="center">
-              <p class="box-price">13.00€</p>
+              <p class="box-price"><%= item.single_money.to_html %></p>
             </div>
             <div class="right">
-              <p class="box-amount">1l</p>
+              <p class="box-amount"><%= item.quantity %></p>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
       <% end %>

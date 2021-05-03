@@ -2,6 +2,8 @@
   <div class="flash errors"><%= flash[:alert] %></div>
 <% end %>
 
+<%= render partial: 'spree/shared/breadcrumbs', locals: { name: 'Sign in' } %>
+
 <% @body_id = 'login' %>
 <div class='login'>
   <div class='container half-container'>
@@ -26,6 +28,9 @@
       <% end %>
       <p class="or"><%= t('store.general.oppure') %></p>
       <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
+      <div class='route-account'>
+        <%= link_to t('spree.create_new_account'), spree.recover_password_path, class: "route-to-link"  %>
+      </div>
     </div>
   </div>
 </div>
