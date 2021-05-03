@@ -2,14 +2,14 @@
   <div class="flash errors"><%= flash[:alert] %></div>
 <% end %>
 
-<%= render partial: 'spree/shared/breadcrumbs', locals: { name: 'Sign in' } %>
+<%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.general.sign_in') } %>
 
 <% @body_id = 'login' %>
 <div class='login'>
   <div class='container half-container'>
     <div class="col">
       <h1 class="col-title">
-        <%= t('store.title.login') %>
+        <%= t('spree.new_customer') %>
       </h1>
       <%= form_for Spree::User.new, as: :spree_user, url: spree.create_new_session_path, class: "login-form" do |f| %>
         <div class="input-holder">
@@ -29,7 +29,7 @@
       <p class="or"><%= t('store.general.oppure') %></p>
       <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
       <div class='route-account'>
-        <%= link_to t('spree.create_new_account'), spree.recover_password_path, class: "route-to-link"  %>
+        <%= link_to t('spree.create_new_account'), spree.signup_path, class: "route-to-link"  %>
       </div>
     </div>
   </div>
