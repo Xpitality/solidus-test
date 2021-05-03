@@ -4,7 +4,7 @@
 %>
 
 <% content_for :head do %>
-  <% if paginated_products.respond_to?(:total_pages) %>
+  <% if (!defined?(hide_pagination) || !hide_pagination) && paginated_products.respond_to?(:total_pages) %>
     <%= rel_next_prev_link_tags paginated_products %>
   <% end %>
 <% end %>
@@ -40,7 +40,9 @@
 </div>
 
 
-<% if paginated_products.respond_to?(:total_pages) %>
-  <%= paginate paginated_products %>
+<% if (!defined?(hide_pagination) || !hide_pagination) && paginated_products.respond_to?(:total_pages) %>
+  <div class="container">
+    <%= paginate paginated_products %>
+  </div>
 <% end %>
 <% jsonld_list(products) %>
