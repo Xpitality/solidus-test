@@ -1,12 +1,12 @@
 <%= render 'spree/shared/error_messages', target: resource %>
 <div class="login">
-  <div class="container">
-    <div class="col login-col">
+  <div class="container half-container">
+    <div class="col">
       <h1 class="col-title">
         <% if session[:omniauth] %>
-          <h6><%= I18n.t('spree.please_confirm_your_email') %></h6>
+          <h1><%= I18n.t('spree.please_confirm_your_email') %></h1>
         <% else %>
-          <h6><%= I18n.t('spree.new_customer') %></h6>
+          <h1><%= I18n.t('spree.new_customer') %></h1>
         <% end %>
       </h1>
       <%= form_for resource, as: :spree_user, url: spree.registration_path(resource) do |f| %>
@@ -14,9 +14,14 @@
         <%= f.submit t('spree.create'), class: 'btn btn-primary', tabindex: 4 %>
       <% end %>
       <p class="or">oppure</p>
-      <%= link_to t('spree.login_as_existing'), spree.login_path, class: 'btn btn-primary' %>
-
-      <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
+      <button class="btn btn-facebook">
+        <%= image_tag("auth/btn-facebook.png") %>
+        <span>Continua con Facebook</span>
+      </button>
+      <button class="btn btn-google">
+        <%= image_tag("auth/btn-google-oauth2.png") %>
+        <span>Sign in with Google</span>
+      </button>
     </div>
   </div>
 </div>

@@ -1,11 +1,12 @@
 <%- wine_type = product.taxon_by_key(key: :wine_type) %>
 <%- producer = product.taxon_by_key(key: :producer) %>
 
-
-<%= link_to t('store.shared.footer.site.home'), root_path %>
-/
-<%= link_to wine_type.name, seo_url(wine_type) %>
-/
-<%= link_to producer.name, seo_url(producer) %>
-/
-<%= product.name %>
+<div class="breadcrumb">
+    <%= link_to t('store.shared.footer.site.home'), root_path %>
+    /
+    <%= link_to wine_type.name, seo_url(wine_type) %>
+    /
+    <%= link_to producer.name, seo_url(producer) %>
+    /
+    <%= product.name %>
+</div>

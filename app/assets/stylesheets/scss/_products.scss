@@ -102,21 +102,27 @@ $colPadding: 10px;
   }
   &.new-product {
     .product-image-holder {
-      padding: 23px 18px 38px 18px;
       position: relative;
       .new-mark-top {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: $primary;
         position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 85px;
-        height: 23px;
+        top: 5%;
+        left: 5%;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        span{
+          text-align: center;
+          color: #fff;
+          font-size: 12px;
+        }
       }
       .new-mark-bottom {
         background: $primary;
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         position: absolute;
@@ -146,6 +152,7 @@ $colPadding: 10px;
     }
     .product-card-body {
       display: flex;
+      width: 80%;
       flex-direction: column;
       .body-info {
         border-bottom: none;
@@ -159,7 +166,6 @@ $colPadding: 10px;
           flex-direction: row;
         }
         .price {
-          margin-right: 100px;
           @media (max-width: $small) {
             margin-bottom: 0;
           }
