@@ -4,6 +4,8 @@ it:
       close: "close"
       new_product: "NOVITÀ"
       sign_in: "Accedi"
+      sign_up: "Sign up"
+      account: "Area personale"
       sign_out: "Logout"
       oppure: "oppure"
     shared:
@@ -129,6 +131,4 @@ it:
       country: 'Paese'
       format: 'Formato'
       producer: 'Produttore'
-    title:
-      login: "Ho già un account"
 
