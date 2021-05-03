@@ -48,7 +48,7 @@ module Xpitality
               product_ids = product_ids & pids
             end
             base_scope = base_scope.where(id: product_ids)
-          else
+          elsif @properties[:taxon]
             if @properties[:taxon].name == I18n.t("store.taxonomy_key.country")
               base_scope = base_scope.in_taxons(@properties[:taxon]) unless @properties[:taxon].blank?
             else
