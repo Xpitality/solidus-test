@@ -72,6 +72,8 @@ gem 'solidus_abandoned_carts', github: 'solidusio-contrib/solidus_abandoned_cart
 
 gem 'alchemy-solidus', '~> 2.4.0'
 
+gem 'solidus_import_products', :git => 'git://github.com/2BeDigital/solidus_import_products.git'
+
 gem 'solidus_additional_store_settings', github: 'Xpitality/solidus_additional_store_settings'
 gem 'solidus_taxon_images', github: 'Xpitality/solidus_taxon_images'
 

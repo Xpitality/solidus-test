@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_103704) do
+ActiveRecord::Schema.define(version: 2021_05_03_205019) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -787,6 +787,24 @@ ActiveRecord::Schema.define(version: 2021_03_25_103704) do
     t.string "country_iso", limit: 2
     t.index ["country_iso"], name: "index_spree_prices_on_country_iso"
     t.index ["variant_id", "currency"], name: "index_spree_prices_on_variant_id_and_currency"
+  end
+
+  create_table "spree_product_imports", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "data_file_file_name"
+    t.string "data_file_content_type"
+    t.integer "data_file_file_size"
+    t.datetime "data_file_updated_at"
+    t.string "state"
+    t.text "product_ids"
+    t.string "separatorChar"
+    t.string "encoding_csv"
+    t.string "quoteChar"
+    t.datetime "completed_at"
+    t.datetime "failed_at"
+    t.text "error_message"
+    t.integer "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_product_option_types", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
