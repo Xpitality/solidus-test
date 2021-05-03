@@ -1,0 +1,7 @@
+<% if name && path %>
+  <div class="breadcrumb">
+    <%= link_to t('store.shared.footer.site.home'), root_path %>
+    /
+    <%= link_to name, path %>
+  </div>
+<% end %>
