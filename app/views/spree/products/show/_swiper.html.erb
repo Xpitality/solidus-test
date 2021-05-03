@@ -7,36 +7,9 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <% 9.times do %>
+      <% Spree::Product.products_for_taxon(taxon: producer).each do |product| %>
         <div class="swiper-slide">
-          <div class="product-card product-side">
-            <div class="product-image-holder">
-              <div class="new-mark-top"></div>
-              <%= image_tag("products/product-default.jpg") %>
-                <div class="new-mark-bottom">
-                  <p>NEW</p>
-                </div>
-            </div>
-            <div class="product-card-body">
-              <div class="body-info">
-                <h1 class="title"><%= t("store.home.new_products.title") %></h1>
-                <p>Masseria Del Pino ''I Nove Fratelli'' 2018</p>
-              </div>
-              <div class="body-actions-holder">
-                <div class="price">
-                  <p>90,00&euro;</p>
-                </div>
-                <div class="body-actions">
-                  <div class="add-to-cart">
-                    <%= image_tag("icons/icon-add-to-cart.svg") %>
-                  </div>
-<!--                  <div class="favourite">-->
-                    <%#= image_tag("icons/icon-favourite.svg") %>
-<!--                  </div>-->
-                </div>
-              </div>
-            </div>
-          </div>
+          <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'product-side' } %>
         </div>
       <% end %>
     </div>
