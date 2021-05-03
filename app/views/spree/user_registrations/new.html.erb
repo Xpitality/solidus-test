@@ -13,15 +13,9 @@
         <%= render partial: 'spree/shared/devise/user_form', locals: { f: f } %>
         <%= f.submit t('spree.create'), class: 'btn btn-primary', tabindex: 4 %>
       <% end %>
-      <p class="or">oppure</p>
-      <button class="btn btn-facebook">
-        <%= image_tag("auth/btn-facebook.png") %>
-        <span>Continua con Facebook</span>
-      </button>
-      <button class="btn btn-google">
-        <%= image_tag("auth/btn-google-oauth2.png") %>
-        <span>Sign in with Google</span>
-      </button>
+      <p class="or"><%= t('store.general.oppure') %></p>
+      <%= link_to t('spree.login_as_existing'), spree.login_path, class: 'btn btn-primary' %>
+      <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
     </div>
   </div>
 </div>

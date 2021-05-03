@@ -5,6 +5,7 @@ it:
       new_product: "NOVITÀ"
       sign_in: "Accedi"
       sign_out: "Logout"
+      oppure: "oppure"
     shared:
       main_menu:
         label:
@@ -128,4 +129,6 @@ it:
       country: 'Paese'
       format: 'Formato'
       producer: 'Produttore'
+    title:
+      login: "Ho già un account"
 

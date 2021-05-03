@@ -1,45 +1,37 @@
-<h1><%= accurate_title %></h1>
-
-<div data-hook="account_summary" class="account-summary">
-  <dl id="user-info">
-    <dt><%= t('spree.email') %></dt>
-    <dd><%= @user.email %> (<%= link_to t('spree.edit'), spree.edit_account_path %>)</dd>
-  </dl>
+<div class="profile">
+  <div class="container">
+    <div class="profile-title-holder">
+      <h3 class="profile-title-small">Bentortata</h3>
+      <h1 class="profile-title-big">Bentortata, Chiara</h1>
+    </div>
+    <div class="profile-content-holder">
+      <div class="col profile-nav-col">
+        <div class="profile-nav">
+          <div class="profile-nav-link active" profile-nav-for="profile-info">
+            <p>Il mio profilo</p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="profile-nav-link" profile-nav-for="profile-orders">
+            <p>I miei ordini</p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="profile-nav-link" profile-nav-for="profile-addresses">
+            <p>Indirizzi salvati</p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="logout-btn-holder">
+            <a href="">Logout</a>
+          </div>
+        </div>
+      </div>
+      <div class="col profile-content-col">
+        <%= render partial: 'spree/users/profile_info' %>
+        <%= render partial: 'spree/users/profile_orders' %>
+        <%= render partial: 'spree/users/profile_addresses' %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div data-hook="account_my_orders" class="account-my-orders">
-
-  <h3><%= t('spree.my_orders') %></h3>
-  <% if @orders.present? %>
-    <table class="order-summary">
-      <thead>
-      <tr>
-        <th class="order-number"><%= t(:number, scope: 'activerecord.attributes.spree/order') %></th>
-        <th class="order-date"><%= t('spree.date') %></th>
-        <th class="order-status"><%= t('spree.status') %></th>
-        <th class="order-payment-state"><%= t('spree.payment_state') %></th>
-        <th class="order-shipment-state"><%= t('spree.shipment_state') %></th>
-        <th class="order-total"><%= t('spree.total') %></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @orders.each do |order| %>
-        <tr class="<%= cycle('even', 'odd') %>">
-          <td class="order-number"><%= link_to order.number, order_url(order) %></td>
-          <td class="order-date"><%= l order.completed_at.to_date %></td>
-          <td class="order-status"><%= t("spree.order_state.#{order.state}").titleize %></td>
-          <td class="order-payment-state"><%= t("spree.payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
-          <td class="order-shipment-state"><%= t("spree.shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
-          <td class="order-total"><%= order.display_total %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <p><%= t('spree.you_have_no_orders_yet') %></p>
-  <% end %>
-  <br />
-
-</div>
-
-<%= render partial: 'spree/users/social' %>

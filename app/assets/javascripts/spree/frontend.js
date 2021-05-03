@@ -10,4 +10,4 @@
 //= require spree/xpitality/radios
 //= require spree/xpitality/swiper
 //= require spree/xpitality/filters
-
+//= require spree/xpitality/profile

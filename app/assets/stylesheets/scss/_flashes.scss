@@ -1,7 +1,14 @@
 .flash{
   padding: 10px;
   margin-bottom: 10px;
-  &.alert{}
+  &.alert{
+    background-color: #fff9ef;
+    color: #ffc937;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Roboto";
+  }
   &.notice{
     background-color: #d9edf7;
     color: #317499;
