@@ -4,3 +4,6 @@ Spree::PaymentMethod::BogusCreditCard.create!(
 Spree::PaymentMethod::Check.create!(
     { name: "Check", description: "Pay by check.", active: true }
 )
+Spree::PaymentMethod::PayPal.create!(
+    { name: "Paypal", description: "Pay with paypal.", active: true }
+)
