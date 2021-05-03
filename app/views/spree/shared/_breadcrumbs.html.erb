@@ -1,7 +1,11 @@
-<% if name && path %>
+<% if name %>
   <div class="breadcrumb">
     <%= link_to t('store.shared.footer.site.home'), root_path %>
     /
-    <%= link_to name, path %>
+    <% if defined?(path) %>
+      <%= link_to name, path %>
+    <% else %>
+      <%= name %>
+    <% end %>
   </div>
 <% end %>
