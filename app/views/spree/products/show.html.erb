@@ -109,7 +109,7 @@
 
 
   <%= render partial: 'spree/products/show/tags', locals: { product: @product } %>
-  <%= render partial: 'spree/products/show/producer', locals: { producer: @product.producer } %>
+  <%= render partial: 'spree/products/show/producer', locals: { producer: @product.producer } if @product.producer %>
   <%= render partial: 'spree/products/show/swiper' %>
   <%= render partial: 'spree/products/show/region', locals: { region: @product.taxon_by_key(key: :region) } %>
 
