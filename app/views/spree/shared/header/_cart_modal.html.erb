@@ -1,44 +1,56 @@
 <% if current_order.nil? || current_order.line_items.empty? %>
   <div data-hook="empty_cart">
-    <p><%= t('spree.your_cart_is_empty') %></p>
-    <p><%= link_to t('spree.continue_shopping'), products_path %></p>
+    <div class="empty_cart">
+      <%= image_tag("icons/empty_cart.svg") %>
+      <p class="title">
+        <%= t('spree.your_cart_is_empty') %>
+      </p>
+      <p class="subtitle">
+        <%= link_to t('spree.continue_shopping'), products_path %>
+      </p>
+    </div>
   </div>
 
-<% else %>
-  <div data-hook="outside_cart_form">
+  <% else %>
+    <div data-hook="outside_cart_form">
 
-    <div data-hook="inside_cart_form">
+      <div data-hook="inside_cart_form">
 
-      <div>
-        <%= render 'spree/shared/error_messages', target: current_order %>
+        <div>
+          <%= render 'spree/shared/error_messages' , target: current_order %>
 
 
-        <div id="cart-detail" data-hook>
-          <div id="line_items" class="col items-col" data-hook>
-            <%= render partial: 'spree/orders/shared/line_item', collection: current_order.line_items, as: :line_item, locals: { source: :cart } %>
-          </div>
+            <div id="cart-detail" data-hook>
+              <div id="line_items" class="col items-col" data-hook>
+                <%= render partial: 'spree/orders/shared/line_item' , collection: current_order.line_items, as:
+                  :line_item, locals: { source: :cart } %>
+              </div>
+            </div>
         </div>
       </div>
-    </div>
 
-    <div class="cart-modal-info">
-      <div class="info-row">
-        <p class="info-row-text info">
-          <%= t('store.cart.modal.subtotal') %>
-        </p>
-        <p class="info-row-text price"><%= current_order.display_item_total.to_html %></p>
+      <div class="cart-modal-info">
+        <div class="info-row">
+          <p class="info-row-text info">
+            <%= t('store.cart.modal.subtotal') %>
+          </p>
+          <p class="info-row-text price">
+            <%= current_order.display_item_total.to_html %>
+          </p>
+        </div>
+        <div class="info-row total">
+          <p class="info-row-text info">
+            <%= t('store.cart.modal.total') %>
+          </p>
+          <p class="info-row-text price">
+            <%= current_order.display_order_total_after_store_credit.to_html %>
+          </p>
+        </div>
+        <%= link_to spree.cart_path, class: "btn btn-primary btn-to-checkout" do %>
+          <%= t('store.cart.modal.button') %>
+            <% end %>
       </div>
-      <div class="info-row total">
-        <p class="info-row-text info">
-          <%= t('store.cart.modal.total') %>
-        </p>
-        <p class="info-row-text price"><%= current_order.display_order_total_after_store_credit.to_html %></p>
-      </div>
-      <%= link_to spree.cart_path, class: "btn btn-primary btn-to-checkout" do %>
-        <%= t('store.cart.modal.button') %>
-      <% end %>
     </div>
-  </div>
-<% end %>
+    <% end %>
 
-<!--<script>Spree.fetch_cart_modal('<%#= j spree.cart_link_path %>')</script>-->
+      <!--<script>Spree.fetch_cart_modal('<%#= j spree.cart_link_path %>')</script>-->
