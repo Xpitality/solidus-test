@@ -4,7 +4,6 @@
     <div class="col col-left">
       <p class="title"><%= t('store.product.producer.title') %></p>
       <h1 class="title-big"><%= producer.name %></h1>
-
       <% producer_image = producer.gallery.images.first %>
       <% if producer_image %>
         <%= render('spree/shared/image', image: producer_image, size: :small, itemprop: "image") %>
@@ -16,7 +15,7 @@
       <% if producer.icon.file? %>
         <%= image_tag(producer.icon.url(:original)) %>
       <% else %>
-        <%= producer.name %>
+        <!--<%= producer.name %>-->
       <% end %>
     </div>
   </div>
