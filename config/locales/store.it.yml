@@ -8,6 +8,7 @@ it:
       account: "Area personale"
       sign_out: "Logout"
       oppure: "oppure"
+      registration_btn: "Registrati" 
     shared:
       main_menu:
         label:

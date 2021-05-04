@@ -47,6 +47,11 @@
           font-size: 14px;
         }
       }
+      .btn-dark-transparent{
+        border: 3px solid $primary;
+        color: $primary;
+        width: 100%;
+      }
       .forgot-password-wrapper{
         margin: 20px 0;
         .forgot-password-link {
@@ -115,4 +120,22 @@
     height: 45px;
     background: $white;
   }
+}
+#login-holder {
+  -moz-transition: height .5s;
+  -ms-transition: height .5s;
+  -o-transition: height .5s;
+  -webkit-transition: height .5s;
+  transition: height .5s;
+  height: 0;
+  overflow: hidden;
+}
+#reg-holder {
+  -moz-transition: height .5s;
+  -ms-transition: height .5s;
+  -o-transition: height .5s;
+  -webkit-transition: height .5s;
+  transition: height .5s;
+  height: 0;
+  overflow: hidden;
 }
