@@ -1,53 +1,53 @@
 const handleProfile = () => {
-    handleNavLinks();
-    handleOrders();
-  };
-  
-  const handleNavLinks = () => {
-    const navLinks = document.querySelectorAll(".profile-nav-link");
-    if (navLinks) {
-      checkForActive(navLinks);
-      navLinks.forEach((navLink) => {
-        navLink.addEventListener("click", () => {
-          navLinks.forEach((link) => {
-            link.classList.remove("active");
+  handleNavLinks();
+  handleOrders();
+};
+
+const handleNavLinks = () => {
+  const navLinks = document.querySelectorAll(".profile-nav-link");
+  if (navLinks) {
+    checkForActive(navLinks);
+    navLinks.forEach((navLink) => {
+      navLink.addEventListener("click", () => {
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
+        navLink.classList.add("active");
+        checkForActive(navLinks);
+        handleOrders();
+      });
+    });
+  }
+};
+
+const checkForActive = (links) => {
+  links.forEach((navLink) => {
+    if (navLink.classList.contains("active")) {
+      document.querySelector(".profile-info").classList.remove("active");
+      document.querySelector(".profile-orders").classList.remove("active");
+      document.querySelector(".profile-addresses").classList.remove("active");
+      document
+        .querySelector(
+          `[profile-nav=${navLink.getAttribute("profile-nav-for")}]`
+        )
+        .classList.add("active");
+    }
+  });
+};
+
+const handleOrders = () => {
+  const ordersHolder = document.querySelector(".orders-holder");
+  if (ordersHolder) {
+    const orders = ordersHolder.querySelectorAll(".order");
+    if (orders) {
+      orders.forEach((order) => {
+        order.addEventListener("click", () => {
+          orders.forEach((o) => {
+            o.classList.remove("active");
           });
-          navLink.classList.add("active");
-          checkForActive(navLinks);
-          handleOrders();
+          order.classList.add("active");
         });
       });
     }
-  };
-  
-  const checkForActive = (links) => {
-    links.forEach((navLink) => {
-      if (navLink.classList.contains("active")) {
-        document.querySelector(".profile-info").classList.remove("active");
-        document.querySelector(".profile-orders").classList.remove("active");
-        document.querySelector(".profile-addresses").classList.remove("active");
-        document
-          .querySelector(
-            `[profile-nav=${navLink.getAttribute("profile-nav-for")}]`
-          )
-          .classList.add("active");
-      }
-    });
-  };
-  
-  const handleOrders = () => {
-    const ordersHolder = document.querySelector(".orders-holder");
-    if (ordersHolder) {
-      const orders = ordersHolder.querySelectorAll(".order");
-      if (orders) {
-        orders.forEach((order) => {
-          order.addEventListener("click", () => {
-            orders.forEach((o) => {
-              o.classList.remove("active");
-            });
-            order.classList.add("active");
-          });
-        });
-      }
-    }
-  };
+  }
+};

@@ -219,7 +219,6 @@ header#header {
         align-items: center;
         justify-content: space-between;
         @media (max-width: 1300px) {
-          width: 100%;
           align-items: center;
         }
         @media (max-width: $small) {

@@ -5,5 +5,5 @@ window.addEventListener("load", () => {
   handleRadios();
   handleSwiper();
   handleProfile();
-  handleCheckout();
+  handleToggleForm();
 });

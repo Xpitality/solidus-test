@@ -19,14 +19,52 @@
       @media (max-width: $large) {
         padding: 0 15px;
       }
+      .show-content-wrapper {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 22px;
+          font-weight: bold;
+        }
+        :nth-child(3) {
+          display: none;
+        }
+        @media (max-width: $small){
+          display: flex;
+          border-bottom: 1px solid #e5e5e5;
+          padding: 20px 0;
+        }
+      }
+      .active {
+        .title {
+          color: $primary;
+        }
+        :nth-child(2) {
+          display: none;
+        }
+        :nth-child(3) {
+          display: block;
+        }
+      }
       .col-title {
         font-size: 22px;
         font-weight: bold;
         margin-bottom: 20px;
       }
+      .col-title-checkout{
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        display: block;
+        @media (max-width: $small) {
+          display: none;
+        }
+      }
       .or {
         margin: 40px 0;
-        align-self: center;
+        width: 100%;
+        text-align: center;
         color: $light-text-color;
       }
       .btn-facebook {
@@ -36,7 +74,7 @@
         align-items: center;
         font-weight: bold;
       }
-      .route-account{
+      .route-account {
         width: 100%;
         text-align: center;
         padding: 20px 0;
@@ -47,12 +85,13 @@
           font-size: 14px;
         }
       }
-      .btn-dark-transparent{
+      .btn-dark-transparent {
         border: 3px solid $primary;
         color: $primary;
         width: 100%;
+        margin-top: 20px;
       }
-      .forgot-password-wrapper{
+      .forgot-password-wrapper {
         margin: 20px 0;
         .forgot-password-link {
           color: $primary;
@@ -61,12 +100,12 @@
           font-size: 14px;
         }
       }
-      .btn-google{
+      .btn-google {
         display: flex;
         justify-content: center;
         align-items: center;
         font-weight: bold;
-        img{
+        img {
           margin-right: 20px;
         }
       }
@@ -80,7 +119,7 @@
       &.login-col {
         border-right: 1px solid #e5e5e5;
         @media (max-width: $small) {
-          margin-bottom: 70px;
+          margin-bottom: 15px;          
         }
         .login-form {
           display: flex;
@@ -92,21 +131,20 @@
       }
     }
   }
-  .half-container{
+  .half-container {
     width: 60%;
-    @media (max-width: $small){
+    @media (max-width: $small) {
       width: 100%;
     }
-    @media (min-width: $large){
-      width: 40%
+    @media (min-width: $large) {
+      width: 40%;
     }
-    p{
+    p {
       font-size: 14px;
       margin: 10px 0;
     }
   }
 }
-
 .input-holder {
   display: flex;
   flex-direction: column;
@@ -122,20 +160,32 @@
   }
 }
 #login-holder {
-  -moz-transition: height .5s;
-  -ms-transition: height .5s;
-  -o-transition: height .5s;
-  -webkit-transition: height .5s;
-  transition: height .5s;
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
   height: 0;
   overflow: hidden;
 }
 #reg-holder {
-  -moz-transition: height .5s;
-  -ms-transition: height .5s;
-  -o-transition: height .5s;
-  -webkit-transition: height .5s;
-  transition: height .5s;
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
   height: 0;
   overflow: hidden;
+}
+.platform_wrapper{
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  height: auto;
+  overflow: hidden;
+  @media (max-width: $small){
+    height: 0;
+  }
 }

@@ -1,62 +1,81 @@
 <%= render partial: 'spree/shared/error_messages' , locals: { target: @user } %>
-<% user = Spree::User.new %>
-  <div class="login">
-    <div class="container">
-      <% if flash[:alert] %>
-        <div class="flash errors">
-          <%= flash[:alert] %>
-        </div>
-        <% end %>
-          <div class="col login-col">
-            <h1 class="col-title">
-              <%= t('spree.new_customer') %>
-            </h1>
-            <div id="login-holder">
-              <div class="measuringWrapper">
-                <%= form_for user, as: :spree_user, url: spree.create_new_session_path, class: "login-form" do |f| %>
-                  <div class="input-holder">
-                    <%= f.label :email, t('spree.email') %><br />
-                      <%= f.email_field :email, class: 'title' , tabindex: 1, autofocus: true %>
+  <% new_user=Spree::User.new %>
+    <div class="login">
+      <div class="container">
+        <% if flash[:alert] %>
+          <div class="flash errors">
+            <%= flash[:alert] %>
+          </div>
+          <% end %>
+            <div class="col login-col checkout-wrapper">
+              <h1 class="col-title-checkout">
+                <%= t('spree.new_customer') %>
+              </h1>
+              <div class="show-content-wrapper">
+                <h1 class="title">
+                  <%= t('spree.new_customer') %>
+                </h1>
+                <%= image_tag("icons/icon-chevron-right.svg") %>
+                <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+              </div>
+              <div class="platform_wrapper">
+                <div id="login-holder">
+                  <div class="measuringWrapper">
+                    <%= form_for new_user, as: :spree_user, url: spree.create_new_session_path, class: "login-form" do
+                      |f| %>
+                      <div class="input-holder">
+                        <%= f.label :email, t('spree.email') %><br />
+                          <%= f.email_field :email, class: 'title' , tabindex: 1, autofocus: true %>
+                      </div>
+                      <div class="input-holder">
+                        <%= f.label :password, t('spree.password') %><br />
+                          <%= f.password_field :password, class: 'title' , tabindex: 2 %>
+                      </div>
+                      <div class="forgot-password-wrapper">
+                        <%= link_to t('spree.forgot_password'), spree.recover_password_path,
+                          class: "forgot-password-link" %>
+                      </div>
+                      <%= f.submit t('store.general.sign_in'), class: 'btn btn-dark-transparent' , tabindex: 4 %>
+                        <% end %>
                   </div>
-                  <div class="input-holder">
-                    <%= f.label :password, t('spree.password') %><br />
-                      <%= f.password_field :password, class: 'title' , tabindex: 2 %>
-                  </div>
-                  <div class="forgot-password-wrapper">
-                    <%= link_to t('spree.forgot_password'), spree.recover_password_path, class: "forgot-password-link"
-                      %>
-                  </div>
-                  <%= f.submit t('store.general.sign_in'), class: 'btn btn-dark-transparent' , tabindex: 4 %>
-                <% end %>
+                </div>
+                <button id="login_btn_show" class="btn btn-dark-transparent">
+                  <%= t('store.general.sign_in') %>
+                </button>
+                <p class="or">
+                  <%= t('store.general.oppure') %>
+                </p>
+                <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
               </div>
             </div>
-            <button id="login_btn_show" class="btn btn-dark-transparent">
-              <%= t('store.general.sign_in') %>
-            </button>
-            <p class="or">
-              <%= t('store.general.oppure') %>
-            </p>
-            <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
-          </div>
-          <div class="col register-col">
-            <h1 class="col-title">
-              <%= t('spree.registration_title') %>
-            </h1>
-            <div id="reg-holder">
-              <div class="measuringWrapper">
-                <%= form_for user, as: :spree_user1, url: spree.registration_path(user) do |f| %>
-                  <%= render partial: 'spree/shared/devise/user_form', locals: { f: f } %>
-                  <%= f.submit t('store.general.registration_btn'), class: 'btn btn-primary', tabindex: 4 %>
-                <% end %>
+            <div class="col register-col checkout-wrapper">
+              <h1 class="col-title-checkout">
+                <%= t('spree.registration_title') %>
+              </h1>
+              <div class="show-content-wrapper">
+                <h1 class="title">
+                  <%= t('spree.registration_title') %>
+                </h1>
+                <%= image_tag("icons/icon-chevron-right.svg") %>
+                <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+              </div>
+              <div class="platform_wrapper">
+                <div id="reg-holder">
+                  <div class="measuringWrapper">
+                    <%= form_for new_user, as: :spree_user1, url: spree.registration_path(new_user) do |f| %>
+                      <%= render partial: 'spree/shared/devise/user_form' , locals: { f: f } %>
+                        <%= f.submit t('store.general.registration_btn'), class: 'btn btn-primary' , tabindex: 4 %>
+                          <% end %>
+                  </div>
+                </div>
+                <button id="reg_btn_show" class="btn btn-primary">
+                  <%= t('store.general.registration_btn') %>
+                </button>
+                <p class="or">
+                  <%= t('store.general.oppure') %>
+                </p>
+                <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
               </div>
             </div>
-            <button id="reg_btn_show" class="btn btn-primary">
-              <%= t('store.general.registration_btn') %>
-            </button>
-              <p class="or">
-                <%= t('store.general.oppure') %>
-              </p>
-              <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
-          </div>
+      </div>
     </div>
-  </div>
