@@ -46,18 +46,6 @@
   </fieldset>
 <% end %>
 
-<%= form_for [:admin, @store, @hidden_taxonomies], url: @hidden_taxonomies.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @hidden_taxonomies.id) do |f| %>
-  <h4><%= t('additional_store_settings.hidden_taxonomies.title') %></h4>
-  <fieldset class="no-border-top">
-    <%= render 'hidden_taxonomies_form', f: f %>
-    <% if can? :update, @store %>
-      <div class="form-buttons filter-actions actions" data-hook="buttons">
-        <%= button_tag t('spree.actions.update'), class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-  </fieldset>
-<% end %>
-
 <%= form_for [:admin, @store, @quantity_limit_taxonomy], url: @quantity_limit_taxonomy.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @quantity_limit_taxonomy.id) do |f| %>
   <h4><%= t('additional_store_settings.quantity_limit_taxonomy.title') %></h4>
   <fieldset class="no-border-top">

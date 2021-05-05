@@ -20,13 +20,13 @@
           </div>
         <% end %>
         <div class="form-col-left">
-        <%= render @order.state, form: form %>
+          <%= render @order.state, form: form %>
         </div>
         <% if @order.state != 'confirm' %>
           <div id="checkout-summary">
             <%= render partial: 'spree/checkout/edit/summary', locals: { order: @order } %>
           </div>
-      <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>
