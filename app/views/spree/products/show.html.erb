@@ -31,24 +31,8 @@
             <h1 class="title"><%== @product.producer&.name %></h1>
             <h1 class="title-big"><%== @product.name %></h1>
             <div class="product-info-tags-holder">
-              <div class="product-tag">
-                <div class="tag-icon">
-                  <%= image_tag("icons/icon-product-type.svg") %>
-                </div>
-                <div class="tag-info">
-                  <p class="title"><%= t('store.product.taxon.wine_type') %></p>
-                  <p class="text"><%= @product.tag(type: :taxon, key: :wine_type) %></p>
-                </div>
-              </div>
-              <div class="product-tag">
-                <div class="tag-icon">
-                  <%= image_tag("icons/icon-product-vine.svg") %>
-                </div>
-                <div class="tag-info">
-                  <p class="title"><%= t('store.product.taxon.grape_type') %></p>
-                  <p class="text"><%= @product.grape_type_taxon_names.join(', ') %></p>
-                </div>
-              </div>
+              <%= render partial: 'spree/products/show/tag', locals: { product: @product, type: :taxon, key: :wine_type } %>
+              <%= render partial: 'spree/products/show/tag', locals: { product: @product, type: :taxon, key: :grape_type } %>
             </div>
 
             <div id="cart-form" data-hook="cart_form">
@@ -71,7 +55,7 @@
                           <span class="out-of-stock"><%= t('spree.out_of_stock') %></span>
                         <% end %>
                       </div>
-                      <%= render partial: 'spree/products/shared/product_controls', locals: { product: @product } %>
+                      <%= render partial: 'spree/products/show/product_controls', locals: { product: @product } %>
                     </div>
 
                     <%= button_tag class: 'btn btn-primary btn-add-to-cart', id: 'add-to-cart-button', type: :submit do %>
