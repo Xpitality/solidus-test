@@ -1,7 +1,7 @@
 <fieldset id='shipping_method' data-hook>
   <legend align="center"><%= t('spree.delivery') %></legend>
   <div class="inner" data-hook="shipping_method_inner">
-    <div id="methods">
+    <div id="methods" class='methods'>
       <%= form.fields_for :shipments do |ship_form| %>
 
         <div class="shipment">
@@ -13,15 +13,15 @@
           <table class="stock-contents" data-hook="stock-contents">
             <colgroup>
               <col style="width: 10%;" />
-              <col style="width: 60%;" />
-              <col style="width: 10%;" />
+              <col style="width: 40%;" />
+              <col style="width: 20%;" />
               <col style="width: 20%;" />
             </colgroup>
             <thead>
               <th></th>
               <th align='left'><%= t('spree.item') %></th>
-              <th><%= t('spree.qty') %></th>
-              <th><%= t('spree.price') %></th>
+              <th align='center'><%= t('spree.qty') %></th>
+              <th align='center'><%= t('spree.price') %></th>
             </thead>
             <tbody>
               <% ship_form.object.manifest.each do |item| %>

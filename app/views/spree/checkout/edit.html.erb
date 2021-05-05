@@ -3,7 +3,9 @@
 <div class="checkout">
   <div class="container">
     <div class="col left-col">
-      <%= checkout_back_button %>
+      <div class="back-btn-checkout">
+        <%= checkout_back_button %>
+      </div>
       <%= checkout_progress %>
 
       <%= form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}" } do |form| %>
@@ -17,13 +19,14 @@
             </div>
           </div>
         <% end %>
+        <div class="form-col-left">
         <%= render @order.state, form: form %>
-
+        </div>
         <% if @order.state != 'confirm' %>
           <div id="checkout-summary">
             <%= render partial: 'spree/checkout/edit/summary', locals: { order: @order } %>
           </div>
-        <% end %>
+      <% end %>
       <% end %>
     </div>
   </div>

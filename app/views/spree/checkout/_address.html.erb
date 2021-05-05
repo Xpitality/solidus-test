@@ -19,8 +19,7 @@
 
 
   <% if try_spree_current_user %>
-    <span data-hook="save_user_address">
-      &nbsp; &nbsp;
+    <span data-hook="save_user_address" class="save_user_address">
       <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
       <%= label_tag :save_user_address, t('spree.save_my_address') %>
     </span>

@@ -1,18 +1,18 @@
-<fieldset id="order_details" data-hook>
+<div class="col-confirm">
+  <fieldset id="order_details" data-hook>
   <div class="clear"></div>
   <legend align="center"><%= t('spree.confirm') %></legend>
   <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
 </fieldset>
-
-<br />
-
-<div class="form-buttons" data-hook="buttons">
+<article class="form-buttons" data-hook="buttons">
   <% requires_acceptance = true %>
   <% if requires_acceptance %>
     <div class="terms_and_conditions" data-hook="terms_and_conditions">
       <div class="policy"><%= render partial: "spree/checkout/terms_and_conditions" %></div>
-      <%= check_box_tag :accept_terms_and_conditions, 'accepted', false %>
-      <%= label_tag :accept_terms_and_conditions, t('spree.agree_to_terms_of_service') %>
+      <div class="accept-terms">
+        <%= check_box_tag :accept_terms_and_conditions, 'accepted', false %>
+        <%= label_tag :accept_terms_and_conditions, t('spree.agree_to_terms_of_service') %>
+      </div>
     </div>
   <% end %>
 
@@ -22,4 +22,5 @@
 
 
   <script>Spree.disableSaveOnClick();</script>
+</article>
 </div>

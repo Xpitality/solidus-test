@@ -17,7 +17,6 @@
         <% end %>
       </tbody>
     <% end %>
-
     <tbody data-hook="order_details_tax_adjustments">
       <% order.all_adjustments.nonzero.tax.eligible.group_by(&:label).each do |label, adjustments| %>
         <tr class="total">
@@ -56,14 +55,12 @@
         <% end %>
       </tbody>
     <% end %>
-
-    <% if order.total_applicable_store_credit > 0.0 %>
+      <% if order.total_applicable_store_credit > 0.0 %>
       <tr data-hook="checkout-summary-store-credit">
         <td><%= t('spree.store_credit.store_credit') %>:</td>
         <td><%= order.display_total_applicable_store_credit.to_html %></td>
       </tr>
-    <% end %>
-
+      <% end %>
     <tr data-hook="order_total">
       <td><strong><%= t('spree.order_total') %>:</strong></td>
       <td><strong><span id='summary-order-total'><%= order.display_order_total_after_store_credit.to_html %></span></strong></td>

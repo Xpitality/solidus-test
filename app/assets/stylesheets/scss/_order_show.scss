@@ -1,0 +1,79 @@
+.steps-data {
+  .columns {
+    padding: 20px 0;
+    h6 {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 18px;
+    }
+    .modify {
+      color: $primary;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+    div{
+        p{
+            color:$light-text-color;
+            padding: 10px 0;
+            font-size:  14px;
+        }
+        span{
+            color:$light-text-color;
+            padding: 10px 0;
+            font-size:  14px;
+        }
+    }
+  }
+}
+.index {
+    img{
+        width: 50%;
+    }
+    .title{
+        text-align: left;
+    }
+    .order-thead{
+        padding: 20px 0;
+    }
+    .text-holder{
+        width:50%;
+        color:$light-text-color;
+        font-size:  14px;
+    }
+}
+
+.form-col-left{
+    display: flex;
+}
+.col-confirm{
+    article{
+        position: absolute;
+        top: 0;
+        width: 30%;
+        right: 0;
+        background: inherit;
+        @media (max-width: $medium){
+            position: relative;
+            width: 100%;
+        }
+        .policy{
+            background: #f4f4f4;
+            padding: 10px;
+        }
+        .accept-terms{
+            padding: 15px 5px;
+        }
+        .btn{
+            width: 100%;
+            padding: 20px 0;
+        }
+    }
+    fieldset{
+        border: 0
+    }
+}
+.order-show-col{
+    padding: 40px 0;
+}

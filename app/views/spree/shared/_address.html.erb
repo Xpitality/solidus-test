@@ -1,18 +1,24 @@
 <div class="address vcard">
-  <div class="fn"><%= address.name %></div>
+  <div class="fn"><p><%= address.name %></p></div>
   <% unless address.company.blank? %>
     <div class="org">
-      <%= address.company %>
+      <p>
+        <%= address.company %>
+      </p>
     </div>
   <% end %>
   <div class="adr">
     <div class="street-address">
       <div class="street-address-line">
-        <%= address.address1 %>
+        <p>
+          <%= address.address1 %>
+        </p>
       </div>
       <% unless address.address2.blank? %>
         <div class="street-address-line">
-          <%= address.address2 %>
+          <p>
+            <%= address.address2 %>
+          </p>
         </div>
       <% end %>
     </div>
@@ -20,19 +26,19 @@
       <span class="locality"><%= address.city %></span>
       <span class="region"><%= address.state_text %></span>
       <span class="postal-code"><%= address.zipcode %></span>
-      <div class="country-name"><%= address.country.try(:name) %></div>
+      <div class="country-name"><p><%= address.country.try(:name) %></p></div>
     </div>
   </div>
   <% unless address.phone.blank? %>
     <div class="tel">
       <span class="type"><%= t('spree.phone') %></span>
-      <%= address.phone %>
+      <p><%= address.phone %></p>
     </div>
   <% end %>
   <% unless address.alternative_phone.blank? %>
     <div class="alternative-phone tel">
       <span class="type"><%= t('spree.alternative_phone') %></span>
-      <%= address.alternative_phone %>
+      <p><%= address.alternative_phone %></p>
     </div>
   <% end %>
 </div>

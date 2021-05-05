@@ -1,5 +1,7 @@
 .checkout {
-  padding: 50px 0;
+  padding: 20px 0;
+  display: flex;
+  position: relative;
   .container {
     display: flex;
     justify-content: space-between;
@@ -14,6 +16,183 @@
           flex: 0 0 100%;
           max-width: 100%;
         }
+        .back-btn-checkout {
+          a {
+            color: $primary;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+      .edit_order {
+        fieldset {
+          border: 0;
+          .inner {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            .form-row {
+              display: flex;
+              flex-wrap: wrap;
+              flex: 0 0 50%;
+              padding-right: 10px;
+              .form-col {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                .input-holder {
+                  width: 100%;
+                  display: flex;
+                  input {
+                    width: 100%;
+                  }
+                  select {
+                    width: 100%;
+                    height: 45px;
+                  }
+                }
+              }
+              @media (max-width: $small) {
+                flex: 0 0 100%;
+              }
+            }
+            .methods {
+              width: 100%;
+              .shipment {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                .stock-contents {
+                  padding: 20px 0;
+                  tbody {
+                    .item-image {
+                      display: flex;
+                      align-items: flex-start;
+                      justify-content: flex-start;
+                      img {
+                        width: 50%;
+                      }
+                    }
+                    .item-qty {
+                      text-align: center;
+                    }
+                    .item-price {
+                      text-align: center;
+                    }
+                  }
+                }
+                .stock-shipping-method-title {
+                  margin: 20px 0;
+                  font-weight: bold;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+          .checkbox {
+            display: flex;
+            align-items: center;
+            input {
+              width: 20px;
+              height: 20px;
+              margin-right: 10px;
+            }
+          }
+          .payment-methods-list {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            list-style-type: none;
+            padding-inline-start: 0;
+            .field-wrapper {
+              display: flex;
+            }
+            fieldset {
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              flex-direction: column;
+              img {
+                padding: 20px 0;
+              }
+              .field {
+                flex: 0 0 30%;
+                padding-right: 10px;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                label {
+                  margin-bottom: 10px;
+                  font-family: "chainprinter";
+                  font-size: 12px;
+                }
+                input {
+                  width: 100%;
+                  height: 45px;
+                }
+                a {
+                  margin-top: 10px;
+                  font-family: "chainprinter";
+                  font-size: 10px;
+                  color: $primary;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+        legend {
+          text-align: left;
+          font-weight: bold;
+          font-size: 16px;
+        }
+        .save_user_address {
+          padding: 14px;
+          margin-bottom: 20px;
+          input {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+          }
+        }
+      }
+      form {
+        display: flex;
+        @media (max-width: $small) {
+          flex-direction: column;
+        }
+        .form-col-left {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    }
+    #checkout-summary {
+      padding: 0 20px;
+      flex: 0 0 100%;
+      .summary {
+        flex: 0 0 30%;
+        max-width: 40%;
+        @media (max-width: $medium) {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-top: 20px;
+        }
+        .btn {
+          width: 100%;
+        }
+        .checkout {
+          padding: 20px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .code-input-holder {
+          display: flex;
+        }
       }
     }
   }
@@ -24,10 +203,6 @@
   justify-content: space-between;
   border-bottom: 3px solid $text-color;
   margin-bottom: 40px;
-  @media (max-width: $medium) {
-    justify-content: flex-start;
-  }
-
   li {
     padding: 10px 0;
     color: #c4c4c4;
@@ -43,7 +218,8 @@
       }
     }
 
-    &.current-first, &.current {
+    &.current-first,
+    &.current {
       color: $text-color;
       span {
         color: $text-color;
@@ -78,7 +254,6 @@
   }
 }
 
-
 .step-two {
   .step-two-title {
     font-size: 16px;
@@ -86,7 +261,8 @@
     margin-bottom: 25px;
   }
   address {
-    p, a {
+    p,
+    a {
       font-size: 12px;
       color: $light-text-color;
       font-style: normal;
@@ -110,14 +286,13 @@
   }
 }
 
-
 .step-four {
   display: flex;
   flex-direction: column;
   align-items: center;
   .cheers {
     font-size: 14px;
-    font-family: 'chainprinter', sans-serif;
+    font-family: "chainprinter", sans-serif;
     margin-top: 30px;
     margin-bottom: 10px;
   }
@@ -133,6 +308,7 @@
     font-size: 14px;
     a {
       color: $primary;
+      text-decoration: underline;
     }
   }
 }
