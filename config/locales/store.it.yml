@@ -80,6 +80,7 @@ it:
         title: SEGUICI SUI SOCIAL
         button: FOLLOW US ON INSTAGRAM
     product:
+      open : Apri
       new : new
       add_to_cart_button: AGGIUNGI AL CARRELLO
       delivery: Disponibile con consegna in 48 ore

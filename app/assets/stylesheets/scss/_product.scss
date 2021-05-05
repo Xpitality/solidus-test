@@ -1,6 +1,6 @@
 .product-hero {
   border: 1px solid #E5E5E5;
-  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
   padding: 50px 0 0 0;
   .container {
     display: flex;
@@ -161,8 +161,9 @@
           margin-bottom: 15px;
         }
         .text {
-          font-size: 16px;
-          font-weight: 300;
+          font-size: 16/22px;
+          font-weight: normal;
+          line-height: 20px;
         }
       }
     }
@@ -265,9 +266,10 @@
 .breadcrumb{
     width: 100%;
     max-width: 1360px;
-    padding: 50px;
+    padding: 24px;
     margin: 0 auto; 
     font-family: "Roboto";
     font-weight: bold;
     font-size: 14px;
+    color: $light-text-color;
 }

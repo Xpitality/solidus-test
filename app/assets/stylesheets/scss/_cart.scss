@@ -99,13 +99,18 @@
 }
 
 #cart-modal {
-  max-width: 375px;
+  max-width: 448px;
   width: 100vw;
   padding: 15px 17px;
   flex-direction: column;
   background: $white;
   border: 6px solid #f9ba84;
   display: none;
+  .cart-scroll{
+    overflow-y: scroll;
+    height: 280px;
+    max-width: 448px;
+  }
   .empty_cart {
     padding: 20px 50px;
     display: flex;
@@ -138,6 +143,7 @@
     }
     .close-button {
       top: 10px;
+      padding: 10px;
       right: 0;
       img {
         width: 20px;

@@ -3,12 +3,16 @@
 <div class="product-card <%= css_classes %>" id="product_<%= product.id %>" itemscope itemtype="http://schema.org/Product">
   <div class="product-image-holder">
     <div class="new-mark-top">
-      <p><%= t('product.new') %></p>
+      <p><%= t('store.product.new') %></p>
     </div>
-    <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
     <div class="new-mark-bottom">
       <p><%= t('store.general.new_product') %></p>
     </div>
+    <!-- <div class="open-product-effect">
+      <div class="mix-blend"></div>
+      <p><%= t('store.product.open') %></p>
+    </div> -->
+    <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
   </div>
   <div class="product-card-body">
     <div class="body-info">
