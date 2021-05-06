@@ -3,24 +3,24 @@
 <div class="profile">
   <div class="container">
     <div class="profile-title-holder">
-      <h3 class="profile-title-small"><%= t('stor.user.profile.welcome') %></h3>
-      <h1 class="profile-title-big"><%= t('stor.user.profile.welcome') %>, Chiara</h1>
+      <h3 class="profile-title-small"><%= t('store.user.profile.welcome') %></h3>
+      <h1 class="profile-title-big"><%= t('store.user.profile.welcome') %>, <%= try_spree_current_user.name %></h1>
     </div>
     <div class="profile-content-holder">
       <div class="col profile-nav-col">
         <div class="profile-nav">
           <div class="profile-nav-link active" profile-nav-for="profile-info">
-            <p><%= t('stor.user.profile.my_profile') %></p>
+            <p><%= t('store.user.profile.my_profile') %></p>
             <%= image_tag("icons/icon-chevron-right.svg") %>
             <%= image_tag("icons/icon-chevron-right-primary.svg") %>
           </div>
           <div class="profile-nav-link" profile-nav-for="profile-orders">
-            <p><%= t('stor.user.profile.my_orders') %></p>
+            <p><%= t('store.user.profile.my_orders') %></p>
             <%= image_tag("icons/icon-chevron-right.svg") %>
             <%= image_tag("icons/icon-chevron-right-primary.svg") %>
           </div>
           <div class="profile-nav-link" profile-nav-for="profile-addresses">
-            <p><%= t('stor.user.profile.save_address') %></p>
+            <p><%= t('store.user.profile.save_address') %></p>
             <%= image_tag("icons/icon-chevron-right.svg") %>
             <%= image_tag("icons/icon-chevron-right-primary.svg") %>
           </div>
