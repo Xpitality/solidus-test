@@ -40,17 +40,18 @@
           </table>
 
           <h5 class="stock-shipping-method-title"><%= t('spree.shipping_method') %></h5>
-          <ul class="radios shipping-methods">
-            <% ship_form.object.shipping_rates.each do |rate| %>
-              <li class="shipping-method">
-                <label>
-                  <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
-                  <span class="rate-name"><%= rate.name %></span>
-                  <span class="rate-cost"><%= rate.display_cost %></span>
-                </label>
-              </li>
+          <div data-hook="">
+            <% ship_form.object.shipping_rates.each do |method| %>
+            <label class="radio-container">
+              <div class="row">
+                <%= t(method.name, scope: 'spree.shipping_rates', default: method.name) %>
+                <span class="rate-cost"><%= method.display_cost %></span>
+              </div>
+              <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
+              <span class="checkmark"></span>
+            </label>
             <% end %>
-          </ul>
+          </div>
         </div>
 
       <% end %>

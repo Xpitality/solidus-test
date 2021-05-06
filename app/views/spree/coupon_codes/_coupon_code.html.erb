@@ -1,0 +1,6 @@
+<div id="coupon_code" data-hook="coupon_code" class="code-input-holder">
+    <%= form_tag order_coupon_codes_path(order), method: :post do %>
+    <%= text_field_tag :coupon_code, nil, placeholder: t('store.checkout.coupon_placeholder'), size: 10 %>
+    <%= submit_tag t('store.cart.cart_info_button'), class: 'btn btn-white-strong' %>
+    <% end %>
+</div>

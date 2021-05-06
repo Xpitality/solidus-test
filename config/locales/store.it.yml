@@ -123,6 +123,7 @@ it:
         total: TOTALE
         button: PROSEGUI
     checkout:
+      coupon_placeholder: Inserisci codice
       confirmed:
         cheers: "Cheers!"
         order_confirmed: "Ordine confermato!"
@@ -134,4 +135,8 @@ it:
       country: 'Paese'
       format: 'Formato'
       producer: 'Produttore'
-
+    payment:
+      information: Scegli un metodo di pagamento
+    swiper:
+      title: DALLA STESSA CANTINA
+      

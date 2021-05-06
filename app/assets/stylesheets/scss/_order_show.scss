@@ -63,7 +63,14 @@
             padding: 10px;
         }
         .accept-terms{
+            display: flex;
+            align-items: center;
             padding: 15px 5px;
+            input{
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
         }
         .btn{
             width: 100%;

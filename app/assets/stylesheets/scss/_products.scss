@@ -45,8 +45,14 @@ $colPadding: 10px;
     .new-mark-bottom {
       display: none;
     }
+    .show-open{
+      .open-product-effect{
+        visibility: visible;
+      }
+    }
     .open-product-effect{
       position: absolute;
+      visibility: hidden;
       top: 35%;
       left: 15%;
       width: 70%;
@@ -74,6 +80,15 @@ $colPadding: 10px;
     .open-product-effect{
       display: flex;
     }
+  }
+  .zoom-effect {
+    overflow: hidden;
+  }
+  .zoom-effect img {
+    transition: transform .5s ease;
+  }
+  .zoom-effect:hover img {
+    transform: scale(1.2);
   }
   .product-card-body {
     padding: 24px 16px;

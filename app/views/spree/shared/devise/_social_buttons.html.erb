@@ -1,6 +1,5 @@
 <div>
   <%# if (!spree_current_user || !spree_current_user.user_authentications) && Spree::AuthenticationMethod.active_authentication_methods? %>
-  <!--    <h2><%#= I18n.t('spree.sign_in_through_one_of_these_services') %></h2>-->
   <%# end %>
 
   <% Spree::AuthenticationMethod.available_for(spree_current_user).each do |method| %>

@@ -36,14 +36,7 @@
     <p class="code-title">
       <%= t('store.cart.cart_info_code') %>
     </p>
-    <div id="coupon_code" data-hook="coupon_code" class="code-input-holder">
-      <%= form_tag order_coupon_codes_path(order), method: :post do %>
-        <%= text_field_tag :coupon_code, nil, placeholder: "Inserisci codice", size: 10 %>
-        <%= submit_tag t('store.cart.cart_info_button'), class: 'btn btn-white-strong' %>
-      <% end %>
-    </div>
-
-
+      <%= render partial: 'spree/coupon_codes/coupon_code', locals: { order: @order } %>
   </div>
 
   <%= submit_tag t('store.cart.cart_button'), class: 'btn btn-primary btn-to-checkout checkout primary', id: 'checkout-link', name: 'checkout' %>

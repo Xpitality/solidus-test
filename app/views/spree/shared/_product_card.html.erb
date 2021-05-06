@@ -8,13 +8,17 @@
     <div class="new-mark-bottom">
       <p><%= t('store.general.new_product') %></p>
     </div>
-    <%= link_to url do %>
-      <!-- <div class="open-product-effect">
+    <div class="<%= css_classes %>">
+      <%= link_to url do %>
+      <div class="open-product-effect">
       <div class="mix-blend"></div>
       <p><%= t('store.product.open') %></p>
-    </div> -->
+    </div> 
     <% end %>
-    <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
+    </div>
+    <div class="<%= css_classes %>">
+      <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
+    </div>
   </div>
   <div class="product-card-body">
     <div class="body-info">

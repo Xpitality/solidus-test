@@ -25,7 +25,6 @@
         &.items-col {
           flex: 0 0 calc(70% - 15px);
           max-width: calc(70% - 15px);
-          border-top: 3px solid $text-color;
           @media (max-width: $medium) {
             flex: 0 0 100%;
             max-width: 100%;

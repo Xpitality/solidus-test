@@ -1,6 +1,6 @@
 <div class="swiper-section container">
   <p class="swiper-title">
-    DALLA STESSA CANTINA
+    <%= t('store.swiper.title') %>
   </p>
   <!-- Slider main container -->
   <div class="swiper-container">
@@ -9,7 +9,7 @@
       <!-- Slides -->
       <% Spree::Product.products_for_taxon(taxon: producer).each do |product| %>
         <div class="swiper-slide">
-          <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'product-side' } %>
+          <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'product-side zoom-effect' } %>
         </div>
       <% end %>
     </div>

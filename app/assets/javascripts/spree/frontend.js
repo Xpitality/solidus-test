@@ -7,7 +7,6 @@
 //= require spree/xpitality/cartModal
 //= require spree/xpitality/header
 //= require spree/xpitality/main
-//= require spree/xpitality/radios
 //= require spree/xpitality/swiper
 //= require spree/xpitality/filters
 //= require spree/xpitality/profile

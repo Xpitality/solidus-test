@@ -3,29 +3,29 @@
 <div class="profile">
   <div class="container">
     <div class="profile-title-holder">
-      <h3 class="profile-title-small">Bentortata</h3>
-      <h1 class="profile-title-big">Bentortata, Chiara</h1>
+      <h3 class="profile-title-small"><%= t('profile.welcome') %></h3>
+      <h1 class="profile-title-big"><%= t('profile.welcome') %>, Chiara</h1>
     </div>
     <div class="profile-content-holder">
       <div class="col profile-nav-col">
         <div class="profile-nav">
           <div class="profile-nav-link active" profile-nav-for="profile-info">
-            <p>Il mio profilo</p>
+            <p><%= t('profile.my_profile') %></p>
             <%= image_tag("icons/icon-chevron-right.svg") %>
             <%= image_tag("icons/icon-chevron-right-primary.svg") %>
           </div>
           <div class="profile-nav-link" profile-nav-for="profile-orders">
-            <p>I miei ordini</p>
+            <p><%= t('profile.my_orders') %></p>
             <%= image_tag("icons/icon-chevron-right.svg") %>
             <%= image_tag("icons/icon-chevron-right-primary.svg") %>
           </div>
           <div class="profile-nav-link" profile-nav-for="profile-addresses">
-            <p>Indirizzi salvati</p>
+            <p><%= t('profile.save_address') %></p>
             <%= image_tag("icons/icon-chevron-right.svg") %>
             <%= image_tag("icons/icon-chevron-right-primary.svg") %>
           </div>
           <div class="logout-btn-holder">
-            <a href="">Logout</a>
+            <a href=""><%= t('store.general.sign_out') %></a>
           </div>
         </div>
       </div>

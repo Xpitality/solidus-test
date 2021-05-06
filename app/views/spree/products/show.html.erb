@@ -57,12 +57,10 @@
                       </div>
                       <%= render partial: 'spree/products/show/product_controls', locals: { product: @product } %>
                     </div>
-
                     <%= button_tag class: 'btn btn-primary btn-add-to-cart', id: 'add-to-cart-button', type: :submit do %>
                       <%= t('spree.add_to_cart') %>
                     <% end %>
-
-
+                    
                   <% else %>
                     <div id="product-price">
                       <br>
