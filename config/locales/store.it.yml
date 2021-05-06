@@ -139,4 +139,9 @@ it:
       information: Scegli un metodo di pagamento
     swiper:
       title: DALLA STESSA CANTINA
-      
+    user:
+      profile:
+        welcome: Bentortata
+        my_profile: Il mio profilo
+        my_orders: I miei ordini
+        saved_address: Indirizzi salvati

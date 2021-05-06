@@ -36,7 +36,7 @@
     <p class="code-title">
       <%= t('store.cart.cart_info_code') %>
     </p>
-      <%= render partial: 'spree/coupon_codes/coupon_code', locals: { order: @order } %>
+      <%= render partial: 'spree/coupon_codes/coupon_code', locals: { order: order } %>
   </div>
 
   <%= submit_tag t('store.cart.cart_button'), class: 'btn btn-primary btn-to-checkout checkout primary', id: 'checkout-link', name: 'checkout' %>

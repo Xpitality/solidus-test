@@ -8,8 +8,3 @@ it:
     create_new_account: "Non hai un account?"
     registration_title: "Non ho un account"
     have_account: "Hai già un account?"
-  profile:
-    welcome: Bentortata
-    my_profile: Il mio profilo
-    my_orders: I miei ordini
-    saved_address: Indirizzi salvati
