@@ -1,7 +1,7 @@
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 <%= form_tag spree.products_path, method: :get do %>
   <%= content_tag :div, class: "search-holder" do -%>
-    <%= search_field_tag :keywords, params[:keywords], placeholder: "Cosa cerchi?" %>
+    <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.what_are_you_looking') %>
     <%= button_tag :submit do %>
       <%= image_tag("icons/icon-search.svg") %>
     <% end %>
