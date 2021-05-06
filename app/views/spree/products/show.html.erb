@@ -50,16 +50,18 @@
                         </p>
                         <% if @product.master.can_supply? %>
                           <link itemprop="availability" href="http://schema.org/InStock"/>
-                        <% elsif @product.variants.empty? %>
-                          <br/>
-                          <span class="out-of-stock"><%= t('spree.out_of_stock') %></span>
                         <% end %>
                       </div>
                       <%= render partial: 'spree/products/show/product_controls', locals: { product: @product } %>
                     </div>
-                    <%= button_tag class: 'btn btn-primary btn-add-to-cart', id: 'add-to-cart-button', type: :submit do %>
+                    <div class="button_wrapper">
+                    <%= button_tag class: "btn btn-primary btn-add-to-cart #{"disabled" if !@product.master.can_supply?}",disabled: !@product.master.can_supply?,id: 'add-to-cart-button', type: :submit do %>
                       <%= t('spree.add_to_cart') %>
                     <% end %>
+                    <% if !@product.master.can_supply? %>
+                      <span class="out-of-stock"><%= t('spree.out_of_stock') %></span>
+                    <% end %>
+                    </div>
                     
                   <% else %>
                     <div id="product-price">

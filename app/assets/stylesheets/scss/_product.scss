@@ -100,6 +100,19 @@
               }
             }
           }
+          .button_wrapper{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .out-of-stock{
+              font-size: 16px;
+              color: $light-text-color;
+              padding: 20px 0;
+            }
+            .disabled{
+              background-color:#C4C4C4
+            }
+          }
           .btn-add-to-cart {
             font-family: "chainprinter", sans-serif;
             font-size: 14px;
