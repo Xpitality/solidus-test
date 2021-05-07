@@ -7,7 +7,7 @@
         <%= content_tag :p, t("store.shared.main_menu.title.#{taxon_key}")  %>
       </div>
       <div class="col dropdown-col">
-        <% taxon_children(taxon_key).each do |taxon| %>
+        <% taxon_children(taxon_key).order('name asc').each do |taxon| %>
           <div class="drop-link-holder">
             <%= link_to taxon.name, seo_url(taxon), class: "drop-link" %>
           </div>
