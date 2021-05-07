@@ -63,6 +63,7 @@ it:
       header:
         delivery_time_web: in tutta Italia consegna a casa tua in 96 ore
         delivery_time_mob: consegna a casa tua in 96 ore
+        hello_message: "Ciao %{username}"
       hero:
         catalog_button: "vai al catalogo"
       new_products:

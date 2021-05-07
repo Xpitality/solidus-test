@@ -4,6 +4,7 @@
     <% if try_spree_current_user && respond_to?(:account_path) %>
       <%= link_to spree.account_path do %>
         <%= image_tag("icons/icon-user.svg") %>
+        <%= t('store.home.header.hello_message', username: try_spree_current_user.email.to_s.split('@').first) %>
       <% end %>
     <% else %>
       <%= image_tag("icons/icon-user.svg") %>
