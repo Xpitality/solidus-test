@@ -1,6 +1,6 @@
 .product-hero {
   border: 1px solid #E5E5E5;
-  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.05);
   padding: 50px 0 0 0;
   .container {
     display: flex;
@@ -174,9 +174,9 @@
           margin-bottom: 15px;
         }
         .text {
-          font-size: 16/22px;
+          font-size: 18px;
           font-weight: normal;
-          line-height: 20px;
+          line-height: 22px;
         }
       }
     }
@@ -200,6 +200,7 @@
         height: 193px;
         bottom: 28px;
         left: 50%;
+        background-color: #047B94;
         transform: translateX(-50%);
         @media (max-width: $mobileHeader) {
           height: 400px;

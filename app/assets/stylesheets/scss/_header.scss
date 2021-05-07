@@ -168,16 +168,14 @@ header#header {
                 &.dropdown-col {
                   display: flex;
                   align-items: center;
-                  justify-content: center;
                   flex-wrap: wrap;
                   .drop-link-holder {
                     display: flex;
-                    flex: 0 0 40%;
+                    flex: 0 0 50%;
                     .drop-link {
                       font-size: 14px;
                       padding: 10px 0;
                       font-weight: 300;
-                      white-space: nowrap;
                       @media (max-width: $mobileHeader) {
                         border-bottom: 1px solid #e5e5e5;
                         width: 100%;

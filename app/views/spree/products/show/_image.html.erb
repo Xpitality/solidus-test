@@ -1,6 +1,7 @@
 <% if defined?(image) && image %>
   <%= render 'spree/shared/image', image: image, size: :large, itemprop: "image" %>
 <% else %>
+  <%= image_tag("product/product-placeholder.jpg") %>
   <%= render 'spree/shared/image',
     image: @product.gallery.images.first,
     size: :large,

@@ -9,15 +9,12 @@
       <p><%= t('store.general.new_product') %></p>
     </div>
     <div class="<%= css_classes %>">
-      <%= link_to url do %>
-      <div class="open-product-effect">
-      <div class="mix-blend"></div>
-      <p><%= t('store.product.open') %></p>
-    </div> 
-    <% end %>
     </div>
     <div class="<%= css_classes %>">
       <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
+      <% if !product.gallery.images.first %>
+        <%= link_to(image_tag('product/product-placeholder.jpg', size: :small, itemprop: "image"), url, itemprop: 'url') %>
+      <% end %>
     </div>
   </div>
   <div class="product-card-body">

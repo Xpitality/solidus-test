@@ -7,7 +7,7 @@
       <div class="col slider-col">
         <% Spree::Product.products_for_taxon(taxon: region, limit: 2).each do |product| %>
           <div class="product-col">
-            <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'show-open' } %>
+            <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'zoom-effect' } %>
           </div>
         <% end %>
       </div>

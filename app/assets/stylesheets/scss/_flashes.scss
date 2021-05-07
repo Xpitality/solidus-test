@@ -41,3 +41,8 @@
 .required{
   border-color: #ff3860;
 }
+.errorExplanation{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

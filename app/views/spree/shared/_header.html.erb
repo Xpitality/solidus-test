@@ -1,8 +1,8 @@
 <header id="header" class="sticky" data-hook>
   <%= content_tag :div, class: "header-top-bar" do -%>
     <%= image_tag("icons/icon-delivery.svg") %>
-    <%= content_tag :p, "in tutta Italia consegna a casa tua in 96 ore", class: "exceptSmallScreen" %>
-    <%= content_tag :p, "consegna a casa tua in 96 ore", class: "smallScreen" %>
+    <%= content_tag :p, t('store.home.header.delivery_time_web'), class: "exceptSmallScreen" %>
+    <%= content_tag :p, t('store.home.header.delivery_time_mob'), class: "smallScreen" %>
   <% end -%>
   <%= content_tag :div, class: "header-content" do -%>
     <figure id="logo" data-hook><%= logo %></figure>
