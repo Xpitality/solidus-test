@@ -9,10 +9,9 @@
       <p><%= t('store.general.new_product') %></p>
     </div>
     <div class="<%= css_classes %>">
-    </div>
-    <div class="<%= css_classes %>">
-      <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
-      <% if !product.gallery.images.first %>
+      <% if product.gallery.images.first %>
+        <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
+      <% else %>
         <%= link_to(image_tag('product/product-placeholder.jpg', size: :small, itemprop: "image"), url, itemprop: 'url') %>
       <% end %>
     </div>

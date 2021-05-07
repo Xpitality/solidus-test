@@ -20,7 +20,11 @@
             <%# end %>
           </div>
           <div class="product-image-holder">
-            <%= render partial: 'spree/products/show/image' %>
+            <% if @product.gallery.images.first %>
+              <%= render partial: 'spree/products/show/image' %>
+            <% else %>
+              <%= image_tag("product/product-placeholder.jpg") %>
+            <% end %>
             <div class="slash">
               <%= image_tag("product/slash.svg") %>
             </div>
