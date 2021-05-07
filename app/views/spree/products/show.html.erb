@@ -21,7 +21,10 @@
           </div>
           <div class="product-image-holder">
             <% if @product.gallery.images.first %>
-              <%= render partial: 'spree/products/show/image' %>
+              <%= render 'spree/shared/image',
+                         image: @product.gallery.images.first,
+                         size: :large,
+                         itemprop: "image" %>
             <% else %>
               <%= image_tag("product/product-placeholder.jpg") %>
             <% end %>
