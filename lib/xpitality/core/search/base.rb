@@ -17,19 +17,19 @@ module Xpitality
         # end
 
         def new_products(taxon_new = nil)
-          Spree::Product.new_products(taxon_new).order("updated_at desc")
+          Spree::Product.new_products(taxon_new).order("spree_products.updated_at desc")
         end
 
         def producer_products(producer_taxon)
-          Spree::Product.producer_products(producer_taxon).order("updated_at desc")
+          Spree::Product.producer_products(producer_taxon).order("spree_products.updated_at desc")
         end
 
         def collection_products(collection_taxon)
-          Spree::Product.collection_products(collection_taxon).order("updated_at desc")
+          Spree::Product.collection_products(collection_taxon).order("spree_products.updated_at desc")
         end
 
         def featured_collection_products
-          Spree::Product.featured_collection_products.order("updated_at desc")
+          Spree::Product.featured_collection_products.order("spree_products.updated_at desc")
         end
 
         protected
@@ -58,7 +58,7 @@ module Xpitality
           base_scope = get_products_conditions_for(base_scope, @properties[:keywords])
           base_scope = add_search_scopes(base_scope)
           base_scope = add_eagerload_scopes(base_scope)
-          base_scope = base_scope.order("updated_at desc")
+          base_scope = base_scope.order("spree_products.updated_at desc")
           base_scope
         end
 
