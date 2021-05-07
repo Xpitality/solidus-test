@@ -59,7 +59,8 @@
                       <%= render partial: 'spree/products/show/product_controls', locals: { product: @product } %>
                     </div>
                     <div class="button_wrapper">
-                      <%= button_tag class: "btn btn-primary btn-add-to-cart #{"disabled" if !@product.master.can_supply?}", disabled: !@product.master.can_supply?, id: 'add-to-cart-button', type: :submit do %>
+                      <% disabled = !@product.master.can_supply? || max_product_quantity(@product)==0 %>
+                      <%= button_tag class: "btn btn-primary btn-add-to-cart #{"disabled" if disabled}", disabled: disabled, id: 'add-to-cart-button', type: :submit do %>
                         <%= t('spree.add_to_cart') %>
                       <% end %>
                       <% if @product.master.can_supply? %>

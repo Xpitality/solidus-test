@@ -36,9 +36,14 @@
       </div>
       <div class="body-actions">
         <div class="add-to-cart">
-          <%= link_to plus_orders_path(id: product.master.id), remote: true do %>
+          <% disabled = !product.master.can_supply? || max_product_quantity(product)==0 %>
+          <% if disabled %>
             <%= image_tag("icons/icon-add-to-cart.svg") %>
-          <% end %>
+          <% else %>
+            <%= link_to plus_orders_path(id: product.master.id), remote: true do %>
+              <%= image_tag("icons/icon-add-to-cart.svg") %>
+            <% end %>
+        <% end %>
         </div>
         <div class="favourite">
           <%= image_tag("icons/icon-favourite.svg") %>
