@@ -12,7 +12,7 @@
       </h1>
       <%= form_for resource, as: :spree_user, url: spree.registration_path(resource) do |f| %>
         <%= render partial: 'spree/shared/devise/user_form', locals: { f: f } %>
-        <%= f.submit t('spree.create'), class: 'btn btn-primary', tabindex: 4 %>
+        <%= f.submit t('spree.create'),id: "reg_submit", class: 'btn btn-primary', tabindex: 4 %>
       <% end %>
       <p class="or"><%= t('store.general.oppure') %></p>
       <%= link_to t('spree.login_as_existing'), spree.login_path, class: 'btn btn-primary' %>
