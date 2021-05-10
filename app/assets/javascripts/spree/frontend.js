@@ -11,4 +11,3 @@
 //= require spree/xpitality/filters
 //= require spree/xpitality/profile
 //= require spree/xpitality/checkoutReg
-//= require spree/xpitality/userRegSubmit

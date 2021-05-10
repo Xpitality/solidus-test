@@ -38,7 +38,10 @@
         <div class="add-to-cart">
           <% disabled = !product.master.can_supply? || max_product_quantity(product)==0 %>
           <% if disabled %>
-            <%= image_tag("icons/icon-add-to-cart.svg") %>
+            <div class="disabled-cart">
+              <%= image_tag("icons/icon-disabled-cart.svg") %>
+              <p class="disabled-cart-text"><%= t('store.product.disabled.product_out_of_store')%></p>
+            </div>
           <% else %>
             <%= link_to plus_orders_path(id: product.master.id), remote: true do %>
               <%= image_tag("icons/icon-add-to-cart.svg") %>
