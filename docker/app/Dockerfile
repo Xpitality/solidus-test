@@ -24,10 +24,10 @@ COPY ["Gemfile*", "package.json", "yarn.lock", "$HOME/"]
 
 RUN bundle config set without 'development:test:assets' \
     && bundle install -j"$(nproc)" --retry 3 --path=vendor/bundle \
-    # Remove unneeded files (cached *.gem, *.o, *.c)
-    && rm -rf vendor/bundle/ruby/2.7.0/cache/*.gem \
-    && find vendor/bundle/ruby/2.7.0/gems/ -name "*.c" -delete \
-    && find vendor/bundle/ruby/2.7.0/gems/ -name "*.o" -delete
+    # Remove unneeded files (cached *.gem, *.o, *.c) TEMPORARILY DISABLED TO IMPROVE BUILD TIMES
+    # && rm -rf vendor/bundle/ruby/2.7.0/cache/*.gem \
+    # && find vendor/bundle/ruby/2.7.0/gems/ -name "*.c" -delete \
+    # && find vendor/bundle/ruby/2.7.0/gems/ -name "*.o" -delete
     
 RUN yarn install --pure-lockfile
 
