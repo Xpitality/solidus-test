@@ -1,0 +1,39 @@
+<%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.general.account') } %>
+
+<div class="profile">
+  <div class="container">
+    <div class="profile-title-holder">
+      <h3 class="profile-title-small"><%= t('store.user.profile.welcome') %></h3>
+      <h1 class="profile-title-big"><%= t('store.user.profile.welcome') %>, <%= try_spree_current_user.email.to_s.split('@').first  %></h1>
+    </div>
+    <div class="profile-content-holder">
+      <div class="col profile-nav-col">
+        <div class="profile-nav">
+          <div class="profile-nav-link active" profile-nav-for="profile-info">
+            <p><%= t('store.user.profile.my_profile') %></p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="profile-nav-link" profile-nav-for="profile-orders">
+            <p><%= t('store.user.profile.my_orders') %></p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="profile-nav-link" profile-nav-for="profile-addresses">
+            <p><%= t('store.user.profile.save_address') %></p>
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+            <%= image_tag("icons/icon-chevron-right-primary.svg") %>
+          </div>
+          <div class="logout-btn-holder">
+            <a href=""><%= t('store.general.sign_out') %></a>
+          </div>
+        </div>
+      </div>
+      <div class="col profile-content-col">
+        <%= render partial: 'spree/users/profile_info' %>
+        <%= render partial: 'spree/users/profile_orders', locals: { orders: @orders } %>
+        <%= render partial: 'spree/users/profile_addresses' %>
+      </div>
+    </div>
+  </div>
+</div>

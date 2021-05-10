@@ -2,15 +2,23 @@
 
 <div class="product-card <%= css_classes %>" id="product_<%= product.id %>" itemscope itemtype="http://schema.org/Product">
   <div class="product-image-holder">
-    <div class="new-mark-top"></div>
-    <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
+    <div class="new-mark-top">
+      <p><%= t('store.product.new') %></p>
+    </div>
     <div class="new-mark-bottom">
       <p><%= t('store.general.new_product') %></p>
+    </div>
+    <div class="<%= css_classes %>">
+      <% if product.gallery.images.first %>
+        <%= link_to(render('spree/shared/image', image: product.gallery.images.first, size: :small, itemprop: "image"), url, itemprop: 'url') %>
+      <% else %>
+        <%= link_to(image_tag('product/product-placeholder.jpg', size: :small, itemprop: "image"), url, itemprop: 'url') %>
+      <% end %>
     </div>
   </div>
   <div class="product-card-body">
     <div class="body-info">
-      <p><%= product.producer&.name %></p>
+      <p class='title'><%= product.producer&.name %></p>
       <p>
         <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
       </p>
@@ -20,7 +28,7 @@
         <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <% if price = product.price_for(current_pricing_options) %>
             <span class="price selling" itemprop="price" content="<%= price.to_d %>">
-              <%= price.to_html %>
+              <%= price.to_html %>  
             </span>
           <% end %>
           <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
@@ -28,7 +36,17 @@
       </div>
       <div class="body-actions">
         <div class="add-to-cart">
-          <%= image_tag("icons/icon-add-to-cart.svg") %>
+          <% disabled = !product.master.can_supply? || max_product_quantity(product)==0 %>
+          <% if disabled %>
+            <div class="disabled-cart">
+              <%= image_tag("icons/icon-disabled-cart.svg") %>
+              <p class="disabled-cart-text"><%= t('store.product.disabled.product_out_of_store')%></p>
+            </div>
+          <% else %>
+            <%= link_to plus_orders_path(id: product.master.id), remote: true do %>
+              <%= image_tag("icons/icon-add-to-cart.svg") %>
+            <% end %>
+        <% end %>
         </div>
         <div class="favourite">
           <%= image_tag("icons/icon-favourite.svg") %>

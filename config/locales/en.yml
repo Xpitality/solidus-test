@@ -1,6 +1,7 @@
 en:
   spree:
     taxon_details: "Taxon Details"
+    yes: "yes"
     admin:
       tab:
         relation_types: "Relation Types"

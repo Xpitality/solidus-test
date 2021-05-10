@@ -7,7 +7,7 @@
         <% products.each do |product| %>
           <div class="product-col">
             <% cache(@taxon.present? ? [I18n.locale, :featured_producer, current_pricing_options, @taxon, product] : [I18n.locale, :featured_producer, current_pricing_options, product]) do %>
-              <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: '' } %>
+              <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'zoom-effect' } %>
             <% end %>
           </div>
         <% end %>

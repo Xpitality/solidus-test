@@ -1,0 +1,26 @@
+<div class="swiper-section container">
+  <p class="swiper-title">
+    <%= t('store.swiper.title') %>
+  </p>
+  <!-- Slider main container -->
+  <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <% Spree::Product.products_for_taxon(taxon: producer).each do |product| %>
+        <div class="swiper-slide">
+          <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'product-side zoom-effect' } %>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-navigation">
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button swiper-button-prev">
+        <%= image_tag("icons/icon-chevron-left.svg") %>
+      </div>
+      <div class="swiper-button swiper-button-next">
+        <%= image_tag("icons/icon-chevron-right.svg") %>
+      </div>
+    </div>
+  </div>
+</div>

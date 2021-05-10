@@ -17,7 +17,6 @@ unless Spree::Store.where(code: 'enoteca-naturale').exists?
       store_phone: '+390282770589',
       store_instagram: 'https://instagram.com/enotecanaturale',
       store_facebook: 'https://facebook.com/enotecanaturale',
-      hidden_taxonomies: 'Collezioni,Quantità limitata,Novità',
       quantity_limit_taxonomy: 'Quantità limitata',
       featured_producer_taxon_name: 'Koppitsch',
       featured_collection_taxon_name: 'La Slovenia del vino'

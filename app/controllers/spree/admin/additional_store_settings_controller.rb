@@ -8,7 +8,6 @@ module Spree
         @store_phone = @store.additional_store_settings.find_by_label(:store_phone) || @store.additional_store_settings.new(label: :store_phone)
         @store_instagram = @store.additional_store_settings.find_by_label(:store_instagram) || @store.additional_store_settings.new(label: :store_instagram)
         @store_facebook = @store.additional_store_settings.find_by_label(:store_facebook) || @store.additional_store_settings.new(label: :store_facebook)
-        @hidden_taxonomies = @store.additional_store_settings.find_by_label(:hidden_taxonomies) || @store.additional_store_settings.new(label: :hidden_taxonomies)
         @quantity_limit_taxonomy = @store.additional_store_settings.find_by_label(:quantity_limit_taxonomy) || @store.additional_store_settings.new(label: :quantity_limit_taxonomy)
         @featured_producer_taxon_name = @store.additional_store_settings.find_by_label(:featured_producer_taxon_name) || @store.additional_store_settings.new(label: :featured_producer_taxon_name)
         @featured_collection_taxon_name = @store.additional_store_settings.find_by_label(:featured_collection_taxon_name) || @store.additional_store_settings.new(label: :featured_collection_taxon_name)

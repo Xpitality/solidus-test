@@ -77,8 +77,8 @@ Spree.ready(function($) {
         stateSelect.hide().prop("disabled", true);
         stateInput.show();
         if (statesRequired) {
-          statePara.addClass("field-required");
           stateInput.addClass("required");
+          statePara.addClass("field-required");
         } else {
           stateInput.val("");
           statePara.removeClass("field-required");

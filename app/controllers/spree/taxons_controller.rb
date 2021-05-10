@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'xpitality/core/search/base'
+
 module Spree
   class TaxonsController < Spree::StoreController
     helper 'spree/products', 'spree/taxon_filters'
@@ -18,6 +20,18 @@ module Spree
 
     def load_taxon
       @taxon = Spree::Taxon.find_by!(permalink: params[:id])
+
+      @selected_taxons = {}
+      [:wine_type, :country, :producer, :grape_type, :format].each do |taxonomy_key|
+        localized_taxonomy_key = I18n.t("store.taxonomy_key.#{taxonomy_key}")
+        if params[localized_taxonomy_key]
+          t = Spree::Taxon.where(name: params[localized_taxonomy_key]).first
+          if t
+            @selected_taxons[taxonomy_key] = t
+          end
+        end
+      end
+      @selected_taxons[@taxon.taxonomy.taxonomy_key] = @taxon
     end
 
     def accurate_title

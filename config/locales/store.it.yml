@@ -4,17 +4,26 @@ it:
       close: "close"
       new_product: "NOVITÀ"
       sign_in: "Accedi"
+      sign_up: "Sign up"
+      account: "Area personale"
       sign_out: "Logout"
+      oppure: "oppure"
+      registration_btn: "Registrati" 
     shared:
       main_menu:
-        home: "HOME"
-        new_products: "NOVITÀ"
-        products: "CATALOGO"
-        wine_type: "TIPOLOGIA"
-        origin: "ORIGINE"
-        producers:
-          label: "PRODUTTORI"
-          title: "PRODUTTORI IN EVIDENZA"
+        label:
+          home: "HOME"
+          new_products: "NOVITÀ"
+          products: "CATALOGO"
+          wine_type: "TIPOLOGIA"
+          country: "ORIGINE"
+          producer: "PRODUTTORI"
+          locale: "Il locale"
+        title:
+          wine_type: "TIPOLOGIA"
+          country: "ORIGINE"
+          producer: "PRODUTTORI IN EVIDENZA"
+          locale: "Il locale"
       footer:
         secure_shopping:
           title: "Shopping sicuro"
@@ -51,6 +60,10 @@ it:
           title: "e/n sostiene Emergency"
           text: "e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà"
     home:
+      header:
+        delivery_time_web: consegna gratuita a partire da 89 €
+        delivery_time_mob: consegna gratuita a partire da 89 €
+        hello_message: "Ciao, %{username}"
       hero:
         catalog_button: "vai al catalogo"
       new_products:
@@ -70,10 +83,10 @@ it:
       follow_us:
         title: SEGUICI SUI SOCIAL
         button: FOLLOW US ON INSTAGRAM
-
     product:
+      open : Apri
+      new : new
       add_to_cart_button: AGGIUNGI AL CARRELLO
-      delivery: Disponibile con consegna in 48 ore
       region:
         title: DALLA STESSA REGIONE
         button: SCOPRI I PRODOTTI
@@ -91,6 +104,16 @@ it:
         description_label: COSA NE PENSIAMO
       producer:
         title: CANTINA
+      index:
+        filters:
+          wine_type: Tipologia
+          origin: Origine
+          producer: Produttore
+          grape_type: Vitigno
+          format: Formato
+          country: Paese
+      disabled:
+        product_out_of_store: Prodotto non disponibile
     cart:
       cart_title: CARRELLO
       cart_info_title: Riepilogo
@@ -104,14 +127,26 @@ it:
         subtotal: Subtotale
         total: TOTALE
         button: PROSEGUI
-
-
-    modals:
-      location:
-        title: "ATTENZIONE"
-        title_big: "Stai cambiando catalogo"
-        subtitle: "Cambiando catalogo i prodotti nel tuo carrello verranno eliminati.
-Se vuoi completare l’ordine in corso, clicca su Annulla, altrimenti Conferma"
-        actions:
-          cancel: "ANNULLA"
-          confirm: "CONFERMA"
+    checkout:
+      coupon_placeholder: Inserisci codice
+      confirmed:
+        cheers: "Cheers!"
+        order_confirmed: "Ordine confermato!"
+        back_to_products: "TORNA AL CATALOGO"
+        hint_html: "Ricordati che puoi controllare lo stato del tuo ordine accedendo alla tua <a href='/account'>area personale</a>"
+    taxonomy_key:
+      wine_type: 'Tipologia'
+      grape_type: 'Uve'
+      country: 'Paese'
+      format: 'Formato'
+      producer: 'Produttore'
+    payment:
+      information: Scegli un metodo di pagamento
+    swiper:
+      title: DALLA STESSA CANTINA
+    user:
+      profile:
+        welcome: Bentortata
+        my_profile: Il mio profilo
+        my_orders: I miei ordini
+        saved_address: Indirizzi salvati

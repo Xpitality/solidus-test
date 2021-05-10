@@ -67,7 +67,7 @@ Spree::Product.class_eval do
   def taxon_by_key(key:)
     t = self.taxons.where(taxonomy_id: Spree::Taxonomy.find_by_key(key).id).first
 
-    if Spree::Taxon.tree.values.flatten.include?(key)
+    if t && Spree::Taxon.tree.values.flatten.include?(key)
       t = taxon_tree(taxon: t, key: key)
     end
     t

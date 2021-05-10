@@ -44,12 +44,12 @@
           <div class="logo-social">
             <% if store_instagram %>
               <%= link_to store_instagram, target: :_blank do %>
-                <%= image_tag("icons/icon-instagram-white.svg") %>
+                <%= image_tag("icons/social/icon-instagram-white.svg") %>
               <% end %>
             <% end %>
             <% if store_facebook %>
               <%= link_to store_facebook, target: :_blank do %>
-                <%= image_tag("icons/icon-facebook-white.svg") %>
+                <%= image_tag("icons/social/icon-facebook-white.svg") %>
               <% end %>
             <% end %>
           </div>
@@ -81,10 +81,10 @@
         <div class="nav-holder">
           <p class="nav-title"><%= t('store.shared.footer.info.title') %></p>
           <div class="nav">
-            <%= link_to t('store.shared.footer.info.about_us'), "/" %>
-            <%= link_to t('store.shared.footer.info.faq'), "/" %>
-            <%= link_to t('store.shared.footer.info.shipping'), "/" %>
-            <%= link_to t('store.shared.footer.info.contacts'), "/" %>
+            <%= link_to t('store.shared.footer.info.about_us'), '/p/chi-siamo' %>
+            <%= link_to t('store.shared.footer.info.faq'), "/p/faq" %>
+            <%= link_to t('store.shared.footer.info.shipping'), "/p/spedizione" %>
+            <%= link_to t('store.shared.footer.info.contacts'), "/p/contatti" %>
           </div>
         </div>
       </div>

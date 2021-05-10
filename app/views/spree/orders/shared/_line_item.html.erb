@@ -1,0 +1,58 @@
+<% variant = line_item.variant -%>
+
+<div class="cart-item line-item">
+  <div class="cart-item-image">
+    <% if source == :cart %>
+      <%= render('spree/shared/image', image: (variant.gallery.images.first || variant.product.gallery.images.first), size: :small) %>
+    <% else %>
+      <%= link_to(render('spree/shared/image',
+                         image: (variant.gallery.images.first || variant.product.gallery.images.first),
+                         size: :small), variant.product) %>
+    <% end %>
+  </div>
+  <div class="cart-item-info-holder item-modal-col">
+    <div class="cart-item-info">
+      <div class="name">
+        <p>
+          <% if source == :cart %>
+            <%= line_item.name %>
+          <% else %>
+            <%= link_to line_item.name, product_path(variant.product) %>
+          <% end %>
+        </p>
+        <% if source == :order && line_item.insufficient_stock? %>
+                        <span class="out-of-stock">
+                          <%= t('spree.out_of_stock') %>&nbsp;&nbsp;<br/>
+                        </span>
+        <% end %>
+      </div>
+      <div class="price">
+        <p><%= line_item.single_money.to_html %></p>
+      </div>
+    </div>
+
+    <div class="product-controls cart-item-quantity">
+      <% if line_item.quantity == 1 %>
+        <span class="btn btn-control-cart disabled">-</span>
+      <% else %>
+        <%= link_to minus_orders_path(id: variant.id), remote: true do %>
+          <span class="btn btn-control-cart minus">-</span>
+        <% end %>
+      <% end %>
+
+      <p class="quantity-value"><%= line_item.quantity %></p>
+
+      <% if line_item.quantity >= max_product_quantity(variant) %>
+        <span class="btn btn-control-cart disabled">+</span>
+      <% else %>
+        <%= link_to plus_orders_path(id: variant.id), remote: true do %>
+          <span class="btn btn-control-cart plus">+</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="close-button">
+    <%= link_to image_tag('icons/icon-cart-x.svg'), remove_orders_path(id: line_item.id), remote: true, class: 'delete' %>
+  </div>
+</div>

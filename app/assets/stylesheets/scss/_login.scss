@@ -19,27 +19,107 @@
       @media (max-width: $large) {
         padding: 0 15px;
       }
+      .show-content-wrapper {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 22px;
+          font-weight: bold;
+        }
+        :nth-child(3) {
+          display: none;
+        }
+        @media (max-width: $small){
+          display: flex;
+          border-bottom: 1px solid #e5e5e5;
+          padding: 20px 0;
+        }
+      }
+      .active {
+        .title {
+          color: $primary;
+        }
+        :nth-child(2) {
+          display: none;
+        }
+        :nth-child(3) {
+          display: block;
+        }
+      }
       .col-title {
         font-size: 22px;
         font-weight: bold;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+      }
+      .col-title-checkout{
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        display: block;
+        @media (max-width: $small) {
+          display: none;
+        }
       }
       .or {
         margin: 40px 0;
-        align-self: center;
+        width: 100%;
+        text-align: center;
         color: $light-text-color;
       }
       .btn-facebook {
-        margin-bottom: 15px;
+        margin: 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+      }
+      .route-account {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        .route-to-link {
+          color: $primary;
+          text-decoration: underline;
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+      .btn-dark-transparent {
+        border: 3px solid $primary;
+        color: $primary;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .forgot-password-wrapper {
+        margin: 20px 0;
+        .forgot-password-link {
+          color: $primary;
+          text-decoration: underline;
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+      .btn-google {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        img {
+          margin-right: 20px;
+        }
       }
       .btn-primary {
+        width: 100%;
         padding: 20px 0;
         font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
       }
       &.login-col {
         border-right: 1px solid #e5e5e5;
         @media (max-width: $small) {
-          margin-bottom: 70px;
+          margin-bottom: 15px;          
         }
         .login-form {
           display: flex;
@@ -47,30 +127,65 @@
           .input-holder {
             margin-bottom: 15px;
           }
-          .forgot-password-link {
-            color: $primary;
-            text-decoration: underline;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 20px;
-          }
         }
       }
     }
   }
+  .half-container {
+    width: 60%;
+    @media (max-width: $small) {
+      width: 100%;
+    }
+    @media (min-width: $large) {
+      width: 50%;
+    }
+    p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+  }
 }
-
 .input-holder {
   display: flex;
   flex-direction: column;
   label {
     font-size: 14px;
-    margin-bottom: 5px;
+    margin: 10px 0;
   }
   input {
     width: 100%;
     border: 1px solid #e5e5e5;
     height: 45px;
     background: $white;
+  }
+}
+#login-holder {
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  height: 0;
+  overflow: hidden;
+}
+#reg-holder {
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  height: 0;
+  overflow: hidden;
+}
+.platform_wrapper{
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  height: auto;
+  overflow: hidden;
+  @media (max-width: $small){
+    height: 0;
   }
 }

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 2.7.2'
+ruby '~> 2.7.3'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'mysql2'
@@ -71,6 +71,8 @@ gem 'solidus_zip_zones', github: 'nebulab/solidus_zip_zones', branch: 'master'
 gem 'solidus_abandoned_carts', github: 'solidusio-contrib/solidus_abandoned_carts'
 
 gem 'alchemy-solidus', '~> 2.4.0'
+
+gem 'solidus_import_products', :git => 'git://github.com/2BeDigital/solidus_import_products.git'
 
 gem 'solidus_additional_store_settings', github: 'Xpitality/solidus_additional_store_settings'
 gem 'solidus_taxon_images', github: 'Xpitality/solidus_taxon_images'

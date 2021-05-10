@@ -16,10 +16,6 @@ en:
       title: "Store facebook"
       attributes:
         text_value: "Store facebook"
-    hidden_taxonomies:
-      title: "Hidden taxonomies"
-      attributes:
-        text_value: "CSV list of taxonomy names"
     quantity_limit_taxonomy:
       title: "Taxonomy containing product quantity limits"
       attributes:

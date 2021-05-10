@@ -19,6 +19,8 @@ Spree.config do |config|
   # Use the legacy address' state validation logic
   config.use_legacy_address_state_validator = false
 
+  config.default_country_iso = 'it'
+
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
 
@@ -98,6 +100,17 @@ Spree.config do |config|
     test_mode: !Rails.env.production?,
     v3_elements: false,
     v3_intents: true
+  )
+
+  config.static_model_preferences.add(
+      SolidusPaypalCommercePlatform::PaymentMethod,
+      'paypal_commerce_platform_credentials', {
+          test_mode: !Rails.env.production?,
+          client_id: Rails.application.credentials.config[:paypal_client_id],
+          client_secret: Rails.application.credentials.config[:paypal_client_secret],
+          display_on_product_page: true,
+          display_on_cart: true,
+      }
   )
 
   config.searcher_class = 'Xpitality::Core::Search::Base'

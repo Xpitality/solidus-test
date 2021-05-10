@@ -1,35 +1,22 @@
 <% @body_id = 'cart' %>
-<div data-hook="cart_container">
-  <h1><%= t('spree.shopping_cart') %></h1>
+<div data-hook="cart_container" class="cart">
+  <div class="container title-container">
+    <h1 class="cart-title"><%= t('spree.shopping_cart') %></h1>
+  </div>
 
   <% if @order.line_items.empty? %>
 
-    <div data-hook="empty_cart">
+    <div data-hook="empty_cart" class='empty-cart-actions'>
       <p><%= t('spree.your_cart_is_empty') %></p>
-      <p><%= link_to t('spree.continue_shopping'), products_path, class: 'button continue' %></p>
+      <p><%= link_to t('spree.continue_shopping'), products_path, class: 'btn btn-primary' %></p>
     </div>
 
   <% else %>
-
-    <div data-hook="outside_cart_form">
-      <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
-        <div data-hook="inside_cart_form">
-
-          <div data-hook="cart_items">
-            <% order = order_form.object %>
-            <%= render 'spree/shared/error_messages', target: order %>
-
-
-            <div id="cart-detail" class="container content-container" data-hook>
-              <div id="line_items" class="col items-col" data-hook>
-                <%= render partial: 'spree/orders/line_item', collection: order.line_items, as: :line_item, locals: { order_form: order_form } %>
-              </div>
-              <%= render partial: 'spree/orders/summary', locals: { order: order } %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <div data-hook="cart_with_items">
+      <%= render partial: 'spree/orders/edit/cart_with_items', locals: { order: @order } %>
     </div>
-
+    <%# Spree::PaymentMethod.available_to_users.select { |payment_method| payment_method.try(:display_on_cart) }.each do |payment_method| %>
+    <%#= render partial: "spree/orders/payment/#{payment_method.cart_partial_name}", locals: { payment_method: payment_method } %>
+    <%# end %>
   <% end %>
 </div>

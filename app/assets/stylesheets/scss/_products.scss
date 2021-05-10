@@ -9,6 +9,12 @@ $colPadding: 10px;
   margin-left: -$colPadding;
   margin-right: -$colPadding;
 }
+.products-button-holder{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+}
 
 .product-col {
   flex: 0 0 25%;
@@ -33,7 +39,11 @@ $colPadding: 10px;
   display: flex;
   flex-direction: column;
   border: 1px solid #e5e5e5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  height: 100%;
   .product-image-holder {
+    position: relative;
+    height: 100%;
     img {
       width: 100%;
     }
@@ -42,6 +52,32 @@ $colPadding: 10px;
     }
     .new-mark-bottom {
       display: none;
+    }
+  }
+  .zoom-effect {
+    overflow: hidden;
+  }
+  .zoom-effect img {
+    transition: transform .5s ease;
+  }
+  .zoom-effect:hover img {
+    transform: scale(1.2);
+  }
+  .disabled-cart{
+    position: relative;
+    .disabled-cart-text{
+      padding: 10px;
+      right:0;
+      background-color: #fff;
+      display: none;
+      position: absolute;
+      white-space: nowrap;
+      border: 1px solid #e5e5e5;
+    }
+  }
+  .disabled-cart:hover{
+    .disabled-cart-text{
+      display: block
     }
   }
   .product-card-body {
@@ -58,6 +94,12 @@ $colPadding: 10px;
       p {
         font-size: 16px;
         font-weight: bold;
+      }
+      .title{
+        font-family: "chainprinter", sans-serif;
+        font-size: 12px;
+        margin-bottom: 8px;
+        font-weight: normal;
       }
     }
     .body-actions-holder {
@@ -95,21 +137,28 @@ $colPadding: 10px;
   }
   &.new-product {
     .product-image-holder {
-      padding: 23px 18px 38px 18px;
       position: relative;
+      width: 50%;
       .new-mark-top {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: $primary;
         position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 85px;
-        height: 23px;
+        top: 5%;
+        left: 5%;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        p{
+          text-align: center;
+          color: #fff;
+          font-size: 12px;
+        }
       }
       .new-mark-bottom {
         background: $primary;
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         position: absolute;
@@ -118,6 +167,7 @@ $colPadding: 10px;
         transform: translateX(-50%);
         width: 85px;
         height: 38px;
+        font-family: 'chainprinter', sans-serif;
         p {
           font-size: 12px;
           font-weight: bold;
@@ -130,6 +180,7 @@ $colPadding: 10px;
   &.product-side {
     flex-direction: row;
     .product-image-holder {
+      width: 50%;
       img {
         width: 100%;
         height: 100%;
@@ -138,6 +189,7 @@ $colPadding: 10px;
     }
     .product-card-body {
       display: flex;
+      width: 80%;
       flex-direction: column;
       .body-info {
         border-bottom: none;
@@ -151,7 +203,6 @@ $colPadding: 10px;
           flex-direction: row;
         }
         .price {
-          margin-right: 100px;
           @media (max-width: $small) {
             margin-bottom: 0;
           }

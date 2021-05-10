@@ -1,0 +1,17 @@
+<div class="input-holder">
+  <%= f.label :email, t('spree.email') %><br />
+  <%= f.email_field :email, class: 'title', required: true, autofocus: true %>
+</div>
+<% if spree_current_user.nil? || spree_current_user.password_required? %>
+  <div id="password-credentials">
+    <div class="input-holder">
+      <%= f.label :password, t('spree.password') %><br />
+      <%= f.password_field :password, class: 'title', required: true %>
+    </div>
+
+    <div class="input-holder">
+      <%= f.label :password_confirmation, t('spree.confirm_password') %><br />
+      <%= f.password_field :password_confirmation, class: 'title', required: true %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<div class="profile-orders" profile-nav="profile-orders">
+  <div class="orders-title">
+    <p>
+      <%= t('spree.my_orders') %>
+    </p>
+  </div>
+  <div class="orders-holder">
+    <% orders.each do |order| %>
+      <div class="order <%= cycle('even', 'odd') %>">
+        <div class="order-header">
+          <div class="left">
+            <%= image_tag("icons/icon-chevron-right.svg") %>
+              <p class="order-number"><%= link_to order.number, order_url(order) %></p>
+              <p class="order-date"><%= l order.completed_at.to_date %></p>
+          </div>
+          <div class="center">
+            <p class="order-price"><%= order.display_total %></p>
+          </div>
+          <div class="right">
+            <p class="order-status pending"><%= t("spree.shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></p>
+          </div>
+        </div>
+        <div class="order-body">
+          <% order.line_items.each do |item| %>
+          <div class="box">
+            <div class="left">
+              <p class="name"><%= item.variant.product.name %></p>
+            </div>
+            <div class="center">
+              <p class="box-price"><%= item.single_money.to_html %></p>
+            </div>
+            <div class="right">
+              <p class="box-amount"><%= item.quantity %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>

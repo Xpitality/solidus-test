@@ -53,7 +53,7 @@ module Spree
       @order = current_order(create_order_if_necessary: true)
       authorize! :update, @order, cookies.signed[:guest_token]
 
-      variant  = Spree::Variant.find(params[:variant_id])
+      variant = Spree::Variant.find(params[:variant_id])
       quantity = params[:quantity].present? ? params[:quantity].to_i : 1
 
       # 2,147,483,647 is crazy. See issue https://github.com/spree/spree/issues/2695.
@@ -62,6 +62,12 @@ module Spree
       else
         begin
           @line_item = @order.contents.add(variant, quantity)
+          max_quantity = variant.max_product_quantity(user: try_spree_current_user, store: current_store)
+          if @line_item.quantity > max_quantity
+            @line_item.update_attribute(:quantity, max_quantity)
+            @line_item.reload
+          end
+
         rescue ActiveRecord::RecordInvalid => error
           @order.errors.add(:base, error.record.errors.full_messages.join(", "))
         end
@@ -74,10 +80,75 @@ module Spree
             redirect_back_or_default(spree.root_path)
             return
           else
-            redirect_to cart_path
+            if params['redirect_back_to_product']
+              redirect_to product_path(variant, show_cart: true)
+            else
+              redirect_to cart_path
+            end
           end
         end
       end
+    end
+
+    def plus
+      @order = current_order(create_order_if_necessary: true)
+      authorize! :update, @order, cookies.signed[:guest_token]
+
+      variant = Spree::Variant.find(params[:id])
+
+      begin
+        @line_item = @order.contents.add(variant)
+        max_quantity = variant.max_product_quantity(user: try_spree_current_user, store: current_store)
+        if @line_item.quantity > max_quantity
+          @line_item.update_attribute(:quantity, max_quantity)
+          @line_item.reload
+        end
+      rescue ActiveRecord::RecordInvalid => error
+        @order.errors.add(:base, error.record.errors.full_messages.join(", "))
+      end
+
+      render :update_cart
+    end
+
+    def minus
+      @order = current_order(create_order_if_necessary: true)
+      authorize! :update, @order, cookies.signed[:guest_token]
+
+      variant = Spree::Variant.find(params[:id])
+
+      begin
+        @line_item = @order.contents.remove(variant)
+        max_quantity = variant.max_product_quantity(user: try_spree_current_user, store: current_store)
+        if @line_item.quantity > max_quantity
+          @line_item.update_attribute(:quantity, max_quantity)
+          @line_item.reload
+        end
+      rescue ActiveRecord::RecordInvalid => error
+        @order.errors.add(:base, error.record.errors.full_messages.join(", "))
+      end
+
+      render :update_cart
+    end
+
+    def remove
+      @order = current_order(create_order_if_necessary: true)
+      authorize! :update, @order, cookies.signed[:guest_token]
+
+      line_item = Spree::LineItem.find(params[:id])
+
+      begin
+        @line_item = @order.contents.remove_line_item(line_item)
+      rescue ActiveRecord::RecordInvalid => error
+        @order.errors.add(:base, error.record.errors.full_messages.join(", "))
+      end
+
+      render :update_cart
+    end
+
+    def refresh
+      @order = current_order(create_order_if_necessary: true)
+      authorize! :update, @order, cookies.signed[:guest_token]
+      render partial: 'spree/orders/edit/cart_with_items', locals: { order: @order }
     end
 
     def populate_redirect

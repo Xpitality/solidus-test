@@ -1,0 +1,6 @@
+<div class="product-controls">
+  <%= hidden_field_tag :quantity, 1, min: 0, max: max_product_quantity(product), class: "quantity-input" %>
+  <span class="btn btn-control-cart minus">-</span>
+  <p class="quantity-value" data-quantity="1" data-max-product-quantity="<%= max_product_quantity(product) %>">1</p>
+  <span class="btn btn-control-cart plus">+</span>
+</div>

@@ -5,7 +5,7 @@
     </div>
     <div class="tag-info">
       <p class="title"><%= t("store.product.#{type}.#{key}") %></p>
-      <p class="text"><%= tag %></p>
+      <p class="text"><%= key == :grape_type ? product.grape_type_taxon_names.join(', ') : tag %></p>
     </div>
   </div>
 <% end %>

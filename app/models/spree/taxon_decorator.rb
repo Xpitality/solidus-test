@@ -1,10 +1,12 @@
 Spree::Taxon.class_eval do
   BASIC_TAXONS = {
-      tipologia: 'Tipologia',
+      wine_type: 'Tipologia',
       country: 'Paese',
       producer: 'Produttore',
       new: 'Novità',
-      collection: 'Collezioni'
+      collection: 'Collezioni',
+      grape_type: 'Uve',
+      format: 'Formato'
   }
 
   TREE = {

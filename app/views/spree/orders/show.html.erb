@@ -23,25 +23,35 @@
   <% end %>
 <% end %>
 
-<fieldset id="order_summary" data-hook>
-  <legend><%= t('spree.order_number', number: @order.number) %></legend>
-  <h1><%= accurate_title %></h1>
-  <% if order_just_completed?(@order) %>
-    <strong><%= t('spree.thank_you_for_your_order') %></strong>
-  <% end %>
-
-  <div id="order" data-hook>
-    <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
-
-    <br class="clear" />
-
-    <p data-hook="links">
-      <%= link_to t('spree.back_to_store'), spree.root_path, class: "button" %>
-      <% unless order_just_completed?(@order) %>
-        <% if try_spree_current_user && respond_to?(:account_path) %>
-          <%= link_to t('spree.my_account'), spree.account_path, class: "button" %>
-        <% end %>
-      <% end %>
-    </p>
+<% if order_just_completed?(@order) %>
+  <div class="step-four">
+    <%= image_tag("checkout/order-confirmed.png") %>
+    <p class="cheers"><%= t('store.checkout.confirmed.cheers') %></p>
+    <h1 class="step-four-title"><%= t('store.checkout.confirmed.order_confirmed') %></h1>
+    <%= link_to t('store.checkout.confirmed.back_to_products'), '/products', class: 'btn btn-primary'  %>
+    <p class="step-four-text"><%= t('store.checkout.confirmed.hint_html') %></p>
   </div>
-</fieldset>
+<% end %>
+
+<div class="container">
+  <div class="col-confirm order-show-col">
+    <fieldset id="order_summary" data-hook>
+      <h1><%= accurate_title %></h1>
+    
+      <div id="order" data-hook>
+        <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
+    
+        <br class="clear" />
+    
+        <p data-hook="links">
+          <%= link_to t('spree.back_to_store'), spree.root_path, class: "button" %>
+          <% unless order_just_completed?(@order) %>
+            <% if try_spree_current_user && respond_to?(:account_path) %>
+              <%= link_to t('spree.my_account'), spree.account_path, class: "button" %>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+    </fieldset>
+  </div>
+</div>

@@ -3,52 +3,47 @@
   <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
     <% @body_id = 'product-details' %>
 
+    <%= render partial: 'spree/products/show/breadcrumbs', locals: { product: @product } %>
+
     <div class="product-hero">
       <div class="container">
         <div class="col col-left">
-          <!-- TODO: add correct social icon actions -->
           <div class="product-social">
-            <%= link_to "https://www.facebook.com" do %>
-              <%= image_tag("icons/icon-facebook-original.svg") %>
+            <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{url_encode product_url(@product)}" do %>
+              <%= image_tag("icons/social/icon-facebook-original.svg") %>
             <% end %>
-            <%= link_to "https://www.twitter.com" do %>
-              <%= image_tag("icons/icon-twitter-original.svg") %>
+            <%= link_to "https://twitter.com/intent/tweet?text='#{@product.name}'&url=#{url_encode product_url(@product)}", class: 'twitter-share-button' do %>
+              <%= image_tag("icons/social/icon-twitter-original.svg") %>
             <% end %>
-            <%= link_to "https://www.twitter.com" do %>
-              <%= image_tag("icons/icon-favourite.svg") %>
-            <% end %>
+            <%#= link_to "https://www.twitter.com" do %>
+            <%#= image_tag("icons/icon-favourite.svg") %>
+            <%# end %>
           </div>
           <div class="product-image-holder">
-            <%= render partial: 'spree/products/show/image' %>
+            <% if @product.gallery.images.first %>
+              <%= render 'spree/shared/image',
+                         image: @product.gallery.images.first,
+                         size: :large,
+                         itemprop: "image" %>
+            <% else %>
+              <%= image_tag("product/product-placeholder.jpg") %>
+            <% end %>
+            <div class="slash">
+              <%= image_tag("product/slash.svg") %>
+            </div>
           </div>
         </div>
         <div class="col col-right">
           <div class="product-info">
-            <h1 class="title"><%= @product.producer&.name %></h1>
-            <h1 class="title-big"><%= @product.name %></h1>
+            <h1 class="title"><%== @product.producer&.name %></h1>
+            <h1 class="title-big"><%== @product.name %></h1>
             <div class="product-info-tags-holder">
-              <div class="product-tag">
-                <div class="tag-icon">
-                  <%= image_tag("icons/icon-product-type.svg") %>
-                </div>
-                <div class="tag-info">
-                  <p class="title"><%= t('store.product.taxon.wine_type') %></p>
-                  <p class="text"><%= @product.tag(type: :taxon, key: :wine_type) %></p>
-                </div>
-              </div>
-              <div class="product-tag">
-                <div class="tag-icon">
-                  <%= image_tag("icons/icon-product-vine.svg") %>
-                </div>
-                <div class="tag-info">
-                  <p class="title"><%= t('store.product.taxon.grape_type') %></p>
-                  <p class="text"><%= @product.grape_type_taxon_names.join(', ') %></p>
-                </div>
-              </div>
+              <%= render partial: 'spree/products/show/tag', locals: { product: @product, type: :taxon, key: :wine_type } %>
+              <%= render partial: 'spree/products/show/tag', locals: { product: @product, type: :taxon, key: :grape_type } %>
             </div>
 
             <div id="cart-form" data-hook="cart_form">
-              <%= form_for :order, url: populate_orders_path do |f| %>
+              <%= form_for :order, url: populate_orders_path(redirect_back_to_product: true) do |f| %>
 
                 <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                   <%= hidden_field_tag "variant_id", @product.master.id %>
@@ -60,27 +55,20 @@
                           <%= display_price(@product) %>
                           <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
                         </p>
-                        <% if @product.master.can_supply? %>
-                          <link itemprop="availability" href="http://schema.org/InStock"/>
-                        <% elsif @product.variants.empty? %>
-                          <br/>
-                          <span class="out-of-stock"><%= t('spree.out_of_stock') %></span>
-                        <% end %>
                       </div>
-                      <div class="controls">
-                        <%= hidden_field_tag :quantity, 1, min: 0, max: max_product_quantity(@product), class: "quantity-input" %>
-                        <span class="btn btn-control-cart minus">-</span>
-                        <p id="quantity" class="quantity-value" data-quantity="1" data-max-product-quantity="<%= max_product_quantity(@product) %>">1</p>
-                        <span class="btn btn-control-cart plus">+</span>
-                      </div>
-                      <%#= number_field_tag :quantity, 1, class: 'title', min: 0, max: max_product_quantity(@product) %>
+                      <%= render partial: 'spree/products/show/product_controls', locals: { product: @product } %>
                     </div>
+                    <div class="button_wrapper">
+                      <% disabled = !@product.master.can_supply? || max_product_quantity(@product)==0 %>
+                      <%= button_tag class: "btn btn-primary btn-add-to-cart #{"disabled" if disabled}", disabled: disabled, id: 'add-to-cart-button', type: :submit do %>
+                        <%= t('spree.add_to_cart') %>
+                      <% end %>
+                      <% if @product.master.can_supply? %>
+                        <link itemprop="availability" href="http://schema.org/InStock"/>
+                      <% else %>
+                        <span class="out-of-stock"><%= t('spree.out_of_stock') %></span>
+                      <% end %>
                     </div>
-
-                    <%= button_tag class: 'btn btn-primary btn-add-to-cart', id: 'add-to-cart-button', type: :submit do %>
-                      <%= t('spree.add_to_cart') %>
-                    <% end %>
-
 
                   <% else %>
                     <div id="product-price">
@@ -90,16 +78,14 @@
                       </div>
                     </div>
                   <% end %>
-                  </div>
-              <% end %>
+                </div>
 
-              <div class="delivery">
-                <%= image_tag("icons/icon-product-delivery.svg") %>
-                <p>
-                  <%= t('store.product.delivery') %>
-                </p>
-              </div>
+                <%# Spree::PaymentMethod.available_to_users.select { |payment_method| payment_method.try(:display_on_product_page) }.each do |payment_method| %>
+                <%#= render partial: "spree/products/payment/#{payment_method.product_page_partial_name}", locals: { payment_method: payment_method } %>
+                <%# end %>
+              <% end %>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -107,7 +93,8 @@
 
 
   <%= render partial: 'spree/products/show/tags', locals: { product: @product } %>
-  <%= render partial: 'spree/products/show/producer', locals: { producer: @product.producer } %>
+  <%= render partial: 'spree/products/show/producer', locals: { producer: @product.producer } if @product.producer %>
+  <%= render partial: 'spree/products/show/swiper', locals: { producer: @product.producer } %>
   <%= render partial: 'spree/products/show/region', locals: { region: @product.taxon_by_key(key: :region) } %>
 
 <% end %>

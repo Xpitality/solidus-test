@@ -22,24 +22,20 @@
         <h1 class="title"><%= t("store.home.follow_us.title") %></h1>
         <% if store_instagram %>
           <%= link_to store_instagram, target: :_blank do %>
-            <%= image_tag("icons/icon-instagram-black.svg") %>
+            <%= image_tag("icons/social/icon-instagram-white.svg") %>
           <% end %>
         <% end %>
         <% if store_facebook %>
           <%= link_to store_facebook, target: :_blank do %>
-            <%= image_tag("icons/icon-facebook-black.svg") %>
+            <%= image_tag("icons/social/icon-facebook-white.svg") %>
           <% end %>
         <% end %>
       </div>
       <div class="image-columns">
-        <div class="col image-col">
-          <%= image_tag("home/who-we-are/follow-us-1.png") %>
-        </div>
-        <div class="col image-col">
-          <%= image_tag("home/who-we-are/follow-us-2.png") %>
-        </div>
-        <div class="col image-col">
-          <%= image_tag("home/who-we-are/follow-us-3.png") %>
+        <div data-name="onstipe" class="wbctA">
+          <script defer src="https://onstipe.com/web/js/webembed.js" type="text/javascript"></script>
+          <div class="wbctB" data-val="vxn71">
+          </div>
         </div>
       </div>
     </div>

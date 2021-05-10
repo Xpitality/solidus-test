@@ -51,11 +51,15 @@
           color: $white;
           margin-bottom: 24px;
         }
+        .btn {
+          text-align: center;
+        }
       }
       &.products-col {
         display: flex;
         flex-wrap: wrap;
         margin-right: -10px;
+        width: 100%;
         .product-wrapper {
           flex: 0 0 50%;
           max-width: 50%;

@@ -1,0 +1,15 @@
+<div>
+  <%# if (!spree_current_user || !spree_current_user.user_authentications) && Spree::AuthenticationMethod.active_authentication_methods? %>
+  <%# end %>
+
+  <% Spree::AuthenticationMethod.available_for(spree_current_user).each do |method| %>
+    <% if method.active? %>
+      <%= link_to(spree.send("spree_user_#{method.provider}_omniauth_authorize_path", r: rand),
+                  class: "btn btn-#{method.provider.dasherize}",
+                  title: t('spree.sign_in_with', provider: t("spree.social_provider.#{method.provider}"))) do %>
+        <%= image_tag("auth/btn-#{method.provider.dasherize}.png") %>
+        <span><%= t('spree.sign_in_with', provider: t("spree.social_provider.#{method.provider}")) %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

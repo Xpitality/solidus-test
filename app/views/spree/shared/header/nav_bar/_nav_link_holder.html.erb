@@ -1,0 +1,18 @@
+<div class="nav-link-holder">
+  <%= link_to t("store.shared.main_menu.label.#{taxon_key}"), "/", class: "nav-link nav-link-with-drop" %>
+  <%= content_tag :div, class: "nav-drop-holder" do -%>
+    <%= content_tag :div, class: "nav-dropdown" do -%>
+      <div class="col title-col">
+        <%= image_tag("icons/nav_bar/#{taxon_key}.svg") %>
+        <%= content_tag :p, t("store.shared.main_menu.title.#{taxon_key}")  %>
+      </div>
+      <div class="col dropdown-col">
+        <% taxon_children(taxon_key, order: ('name asc')).each do |taxon| %>
+          <div class="drop-link-holder">
+            <%= link_to taxon.name, seo_url(taxon), class: "drop-link" %>
+          </div>
+        <% end %>
+      </div>
+    <% end -%>
+  <% end -%>
+</div>

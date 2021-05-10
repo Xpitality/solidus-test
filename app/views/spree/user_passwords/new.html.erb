@@ -1,0 +1,17 @@
+<div id="forgot-password" class="login">
+  <div class="container half-container">
+    <div class="col login-col">
+      <h1 class="col-title">
+        <%= t('spree.forgot_password') %>
+      </h1>
+      <p><%= t('spree.instructions_to_reset_password') %></p>
+      <%= form_for Spree::User.new, as: :spree_user, url: spree.reset_password_path do |f| %>
+        <div class="input-holder">
+          <%= f.email_field :email, required: true, class: 'title' %>
+        </div>
+
+        <%= f.submit t('spree.reset_password'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

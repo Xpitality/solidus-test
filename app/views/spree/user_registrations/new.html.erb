@@ -1,0 +1,25 @@
+<%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.general.sign_up') } %>
+
+<div class="login">
+  <div class="container half-container">
+    <div class="col">
+      <h1 class="col-title">
+        <% if session[:omniauth] %>
+          <h1><%= I18n.t('spree.please_confirm_your_email') %></h1>
+        <% else %>
+          <h1><%= I18n.t('spree.registration_title') %></h1>
+        <% end %>
+      </h1>
+      <%= form_for resource, as: :spree_user, url: spree.registration_path(resource) do |f| %>
+        <%= render partial: 'spree/shared/devise/user_form', locals: { f: f } %>
+        <%= f.submit t('spree.create'),id: "reg_submit", class: 'btn btn-primary', tabindex: 4 %>
+      <% end %>
+      <p class="or"><%= t('store.general.oppure') %></p>
+      <%= link_to t('spree.login_as_existing'), spree.login_path, class: 'btn btn-primary' %>
+      <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
+      <div class='route-account'>
+        <%= link_to t('spree.have_account'), spree.login_path, class: "route-to-link"  %>
+      </div>
+    </div>
+  </div>
+</div>

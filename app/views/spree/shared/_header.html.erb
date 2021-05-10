@@ -1,19 +1,35 @@
 <header id="header" class="sticky" data-hook>
   <%= content_tag :div, class: "header-top-bar" do -%>
     <%= image_tag("icons/icon-delivery.svg") %>
-    <%= content_tag :p, "in tutta Italia consegna a casa tua in 96 ore", class: "exceptSmallScreen" %>
-    <%= content_tag :p, "consegna a casa tua in 96 ore", class: "smallScreen" %>
+    <%= content_tag :p, t('store.home.header.delivery_time_web'), class: "exceptSmallScreen" %>
+    <%= content_tag :p, t('store.home.header.delivery_time_mob'), class: "smallScreen" %>
   <% end -%>
   <%= content_tag :div, class: "header-content" do -%>
     <figure id="logo" data-hook><%= logo %></figure>
     <div class="header-right">
-      <%= render partial: 'spree/shared/nav_bar' %>
-      <div class="header-actions">
+      <div>
         <div id="search-bar" data-hook>
-          <%= render partial: 'spree/shared/search' %>
+          <%= render partial: 'spree/shared/header/search' %>
+          <div class="header-social">
+            <% if store_facebook %>
+              <%= link_to store_facebook, target: :_blank do %>
+                <%= image_tag("icons/social/icon-facebook-black.svg") %>
+              <% end %>
+            <% end %>
+            <% if store_instagram %>
+              <%= link_to store_instagram, target: :_blank do %>
+                <%= image_tag("icons/social/icon-instagram-black.svg") %>
+              <% end %>
+            <% end %>
+          </div>          
         </div>
-        <%= render partial: 'spree/shared/user_nav' %>
-        <%= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
+        <%= render partial: 'spree/shared/header/nav_bar' %>
+      </div>
+      <div class="header-actions">
+        <div class="header-card-user-wrapper">
+          <%= render partial: 'spree/shared/header/user_nav' %>
+          <%= render partial: 'spree/shared/header/main_nav_bar' %>
+        </div>
         <div class="hamburger">
           <span></span>
         </div>

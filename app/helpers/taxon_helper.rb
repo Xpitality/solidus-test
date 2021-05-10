@@ -3,8 +3,10 @@ module TaxonHelper
     Spree::Taxon.find_by_key(key)
   end
 
-  def taxon_children(parent_key)
-    Spree::Taxon.by_parent_key(parent_key)
+  def taxon_children(parent_key, order:nil)
+    q = Spree::Taxon.by_parent_key(parent_key)
+    q = q.order(order) if order
+    q
   end
 
   def featured_producer_taxon
