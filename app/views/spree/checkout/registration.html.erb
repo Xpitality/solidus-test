@@ -50,7 +50,7 @@
       <div class="platform_wrapper">
         <div id="reg-holder">
           <div class="measuringWrapper">
-            <%= form_for new_user, as: :spree_user1, url: spree.registration_path(new_user) do |f| %>
+            <%= form_for new_user, as: :spree_user, url: spree.registration_path(new_user), html: {id: :new_spree_user1} do |f| %>
               <%= render partial: 'spree/shared/devise/user_form', locals: { f: f } %>
               <%= f.submit t('store.general.registration_btn'), class: 'btn btn-primary', tabindex: 4 %>
             <% end %>
