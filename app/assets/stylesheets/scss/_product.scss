@@ -110,7 +110,8 @@
               padding: 20px 0;
             }
             .disabled{
-              background-color:#C4C4C4
+              background-color:#C4C4C4;
+              cursor: not-allowed;
             }
           }
           .btn-add-to-cart {

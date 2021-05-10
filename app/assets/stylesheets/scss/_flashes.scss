@@ -38,16 +38,24 @@
     color: white;
   }
 }
-.required{
-  border: 1px solid  #ff3860;
-}
+
 .field_with_errors{
   .required{
     border: 1px solid #ff3860
   }
 }
-.input-holder{
-  .required{
+#new_spree_user{
+  .input-holder{
+    .required{
+      border: 1px solid #ff3860
+    }
+  }
+}
+#billing,#shipping{
+  input:invalid{
+    border: 1px solid #ff3860
+  }
+  select:invalid{
     border: 1px solid #ff3860
   }
 }
