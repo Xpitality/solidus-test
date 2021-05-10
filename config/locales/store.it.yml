@@ -61,9 +61,9 @@ it:
           text: "e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà"
     home:
       header:
-        delivery_time_web: in tutta Italia consegna a casa tua in 96 ore
-        delivery_time_mob: consegna a casa tua in 96 ore
-        hello_message: "Ciao %{username}"
+        delivery_time_web: consegna gratuita a partire da 89 €
+        delivery_time_mob: consegna gratuita a partire da 89 €
+        hello_message: "Ciao, %{username}"
       hero:
         catalog_button: "vai al catalogo"
       new_products:

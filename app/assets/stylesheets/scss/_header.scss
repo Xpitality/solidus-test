@@ -82,7 +82,7 @@ header#header {
         justify-content: center;
         flex: 1;
         padding-left: 40px;
-        margin-top: 15px;
+        margin-top: 24px;
         @media (max-width: 1300px) {
           width: 100%;
           align-items: flex-end;
@@ -257,6 +257,12 @@ header#header {
             @media (max-width: 900px){
               padding-bottom: 0;
             }
+            a{
+              display: flex;
+              align-items: center;
+              padding-right: 20px;
+              font-size: 14px;
+            }
             img {
               margin-right: 10px;
               @media (max-width: $small) {
@@ -398,7 +404,7 @@ header#header {
               background: $light-grey;
               color: $light-text-color;
               border: none;
-              padding: 14px;
+              padding: 10px;
               font-size: 12px;
               font-family: "chainprinter", sans-serif;
               @media (max-width: $small) {
@@ -417,8 +423,8 @@ header#header {
               transform: translateY(-50%);
               border: none;
               display: flex;
+              background-color: none;
               @media (max-width: $small) {
-                background: $white;
                 img {
                   width: 25px;
                 }
