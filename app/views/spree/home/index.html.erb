@@ -12,7 +12,9 @@
       <%= render partial: 'spree/shared/products', locals: { products: @products, hide_pagination: true } %>
     <% end %>
   </div>
-
+  <div class="products-button-holder">
+    <%= link_to t('store.home.hero.catalog_button'), products_path, class: "btn btn-primary" %>
+  </div>
   <div class="new-products-section">
     <%= render partial: 'spree/home/sections/new_products' %>
   </div>
