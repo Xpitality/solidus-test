@@ -79,6 +79,8 @@ gem 'solidus_taxon_images', github: 'Xpitality/solidus_taxon_images'
 
 gem 'bugsnag'
 
+gem 'execjs', '2.7.0'
+
 gem "aws-sdk-s3", require: false
 
 gem 'mail-x_smtpapi'
