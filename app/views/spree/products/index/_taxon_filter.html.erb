@@ -23,7 +23,7 @@
             <%= image_tag("icons/icon-chevron-down.svg") %>
           </div>
           <div class="filter-dropdown">
-            <% taxon_children(taxon_key).each do |taxon_child| %>
+            <% taxon_children(taxon_key, order: ('name asc')).each do |taxon_child| %>
 
               <%= link_to taxon_seo_url(taxon:taxon_child, selected_taxons: selected_taxons) do %>
                 <div class="dropdown-item">
