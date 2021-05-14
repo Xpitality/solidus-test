@@ -12,7 +12,6 @@ module Spree
     respond_to :html
 
     def index
-      puts ::Xpitality::Core::Search::Base.class
       @searcher = build_searcher(params.merge(include_images: true))
       @products = @searcher.retrieve_products
       @taxonomies = Spree::Taxonomy.includes(root: :children)
