@@ -2,14 +2,14 @@
   <div class="container title-container">
     <h1 class="title-small">RISULTATI PER:</h1>
     <h1 class="title-big">
-      Catalogo
+      <%= t('store.general.catalog') %>
     </h1>
   </div>
   <div class="container filters-container">
    <div class="filters-mobile-btn-holder">
      <button class="btn btn-primary inverted">
        <span>FILTRI (1)</span>
-        <%#= image_tag("icons/icon-filter-primary.svg") %>
+        <%= image_tag("icons/icon-filter-primary.svg") %>
      </button>
    </div>
     <div class="filters">
@@ -19,10 +19,10 @@
         <div class="filter-select-holder">
           <div class="filter-select">
             <%= image_tag("icons/taxon_filter/#{taxon_key}.svg") %>
-            <p><%= t("store.product.index.filters.#{taxon_key}") %></p>
+            <%= search_field_tag : ovde treb taxon_key,"", placeholder: t("store.product.index.filters.#{taxon_key}") %>
             <%= image_tag("icons/icon-chevron-down.svg") %>
           </div>
-          <div class="filter-dropdown">
+          <div id="filter-dropdown" class="filter-dropdown">
             <% taxon_children(taxon_key, order: ('name asc')).each do |taxon_child| %>
 
               <%= link_to taxon_seo_url(taxon:taxon_child, selected_taxons: selected_taxons) do %>
@@ -32,7 +32,7 @@
               <% end %>
             <% end %>
           </div>
-        </div>
+        </div> 
       <% end %>
     </div>
   </div>

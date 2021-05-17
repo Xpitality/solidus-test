@@ -415,6 +415,8 @@ header#header {
                   color: transparent;
                 }
               }
+            }::-webkit-search-cancel-button {
+              -webkit-appearance: none;
             }
             button {
               position: absolute;

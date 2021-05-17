@@ -9,6 +9,7 @@ it:
       sign_out: "Logout"
       oppure: "oppure"
       registration_btn: "Registrati" 
+      catalog: "Catalogo"
     shared:
       main_menu:
         label:
