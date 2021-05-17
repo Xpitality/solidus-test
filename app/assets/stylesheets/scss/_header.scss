@@ -423,7 +423,7 @@ header#header {
               transform: translateY(-50%);
               border: none;
               display: flex;
-              background-color: none;
+              background-color: transparent;
               @media (max-width: $small) {
                 img {
                   width: 25px;
