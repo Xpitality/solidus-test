@@ -1,6 +1,6 @@
 <div class="catalog-holder">
   <div class="filter-sidebar">
-    <%= render partial: 'spree/products/index/taxon_filter', locals: { taxon: taxon, selected_taxons: selected_taxons } %>
+    <%= render partial: 'spree/products/index/taxon_filter_sidebar', locals: { taxon: taxon, selected_taxons: selected_taxons } %>
   </div>
   <div class="catalog-content">
     <%= render partial: 'spree/products/index/active_taxon', locals: { taxon: taxon, selected_taxons: selected_taxons } %>

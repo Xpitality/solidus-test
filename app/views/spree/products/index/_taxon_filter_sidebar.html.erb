@@ -1,0 +1,50 @@
+<div class="filters-holder">
+  <div class="container title-container">
+    <h1 class="title-small">RISULTATI PER:</h1>
+    <h1 class="title-big">
+      <%= t('store.general.catalog')%>
+    </h1>
+  </div>
+  <div class="container filters-container">
+    <div class="filters-mobile-btn-holder">
+      <button class="btn btn-primary inverted">
+        <span><%= t('store.general.filters')%></span>
+        <%#= image_tag("icons/icon-filter-primary.svg") %>
+      </button>
+    </div>
+    <div class="filters">
+      <%= form_tag products_path, method: :get do %>
+        <% with_grandchildren = [:country] %>
+        <% filters = [:wine_type, :country, :producer, :grape_type, :format] %>
+
+        <% filters.each do |taxon_key| %>
+          <div class="filter-select-holder">
+            <div class="filter-select">
+              <%= image_tag("icons/taxon_filter/#{taxon_key}.svg") %>
+              <p><%= t("store.product.index.filters.#{taxon_key}") %></p>
+              <%= image_tag("icons/icon-chevron-down.svg") %>
+            </div>
+            <div class="filter-dropdown">
+              <% taxon_children(taxon_key, order: ('name asc')).each do |child_taxon| %>
+                <div class="dropdown-item">
+                  <%= check_box_tag child_taxon.permalink, 1, selected_taxons && selected_taxons.values.include?(child_taxon.name)  %>
+                  <%= child_taxon.name %>
+                  <% if with_grandchildren.include?(taxon_key) %>
+                    <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
+                      <%= check_box_tag grandchild_taxon.permalink, 1, selected_taxons && selected_taxons.values.include?(grandchild_taxon.name)  %>
+                      <%= grandchild_taxon.name %>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <%= submit_tag %>
+      <% end %>
+    </div>
+  </div>
+  <!-- <div class="slider">
+    <%= range_field_tag :w1, :min=>0, :max=>200, :id=>"slider1"%>
+  </div> -->
+</div>
