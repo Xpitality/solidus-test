@@ -19,10 +19,13 @@
 
 <% else %>
 
-  <div data-hook="homepage_products">
-    <%= render partial: 'spree/products/index/taxon_filter', locals: { taxon: @taxon, selected_taxons: @selected_taxons } %>
-    <%= render partial: 'spree/products/index/active_taxon', locals: { taxon: @taxon, selected_taxons: @selected_taxons } %>
-    <%= render partial: 'spree/products/index/products_sort' %>
-    <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+  <div data-hook="homepage_products" class="catalog-holder">
+    <div class="filter-sidebar">
+      <%= render partial: 'spree/products/index/taxon_filter', locals: { taxon: @taxon, selected_taxons: @selected_taxons } %>
+    </div>
+    <div class="catalog-content">
+      <%= render partial: 'spree/products/index/active_taxon', locals: { taxon: @taxon, selected_taxons: @selected_taxons } %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+    </div>
   </div>
 <% end %>

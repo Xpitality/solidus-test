@@ -1,4 +1,5 @@
 .filters-holder {
+  width: 100%;
   .title-container {
     padding: 60px 15px;
     .title-small {
@@ -36,6 +37,7 @@
     .filters {
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
       @media (max-width: $mobileHeader) {
         flex-wrap: wrap;
       }
@@ -43,15 +45,9 @@
         display: none;
       }
       .filter-select-holder {
-        flex: 0 0 calc(16.6666% - 14px);
-        max-width: calc(16.6666% - 14px);
         position: relative;
         user-select: none;
-        @media (max-width: $mobileHeader) {
-          flex: 0 0 calc(33.3333% - 14px);
-          max-width: calc(33.3333% - 14px);
-          margin-bottom: 10px;
-        }
+        padding: 10px 0;
         .filter-select {
           display: flex;
           align-items: center;
@@ -72,15 +68,10 @@
           }
         }
         .filter-dropdown {
-          position: absolute;
-          background: $white;
-          top: 100%;
+          position: relative;
           max-height: 350px;
           overflow: hidden;
-          left: 0;
           width: 100%;
-          border: 1px solid #E5E5E5;
-          z-index: 1;
           display: none;
           &.show {
             display: block;
@@ -124,5 +115,12 @@
         }
       }
     }
+  }
+}
+.catalog-holder{
+  display: flex;
+  .filter-sidebar{
+    display: flex;
+    flex: 0 0 20%;
   }
 }
