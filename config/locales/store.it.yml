@@ -10,6 +10,7 @@ it:
       oppure: "oppure"
       registration_btn: "Registrati" 
       catalog: "Catalogo"
+      filters: "FILTRI"
     shared:
       main_menu:
         label:

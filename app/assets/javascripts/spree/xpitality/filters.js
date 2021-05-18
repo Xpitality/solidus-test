@@ -28,6 +28,3 @@ const handleFilters = () => {
     });
   }
 };
-const handleSearchFilter = () =>{
-  const input,filter,a
-}

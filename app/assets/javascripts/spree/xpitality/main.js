@@ -5,5 +5,4 @@ window.addEventListener("load", () => {
   handleSwiper();
   handleProfile();
   handleToggleForm();
-  handleSearchFilter();
 });
