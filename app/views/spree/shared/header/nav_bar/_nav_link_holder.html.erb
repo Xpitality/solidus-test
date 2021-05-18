@@ -12,9 +12,15 @@
         <% else %>
           <% taxons = taxon_children(taxon_key, order: ('name asc')) %>
         <% end %>
-        <% taxons.each do |taxon| %>
+        <% taxons.each do |child_taxon| %>
           <div class="drop-link-holder">
-            <%= link_to taxon.name, seo_url(taxon), class: "drop-link" %>
+            <%= link_to child_taxon.name, seo_url(child_taxon), class: "drop-link" %>
+
+            <% if defined?(with_grandchildren) && with_grandchildren %>
+              <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
+                <%= link_to grandchild_taxon.name, seo_url(grandchild_taxon), class: "drop-link" %>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>

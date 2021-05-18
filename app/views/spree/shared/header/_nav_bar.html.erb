@@ -10,7 +10,7 @@
   </div>
 
   <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :wine_type } %>
-  <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :country } %>
+  <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :country, with_grandchildren: true } %>
   <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :producer, limit: 10 } %>
 
   <div class="nav-link-holder">
