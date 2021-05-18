@@ -1,7 +1,7 @@
 <div class="nav-link-holder">
-  <%= link_to t("store.shared.main_menu.label.#{taxon_key}"), "/", class: "nav-link nav-link-with-drop" %>
+  <%= link_to t("store.shared.main_menu.label.#{taxon_key}"), "/", class: "nav-link nav-link-with-drop " %>
   <%= content_tag :div, class: "nav-drop-holder" do -%>
-    <%= content_tag :div, class: "nav-dropdown" do -%>
+    <%= content_tag :div, class: "nav-dropdown #{css_classes}" do -%>
       <div class="col title-col">
         <%= image_tag("icons/nav_bar/#{taxon_key}.svg") %>
         <%= content_tag :p, t("store.shared.main_menu.title.#{taxon_key}")  %>
@@ -23,7 +23,11 @@
             <% end %>
           </div>
         <% end %>
-      </div>
+        <div class="see-all-holder">
+          <%= image_tag("icons/nav_bar/#{taxon_key}.svg") %>
+          vedi tutti
+        </div>
+      </div>      
     <% end -%>
   <% end -%>
 </div>

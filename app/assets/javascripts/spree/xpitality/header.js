@@ -2,12 +2,15 @@ const handleHeader = () => {
   const hamburger = document.querySelector(".hamburger");
   const navBar = document.querySelector(".navbar");
   const navLinks = [...document.querySelectorAll(".nav-link-with-drop")];
+  const searchHolder = document.getElementById('search-bar')
 
   hamburger.addEventListener("click", () => {
     if (navBar.classList.contains("show")) {
       navBar.classList.remove("show");
+      searchHolder.style.display= 'block'
     } else {
       navBar.classList.add("show");
+      searchHolder.style.display= 'none'
     }
   });
   
@@ -28,4 +31,6 @@ const handleHeader = () => {
       }
     });
   });
+
+
 };
