@@ -1,10 +1,10 @@
 it:
   store:
     general:
-      close: "close"
+      close: "chiudi"
       new_product: "NOVITÀ"
       sign_in: "Accedi"
-      sign_up: "Sign up"
+      sign_up: "Registrati"
       account: "Area personale"
       sign_out: "Logout"
       oppure: "oppure"
@@ -20,19 +20,19 @@ it:
           wine_type: "TIPOLOGIA"
           country: "ORIGINE"
           producer: "PRODUTTORI"
-          locale: "Il locale"
+          locale: "il locale"
         title:
           wine_type: "TIPOLOGIA"
           country: "ORIGINE"
           producer: "PRODUTTORI IN EVIDENZA"
-          locale: "Il locale"
+          locale: "il locale"
       footer:
         secure_shopping:
           title: "Shopping sicuro"
           text: "I tuoi pagamenti online sono protetti"
         shipping:
           title: "Costi di spedizione"
-          text_html: "<strong>GRATIS</strong> per ordini superiori ai 79€ <br /> <strong>10,90€</strong> per tutti gli altri ordini"
+          text_html: "<strong>GRATIS</strong> a partire da <br /> <strong>89€</strong>"
         contact:
           title: "Serve aiuto?"
           phone_text_html: "o chiama al <a href='tel:%{phone}'>%{phone}</a>"
@@ -148,7 +148,7 @@ it:
       title: DALLA STESSA CANTINA
     user:
       profile:
-        welcome: Bentortata
+        welcome: Ciao
         my_profile: Il mio profilo
         my_orders: I miei ordini
         saved_address: Indirizzi salvati
