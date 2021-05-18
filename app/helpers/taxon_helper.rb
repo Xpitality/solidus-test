@@ -3,8 +3,9 @@ module TaxonHelper
     Spree::Taxon.find_by_key(key)
   end
 
-  def taxon_children(parent_key, order:nil)
+  def taxon_children(parent_key, order:nil, limit: nil)
     q = Spree::Taxon.by_parent_key(parent_key)
+    q = q.limit(limit) if limit
     q = q.order(order) if order
     q
   end
