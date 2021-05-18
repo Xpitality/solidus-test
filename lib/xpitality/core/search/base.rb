@@ -17,19 +17,19 @@ module Xpitality
         # end
 
         def new_products(taxon_new = nil)
-          Spree::Product.new_products(taxon_new).order("spree_products.updated_at desc")
+          Spree::Product.new_products(taxon_new).descend_by_updated_at
         end
 
         def producer_products(producer_taxon)
-          Spree::Product.producer_products(producer_taxon).order("spree_products.updated_at desc")
+          Spree::Product.producer_products(producer_taxon).descend_by_updated_at
         end
 
         def collection_products(collection_taxon)
-          Spree::Product.collection_products(collection_taxon).order("spree_products.updated_at desc")
+          Spree::Product.collection_products(collection_taxon).descend_by_updated_at
         end
 
         def featured_collection_products
-          Spree::Product.featured_collection_products.order("spree_products.updated_at desc")
+          Spree::Product.featured_collection_products.descend_by_updated_at
         end
 
         protected
@@ -58,7 +58,20 @@ module Xpitality
           base_scope = get_products_conditions_for(base_scope, @properties[:keywords])
           base_scope = add_search_scopes(base_scope)
           base_scope = add_eagerload_scopes(base_scope)
-          base_scope = base_scope.order("spree_products.updated_at desc")
+          case @properties[:price]
+            when 'order_asc'
+              base_scope = base_scope.ascend_by_master_price
+            when 'order_desc'
+              base_scope = base_scope.descend_by_master_price
+            when /^gte_(\d+\.?\d*)$/
+              base_scope = base_scope.master_price_gte($1).ascend_by_master_price
+            when /^lte_(\d+\.?\d*)$/
+              base_scope = base_scope.master_price_lte($1).descend_by_master_price
+            when /^between_(\d+\.?\d*)-(\d+\.?\d*)$/
+              base_scope = base_scope.price_between($1, $2).ascend_by_master_price
+            else
+              base_scope = base_scope.descend_by_updated_at
+          end
           base_scope
         end
 
@@ -75,6 +88,7 @@ module Xpitality
           @properties[:taxons] = taxons.count <=1 ? nil : taxons
           @properties[:keywords] = params[:keywords]
           @properties[:search] = params[:search]
+          @properties[:price] = params[:price]
           @properties[:include_images] = params[:include_images]
 
           per_page = params[:per_page].to_i
