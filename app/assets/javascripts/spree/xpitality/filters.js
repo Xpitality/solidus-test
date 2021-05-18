@@ -1,6 +1,5 @@
 const handleFilters = () => {
   const filtersHolder = document.querySelector(".filters-holder");
-
   if (filtersHolder) {
     const selectHolders = document.querySelectorAll(".filter-select-holder");
 

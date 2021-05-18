@@ -1,4 +1,5 @@
 .filters-holder {
+  width: 100%;
   .title-container {
     padding: 60px 15px;
     .title-small {
@@ -36,6 +37,7 @@
     .filters {
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
       @media (max-width: $mobileHeader) {
         flex-wrap: wrap;
       }
@@ -43,15 +45,9 @@
         display: none;
       }
       .filter-select-holder {
-        flex: 0 0 calc(16.6666% - 14px);
-        max-width: calc(16.6666% - 14px);
         position: relative;
         user-select: none;
-        @media (max-width: $mobileHeader) {
-          flex: 0 0 calc(33.3333% - 14px);
-          max-width: calc(33.3333% - 14px);
-          margin-bottom: 10px;
-        }
+        padding: 10px 0;
         .filter-select {
           display: flex;
           align-items: center;
@@ -59,45 +55,36 @@
           padding: 0 5px 20px 5px;
           border-bottom: 1px solid #E5E5E5;
           cursor: pointer;
+          justify-content: space-between;
           @media (max-width: $mobileHeader) {
             padding: 0 5px 10px 5px;
           }
-          p {
+          p{
             font-size: 16px;
             font-weight: bold;
-          }
-          img {
-            &:first-child {
-              margin-right: 10px;
-            }
-            &:last-child {
-              margin-left: auto;
-            }
+            width: 100%;
+            padding: 0 10px;
+            text-align: left;
           }
         }
         .filter-dropdown {
-          position: absolute;
-          background: $white;
-          top: 100%;
-          overflow-y: auto;
+          position: relative;
           max-height: 350px;
-          left: 0;
+          overflow: hidden;
           width: 100%;
-          border: 1px solid #E5E5E5;
-          z-index: 1;
           display: none;
           &.show {
             display: block;
           }
           .dropdown-item {
             padding: 10px 20px;
-            border-bottom: 1px solid #E5E5E5;
             cursor: pointer;
             &:last-child {
               border-bottom: none;
             }
             &:hover {
-              background: #E5E5E5;
+              color: #FFF;
+              background: #333333;
             }
           }
         }
@@ -128,5 +115,12 @@
         }
       }
     }
+  }
+}
+.catalog-holder{
+  display: flex;
+  .filter-sidebar{
+    display: flex;
+    flex: 0 0 20%;
   }
 }

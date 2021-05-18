@@ -104,6 +104,7 @@
             display: flex;
             align-items: center;
             flex-direction: column;
+            margin-bottom: 20px;
             .out-of-stock{
               font-size: 16px;
               color: $light-text-color;
@@ -177,7 +178,7 @@
         .text {
           font-size: 16px;
           font-weight: lighter;
-          line-height: 22px;
+          line-height: 20px;
         }
       }
     }
@@ -253,7 +254,8 @@
         padding: 40px 15px 0 70px;
       }
       p {
-        font-size: 300px;
+        line-height: 20px;
+        font-weight: lighter;
         font-size: 16px;
       }
     }
