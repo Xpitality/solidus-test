@@ -22,7 +22,7 @@ module Spree
       @taxon = Spree::Taxon.find_by!(permalink: params[:id])
 
       @selected_taxons = {}
-      [:wine_type, :country, :producer, :grape_type, :format].each do |taxonomy_key|
+      [:wine_type, :country, :producer, :grape_type, :format, :region].each do |taxonomy_key|
         localized_taxonomy_key = I18n.t("store.taxonomy_key.#{taxonomy_key}")
         if params[localized_taxonomy_key]
           t = Spree::Taxon.where(name: params[localized_taxonomy_key]).first

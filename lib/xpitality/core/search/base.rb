@@ -76,10 +76,25 @@ module Xpitality
         end
 
         def prepare(params)
+          prepare_taxon_properties(params)
+          @properties[:keywords] = params[:keywords]
+          @properties[:search] = params[:search]
+          @properties[:price] = params[:price]
+          @properties[:include_images] = params[:include_images]
+
+          per_page = params[:per_page].to_i
+          @properties[:per_page] = per_page > 0 ? per_page : Spree::Config[:products_per_page]
+          @properties[:page] = (params[:page].to_i <= 0) ? 1 : params[:page].to_i
+        end
+
+        def prepare_taxon_properties(params)
           @properties[:taxon] = params[:taxon].blank? ? nil : taxon = Spree::Taxon.find(params[:taxon])
           taxons = []
           taxons << taxon if defined?(taxon) && taxon
-          I18n.t('store.taxonomy_key').each do |key, localized_taxonomy_key|
+
+          taxonomy_keys = I18n.t('store.taxonomy_key').values.reject{|k| k == I18n.t('store.taxonomy_key.country') && params[I18n.t('store.taxonomy_key.region')] }
+
+          taxonomy_keys.each do |localized_taxonomy_key|
             if params[localized_taxonomy_key]
               t = Spree::Taxon.where(name: params[localized_taxonomy_key]).first
               taxons << t if t
@@ -90,14 +105,6 @@ module Xpitality
           else
             @properties[:taxons] = taxons
           end
-          @properties[:keywords] = params[:keywords]
-          @properties[:search] = params[:search]
-          @properties[:price] = params[:price]
-          @properties[:include_images] = params[:include_images]
-
-          per_page = params[:per_page].to_i
-          @properties[:per_page] = per_page > 0 ? per_page : Spree::Config[:products_per_page]
-          @properties[:page] = (params[:page].to_i <= 0) ? 1 : params[:page].to_i
         end
       end
     end

@@ -145,6 +145,7 @@ it:
       country: 'Paese'
       format: 'Formato'
       producer: 'Produttore'
+      region: 'Regione'
     payment:
       information: Scegli un metodo di pagamento
     swiper:
