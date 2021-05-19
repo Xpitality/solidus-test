@@ -61,6 +61,8 @@ module Spree
       if params[:taxon].present?
         @taxon = Spree::Taxon.find(params[:taxon])
         @selected_taxons[@taxon.taxonomy.taxonomy_key] = @taxon
+      else
+        @taxon = @selected_taxons.values.first
       end
     end
   end
