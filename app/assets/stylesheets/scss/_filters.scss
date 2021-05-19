@@ -69,22 +69,41 @@
         }
         .filter-dropdown {
           position: relative;
-          max-height: 350px;
-          overflow: hidden;
           width: 100%;
           display: none;
           &.show {
             display: block;
           }
           .dropdown-item {
-            padding: 10px 20px;
-            cursor: pointer;
-            &:last-child {
-              border-bottom: none;
+            display: flex;
+            flex-direction: column;
+            input[type="radio"] {
+              width: 16px;
+              height: 16px;
+              margin-right: 10px;
             }
-            &:hover {
-              color: #fff;
-              background: #333333;
+            .dropdown-subitem-wrapper {
+              padding-left: 20px;
+              .dropdown-subitem {
+                padding: 10px;
+              }
+              .dropdown-subitem:hover {
+                label {
+                  color: #fff;
+                }
+                background-color: #333;
+              }
+            }
+            .dropdown-item-select {
+              display: flex;
+              align-items: center;
+              padding: 10px;
+            }
+            .dropdown-item-select:hover {
+              label {
+                color: #fff;
+              }
+              background-color: #333;
             }
           }
         }
@@ -119,33 +138,16 @@
 }
 .catalog-holder {
   display: flex;
-  padding: 40px 10px;
+  width: 100%;
+  max-width: 1360px;
+  padding: 0 15px;
+  margin: 0 auto;
   .filter-sidebar {
     display: flex;
-    flex: 0 0 20%;
+    flex: 0 0 30%;
+  }
+  @media (max-width: $small){
+    flex-direction: column;
   }
 }
 
-// .slider {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 25px;
-//   input {
-//     -webkit-appearance: none;
-//     outline: none;
-//     height: 3px;
-//     flex: 1 1 auto;
-//     color: inherit;
-//     margin-right: 1em;
-//     background-color: #E3E3E3;
-//     background-image: linear-gradient(currentColor, currentColor);
-//     background-size: 0 100%;
-//     background-repeat: no-repeat;
-//     cursor: pointer;
-//     appearance: none;
-//     padding: 0;
-//     -webkit-slider-thumb { @content; };
-//     -moz-range-thumb { @content; };
-//   }
-// }

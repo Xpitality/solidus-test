@@ -449,7 +449,7 @@ header#header {
   }
 }
 
-.nav-dropdown-style1 {
+.nav-dropdown-wine_type {
   .dropdown-col {
     gap: 10px;
     align-items: center;
@@ -483,7 +483,7 @@ header#header {
     display: none;
   }
 }
-.nav-dropdown-style2 {
+.nav-dropdown-country {
   position: relative;
   .dropdown-col {
     gap: 10px;
@@ -569,7 +569,7 @@ header#header {
     }
   }
 }
-.nav-dropdown-style3 {
+.nav-dropdown-producer {
   .origin-region-title{
     display: none;
   }
@@ -577,6 +577,7 @@ header#header {
     white-space: nowrap
   }
   .dropdown-col {
+    padding-top: 20px;
     .drop-link-holder {
       .origine-main {
         display: flex;
@@ -585,7 +586,7 @@ header#header {
         }
         .drop-link {
           width: 100%;
-          padding: 15px 0;
+          padding: 10px 0;
         }
         .drop-title {
           display: none;
@@ -596,13 +597,15 @@ header#header {
       }
     }
     .see-all-holder {
-      color: $primary;
       font-size: 14px;
       padding: 10px 0;
       text-decoration: underline;
       display: flex;
       align-items: flex-start;
       justify-content: center;
+      a{
+        color: $primary;
+      }
     }
   }
 }

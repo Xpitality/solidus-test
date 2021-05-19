@@ -3,7 +3,7 @@ const handleHeader = () => {
   const navBar = document.querySelector(".navbar");
   const navLinks = [...document.querySelectorAll(".nav-link-with-drop")];
   const searchHolder = document.getElementById('search-bar');
-  const originDiv = document.querySelector('.nav-dropdown-style2');
+  const originDiv = document.querySelector('.nav-dropdown-country');
   const titleOrigin = originDiv.querySelectorAll('.drop-title');
 
   hamburger.addEventListener("click", () => {

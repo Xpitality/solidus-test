@@ -29,12 +29,14 @@
             <div class="filter-dropdown">
               <% taxon_children(taxonomy_key, order: ('name asc')).each do |child_taxon| %>
                 <div class="dropdown-item">
-                  <%= radio_button_tag localized_taxonomy_key, child_taxon.name, params[localized_taxonomy_key] == child_taxon.name %>
-                  <%= label_tag localized_taxonomy_key, child_taxon.name %>
+                  <div class="dropdown-item-select">
+                    <%= radio_button_tag localized_taxonomy_key, child_taxon.name, params[localized_taxonomy_key] == child_taxon.name %>
+                    <%= label_tag localized_taxonomy_key, child_taxon.name %>
+                  </div>
                   <% if with_grandchildren.include?(taxonomy_key) && grandchild_key[taxonomy_key] %>
-                    <div>
+                    <div class="dropdown-subitem-wrapper">
                       <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
-                        <div>
+                        <div class='dropdown-subitem'>
                           <% localized_taxonomy_key = t("store.taxonomy_key.#{grandchild_key[taxonomy_key]}") %>
                           <%= radio_button_tag localized_taxonomy_key, grandchild_taxon.name, params[localized_taxonomy_key] == grandchild_taxon.name  %>
                           <%= label_tag localized_taxonomy_key, grandchild_taxon.name %>
