@@ -78,14 +78,14 @@ module Xpitality
         def prepare(params)
           @properties[:taxon] = params[:taxon].blank? ? nil : taxon = Spree::Taxon.find(params[:taxon])
           taxons = []
-          taxons << taxon if defined?(taxon)
+          taxons << taxon if defined?(taxon) && taxon
           I18n.t('store.taxonomy_key').each do |key, localized_taxonomy_key|
             if params[localized_taxonomy_key]
               t = Spree::Taxon.where(name: params[localized_taxonomy_key]).first
               taxons << t if t
             end
           end
-          @properties[:taxons] = taxons.count <=1 ? nil : taxons
+          @properties[:taxons] = taxons.count <=1 && @properties[:taxon] ? nil : taxons
           @properties[:keywords] = params[:keywords]
           @properties[:search] = params[:search]
           @properties[:price] = params[:price]

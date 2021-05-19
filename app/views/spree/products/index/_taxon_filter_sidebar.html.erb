@@ -17,19 +17,20 @@
         <% with_grandchildren = [:country] %>
         <% filters = [:wine_type, :country, :producer, :grape_type, :format] %>
 
-        <% filters.each do |taxon_key| %>
+        <% filters.each do |taxonomy_key| %>
+          <% localized_taxonomy_key = t("store.taxonomy_key.#{taxonomy_key}") %>
           <div class="filter-select-holder">
             <div class="filter-select">
-              <%= image_tag("icons/taxon_filter/#{taxon_key}.svg") %>
-              <p><%= t("store.product.index.filters.#{taxon_key}") %></p>
+              <%= image_tag("icons/taxon_filter/#{taxonomy_key}.svg") %>
+              <p><%= t("store.product.index.filters.#{taxonomy_key}") %></p>
               <%= image_tag("icons/icon-chevron-down.svg") %>
             </div>
             <div class="filter-dropdown">
-              <% taxon_children(taxon_key, order: ('name asc')).each do |child_taxon| %>
+              <% taxon_children(taxonomy_key, order: ('name asc')).each do |child_taxon| %>
                 <div class="dropdown-item">
-                  <%= check_box_tag child_taxon.permalink, 1, selected_taxons && selected_taxons.values.include?(child_taxon.name)  %>
+                  <%= check_box_tag localized_taxonomy_key, child_taxon.name, params[localized_taxonomy_key] == child_taxon.name %>
                   <%= child_taxon.name %>
-                  <% if with_grandchildren.include?(taxon_key) %>
+                  <% if with_grandchildren.include?(taxonomy_key) %>
                     <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
                       <%= check_box_tag grandchild_taxon.permalink, 1, selected_taxons && selected_taxons.values.include?(grandchild_taxon.name)  %>
                       <%= grandchild_taxon.name %>
