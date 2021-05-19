@@ -47,11 +47,9 @@
             </div>
           </div>
         <% end %>
-        <%= submit_tag %>
+        <%= range_field_tag :price_lte, :min=>0, :max=>200, :id=>"slider1"%>
+        <div><%= submit_tag %></div>
       <% end %>
     </div>
   </div>
-  <!-- <div class="slider">
-    <%= range_field_tag :w1, :min=>0, :max=>200, :id=>"slider1"%>
-  </div> -->
 </div>

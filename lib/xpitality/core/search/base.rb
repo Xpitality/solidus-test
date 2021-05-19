@@ -70,7 +70,11 @@ module Xpitality
             when /^between_(\d+\.?\d*)-(\d+\.?\d*)$/
               base_scope = base_scope.price_between($1, $2).ascend_by_master_price
             else
-              base_scope = base_scope.descend_by_updated_at
+              if @properties[:price_lte]
+                base_scope = base_scope.master_price_lte(@properties[:price_lte]).descend_by_master_price
+              else
+                base_scope = base_scope.descend_by_updated_at
+              end
           end
           base_scope
         end
@@ -80,6 +84,7 @@ module Xpitality
           @properties[:keywords] = params[:keywords]
           @properties[:search] = params[:search]
           @properties[:price] = params[:price]
+          @properties[:price_lte] = params[:price_lte]
           @properties[:include_images] = params[:include_images]
 
           per_page = params[:per_page].to_i
