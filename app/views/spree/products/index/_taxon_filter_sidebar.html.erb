@@ -37,9 +37,9 @@
                     <div class="dropdown-subitem-wrapper">
                       <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
                         <div class='dropdown-subitem'>
-                          <% localized_taxonomy_key = t("store.taxonomy_key.#{grandchild_key[taxonomy_key]}") %>
-                          <%= check_box_tag localized_taxonomy_key, grandchild_taxon.name, params[localized_taxonomy_key] == grandchild_taxon.name  %>
-                          <%= label_tag localized_taxonomy_key, grandchild_taxon.name %>
+                          <% localized_taxonomy_subkey = t("store.taxonomy_key.#{grandchild_key[taxonomy_key]}") %>
+                          <%= check_box_tag localized_taxonomy_subkey, grandchild_taxon.name, params[localized_taxonomy_subkey] == grandchild_taxon.name  %>
+                          <%= label_tag localized_taxonomy_subkey, grandchild_taxon.name %>
                         </div>
                       <% end %>
                     </div>
