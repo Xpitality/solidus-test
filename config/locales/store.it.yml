@@ -11,6 +11,7 @@ it:
       registration_btn: "Registrati" 
       catalog: "Catalogo"
       filters: "FILTRI"
+      see_all: "Vedi tutti"
     shared:
       main_menu:
         label:
@@ -26,6 +27,8 @@ it:
           country: "ORIGINE"
           producer: "PRODUTTORI IN EVIDENZA"
           locale: "il locale"
+        subtitle:
+          region: "REGIONI"
       footer:
         secure_shopping:
           title: "Shopping sicuro"

@@ -9,7 +9,7 @@
     <%= link_to t("store.shared.main_menu.label.products"), "/products", class: "nav-link #{conditionally_active_for(products_path)}" %>
   </div>
   
-  <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :wine_type, css_classes:"nav-dropdown-style1 see-all-hidden" } %>
+  <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :wine_type, css_classes:"nav-dropdown-style1" } %>
   <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :country,with_grandchildren: true, css_classes:"nav-dropdown-style2" } %>
   <%= render partial: 'spree/shared/header/nav_bar/nav_link_holder', locals: { taxon_key: :producer, limit: 10,css_classes:"nav-dropdown-style3" } %>
 

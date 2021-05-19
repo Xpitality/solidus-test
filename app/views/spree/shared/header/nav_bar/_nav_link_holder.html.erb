@@ -14,18 +14,30 @@
         <% end %>
         <% taxons.each do |child_taxon| %>
           <div class="drop-link-holder">
-            <%= link_to child_taxon.name, seo_url(child_taxon), class: "drop-link" %>
-
-            <% if defined?(with_grandchildren) && with_grandchildren %>
+            <div class="origine-main">
+              <%= link_to child_taxon.name, seo_url(child_taxon), class: "drop-link" %>
+              <div class="drop-title">
+                <%= child_taxon.name %>
+              </div>
+            </div>
+            <div class="origine-regions">
+              <div class="origin-region-title">
+                <%= image_tag("icons/nav_bar/paese.svg") %>
+                <%= content_tag :p, t("store.shared.main_menu.subtitle.region")  %>
+              </div>
+              <% if defined?(with_grandchildren) && with_grandchildren %>
               <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
                 <%= link_to grandchild_taxon.name, seo_url(grandchild_taxon), class: "drop-link" %>
               <% end %>
-            <% end %>
+              <% end %>
+              <span>
+                <%= link_to t("store.general.see_all"), seo_url(child_taxon), class: "drop-link" %>
+              </span>
+            </div>
           </div>
         <% end %>
         <div class="see-all-holder">
-          <%= image_tag("icons/nav_bar/#{taxon_key}.svg") %>
-          vedi tutti
+          <%= t("store.general.see_all")%>
         </div>
       </div>      
     <% end -%>
