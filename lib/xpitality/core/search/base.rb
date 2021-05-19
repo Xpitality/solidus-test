@@ -85,7 +85,11 @@ module Xpitality
               taxons << t if t
             end
           end
-          @properties[:taxons] = taxons.count <=1 && @properties[:taxon] ? nil : taxons
+          if (taxons.count <=1 && @properties[:taxon]) || taxons.empty?
+            @properties[:taxons] = nil
+          else
+            @properties[:taxons] = taxons
+          end
           @properties[:keywords] = params[:keywords]
           @properties[:search] = params[:search]
           @properties[:price] = params[:price]

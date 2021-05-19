@@ -31,10 +31,14 @@
                   <%= check_box_tag localized_taxonomy_key, child_taxon.name, params[localized_taxonomy_key] == child_taxon.name %>
                   <%= child_taxon.name %>
                   <% if with_grandchildren.include?(taxonomy_key) %>
-                    <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
-                      <%= check_box_tag grandchild_taxon.permalink, 1, selected_taxons && selected_taxons.values.include?(grandchild_taxon.name)  %>
-                      <%= grandchild_taxon.name %>
-                    <% end %>
+                    <div>
+                      <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
+                        <div>
+                          <%= check_box_tag grandchild_taxon.permalink, 1, selected_taxons && selected_taxons.values.include?(grandchild_taxon.name)  %>
+                          <%= grandchild_taxon.name %>
+                        </div>
+                      <% end %>
+                    </div>
                   <% end %>
                 </div>
               <% end %>
