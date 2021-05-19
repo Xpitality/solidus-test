@@ -4,7 +4,7 @@
     <%= content_tag :div, class: "nav-dropdown #{css_classes}" do -%>
       <div class="col title-col">
         <%= image_tag("icons/nav_bar/#{taxon_key}.svg") %>
-        <%= content_tag :p, t("store.shared.main_menu.title.#{taxon_key}")  %>
+        <%= content_tag :p, t("store.shared.main_menu.title.#{taxon_key}") %>
       </div>
       <div class="col dropdown-col">
         <% if defined?(limit) %>
@@ -23,12 +23,12 @@
             <div class="origine-regions">
               <div class="origin-region-title">
                 <%= image_tag("icons/nav_bar/paese.svg") %>
-                <%= content_tag :p, t("store.shared.main_menu.subtitle.region")  %>
+                <%= content_tag :p, t("store.shared.main_menu.subtitle.region") %>
               </div>
               <% if defined?(with_grandchildren) && with_grandchildren %>
-              <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
-                <%= link_to grandchild_taxon.name, seo_url(grandchild_taxon), class: "drop-link" %>
-              <% end %>
+                <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
+                  <%= link_to grandchild_taxon.name, seo_url(grandchild_taxon), class: "drop-link" %>
+                <% end %>
               <% end %>
               <span>
                 <%= link_to t("store.general.see_all"), seo_url(child_taxon), class: "drop-link" %>
@@ -37,9 +37,9 @@
           </div>
         <% end %>
         <div class="see-all-holder">
-          <%= t("store.general.see_all")%>
+          <%= t("store.general.see_all") %>
         </div>
-      </div>      
+      </div>
     <% end -%>
   <% end -%>
 </div>
