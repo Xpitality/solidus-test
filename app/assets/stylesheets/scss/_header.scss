@@ -505,6 +505,7 @@ header#header {
         }
         .drop-title {
           padding: 5px 0;
+          cursor: pointer;
           @media (max-width: $small){
               border-bottom: 1px solid #e5e5e5;
               width: 100%;

@@ -2,7 +2,6 @@ const handleFilters = () => {
   const filtersHolder = document.querySelector(".filters-holder");
   if (filtersHolder) {
     const selectHolders = document.querySelectorAll(".filter-select-holder");
-    const countryHolder = document.querySelectorAll(".dropdown-item");
     //open list
     selectHolders.forEach((item) => {
       const dropdown = item.querySelector(".filter-dropdown");
@@ -16,11 +15,21 @@ const handleFilters = () => {
       }
     });
     //country swicher
-    countryHolder.forEach((item) => {
-      const region = item.querySelector(".dropdown-subitem-wrapper");
-      item.addEventListener("click", (e) => {
-          region.classList.toggle("show");
-      });
-    });
+  
   }
 };
+const handleFiltersMobile = () =>{
+  const btn = document.getElementById("filters-mobile")
+  const close = document.querySelector('.close-btn')
+  const filters = document.querySelector(".filters")
+  btn.addEventListener("click", () =>{
+    if(filters){
+      filters.classList.add("show")
+    }
+  })
+  close.addEventListener("click", () =>{
+    if(filters){
+      filters.classList.remove("show")
+    }
+  })
+}

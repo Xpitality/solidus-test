@@ -6,4 +6,5 @@ window.addEventListener("load", () => {
   handleProfile();
   handleToggleForm();
   handlePriceSlider();
+  handleFiltersMobile();
 });
