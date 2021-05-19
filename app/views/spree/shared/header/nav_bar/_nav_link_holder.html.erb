@@ -36,9 +36,11 @@
             </div>
           </div>
         <% end %>
-        <div class="see-all-holder">
-          <%= t("store.general.see_all") %>
-        </div>
+        <% if defined?(limit) %>
+          <div class="see-all-holder">
+            <%= t("store.general.see_all") %>
+          </div>
+        <% end %>
       </div>
     <% end -%>
   <% end -%>
