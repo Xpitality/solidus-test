@@ -2,29 +2,25 @@ const handleFilters = () => {
   const filtersHolder = document.querySelector(".filters-holder");
   if (filtersHolder) {
     const selectHolders = document.querySelectorAll(".filter-select-holder");
-
+    const countryHolder = document.querySelectorAll(".dropdown-item");
+    //open list
     selectHolders.forEach((item) => {
       const dropdown = item.querySelector(".filter-dropdown");
       if (dropdown) {
-        const closeDropdown = (e) => {
+        item.addEventListener("click", (e) => {
           const isClickedInside = dropdown.contains(e.target);
-          const isClickedOnItem = item.contains(e.target);
-
-          if (!isClickedInside && !isClickedOnItem) {
-            dropdown.classList.remove("show");
-            document.removeEventListener("click", closeDropdown);
-          }
-        };
-        item.addEventListener("click", () => {
-          if (dropdown.classList.contains("show")) {
-            dropdown.classList.remove("show");
-            document.removeEventListener("click", closeDropdown);
-          } else {
-            dropdown.classList.add("show");
-            document.addEventListener("click", closeDropdown);
+          if (!isClickedInside) {
+            dropdown.classList.toggle("show");
           }
         });
       }
+    });
+    //country swicher
+    countryHolder.forEach((item) => {
+      const region = item.querySelector(".dropdown-subitem-wrapper");
+      item.addEventListener("click", (e) => {
+          region.classList.toggle("show");
+      });
     });
   }
 };
