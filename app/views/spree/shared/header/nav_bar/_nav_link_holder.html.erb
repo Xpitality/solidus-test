@@ -36,9 +36,9 @@
             </div>
           </div>
         <% end %>
-        <% if defined?(limit) %>
+        <% if defined?(see_all_path) %>
           <div class="see-all-holder">
-            <%= t("store.general.see_all") %>
+            <%= link_to t("store.general.see_all"), see_all_path %>
           </div>
         <% end %>
       </div>
