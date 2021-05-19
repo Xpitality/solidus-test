@@ -7,4 +7,5 @@ window.addEventListener("load", () => {
   handleToggleForm();
   handlePriceSlider();
   handleFiltersMobile();
+  handleCountryCheck();
 });
