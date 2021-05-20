@@ -195,6 +195,9 @@
   max-width: 1360px;
   padding: 0 15px;
   margin: 0 auto;
+  .catalog-content{
+    width: 100%;
+  }
   .filter-sidebar {
     display: flex;
     flex: 0 0 30%;

@@ -36,5 +36,12 @@ const handlePriceSlider = () => {
       //render value
       renderNumber(e);
     });
+    const defaultValue = {
+      target:{
+        value: 75
+      }
+    }
+    slider.style.backgroundSize = percent(defaultValue) + "% 100%";
+    renderNumber(defaultValue)
   }
 };
