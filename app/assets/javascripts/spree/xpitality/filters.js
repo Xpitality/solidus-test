@@ -1,7 +1,7 @@
 const handleFilters = () => {
   const filtersHolder = document.querySelector(".filters-holder");
   if (filtersHolder) {
-    const selectHolders = document.querySelectorAll(".filter-select-holder");
+    const selectHolders = document.querySelectorAll(".filter-options-holder");
     //open list
     selectHolders.forEach((item) => {
       const dropdown = item.querySelector(".filter-dropdown");
@@ -32,15 +32,26 @@ const handleFiltersMobile = () => {
   });
 };
 const handleCountryCheck = () => {
-  const checkCountries = document.querySelectorAll(".dropdown-item");
-
-  checkCountries.forEach((country) => {
-    const regions = country.querySelector(".dropdown-subitem-wrapper");
-    const checkbox = country.querySelector("#Paese_");
-    if (checkbox) {
-      checkbox.addEventListener("click", () => {
-        regions.classList.toggle("show"); 
-      });
-    }
-  });
+  const checkCountries = document.getElementsByName("country");
+  if(checkCountries){
+    checkCountries.forEach((country)=>{
+      const region = country.querySelector('div[name="region"]')
+      const countryItem = country.querySelector('.dropdown-item-title');
+      const checkbox = countryItem.getElementsByTagName('input')[0];
+      const switcher = () => {
+        const regions = document.querySelectorAll('div[name="region"]');
+        regions.forEach(region => {
+          if(region.classList.contains('show')){
+            region.classList.remove('show');
+          }
+        })
+      }
+      if(checkbox){
+        checkbox.addEventListener("click",(e)=>{
+            switcher()
+            region.classList.toggle('show');
+        })  
+      }
+    })
+  }
 };
