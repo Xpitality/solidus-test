@@ -1,9 +1,9 @@
-const handleFilterOptions = () =>{
+const handleFilterOptions = () => {
   handleFilters();
   handleFiltersMobile();
   handleCountryCheck();
   handleFilterForm();
-}
+};
 
 const handleFilters = () => {
   const filtersHolder = document.querySelector(".filters-holder");
@@ -27,50 +27,56 @@ const handleFiltersMobile = () => {
   const btn = document.getElementById("filters-mobile");
   const close = document.querySelector(".close-btn");
   const filters = document.querySelector(".filters");
-  btn.addEventListener("click", () => {
-    if (filters) {
-      filters.classList.add("show");
-    }
-  });
-  close.addEventListener("click", () => {
-    if (filters) {
-      filters.classList.remove("show");
-    }
-  });
+  if (btn) {
+    btn.addEventListener("click", () => {
+      if (filters) {
+        filters.classList.add("show");
+      }
+    });
+  }
+  if (close) {
+    close.addEventListener("click", () => {
+      if (filters) {
+        filters.classList.remove("show");
+      }
+    });
+  }
 };
 const handleCountryCheck = () => {
   const checkCountries = document.getElementsByName("country");
-  if(checkCountries){
-    checkCountries.forEach((country)=>{
-      const region = country.querySelector('div[name="region"]')
-      const countryItem = country.querySelector('.dropdown-item-title');
-      const checkbox = countryItem.getElementsByTagName('input')[0];
+  if (checkCountries) {
+    checkCountries.forEach((country) => {
+      const region = country.querySelector('div[name="region"]');
+      const countryItem = country.querySelector(".dropdown-item-title");
+      const checkbox = countryItem.getElementsByTagName("input")[0];
       const switcher = () => {
         const regions = document.querySelectorAll('div[name="region"]');
-        regions.forEach(region => {
-          if(region.classList.contains('show')){
-            region.classList.remove('show');
+        regions.forEach((region) => {
+          if (region.classList.contains("show")) {
+            region.classList.remove("show");
           }
-        })
+        });
+      };
+      if (checkbox) {
+        checkbox.addEventListener("click", (e) => {
+          switcher();
+          region.classList.toggle("show");
+        });
       }
-      if(checkbox){
-        checkbox.addEventListener("click",(e)=>{
-            switcher()
-            region.classList.toggle('show');
-        })  
-      }
-    })
+    });
   }
 };
 const handleFilterForm = () => {
-  const sidemenu = document.querySelector('.filters')
-  const form = sidemenu.getElementsByTagName('form')[0]
-  if(form){
-    sidemenu.addEventListener('click', (e)=>{
-    const inputs = sidemenu.getElementsByTagName('input')
-    if(e.target.checked){
-      form.submit()
+  const sidemenu = document.querySelector(".filters");
+  if (sidemenu) {
+    const form = sidemenu.getElementsByTagName("form")[0];
+    if (form) {
+      sidemenu.addEventListener("click", (e) => {
+        const inputs = sidemenu.getElementsByTagName("input");
+        if (e.target.checked) {
+          form.submit();
+        }
+      });
     }
-   })
   }
-}
+};

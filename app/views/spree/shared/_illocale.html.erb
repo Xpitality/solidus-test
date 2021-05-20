@@ -1,0 +1,58 @@
+<div class="illocale">
+    <div class="who-we-are-background"></div>
+    <div class="container">
+      <h1 class="title"><%= t("store.shared.main_menu.title.locale") %></h1>
+      <h3 class="subtitle"><%= t("store.home.who_we_are.subtitle") %></h3>
+    
+      <div class="content-holder">
+        <div class="content-top">
+          <div class="col col-left">
+            <div class="img-holder">
+              <%= image_tag("home/who-we-are/who-we-are.png") %>
+            </div>
+            <div class="text-holder">
+              <p class="text"><%= t("store.home.who_we_are.text") %></p>
+            </div>
+          </div>
+          <div class="col col-right">
+            <h2>t('store.shared.footer.info.contacts')</h2>
+            <div class="phone"><p>Telefon:</p><a>02 8277 0589</a></div>
+            <p>lorem ipsum dolor sit amet</p>
+            <div class="social">
+              <% if store_instagram %>
+                <%= link_to store_instagram, target: :_blank do %>
+                <%= image_tag("icons/social/icon-instagram-black.svg") %>
+              <% end %>
+              <% end %>
+              <% if store_facebook %>
+                <%= link_to store_facebook, target: :_blank do %>
+                <%= image_tag("icons/social/icon-facebook-black.svg") %>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    
+        <div class="content-bottom">
+          <div class="title-holder">
+            <h1 class="title"><%= t("store.home.follow_us.title") %></h1>
+            <% if store_instagram %>
+              <%= link_to store_instagram, target: :_blank do %>
+                <%= image_tag("icons/social/icon-instagram-black.svg") %>
+              <% end %>
+            <% end %>
+            <% if store_facebook %>
+              <%= link_to store_facebook, target: :_blank do %>
+                <%= image_tag("icons/social/icon-facebook-black.svg") %>
+              <% end %>
+            <% end %>
+          </div>
+          <%= render partial: "spree/shared/widget" %>
+        </div>
+      </div>
+      <% if store_instagram %>
+        <%= link_to t("store.home.follow_us.button"), store_instagram, class: "btn btn-dark-transparent", target: :_blank %>
+      <% end %>
+    </div>
+  </div>
+</div>
