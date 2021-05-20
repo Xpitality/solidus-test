@@ -203,4 +203,114 @@
     flex-direction: column;
   }
 }
+@mixin track {
+  ::-webkit-slider-runnable-track { @content; }
+  ::-moz-range-track { @content; }
+  ::-moz-focus-outer {
+    border: 0;
+  }
+}
 
+@mixin thumb {
+  ::-webkit-slider-thumb { @content; }
+  ::-moz-range-thumb { @content; }
+}
+.filter-price-holder{
+  padding: 10px;
+  .filter-price-title{
+    padding: 10px 0;
+    font-family: "chainprinter", sans-serif;
+    font-size: 12px;
+    color:#333
+  }
+  .filter-price-slider {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: $primary;
+    position: relative;
+
+    input[type=range] {
+      outline: none;
+      height: 3px;
+      flex: 1 1 auto;
+      color: inherit;
+      margin-right: 1em;
+      background-color: #E3E3E3;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-size: 0 100%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      appearance: none;
+      padding: 0;
+    }
+  
+    @include track {
+      border: none;
+      background: transparent;
+      appearance: none;
+    }
+  
+    @include thumb {
+      width: 16px;
+      height: 16px;
+      border: 0;
+      background: currentColor;
+      border-radius: 50% 50%;
+      appearance: none;
+    }
+  }
+  
+  .slider-value {
+    display: inline-block;
+    position: relative;
+    height: 1.5em;
+    
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: .25em;
+    }
+    
+    &:before {
+      top: 0;
+      background: linear-gradient(#FFF, rgba(255, 255, 255, 0));
+    }
+    
+    &:after {
+      bottom: 0;
+      background: linear-gradient(rgba(255, 255, 255, 0), #FFF);
+    }
+  }
+  
+  .slider-value-number {
+    height: 1em;
+    overflow: hidden;
+    display: inline-block;
+    user-select: none; 
+    font-weight: 600;
+  
+    ul {
+      margin-top: -.25em;
+      padding: 0;
+      list-style-type: none;
+      transition: transform .75s ease, opacity .5s ease;
+      
+      li {
+        height: 1em;
+        display: block;
+        margin: 0;
+        padding: .25em 0;
+      }
+    }
+  }
+  .symbol{
+    position: absolute;
+    right: -12px;
+    height: 1.5em;
+    font-size: 16px;
+    color: $primary;
+  }
+}

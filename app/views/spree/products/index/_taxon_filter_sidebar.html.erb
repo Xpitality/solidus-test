@@ -57,8 +57,7 @@
             </div>
           </div>
         <% end %>
-        <%= range_field_tag :price_lte, :min=>0, :max=>200, :id=>"slider1"%>
-        <div><%= submit_tag %></div>
+        <%= render partial: 'spree/products/index/taxon_filter_price'%>
       <% end %>
     </div>
   </div>

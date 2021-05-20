@@ -117,6 +117,7 @@ it:
           grape_type: Vitigno
           format: Formato
           country: Paese
+          maximum_price: Prezzo massimo
       disabled:
         product_out_of_store: Prodotto non disponibile
     cart:
