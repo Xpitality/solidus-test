@@ -1,3 +1,10 @@
+const handleFilterOptions = () =>{
+  handleFilters();
+  handleFiltersMobile();
+  handleCountryCheck();
+  handleFilterForm();
+}
+
 const handleFilters = () => {
   const filtersHolder = document.querySelector(".filters-holder");
   if (filtersHolder) {
@@ -55,3 +62,15 @@ const handleCountryCheck = () => {
     })
   }
 };
+const handleFilterForm = () => {
+  const sidemenu = document.querySelector('.filters')
+  const form = sidemenu.getElementsByTagName('form')[0]
+  if(form){
+    sidemenu.addEventListener('click', (e)=>{
+    const inputs = sidemenu.getElementsByTagName('input')
+    if(e.target.checked){
+      form.submit()
+    }
+   })
+  }
+}

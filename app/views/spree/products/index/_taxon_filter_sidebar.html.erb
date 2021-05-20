@@ -2,14 +2,14 @@
   <div class="container title-container">
     <h1 class="title-small">RISULTATI PER:</h1>
     <h1 class="title-big">
-      <%= t('store.general.catalog')%>
+      <%= t("store.general.catalog") %>
     </h1>
   </div>
   <div class="container filters-container">
     <div class="filters-mobile-btn-holder">
       <button id="filters-mobile" class="btn btn-primary inverted">
         <span>
-          <%= t('store.general.filters')%>
+          <%= t("store.general.filters") %>
           <%= image_tag("icons/taxon_filter/filter.svg") %>
         </span>
       </button>
@@ -17,8 +17,8 @@
     <div class="filters">
       <div class="filters-mobile-btn-hidden">
         <span>
-          <%= image_tag("icons/taxon_filter/X.svg",class: "close-btn") %>
-          <%= t('store.general.filters')%>
+          <%= image_tag("icons/taxon_filter/X.svg", class: "close-btn") %>
+          <%= t("store.general.filters") %>
         </span>
       </div>
       <%= form_tag products_path, method: :get do %>
@@ -29,24 +29,24 @@
         <% filters.each do |taxonomy_key| %>
           <% localized_taxonomy_key = t("store.taxonomy_key.#{taxonomy_key}") %>
           <div class="filter-options-holder">
-            <div class="filter-options">
+            <label class="filter-options">
               <%= image_tag("icons/taxon_filter/#{taxonomy_key}.svg") %>
               <p><%= t("store.product.index.filters.#{taxonomy_key}") %></p>
               <%= image_tag("icons/icon-chevron-down.svg") %>
-            </div>
+            </label>
             <div class="filter-dropdown" data-taxonomy-key="<%= taxonomy_key %>">
-              <% taxon_children(taxonomy_key, order: ('name asc')).each do |child_taxon| %>
+              <% taxon_children(taxonomy_key, order: ("name asc")).each do |child_taxon| %>
                 <div class="dropdown-item" name="<%= taxonomy_key %>">
-                  <div class="dropdown-item-title">
+                  <label class="dropdown-item-title">
                     <%= check_box_tag "#{localized_taxonomy_key}[]", child_taxon.name, params[localized_taxonomy_key] == child_taxon.name %>
                     <p><%= child_taxon.name %></p>
-                  </div>
+                  </label>
                   <% if with_grandchildren.include?(taxonomy_key) && grandchild_key[taxonomy_key] %>
                     <div class="dropdown-subitem-wrapper" data-grandchild-taxonomy-key="<%= grandchild_key[taxonomy_key] %>" name="<%= grandchild_key[taxonomy_key] %>">
                       <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
                         <div class='dropdown-subitem'>
                           <% localized_taxonomy_subkey = t("store.taxonomy_key.#{grandchild_key[taxonomy_key]}") %>
-                          <%= check_box_tag "#{localized_taxonomy_subkey}[]", grandchild_taxon.name, params[localized_taxonomy_subkey] == grandchild_taxon.name  %>
+                          <%= check_box_tag "#{localized_taxonomy_subkey}[]", grandchild_taxon.name, params[localized_taxonomy_subkey] == grandchild_taxon.name %>
                           <p><%= grandchild_taxon.name %></p>
                         </div>
                       <% end %>
@@ -57,7 +57,7 @@
             </div>
           </div>
         <% end %>
-        <%= render partial: 'spree/products/index/taxon_filter_price'%>
+        <%= render partial: "spree/products/index/taxon_filter_price" %>
       <% end %>
     </div>
   </div>
