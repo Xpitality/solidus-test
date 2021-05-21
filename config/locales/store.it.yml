@@ -39,6 +39,7 @@ it:
         contact:
           title: "Serve aiuto?"
           phone_text_html: "o chiama al <a href='tel:%{phone}'>%{phone}</a>"
+          phone_number: "Telefono : <a href='tel:%{phone}'>%{phone}</a>"
         address:
           - "Dati societari"
           - "Pet Nat srl Società"
@@ -85,6 +86,7 @@ it:
         title: chi siamo
         subtitle: Serviamo da bere vini veri, promuoviamo l’inclusione sociale di richiedenti asilo e sosteniamo Emergency.
         text: e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà
+        write_as: O scrivici su Instagram      
       follow_us:
         title: SEGUICI SUI SOCIAL
         button: FOLLOW US ON INSTAGRAM

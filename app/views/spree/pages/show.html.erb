@@ -12,7 +12,9 @@
   <% end %>
 
   <% if params['id'] == "il-locale" %>
-    <%= render partial: 'spree/shared/illocale' %>
+    <%= render partial: 'spree/pages/show/illocale' ,locals:{with_widget:true}%>
+  <% elsif params['id'] == "chi-siamo"%>
+    <%= render partial: 'spree/pages/show/illocale' ,locals:{with_widget:false}%>
   <% end %>
 
 <% end %>
