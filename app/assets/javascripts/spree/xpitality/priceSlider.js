@@ -5,7 +5,6 @@ const handlePriceSlider = () => {
     const min = 0;
     slider.max = max;
     slider.min = min;
-    slider.value = 75;
     const percent = (e) => {
       const value = ((e.target.value - min) * 100) / (max - min);
       return value;
@@ -36,12 +35,5 @@ const handlePriceSlider = () => {
       //render value
       renderNumber(e);
     });
-    const defaultValue = {
-      target:{
-        value: 75
-      }
-    }
-    slider.style.backgroundSize = percent(defaultValue) + "% 100%";
-    renderNumber(defaultValue)
   }
 };
