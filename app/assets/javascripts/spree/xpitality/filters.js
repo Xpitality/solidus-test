@@ -74,7 +74,7 @@ const handleFilterForm = () => {
       sidemenu.addEventListener("click", (e) => {
         const inputs = sidemenu.getElementsByTagName("input");
         if (e.target.checked) {
-          form.submit();
+          Rails.fire(form, 'submit');
         }
       });
     }

@@ -21,7 +21,7 @@
           <%= t("store.general.filters") %>
         </span>
       </div>
-      <%= form_tag products_path, method: :get do %>
+      <%= form_tag filter_products_path, method: :post, remote: true, format: :js do %>
         <% with_grandchildren = [:country] %>
         <% filters = [:wine_type, :country, :producer, :grape_type, :format] %>
         <% grandchild_key = { country: :region } %>

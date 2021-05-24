@@ -1,20 +1,20 @@
-<% if taxon %>
-  <div class="producer-section">
-    <div class="producer-tags-holder">
-      <div class="container">
-        <% selected_taxons.each do |key, selected_taxon| %>
-          <div class="tag">
-            <p><%= selected_taxon.name %></p>
-            <%= link_to taxon_seo_url(taxon:nil, selected_taxons:selected_taxons, excluded:selected_taxon) do %>
-              <div class="close-tag">
-                <%= image_tag("icons/icon-tag-close.svg") %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+<div class="producer-section">
+  <div class="producer-tags-holder">
+    <div class="container">
+      <% selected_taxons.values.flatten.each do |selected_taxon| %>
+        <div class="tag">
+          <p><%= selected_taxon.name %></p>
+          <%= link_to taxon_seo_url(taxon: nil, selected_taxons: selected_taxons, excluded: selected_taxon) do %>
+            <div class="close-tag">
+              <%= image_tag("icons/icon-tag-close.svg") %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
 
+  <% if taxon %>
     <% taxon_image = taxon.gallery.images.first %>
     <% if taxon_image || !taxon.description.blank? %>
       <div class="producer-content-holder">
@@ -28,5 +28,5 @@
         </div>
       </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

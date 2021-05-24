@@ -1,0 +1,1 @@
+$('.catalog-content').html("<%= escape_javascript(render partial: 'spree/products/index/catalog_content', locals: { products: @products, taxon: @taxon, selected_taxons: @selected_taxons }) %>")

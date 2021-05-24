@@ -5,7 +5,8 @@ require 'xpitality/core/search/base'
 module Spree
   class ProductsController < Spree::StoreController
     before_action :load_product, only: :show
-    before_action :load_taxon, only: :index
+    before_action :load_taxon, only: [:index, :filter]
+    skip_forgery_protection only: :filter
 
     helper 'spree/taxons', 'spree/taxon_filters'
 
@@ -15,6 +16,16 @@ module Spree
       @searcher = build_searcher(params.merge(include_images: true))
       @products = @searcher.retrieve_products
       @taxonomies = Spree::Taxonomy.includes(root: :children)
+    end
+
+    def filter
+      @searcher = build_searcher(params.merge(include_images: true))
+      @products = @searcher.retrieve_products
+      @taxonomies = Spree::Taxonomy.includes(root: :children)
+
+      respond_to do |format|
+        format.js
+      end
     end
 
     def show
@@ -52,17 +63,21 @@ module Spree
       [:wine_type, :country, :producer, :grape_type, :format, :region].each do |taxonomy_key|
         localized_taxonomy_key = I18n.t("store.taxonomy_key.#{taxonomy_key}")
         if params[localized_taxonomy_key]
-          t = Spree::Taxon.where(name: params[localized_taxonomy_key]).first
-          if t
-            @selected_taxons[taxonomy_key] = t
+          @selected_taxons[taxonomy_key] ||= []
+          params[localized_taxonomy_key].each do |taxon_name|
+            t = Spree::Taxon.where(name: taxon_name).first
+            if t
+              @selected_taxons[taxonomy_key] << t
+            end
           end
         end
       end
       if params[:taxon].present?
         @taxon = Spree::Taxon.find(params[:taxon])
-        @selected_taxons[@taxon.taxonomy.taxonomy_key] = @taxon
+        @selected_taxons[@taxon.taxonomy.taxonomy_key] ||= []
+        @selected_taxons[@taxon.taxonomy.taxonomy_key] << @taxon
       else
-        @taxon = @selected_taxons.values.first
+        @taxon = nil
       end
     end
   end

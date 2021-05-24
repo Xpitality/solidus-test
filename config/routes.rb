@@ -8,6 +8,8 @@ end
 Spree::Core::Engine.routes.draw do
   get '/p/:id', to: 'pages#show'
 
+  post '/filter_products', to: 'products#filter'
+
   resources :producers, only: :index
 
   resources :orders do

@@ -43,7 +43,6 @@ module Xpitality
               temp_products = base_scope
               taxons.each { |t| temp_product_ids += temp_products.in_taxons(t).pluck(:id) }
               temp_product_ids.uniq!
-              puts "#{taxonomy_key}: #{temp_product_ids}", ' '
               product_ids ||= temp_product_ids
               product_ids = product_ids & temp_product_ids
             end
