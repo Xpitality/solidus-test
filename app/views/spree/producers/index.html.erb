@@ -1,0 +1,12 @@
+<div class="catalog-holder">
+  <div class="filter-sidebar">
+    <%= render partial: 'spree/producers/show/producer_sidebar'%>
+  </div>
+  <div class="container">
+    <div class="producer-list">
+      <% taxon_children(:producer).each do |producer| %>
+        <%= render partial: 'spree/producers/show/producer_card', locals: { producer: producer } %>
+      <% end %>
+    </div>
+  </div>
+</div>

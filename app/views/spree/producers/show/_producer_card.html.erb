@@ -1,0 +1,12 @@
+<div class="producer-card">
+  <div class="producer-background">
+    <% producer_image = producer.gallery.images.first %>
+    <% if producer_image %>
+      <%= render('spree/shared/image', image: producer_image, size: :small, itemprop: "image") %>
+    <% else %>
+      <%= image_tag("producers/default-image.jpg") %>
+    <% end %>
+  </div>
+  <div class="overlay"></div>
+  <h3 class="title-big"><%= producer.name %></h3>
+</div>
