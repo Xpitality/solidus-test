@@ -38,43 +38,52 @@ module Xpitality
           base_scope = Spree::Product.display_includes.available
           if @properties[:taxons]
             product_ids = nil
-            @properties[:taxons].each do |taxon|
-              if taxon.name == I18n.t("store.taxonomy_key.country")
-                pids = Spree::Product.in_taxons(taxon).pluck(:id)
+            @properties[:taxons].map do |taxonomy_key, taxons|
+              temp_product_ids = []
+              temp_products = base_scope
+              taxons.each { |t| temp_product_ids += temp_products.in_taxons(t).pluck(:id) }
+              temp_product_ids.uniq!
+              puts "#{taxonomy_key}: #{temp_product_ids}", ' '
+              product_ids ||= temp_product_ids
+              product_ids = product_ids & temp_product_ids
+            end
+
+            base_scope = Spree::Product.where(id: product_ids.to_a).display_includes.available
+          else
+            if @properties[:taxon]
+              if @properties[:taxon].name == I18n.t("store.taxonomy_key.country")
+                base_scope = base_scope.in_taxons(@properties[:taxon]) unless @properties[:taxon].blank?
               else
-                pids = Spree::Product.in_taxon(taxon).pluck(:id)
+                base_scope = base_scope.in_taxon(@properties[:taxon]) unless @properties[:taxon].blank?
               end
-              product_ids = pids if product_ids.nil?
-              product_ids = product_ids & pids
             end
-            base_scope = base_scope.where(id: product_ids)
-          elsif @properties[:taxon]
-            if @properties[:taxon].name == I18n.t("store.taxonomy_key.country")
-              base_scope = base_scope.in_taxons(@properties[:taxon]) unless @properties[:taxon].blank?
-            else
-              base_scope = base_scope.in_taxon(@properties[:taxon]) unless @properties[:taxon].blank?
-            end
+
+            # case @properties[:price]
+            #   when 'order_asc'
+            #     base_scope = base_scope.ascend_by_master_price
+            #   when 'order_desc'
+            #     base_scope = base_scope.descend_by_master_price
+            #   when /^gte_(\d+\.?\d*)$/
+            #     base_scope = base_scope.master_price_gte($1).ascend_by_master_price
+            #   when /^lte_(\d+\.?\d*)$/
+            #     base_scope = base_scope.master_price_lte($1).descend_by_master_price
+            #   when /^between_(\d+\.?\d*)-(\d+\.?\d*)$/
+            #     base_scope = base_scope.price_between($1, $2).ascend_by_master_price
+            #   else
+            #     if @properties[:price_lte]
+            #       base_scope = base_scope.master_price_lte(@properties[:price_lte]).descend_by_master_price
+            #     else
+            #       base_scope = base_scope.descend_by_updated_at
+            #     end
+            # end
           end
           base_scope = get_products_conditions_for(base_scope, @properties[:keywords])
           base_scope = add_search_scopes(base_scope)
           base_scope = add_eagerload_scopes(base_scope)
-          case @properties[:price]
-            when 'order_asc'
-              base_scope = base_scope.ascend_by_master_price
-            when 'order_desc'
-              base_scope = base_scope.descend_by_master_price
-            when /^gte_(\d+\.?\d*)$/
-              base_scope = base_scope.master_price_gte($1).ascend_by_master_price
-            when /^lte_(\d+\.?\d*)$/
-              base_scope = base_scope.master_price_lte($1).descend_by_master_price
-            when /^between_(\d+\.?\d*)-(\d+\.?\d*)$/
-              base_scope = base_scope.price_between($1, $2).ascend_by_master_price
-            else
-              if @properties[:price_lte]
-                base_scope = base_scope.master_price_lte(@properties[:price_lte]).descend_by_master_price
-              else
-                base_scope = base_scope.descend_by_updated_at
-              end
+          if @properties[:price_lte]
+            base_scope = base_scope.master_price_lte(@properties[:price_lte]).descend_by_master_price
+          else
+            base_scope = base_scope.descend_by_updated_at
           end
           base_scope
         end
@@ -94,18 +103,22 @@ module Xpitality
 
         def prepare_taxon_properties(params)
           @properties[:taxon] = params[:taxon].blank? ? nil : taxon = Spree::Taxon.find(params[:taxon])
-          taxons = []
-          taxons << taxon if defined?(taxon) && taxon
+          taxons = {}
 
-          taxonomy_keys = I18n.t('store.taxonomy_key').values.reject{|k| k == I18n.t('store.taxonomy_key.country') && params[I18n.t('store.taxonomy_key.region')] }
-
-          taxonomy_keys.each do |localized_taxonomy_key|
+          I18n.t('store.taxonomy_key').each do |taxonomy_key, localized_taxonomy_key|
             if params[localized_taxonomy_key]
-              t = Spree::Taxon.where(name: params[localized_taxonomy_key]).first
-              taxons << t if t
+              taxons[taxonomy_key] = params[localized_taxonomy_key].map { |name| Spree::Taxon.where(name: name).first }.compact
+            end
+            if taxon && taxon.parent.name == localized_taxonomy_key && !taxons[taxonomy_key].include?(taxon)
+              taxons[taxonomy_key] << taxon
             end
           end
-          if (taxons.count <=1 && @properties[:taxon]) || taxons.empty?
+          if taxons['region'] && taxons['country']
+            taxons['region'].each { |t| taxons['country'] == taxons['country'] - [t.parent] }
+            taxons['country_or_region'] = taxons['country'] + taxons['region']
+            taxons.except! "country", "region"
+          end
+          if taxons.empty?
             @properties[:taxons] = nil
           else
             @properties[:taxons] = taxons
