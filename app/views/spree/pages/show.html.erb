@@ -1,4 +1,4 @@
-<% if @page %>
+<!-- <% if @page %>
   <% @page.elements.each do |element| %>
     <% cache element do %>
       <div class="container">
@@ -9,12 +9,16 @@
         <% end %>
       </div>
     <% end %>
-  <% end %>
-
+  <% end %> -->
   <% if params['id'] == "il-locale" %>
+    <%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.main_menu.label.locale') } %>
     <%= render partial: 'spree/pages/show/illocale' ,locals:{with_widget:true}%>
   <% elsif params['id'] == "chi-siamo"%>
+    <%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.footer.info.about_us') } %>
     <%= render partial: 'spree/pages/show/illocale' ,locals:{with_widget:false}%>
+  <% elsif params['id'] == "spedizione"%>
+    <%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.footer.info.shipping') } %>
+    <%= render partial: 'spree/pages/show/transport'%>
   <% end %>
 
 <% end %>
