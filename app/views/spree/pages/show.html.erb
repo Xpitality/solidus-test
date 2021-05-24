@@ -1,24 +1,9 @@
-<!-- <% if @page %>
-  <% @page.elements.each do |element| %>
-    <% cache element do %>
-      <div class="container">
-        <%= element_view_for element do |el| %>
-          <article>
-            <%= el.render :text %>
-          </article>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %> -->
-  <% if params['id'] == "il-locale" %>
-    <%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.main_menu.label.locale') } %>
-    <%= render partial: 'spree/pages/show/illocale' ,locals:{with_widget:true}%>
-  <% elsif params['id'] == "chi-siamo"%>
-    <%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.footer.info.about_us') } %>
-    <%= render partial: 'spree/pages/show/illocale' ,locals:{with_widget:false}%>
-  <% elsif params['id'] == "spedizione"%>
-    <%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.footer.info.shipping') } %>
-    <%= render partial: 'spree/pages/show/transport'%>
+<% if @page %>
+
+  <% if %w(il-locale chi-siamo spedizione).include?(params['id']) %>
+    <%= render partial: "spree/pages/show/page_#{params['id']}", locals: { page: @page } %>
+  <% else %>
+    <%= render partial: "spree/pages/show/page_generic", locals: { page: @page } %>
   <% end %>
 
 <% end %>

@@ -1,0 +1,29 @@
+<div class="content-top">
+  <div class="col col-left">
+    <div class="img-holder">
+      <%= image_tag("home/who-we-are/who-we-are.png") %>
+    </div>
+    <div class="text-holder">
+      <p class="text"><%= t("store.home.who_we_are.text") %></p>
+    </div>
+  </div>
+  <div class="col col-right">
+    <h2><%= t('store.shared.footer.info.contacts') %></h2>
+    <% if store_phone %>
+      <p class="phone"><%== t('store.shared.footer.contact.phone_number', phone: store_phone) %></p>
+    <% end %>
+    <p><%= t("store.home.who_we_are.write_as") %></p>
+    <div class="social">
+      <% if store_instagram %>
+        <%= link_to store_instagram, target: :_blank do %>
+          <%= image_tag("icons/social/icon-instagram-white.svg") %>
+        <% end %>
+      <% end %>
+      <% if store_facebook %>
+        <%= link_to store_facebook, target: :_blank do %>
+          <%= image_tag("icons/social/icon-facebook-white.svg") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

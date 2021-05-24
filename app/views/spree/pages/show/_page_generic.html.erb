@@ -1,0 +1,11 @@
+<% page.elements.each do |element| %>
+  <% cache element do %>
+    <div class="container">
+      <%= element_view_for element do |el| %>
+        <article>
+          <%= el.render :text %>
+        </article>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,23 @@
+<%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.footer.info.shipping') } %>
+
+<div class="container">
+  <div class="shipping">
+    <div class="shipping-title">
+      <p><%= t('store.shared.footer.info.shipping') %></p>
+    </div>
+    <div class="shipping-subtitle">
+      <h3><%= t('store.home.who_we_are.subtitle') %></h3>
+    </div>
+
+    <% page.elements.each do |element| %>
+      <% cache element do %>
+        <%= element_view_for element do |el| %>
+          <div>
+            <%= el.render :text %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
