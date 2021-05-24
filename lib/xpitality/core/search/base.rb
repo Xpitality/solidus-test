@@ -110,6 +110,7 @@ module Xpitality
               taxons[taxonomy_key] = params[localized_taxonomy_key].map { |name| Spree::Taxon.where(name: name).first }.compact
             end
             if taxon && taxon.parent.name == localized_taxonomy_key && !taxons[taxonomy_key].to_a.include?(taxon)
+              taxons[taxonomy_key] ||= []
               taxons[taxonomy_key] << taxon
             end
           end
