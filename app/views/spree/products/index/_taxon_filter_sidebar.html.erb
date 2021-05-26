@@ -34,19 +34,26 @@
               <p><%= t("store.product.index.filters.#{taxonomy_key}") %></p>
               <%= image_tag("icons/icon-chevron-down.svg") %>
             </label>
-            <div class="filter-dropdown <%= 'show' unless params[localized_taxonomy_key].blank?  %>" data-taxonomy-key="<%= taxonomy_key %>">
+            <div class="filter-dropdown <%= 'show' unless selected_taxons[taxonomy_key].blank?  %>" data-taxonomy-key="<%= taxonomy_key %>">
               <% taxon_children(taxonomy_key, order: ("name asc")).each do |child_taxon| %>
+
+                <% child_taxon_checked = selected_taxons[taxonomy_key].to_a.include?(child_taxon) %>
+                <% show_grandchildren = with_grandchildren.include?(taxonomy_key) && grandchild_key[taxonomy_key] %>
+
                 <div class="dropdown-item" name="<%= taxonomy_key %>">
                   <label class="dropdown-item-title">
-                    <%= check_box_tag "#{localized_taxonomy_key}[]", child_taxon.name, params[localized_taxonomy_key].to_a.include?(child_taxon.name) %>
+                    <%= check_box_tag "#{localized_taxonomy_key}[]", child_taxon.name, child_taxon_checked %>
                     <p><%= child_taxon.name %></p>
                   </label>
-                  <% if with_grandchildren.include?(taxonomy_key) && grandchild_key[taxonomy_key] %>
-                    <div class="dropdown-subitem-wrapper <%= 'show' if params[localized_taxonomy_key].to_a.include?(child_taxon.name)  %>" data-grandchild-taxonomy-key="<%= grandchild_key[taxonomy_key] %>" name="<%= grandchild_key[taxonomy_key] %>">
+                  <% if show_grandchildren %>
+                    <div class="dropdown-subitem-wrapper <%= 'show' if child_taxon_checked %>" data-grandchild-taxonomy-key="<%= grandchild_key[taxonomy_key] %>" name="<%= grandchild_key[taxonomy_key] %>">
                       <% Spree::Taxon.where(parent: child_taxon).each do |grandchild_taxon| %>
+
+                        <% localized_taxonomy_subkey = t("store.taxonomy_key.#{grandchild_key[taxonomy_key]}") %>
+                        <% grandchild_taxon_checked = selected_taxons[grandchild_key[taxonomy_key]].to_a.include?(grandchild_taxon) %>
+
                         <div class='dropdown-subitem'>
-                          <% localized_taxonomy_subkey = t("store.taxonomy_key.#{grandchild_key[taxonomy_key]}") %>
-                          <%= check_box_tag "#{localized_taxonomy_subkey}[]", grandchild_taxon.name, params[localized_taxonomy_subkey].to_a.include?(grandchild_taxon.name) %>
+                          <%= check_box_tag "#{localized_taxonomy_subkey}[]", grandchild_taxon.name, grandchild_taxon_checked %>
                           <p><%= grandchild_taxon.name %></p>
                         </div>
                       <% end %>

@@ -25,13 +25,17 @@ module Spree
       [:wine_type, :country, :producer, :grape_type, :format, :region].each do |taxonomy_key|
         localized_taxonomy_key = I18n.t("store.taxonomy_key.#{taxonomy_key}")
         if params[localized_taxonomy_key]
-          t = Spree::Taxon.where(name: params[localized_taxonomy_key]).first
-          if t
-            @selected_taxons[taxonomy_key] = t
+          @selected_taxons[taxonomy_key] ||= []
+          params[localized_taxonomy_key].each do |taxon_name|
+            t = Spree::Taxon.where(name: taxon_name).first
+            if t
+              @selected_taxons[taxonomy_key] << t
+            end
           end
         end
       end
-      @selected_taxons[@taxon.taxonomy.taxonomy_key] = @taxon
+      @selected_taxons[@taxon.taxonomy.taxonomy_key] ||= []
+      @selected_taxons[@taxon.taxonomy.taxonomy_key] << @taxon
     end
 
     def accurate_title
