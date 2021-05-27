@@ -1,6 +1,6 @@
-.producer-section {
-  .producer-tags-holder {
-    background: #EEEEEE;
+.selected-taxon {
+  .selected-taxon-holder {
+    background: #eeeeee;
     padding: 20px 0;
     margin: 20px 0 40px 0;
     .container {
@@ -15,7 +15,7 @@
         p {
           font-family: "chainprinter", sans-serif;
           color: $black;
-          font-size: 14px;
+          font-size: 12px;
         }
         .close-tag {
           margin-left: 10px;
@@ -53,34 +53,76 @@
       }
     }
   }
+  .selected-taxon-description {
+    padding: 20px;
+    margin: 20px 0 40px 0;
+    .container {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 48px;
+      .taxon-image-holder {
+        display: flex;
+        width: 100%;
+        img {
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+      .taxon-description {
+        padding-top: 46px;
+        p {
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 20px;
+          color: #333333;
+        }
+      }
+      .taxon-see-more-btn {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        text-decoration-line: underline;
+        color: $primary;
+        margin-top: 15px;
+        display: none;
+      }
+    }
+  }
 }
-.producer-list{
+.producer-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 30px 0;
+  padding: 60px 0;
   justify-content: flex-start;
-  .producer-card{
+  .producer-card {
     position: relative;
     display: flex;
-    flex: 0 0 33%;
+    flex: 0 0 25%;
     flex-direction: column;
     padding: 0 10px;
     margin-bottom: 30px;
+    a{
+      width: 100%;
+      height: 100%;
+    }
     @media (max-width: $medium) {
       flex: 0 0 50%;
     }
     @media (max-width: $small) {
-      flex: 0 0 100%
+      flex: 0 0 100%;
     }
-    .title-big{
+    .title-big {
       position: absolute;
-      font-size: 22px;
+      font-size: 18px;
       line-height: 26px;
       left: 25px;
       bottom: 20px;
       color: #fff;
     }
-    .overlay{
+    .overlay {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -89,22 +131,24 @@
       background-image: linear-gradient(to top, #333 0%, #fff 100%);
       opacity: 0.2;
     }
-    .producer-background{
+    .producer-background {
       display: flex;
-      img{
+      width: 100%;
+      height: 100%;
+      img {
         width: 100%;
         height: 100%;
       }
     }
   }
 }
-.producer-sidebar{
-  display:flex;
+.producer-sidebar {
+  display: flex;
   flex-direction: column;
   width: 100%;
-  .producer-sidebar-title{
+  .producer-sidebar-title {
     padding: 60px 15px;
-    .title{
+    .title {
       font-size: 28px;
       font-weight: bold;
     }

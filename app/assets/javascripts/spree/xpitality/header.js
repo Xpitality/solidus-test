@@ -5,11 +5,12 @@ const handleHeader = () => {
   const searchHolder = document.getElementById('search-bar');
   const originDiv = document.querySelector('.nav-dropdown-country');
   const titleOrigin = originDiv.querySelectorAll('.drop-title');
+  const dropdown = document.querySelectorAll('.nav-dropdown');
 
   hamburger.addEventListener("click", () => {
     if (navBar.classList.contains("show")) {
       navBar.classList.remove("show");
-      searchHolder.style.display= 'block'
+      searchHolder.style.display= 'flex'
     } else {
       navBar.classList.add("show");
       searchHolder.style.display= 'none'
@@ -18,8 +19,7 @@ const handleHeader = () => {
   
   // Handling nav links
   navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
+    link.addEventListener("mouseover", (event) => {
       const allDrops = [...document.querySelectorAll(".nav-dropdown")];
       const drop = event.target.parentElement.querySelector(".nav-dropdown");
 
@@ -32,7 +32,17 @@ const handleHeader = () => {
         drop.classList.add("show");
       }
     });
+    link.addEventListener("click",(e)=>{
+      e.preventDefault();
+    })
   });
+  
+  //hide the drop
+  dropdown.forEach(drop => {
+    drop.addEventListener("mouseleave",(e)=>{
+      drop.classList.remove("show");
+    })
+  })
 
   //Handling regions sidebar
   titleOrigin.forEach((title)=>{

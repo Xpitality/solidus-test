@@ -1,6 +1,6 @@
 <% unless selected_taxons.blank? %>
-  <div class="producer-section">
-    <div class="producer-tags-holder">
+  <div class="selected-taxon">
+    <div class="selected-taxon-holder">
       <div class="container">
         <% selected_taxons.values.flatten.each do |selected_taxon| %>
           <div class="tag">
@@ -18,13 +18,16 @@
     <% if taxon %>
       <% taxon_image = taxon.gallery.images.first %>
       <% if taxon_image || !taxon.description.blank? %>
-        <div class="producer-content-holder">
+        <div class="selected-taxon-description">
           <div class="container">
-            <div class="col col-left">
+            <div class="taxon-image-holder">
               <%= render('spree/shared/image', image: taxon_image, size: :small, itemprop: "image") if taxon_image %>
             </div>
-            <div class="col col-right">
+            <div class="taxon-description">
               <%== taxon.description %>
+            </div>
+            <div class="taxon-see-more-btn">
+              Leggi tutto
             </div>
           </div>
         </div>

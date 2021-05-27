@@ -12,3 +12,4 @@
 //= require spree/xpitality/profile
 //= require spree/xpitality/checkoutReg
 //= require spree/xpitality/priceSlider
+//= require spree/xpitality/descriptionSeeAll

@@ -17,7 +17,7 @@
       margin-bottom: 25px;
       @media (min-width: $exceptSmall) {
         display: none;
-      } 
+      }
       .btn {
         display: flex;
         align-items: center;
@@ -54,9 +54,9 @@
         width: 100%;
         bottom: 0;
         background-color: #fff;
-        form{
+        form {
           padding: 20px;
-          top:60px;
+          top: 60px;
           width: 100%;
           position: absolute;
         }
@@ -98,9 +98,25 @@
               width: 16px;
               height: 16px;
               margin: 0 10px;
+              font-size: 0.8em;
+              text-align: center;
+              line-height: 1em;
+              padding-left: 1px;
+              padding-top: 2px;
+            }
+            input[type="checkbox"]:checked {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              -o-appearance: none;
+              appearance: none;
+              background-color: #333;
+            }
+            input[type="checkbox"]:checked:after {
+              content: "✔";
+              color: white;
             }
             .dropdown-subitem-wrapper {
-              display:none;
+              display: none;
               padding-left: 20px;
               .dropdown-subitem {
                 padding: 10px;
@@ -117,11 +133,11 @@
             .dropdown-item-title {
               display: flex;
               align-items: center;
-              @media (max-width: $small){
-                border-bottom: 1px solid #E5E5E5;
+              @media (max-width: $small) {
+                border-bottom: 1px solid #e5e5e5;
                 padding: 5px 0 10px 0;
               }
-              p{
+              p {
                 width: 100%;
                 padding: 10px;
               }
@@ -132,22 +148,22 @@
               }
               background-color: #333;
             }
-            .show{
-              display: block
+            .show {
+              display: block;
             }
           }
         }
       }
-      .filters-mobile-btn-hidden{
+      .filters-mobile-btn-hidden {
         display: none;
         width: 100%;
         background-color: $primary-light;
         padding: 20px 32px;
         font-family: "chainprinter", sans-serif;
-        align-items:center;
-        span{
+        align-items: center;
+        span {
           color: #fff;
-          img{
+          img {
             cursor: pointer;
             width: 17px;
             height: 17px;
@@ -159,7 +175,7 @@
         }
       }
     }
-    .show{
+    .show {
       transform: translateY(0);
     }
   }
@@ -195,36 +211,49 @@
   max-width: 1360px;
   padding: 0 15px;
   margin: 0 auto;
-  .catalog-content{
+  .catalog-content {
     width: 100%;
+    padding: 130px 0 0 0;
   }
   .filter-sidebar {
     display: flex;
     flex: 0 0 30%;
   }
-  @media (max-width: $small){
+  @media (max-width: $small) {
     flex-direction: column;
+  }
+  .producer-sidebar-holder{
+    display: flex;
+    flex: 0 0 20%;
   }
 }
 @mixin track {
-  ::-webkit-slider-runnable-track { @content; }
-  ::-moz-range-track { @content; }
+  ::-webkit-slider-runnable-track {
+    @content;
+  }
+  ::-moz-range-track {
+    @content;
+  }
   ::-moz-focus-outer {
     border: 0;
   }
 }
 
 @mixin thumb {
-  ::-webkit-slider-thumb { @content; }
-  ::-moz-range-thumb { @content; }
+  ::-webkit-slider-thumb {
+    @content;
+  }
+  ::-moz-range-thumb {
+    @content;
+  }
 }
-.filter-price-holder{
+.filter-price-holder {
   padding: 10px;
-  .filter-price-title{
+  .filter-price-title {
     padding: 10px 0;
     font-family: "chainprinter", sans-serif;
     font-size: 12px;
-    color:#333
+    color: #333;
   }
   .filter-price-slider {
     display: flex;
@@ -233,13 +262,13 @@
     color: $primary;
     position: relative;
 
-    input[type=range] {
+    input[type="range"] {
       outline: none;
       height: 3px;
       flex: 1 1 auto;
       color: inherit;
       margin-right: 1em;
-      background-color: #E3E3E3;
+      background-color: #e3e3e3;
       background-image: linear-gradient(currentColor, currentColor);
       background-size: 0 100%;
       background-repeat: no-repeat;
@@ -247,13 +276,13 @@
       appearance: none;
       padding: 0;
     }
-  
+
     @include track {
       border: none;
       background: transparent;
       appearance: none;
     }
-  
+
     @include thumb {
       width: 16px;
       height: 16px;
@@ -263,53 +292,54 @@
       appearance: none;
     }
   }
-  
+
   .slider-value {
     display: inline-block;
     position: relative;
     height: 1.5em;
-    
-    &:before, &:after {
-      content: '';
+
+    &:before,
+    &:after {
+      content: "";
       position: absolute;
       left: 0;
       right: 0;
-      height: .25em;
+      height: 0.25em;
     }
-    
+
     &:before {
       top: 0;
-      background: linear-gradient(#FFF, rgba(255, 255, 255, 0));
+      background: linear-gradient(#fff, rgba(255, 255, 255, 0));
     }
-    
+
     &:after {
       bottom: 0;
-      background: linear-gradient(rgba(255, 255, 255, 0), #FFF);
+      background: linear-gradient(rgba(255, 255, 255, 0), #fff);
     }
   }
-  
+
   .slider-value-number {
     height: 1em;
     overflow: hidden;
     display: inline-block;
-    user-select: none; 
+    user-select: none;
     font-weight: 600;
-  
+
     ul {
-      margin-top: -.25em;
+      margin-top: -0.25em;
       padding: 0;
       list-style-type: none;
-      transition: transform .75s ease, opacity .5s ease;
-      
+      transition: transform 0.75s ease, opacity 0.5s ease;
+
       li {
         height: 1em;
         display: block;
         margin: 0;
-        padding: .25em 0;
+        padding: 0.25em 0;
       }
     }
   }
-  .symbol{
+  .symbol {
     position: absolute;
     right: -12px;
     height: 1.5em;
