@@ -1,0 +1,17 @@
+<h4>Upload an excel spreadsheet</h4>
+<br>
+<em>Valid column headers: "sku", "quantity"</em>
+
+<%= form_tag products_import_admin_diagnostics_path, method: :post, multipart: true, authenticity_token: false do %>
+  <fieldset class="no-border-top" style="max-width: 500px;">
+    <div class="field">
+      <%= file_field_tag :file, accept: 'application/xlsx', value: 'upload file', required: true %>
+    </div>
+    <div class="field">
+      <%= select_tag :stock_location_id, options_from_collection_for_select(Spree::StockLocation.all, :id, :name), prompt: "Please select a stock location", required: true %>
+    </div>
+    <div class="form-buttons filter-actions actions">
+      <%= submit_tag 'submit', class: 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>

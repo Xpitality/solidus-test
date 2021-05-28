@@ -86,6 +86,9 @@ gem "aws-sdk-s3", require: false
 gem 'mail-x_smtpapi'
 gem 'premailer-rails'
 
+gem "roo", "~> 2.8.0"
+gem 'roo-xls'
+
 group :staging, :production do
   gem 'fog-aws'
 end

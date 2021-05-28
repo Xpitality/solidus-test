@@ -1,0 +1,10 @@
+en:
+  spree:
+    admin:
+      tab:
+        diagnostics: "Diagnostics"
+        import_export: "Import/Export"
+      diagnostics:
+        import_export:
+          title: "Batch Import/Export functions"
+          tab_label: "Import/Export"

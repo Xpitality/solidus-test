@@ -133,6 +133,18 @@ Spree::Backend::Config.configure do |config|
     url: '/admin/pages',
     match_path: '/pages'
   )
+
+  config.menu_items << config.class::MenuItem.new(
+      [:import_export],
+      'cogs',
+      label: :diagnostics,
+      condition: -> { can?(:admin, Spree::Store) },
+      partial: 'spree/admin/shared/diagnostics_sub_menu',
+      url: :import_export_admin_diagnostics_path,
+      match_path: '/admin/diagnostics/import_export'
+  )
+
+
   config.locale = 'en'
 #
 #   # Uncomment and change the following configuration if you want to add

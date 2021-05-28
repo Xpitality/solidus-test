@@ -1,0 +1,41 @@
+<table id="product-imports">
+  <thead>
+  <tr>
+    <% product_import.headers.each do |th| %>
+      <th><%= th %></th>
+    <% end %>
+    <% if product_import.headers.include?('quantity') %>
+      <th>
+        <% if product_import.completed %>
+          previous quantity
+        <% else %>
+          current quantity
+        <% end %>
+      </th>
+    <% end %>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% product_import.data.values.each do |row| %>
+    <% if !defined?(only) || (only == :valid && row['valid']) || (only == :invalid && !row['valid']) %>
+
+      <tr style="color: <%= row["valid"] ? "green" : "red" %>;">
+        <% product_import.headers.each do |th| %>
+          <td><%= row[th] %></td>
+        <% end %>
+        <% if product_import.headers.include?('quantity') %>
+          <td>
+            <% if row['valid'] && row['old_quantity'] %>
+              <%= row['old_quantity'] %>
+            <% end %>
+          </td>
+        <% end %>
+        <td>
+          <%= product_import.row_issues(row) %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

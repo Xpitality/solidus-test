@@ -1,0 +1,5 @@
+<ul class="admin-subnav">
+  <% if can?(:edit, Spree::Store) %>
+    <%= tab :import_export, label: :import_export, url: import_export_admin_diagnostics_path %>
+  <% end %>
+</ul>

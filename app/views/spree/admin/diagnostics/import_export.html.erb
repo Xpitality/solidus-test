@@ -1,0 +1,14 @@
+<% content_for :page_title do %>
+  <%= Spree.t('admin.diagnostics.import_export.title') %>
+<% end %>
+
+<% admin_breadcrumb(Spree.t("admin.tab.diagnostics")) %>
+
+
+<%= render partial: 'spree/admin/diagnostics/tabs' %>
+
+<% if @product_import %>
+  <%= render partial: 'spree/admin/diagnostics/import_export/import_data_form', locals: { product_import: @product_import } %>
+<% else %>
+  <%= render partial: 'spree/admin/diagnostics/import_export/import_spreadsheet_form' %>
+<% end %>

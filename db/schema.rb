@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_205019) do
+ActiveRecord::Schema.define(version: 2021_05_27_205019) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -1659,6 +1659,17 @@ ActiveRecord::Schema.define(version: 2021_05_03_205019) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "xpitality_product_imports", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "status"
+    t.string "status_message"
+    t.text "import_errors"
+    t.text "data"
+    t.boolean "completed"
+    t.integer "stock_location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
