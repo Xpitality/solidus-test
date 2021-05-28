@@ -168,11 +168,16 @@ header#header {
                   flex-wrap: wrap;
                   overflow: hidden;
                   @media (max-width: $small) {
-                    display: block;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    overflow:auto
                   }
                   .drop-link-holder {
                     display: flex;
                     flex: 0 0 30%;
+                    @media (max-width: $small) {
+                      flex: 0 0 100%;
+                    }
                     .drop-link {
                       font-size: 14px;
                       font-weight: 300;
@@ -585,6 +590,9 @@ header#header {
     padding-top: 20px;
     max-height: 200px;
     flex-direction: column;
+    @media (max-width: $small){
+      max-height: none;
+    }
     .drop-link-holder {
       .origine-main {
         display: flex;
@@ -615,9 +623,17 @@ header#header {
       a{
         color: $primary;
       }
+      @media (max-width: $small){
+        margin-left: 12px;
+      }
     }
     .drop-link-holder:nth-child(n+5){
       margin-left: 24px
+    }
+    @media (max-width: $small){
+      .drop-link-holder:nth-child(n+5){
+        margin-left: 0
+      }
     }
   }
   
