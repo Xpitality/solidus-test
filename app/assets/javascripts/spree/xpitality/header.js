@@ -34,6 +34,7 @@ const handleHeader = () => {
     });
     link.addEventListener("click", (e) => {
       e.preventDefault();
+      return false;
     });
   });
 
