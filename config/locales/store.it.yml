@@ -93,6 +93,7 @@ it:
     product:
       open : Apri
       new : new
+      see_more: Leggi tutto
       add_to_cart_button: AGGIUNGI AL CARRELLO
       region:
         title: DALLA STESSA REGIONE
