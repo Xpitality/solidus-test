@@ -56,3 +56,8 @@ input {
 p {
   font-size: 14px;
 }
+input[type="text"],input[type="password"],input[type="email"]{
+  color: #666666;
+  padding: 0 16px;
+  font-size: 14px;
+}

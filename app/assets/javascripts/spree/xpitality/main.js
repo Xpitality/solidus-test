@@ -6,4 +6,5 @@ window.addEventListener("load", () => {
   handleToggleForm();
   handlePriceSlider();
   handleFilterOptions();
+  handleSeeMoreOption();
 });

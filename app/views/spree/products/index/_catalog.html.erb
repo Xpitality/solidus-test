@@ -1,3 +1,5 @@
+<%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.general.catalog') } %>
+
 <div class="catalog-holder">
   <div class="filter-sidebar">
     <%= render partial: 'spree/products/index/taxon_filter_sidebar', locals: { taxon: taxon, selected_taxons: selected_taxons } %>
