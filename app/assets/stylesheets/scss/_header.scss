@@ -40,9 +40,6 @@ header#header {
       margin: 0;
       padding-left: 40px;
       height: 40%;
-      @media (max-width: $mobileHeader) {
-        display: flex;
-      }
       @media (max-width: $medium) {
         padding-left: 30px;
       }
@@ -323,7 +320,8 @@ header#header {
               top: 100%;
               right: 0;
               @media (max-width: $mobile) {
-                right: -50px;
+                right: -56.5px;
+                top: 185%
               }
             }
           }
@@ -444,9 +442,6 @@ header#header {
             display: none;
           }
         }
-      }
-      #search-bar[data-scroll='0']{
-        display: none;
       }
     }
   }

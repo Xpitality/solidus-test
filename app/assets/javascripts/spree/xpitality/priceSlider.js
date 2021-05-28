@@ -29,7 +29,7 @@ const handlePriceSlider = () => {
       }
     };
 
-    slider.addEventListener("mousemove", (e) => {
+    slider.addEventListener("change", (e) => {
       //update background size of slider
       e.target.style.backgroundSize = percent(e) + "% 100%";
       //render value

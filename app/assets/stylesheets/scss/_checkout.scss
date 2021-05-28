@@ -108,6 +108,9 @@
             padding-inline-start: 0;
             .field-wrapper {
               display: flex;
+              @media (max-width: $small){
+                flex-direction: column;
+              }
             }
             fieldset {
               display: flex;
@@ -124,10 +127,12 @@
                 align-items: flex-start;
                 justify-content: flex-start;
                 flex-direction: column;
+                @media (max-width: $small){
+                  margin-top: 10px
+                }
                 label {
                   margin-bottom: 10px;
-                  font-family: "chainprinter";
-                  font-size: 12px;
+                  font-size: 14px;
                 }
                 input {
                   width: 100%;

@@ -67,6 +67,9 @@
           @media (max-width: $medium) {
             padding: 0;
           }
+          @media (max-width: $small) {
+            padding-top: 60px;
+          }
           .title {
             font-family: "chainprinter", sans-serif;
             font-size: 14px;
@@ -234,6 +237,8 @@
           }
           img {
             width: 100%;
+            min-height: 300px;
+            object-fit: cover;
           }
         }
         &.col-right {

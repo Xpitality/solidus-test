@@ -40,11 +40,17 @@ const handleOrders = () => {
     const orders = ordersHolder.querySelectorAll(".order");
     if (orders) {
       orders.forEach((order) => {
+        let toggle = false;
         order.addEventListener("click", () => {
           orders.forEach((o) => {
             o.classList.remove("active");
           });
-          order.classList.add("active");
+          toggle = !toggle
+          if(toggle){
+            order.classList.add("active");
+          }else{
+            order.classList.remove("active");
+          }
         });
       });
     }

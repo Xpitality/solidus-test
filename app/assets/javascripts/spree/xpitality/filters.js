@@ -71,8 +71,14 @@ const handleFilterForm = () => {
   if (sidemenu) {
     const form = sidemenu.getElementsByTagName("form")[0];
     if (form) {
-      sidemenu.addEventListener("change", (e) => {
-        const inputs = sidemenu.getElementsByTagName("input");
+      sidemenu.addEventListener("change", () => {;
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const filters = document.querySelector(".filters");
+        if (isMobile) {
+          setInterval(()=>{
+            filters.classList.remove("show");
+          }, 400);
+        }
         Rails.fire(form, 'submit');
       });
     }

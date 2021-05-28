@@ -2,21 +2,21 @@ const handleHeader = () => {
   const hamburger = document.querySelector(".hamburger");
   const navBar = document.querySelector(".navbar");
   const navLinks = [...document.querySelectorAll(".nav-link-with-drop")];
-  const searchHolder = document.getElementById('search-bar');
-  const originDiv = document.querySelector('.nav-dropdown-country');
-  const titleOrigin = originDiv.querySelectorAll('.drop-title');
-  const dropdown = document.querySelectorAll('.nav-dropdown');
+  const searchHolder = document.getElementById("search-bar");
+  const originDiv = document.querySelector(".nav-dropdown-country");
+  const titleOrigin = originDiv.querySelectorAll(".drop-title");
+  const dropdown = document.querySelectorAll(".nav-dropdown");
 
   hamburger.addEventListener("click", () => {
     if (navBar.classList.contains("show")) {
       navBar.classList.remove("show");
-      searchHolder.style.display= 'flex'
+      searchHolder.style.display = "flex";
     } else {
       navBar.classList.add("show");
-      searchHolder.style.display= 'none'
+      searchHolder.style.display = "none";
     }
   });
-  
+
   // Handling nav links
   navLinks.forEach((link) => {
     link.addEventListener("mouseover", (event) => {
@@ -32,30 +32,43 @@ const handleHeader = () => {
         drop.classList.add("show");
       }
     });
-    link.addEventListener("click",(e)=>{
+    link.addEventListener("click", (e) => {
       e.preventDefault();
-    })
+    });
   });
-  
+
   //hide the drop
-  dropdown.forEach(drop => {
-    drop.addEventListener("mouseleave",(e)=>{
+  dropdown.forEach((drop) => {
+    drop.addEventListener("mouseleave", (e) => {
       drop.classList.remove("show");
-    })
-  })
+    });
+  });
 
   //Handling regions sidebar
-  titleOrigin.forEach((title)=>{
-    title.addEventListener("click", (e)=>{
-      const wrapper = originDiv.querySelectorAll('.drop-link-holder');
-      wrapper.forEach((el)=>{
+  titleOrigin.forEach((title) => {
+    title.addEventListener("click", (e) => {
+      const wrapper = originDiv.querySelectorAll(".drop-link-holder");
+      wrapper.forEach((el) => {
         const titleDiv = el.querySelector(".origine-main");
         el.querySelector(".origine-regions").classList.remove("show");
-        if(titleDiv.contains(e.target)){
+        if (titleDiv.contains(e.target)) {
           el.querySelector(".origine-regions").classList.add("show");
         }
-      })
-    })
-  })
+      });
+    });
+  });
 
+  //hide search on scroll
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.onscroll = function () {
+      if (window.scrollY === 0) {
+        document.getElementById("search-bar").style.display = "flex";
+        document.querySelector(".header-content").style.height = "163px";
+      } else {
+        document.getElementById("search-bar").style.display = "none";
+        document.querySelector(".header-content").style.height = "88px";
+      }
+    };
+  }
 };

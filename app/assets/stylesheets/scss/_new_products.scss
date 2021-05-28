@@ -75,13 +75,6 @@
           &:last-child {
             margin-bottom: 0;
           }
-          .product-card {
-            .product-card-body {
-              @media (max-width: $medium) {
-                width: 100%;
-              }
-            }
-          }
         }
       }
     }
