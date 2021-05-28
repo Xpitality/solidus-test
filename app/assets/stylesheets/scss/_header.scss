@@ -47,7 +47,7 @@ header#header {
         padding-left: 30px;
       }
       @media (max-width: $small) {
-        padding-left: 10px;
+        padding-left: 0;
       }
       a {
         display: flex;
@@ -444,6 +444,9 @@ header#header {
             display: none;
           }
         }
+      }
+      #search-bar[data-scroll='0']{
+        display: none;
       }
     }
   }
