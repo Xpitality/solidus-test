@@ -10,8 +10,8 @@
         <div class="order-header">
           <div class="left">
             <%= image_tag("icons/icon-chevron-right.svg") %>
-              <p class="order-number"><%= order.number %></p>
-              <p class="order-date"><%= l order.completed_at.to_date %></p>
+            <p class="order-number"><%= order.number %></p>
+            <p class="order-date"><%= l order.completed_at.to_date %></p>
           </div>
           <div class="center">
             <p class="order-price"><%= order.display_total %></p>
@@ -22,21 +22,21 @@
         </div>
         <div class="order-body">
           <% order.line_items.each do |item| %>
-          <div class="box">
-            <div class="left">
-              <p class="name"><%= item.variant.product.name %></p>
+            <div class="box">
+              <div class="left">
+                <p class="name"><%= item.variant.product.name %></p>
+              </div>
+              <div class="center">
+                <p class="box-price"><%= item.single_money.to_html %></p>
+              </div>
+              <div class="right">
+                <p class="box-amount"><%= item.quantity %></p>
+              </div>
             </div>
-            <div class="center">
-              <p class="box-price"><%= item.single_money.to_html %></p>
-            </div>
-            <div class="right">
-              <p class="box-amount"><%= item.quantity %></p>
-            </div>
-          </div>
           <% end %>
           <%= render partial: 'spree/shared/order_details', locals: { order: order, showTableDetails: false } %>
         </div>
       </div>
-      <% end %>
+    <% end %>
   </div>
 </div>

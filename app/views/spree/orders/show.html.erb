@@ -28,7 +28,7 @@
     <%= image_tag("checkout/order-confirmed.png") %>
     <p class="cheers"><%= t('store.checkout.confirmed.cheers') %></p>
     <h1 class="step-four-title"><%= t('store.checkout.confirmed.order_confirmed') %></h1>
-    <%= link_to t('store.checkout.confirmed.back_to_products'), '/products', class: 'btn btn-primary'  %>
+    <%= link_to t('store.checkout.confirmed.back_to_products'), '/products', class: 'btn btn-primary' %>
     <p class="step-four-text"><%= t('store.checkout.confirmed.hint_html') %></p>
   </div>
 <% end %>
@@ -37,12 +37,12 @@
   <div class="col-confirm order-show-col">
     <fieldset id="order_summary" data-hook>
       <h1><%= accurate_title %></h1>
-    
+
       <div id="order" data-hook>
         <%= render partial: 'spree/shared/order_details', locals: { order: @order, showTableDetails: true } %>
-    
-        <br class="clear" />
-    
+
+        <br class="clear"/>
+
         <p data-hook="links">
           <%= link_to t('spree.back_to_store'), spree.root_path, class: "button" %>
           <% unless order_just_completed?(@order) %>
