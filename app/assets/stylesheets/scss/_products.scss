@@ -183,6 +183,7 @@ $colPadding: 10px;
   }
   &.product-side {
     flex-direction: row;
+    height: 100%;
     .product-image-holder {
       width: 50%;
       img {

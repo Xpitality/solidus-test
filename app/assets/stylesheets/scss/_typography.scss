@@ -1,6 +1,6 @@
 @import url("https://p.typekit.net/p.css?s=1&k=ogs6wud&ht=tk&f=188&a=50063149&app=typekit&e=css");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 @font-face {
   font-family: "chainprinter";
@@ -56,8 +56,16 @@ input {
 p {
   font-size: 14px;
 }
-input[type="text"],input[type="password"],input[type="email"]{
+input[type="text"],
+input[type="password"],
+input[type="email"] {
   color: #666666;
   padding: 0 16px;
   font-size: 14px;
+}
+
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

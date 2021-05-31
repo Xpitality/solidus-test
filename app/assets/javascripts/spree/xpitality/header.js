@@ -6,14 +6,16 @@ const handleHeader = () => {
   const originDiv = document.querySelector(".nav-dropdown-country");
   const titleOrigin = originDiv.querySelectorAll(".drop-title");
   const dropdown = document.querySelectorAll(".nav-dropdown");
+  const searchWrapper = document.querySelector(".header-content");
 
   hamburger.addEventListener("click", () => {
     if (navBar.classList.contains("show")) {
       navBar.classList.remove("show");
-      searchHolder.style.display = "flex";
+      searchHolder.style.display = 'flex';
+      searchWrapper.style.height = "163px";
     } else {
       navBar.classList.add("show");
-      searchHolder.style.display = "none";
+      searchHolder.style.display = 'none';
     }
   });
 
@@ -63,12 +65,12 @@ const handleHeader = () => {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   if (isMobile) {
     window.onscroll = function () {
-      if (window.scrollY === 0) {
-        document.getElementById("search-bar").style.display = "flex";
-        document.querySelector(".header-content").style.height = "163px";
+      if (window.scrollY > 0) {
+        searchHolder.style.display = 'none';
+        searchWrapper.style.height = "88px";
       } else {
-        document.getElementById("search-bar").style.display = "none";
-        document.querySelector(".header-content").style.height = "88px";
+        searchHolder.style.display = 'flex';
+        searchWrapper.style.height = "163px";
       }
     };
   }
