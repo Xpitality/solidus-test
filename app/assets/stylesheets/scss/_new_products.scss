@@ -37,6 +37,9 @@
           font-family: "chainprinter", sans-serif;
           font-weight: normal;
           letter-spacing: 2px;
+          @media (max-width: $small){
+            margin-top: 30px
+          }
         }
         .subtitle {
           margin-top: auto;

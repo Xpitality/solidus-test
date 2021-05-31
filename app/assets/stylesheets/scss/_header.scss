@@ -249,6 +249,7 @@ header#header {
           flex-direction: column;
           @media (max-width: $mobileHeader) {
             flex-direction: row;
+            height: 100%;
           }
           .user-nav {
             display: flex;
@@ -470,6 +471,10 @@ header#header {
             text-align: left;
           }
         }
+        .drop-link:hover{
+          color: #fff;
+          background-color: $primary
+        }
         .drop-title {
           display: none;
         }
@@ -489,11 +494,11 @@ header#header {
 .nav-dropdown-country {
   position: relative;
   .dropdown-col {
-    gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: left;
     .drop-link-holder {
+      margin-bottom: 2px;
       @media (max-width:$small){
         display: flex;
         flex-direction: column;
@@ -514,6 +519,10 @@ header#header {
               width: 100%;
               padding: 20px 10px;
           }
+        }
+        .drop-title:hover{
+          text-decoration: underline;
+          color: $primary;
         }
       }
       .origine-regions {
@@ -539,6 +548,10 @@ header#header {
         }
         .drop-link {
           padding: 12px 0;
+        }
+        .drop-link:hover{
+          text-decoration: underline;
+          color: $primary;
         }
         span{
           display:flex;
@@ -603,6 +616,10 @@ header#header {
         .drop-link {
           width: 100%;
           padding: 10px 0;
+        }
+        .drop-link:hover{
+          text-decoration: underline;
+          color: $primary;
         }
         .drop-title {
           display: none;

@@ -250,6 +250,12 @@
           }
           img {
             margin-bottom: 25px;
+            width: 100%;
+            max-width: 250px;
+            @media (max-width: $small){
+              max-width: 100%;
+              padding: 20px;
+            }
           }
         }
       }
@@ -258,6 +264,9 @@
       padding: 70px 250px 30px 90px;
       @media (max-width: $mobileHeader) {
         padding: 40px 15px 0 70px;
+      }
+      @media (max-width: $small){
+        padding: 20px;
       }
       p {
         line-height: 20px;
