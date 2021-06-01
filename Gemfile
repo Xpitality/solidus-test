@@ -76,6 +76,7 @@ gem 'solidus_import_products', :git => 'git://github.com/2BeDigital/solidus_impo
 
 gem 'solidus_additional_store_settings', github: 'Xpitality/solidus_additional_store_settings'
 gem 'solidus_taxon_images', github: 'Xpitality/solidus_taxon_images'
+gem 'solidus_taxon_taxon_associations', github: 'Xpitality/solidus_taxon_taxon_associations'
 
 gem 'bugsnag'
 
