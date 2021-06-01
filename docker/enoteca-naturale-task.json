@@ -78,12 +78,10 @@
 	"placementConstraints": [],
 	"memory": "1024",
 	"taskRoleArn": "arn:aws:iam::934187374409:role/ecsTaskExecutionRole",
-	"compatibilities": [
-		"EC2",
-		"FARGATE"
-	],
-	"taskDefinitionArn": "arn:aws:ecs:eu-central-1:934187374409:task-definition/enoteca-naturale-task:4",
 	"family": "enoteca-naturale-task",
+	"requiresCompatibilities": [
+           "FARGATE"
+       ],
 	"networkMode": "awsvpc",
 	"cpu": "256",
   "tags":[
