@@ -42,12 +42,12 @@ it:
           phone_number: "Telefono : <a href='tel:%{phone}'>%{phone}</a>"
         address:
           - "Dati societari"
-          - "Pet Nat srl Società"
+          - "Gnuco srl Società"
           - "Benefit"
           - "Via Santa Croce, 19"
           - "20122 Milano"
           - "C.F./P.IVA"
-          - "10431760965"
+          - "11723790967"
         site:
           title: "Sito"
           new: "Novità"
