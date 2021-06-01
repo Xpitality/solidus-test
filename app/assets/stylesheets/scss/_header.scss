@@ -601,7 +601,7 @@ header#header {
   }
   .dropdown-col {
     padding-top: 20px;
-    max-height: 200px;
+    max-height: 180px;
     flex-direction: column;
     @media (max-width: $small){
       max-height: none;
