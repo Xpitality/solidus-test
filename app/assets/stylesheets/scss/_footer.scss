@@ -86,10 +86,16 @@ footer#footer {
             @media (max-width: $footerBreak) {
               margin-bottom: 5px;
             }
+            a{
+              color: #fff;
+              cursor: pointer;
+              white-space: nowrap;
+            }
           }
           .nav-text {
             color: $white;
             font-weight: 300;
+            white-space: nowrap;
           }
           .nav {
             display: flex;

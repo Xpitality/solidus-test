@@ -3,6 +3,7 @@
   font-size: 14px;
   text-transform: uppercase;
   padding: 10px 20px;
+  cursor: pointer;
   &.btn-primary {
     color: $white;
     background: $primary;
@@ -78,4 +79,5 @@
   color: $primary;
   margin-top: 15px;
   display: none;
+  cursor: pointer;
 }

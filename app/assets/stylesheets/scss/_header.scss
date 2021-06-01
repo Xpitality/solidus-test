@@ -607,6 +607,7 @@ header#header {
       max-height: none;
     }
     .drop-link-holder {
+      padding-right: 24px;
       .origine-main {
         display: flex;
         width: 100%;
@@ -629,6 +630,11 @@ header#header {
         display: none;
       }
     }
+    @media (min-width: $small){
+      .drop-link-holder{
+        padding-left: 12px;
+      }
+    }
     .see-all-holder {
       font-size: 14px;
       padding: 10px 0;
@@ -636,20 +642,12 @@ header#header {
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      margin-left: 24px;
+      padding-left: 24px;
       a{
         color: $primary;
       }
       @media (max-width: $small){
-        margin-left: 12px;
-      }
-    }
-    .drop-link-holder:nth-child(n+5){
-      margin-left: 24px
-    }
-    @media (max-width: $small){
-      .drop-link-holder:nth-child(n+5){
-        margin-left: 0
+        padding-left: 12px;
       }
     }
   }
