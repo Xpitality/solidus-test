@@ -70,7 +70,6 @@
       "name": "enoteca-naturale-app"
     }
   ],
-  "placementConstraints": [],
   "memory": "1024",
   "taskRoleArn": "arn:aws:iam::934187374409:role/ecsTaskExecutionRole",
   "requiresCompatibilities": [
@@ -78,5 +77,10 @@
   ],
   "networkMode": "awsvpc",
   "cpu": "256",
-  "status": "ACTIVE"
+    "tags":[
+        {
+            "key":"client",
+            "value":"enoteca-naturale"
+        }
+    ]
 }
