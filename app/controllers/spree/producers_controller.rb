@@ -5,7 +5,7 @@ module Spree
     respond_to :html
 
     def index
-      @title = 'Enoteca Naturale - Produttori'
+      @title = 'Produttori'
     end
 
   end
