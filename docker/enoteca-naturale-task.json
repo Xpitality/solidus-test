@@ -72,6 +72,7 @@
   ],
   "memory": "1024",
   "taskRoleArn": "arn:aws:iam::934187374409:role/ecsTaskExecutionRole",
+  "family": "enoteca-naturale-task",
   "requiresCompatibilities": [
     "FARGATE"
   ],
