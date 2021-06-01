@@ -14,6 +14,11 @@ module Spree
       @searcher = build_searcher(params.merge(taxon: @taxon.id, include_images: true))
       @products = @searcher.retrieve_products
       @taxonomies = Spree::Taxonomy.includes(root: :children)
+      if @selected_taxons.values.flatten.count == 1
+        @title = @taxon.name
+      else
+        @title = "Catalogo"
+      end
     end
 
     private
