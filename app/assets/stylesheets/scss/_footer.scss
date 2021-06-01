@@ -89,12 +89,12 @@ footer#footer {
             a{
               color: #fff;
               cursor: pointer;
+              white-space: nowrap;
             }
           }
           .nav-text {
             color: $white;
             font-weight: 300;
-            white-space: nowrap;
           }
           .nav {
             display: flex;
