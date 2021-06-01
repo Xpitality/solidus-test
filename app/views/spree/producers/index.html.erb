@@ -7,7 +7,7 @@
   </div>
   <div class="container">
     <div class="producer-list">
-      <% taxon_children(:producer).each do |producer| %>
+      <% taxon_children(:producer, order: ('name asc')).each do |producer| %>
         <%= render partial: 'spree/producers/index/producer_card', locals: { producer: producer } %>
       <% end %>
     </div>

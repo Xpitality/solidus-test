@@ -11,29 +11,29 @@
               <div class="close-tag">
                 <%= image_tag("icons/icon-tag-close.svg") %>
               </div>
-              <% end %>
+            <% end %>
           </div>
-          <% end %>
+        <% end %>
       </div>
     </div>
 
     <% if taxon %>
-      <% taxon_image=taxon.gallery.images.first %>
-        <% if taxon_image || !taxon.description.blank? %>
-          <div class="selected-taxon-description">
-            <div class="container">
-              <div class="taxon-image-holder">
-                <%= render('spree/shared/image', image: taxon_image, size: :small, itemprop: "image" ) if taxon_image %>
-              </div>
-              <div class="taxon-description">
-                <%== taxon.description %>
-              </div>
-              <div class="taxon-see-more-btn">
-                <%= t('store.product.see_more') %>
-              </div>
+      <% taxon_image = taxon.gallery.images.first %>
+      <% if taxon_image || !taxon.description.blank? %>
+        <div class="selected-taxon-description">
+          <div class="container">
+            <div class="taxon-image-holder">
+              <%= render('spree/shared/image', image: taxon_image, size: :small, itemprop: "image") if taxon_image %>
+            </div>
+            <div class="taxon-description">
+              <%== taxon.description %>
+            </div>
+            <div class="taxon-see-more-btn">
+              <%= t('store.product.see_more') %>
             </div>
           </div>
-          <% end %>
-            <% end %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-  <% end %>
+<% end %>
