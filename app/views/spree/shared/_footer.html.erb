@@ -62,7 +62,15 @@
             <% end %>
           </address>
           <div class="nav-holder">
-            <p class="nav-title">Privacy Policy</p>
+            <p class="nav-title">
+              <a href='https://www.iubenda.com/privacy-policy/57534398' class='iubenda-nostyle no-brand iubenda-embed' title='Privacy Policy'>Privacy
+                Policy</a>
+              <br>
+              <a href='https://www.iubenda.com/privacy-policy/57534398/cookie-policy' class='iubenda-nostyle no-brand iubenda-embed' title='Cookie Policy'>Cookie
+                Policy</a>
+
+              <a href="https://www.iubenda.com/termini-e-condizioni/57534398" class='iubenda-nostyle no-brand iubenda-embed' title='Terms & Conditions'>Terms & Conditions</a>
+            </p>
             <p class="nav-text">&copy; 2020, enoteca naturale</p>
           </div>
         </div>
@@ -81,7 +89,7 @@
         <div class="nav-holder">
           <p class="nav-title"><%= t('store.shared.footer.info.title') %></p>
           <div class="nav">
-            <%= link_to t('store.shared.footer.info.about_us'), '/p/chi-siamo',locals:{widget:false} %>
+            <%= link_to t('store.shared.footer.info.about_us'), '/p/chi-siamo', locals: { widget: false } %>
             <%= link_to t('store.shared.footer.info.faq'), "/p/faq" %>
             <%= link_to t('store.shared.footer.info.shipping'), "/p/spedizione" %>
             <%= link_to t('store.shared.footer.info.contacts'), "/p/contatti" %>
@@ -99,3 +107,17 @@
     </div>
   </div>
 </footer>
+<script type='text/javascript'>(function (w, d) {
+  var loader = function () {
+    var s = d.createElement('script'), tag = d.getElementsByTagName('script')[0];
+    s.src = 'https://cdn.iubenda.com/iubenda.js';
+    tag.parentNode.insertBefore(s, tag);
+  };
+  if (w.addEventListener) {
+    w.addEventListener('load', loader, false);
+  } else if (w.attachEvent) {
+    w.attachEvent('onload', loader);
+  } else {
+    w.onload = loader;
+  }
+})(window, document);</script>
