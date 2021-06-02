@@ -22,7 +22,7 @@ $colPadding: 10px;
   max-width: 25%;
   padding: 0 $colPadding;
   margin-bottom: 30px;
-  min-width: $colMinWidth;
+  min-width: none;
   @media (max-width: calc(#{$colMinWidth * 4 + $colPadding * 4})) {
     flex: 0 0 33%;
     max-width: 33%;
