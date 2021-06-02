@@ -28,6 +28,7 @@ module Spree
 
     # Updates the order and advances to the next state (when possible.)
     def update
+      @title = 'Completa il tuo acquisto'
       if update_order
 
         assign_temp_address
