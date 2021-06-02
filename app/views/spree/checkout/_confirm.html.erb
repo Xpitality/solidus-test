@@ -8,10 +8,16 @@
     <% requires_acceptance = true %>
     <% if requires_acceptance %>
       <div class="terms_and_conditions" data-hook="terms_and_conditions">
-        <div class="policy"><%= render partial: "spree/checkout/terms_and_conditions" %></div>
+        <a href='https://www.iubenda.com/privacy-policy/57534398' class='iubenda-nostyle no-brand iubenda-embed' title='Privacy Policy'>Privacy
+          Policy</a>
+        <div class="accept-terms">
+          <%= check_box_tag :accept_terms_and_privacy, 'accepted', false %>
+          <%= label_tag :accept_terms_and_privacy, t('store.checkout.agree_to_terms_of_privacy') %>
+        </div>
+        <a href="https://www.iubenda.com/termini-e-condizioni/57534398" class='iubenda-nostyle no-brand iubenda-embed' title='Terms & Conditions'>Terms & Conditions</a>
         <div class="accept-terms">
           <%= check_box_tag :accept_terms_and_conditions, 'accepted', false %>
-          <%= label_tag :accept_terms_and_conditions, t('spree.agree_to_terms_of_service') %>
+          <%= label_tag :accept_terms_and_conditions, t('store.checkout.agree_to_terms_of_services') %>
         </div>
       </div>
     <% end %>

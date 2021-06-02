@@ -317,5 +317,8 @@
       color: $primary;
       text-decoration: underline;
     }
+    @media (max-width: $small){
+      padding: 20px;
+    }
   }
 }

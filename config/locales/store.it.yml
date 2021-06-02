@@ -139,6 +139,8 @@ it:
         total: TOTALE
         button: PROSEGUI
     checkout:
+      agree_to_terms_of_privacy: Accetto le condizioni della privacy
+      agree_to_terms_of_services: Accetto termini e condizioni del servizio
       coupon_placeholder: Inserisci codice
       confirmed:
         cheers: "Cheers!"
