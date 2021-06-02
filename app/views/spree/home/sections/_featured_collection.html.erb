@@ -7,7 +7,7 @@
         <%= image_tag("home/new-products-background.jpg") %>
         <h1 class="title"><%= t("store.home.featured_collection.title") %></h1>
         <h3 class="subtitle"><%= collection.name %></h3>
-        <p class="text"><%= collection.description %></p>
+        <p class="text"><%== collection.description %></p>
         <%= link_to t("store.home.featured_collection.button"), seo_url(collection), class: "btn btn-white-transparent" %>
       </div>
       <div class="col products-col">

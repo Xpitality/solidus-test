@@ -5,7 +5,7 @@
     <% promotions.each do |promotion| %>
     <div>
       <h4><%= promotion.name %></h4>
-      <p><%= promotion.description %></p>
+      <p><%== promotion.description %></p>
       <% if promotion.products.any? %>
       <ul>
         <% promotion.products.each do |product| %>
