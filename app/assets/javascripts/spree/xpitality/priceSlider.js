@@ -1,5 +1,6 @@
 const handlePriceSlider = () => {
   const slider = document.querySelector('[name="price_lte"]');
+  const first = true;
   if (slider) {
     const max = 200;
     const min = 0;
@@ -35,5 +36,14 @@ const handlePriceSlider = () => {
       //render value
       renderNumber(e);
     });
+    slider.addEventListener("click", (e) => {
+      //update background size of slider
+      e.target.style.backgroundSize = percent(e) + "% 100%";
+      //render value
+      renderNumber(e);
+    });
+    if(first){
+      slider.click();
+    }
   }
 };

@@ -1,5 +1,8 @@
 <div class="nav-link-holder">
-  <%= link_to t("store.shared.main_menu.label.#{taxon_key}"), "#", class: "nav-link nav-link-with-drop " %>
+  <%= link_to "#", class: "nav-link nav-link-with-drop" do %>
+    <%= t("store.shared.main_menu.label.#{taxon_key}") %>
+    <%= image_tag("icons/icon-chevron-down.svg") %>
+  <% end %>
   <%= content_tag :div, class: "nav-drop-holder" do -%>
     <%= content_tag :div, class: "nav-dropdown nav-dropdown-#{taxon_key}" do -%>
       <div class="col title-col">
@@ -38,7 +41,10 @@
         <% end %>
         <% if defined?(see_all_path) %>
           <div class="see-all-holder">
-            <%= link_to t("store.general.see_all"), see_all_path %>
+            <%= link_to see_all_path do%>
+              <%= image_tag("icons/nav_bar/Produttore.png") %>
+              <%= t("store.general.see_all") %>
+            <% end %>
           </div>
         <% end %>
       </div>

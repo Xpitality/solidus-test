@@ -72,12 +72,10 @@ const handleFilterForm = () => {
     const form = sidemenu.getElementsByTagName("form")[0];
     if (form) {
       sidemenu.addEventListener("change", () => {;
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
         const filters = document.querySelector(".filters");
         if (isMobile) {
-          setInterval(()=>{
-            filters.classList.remove("show");
-          }, 400);
+          filters.classList.remove("show");
         }
         Rails.fire(form, 'submit');
       });
