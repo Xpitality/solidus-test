@@ -8,9 +8,9 @@
       </div>
       <div class="col dropdown-col">
         <% if defined?(limit) %>
-          <% taxons = taxon_children(taxon_key, order: ('name asc'), limit: limit) %>
+          <% taxons = taxon_children(taxon_key, order: order_by, limit: limit) %>
         <% else %>
-          <% taxons = taxon_children(taxon_key, order: ('name asc')) %>
+          <% taxons = taxon_children(taxon_key, order: order_by) %>
         <% end %>
         <% taxons.each do |child_taxon| %>
           <div class="drop-link-holder">
