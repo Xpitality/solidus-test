@@ -36,20 +36,20 @@
       </div>
       <div class="body-actions">
         <div class="add-to-cart">
-          <% disabled = !product.master.can_supply? || max_product_quantity(product)==0 %>
+          <% disabled = !product.master.can_supply? || max_product_quantity(product) == 0 %>
           <% if disabled %>
             <div class="disabled-cart">
               <%= image_tag("icons/icon-disabled-cart.svg") %>
-              <p class="disabled-cart-text"><%= t('store.product.disabled.product_out_of_store')%></p>
+              <p class="disabled-cart-text"><%= t('store.product.disabled.product_out_of_store') %></p>
             </div>
           <% else %>
             <%= link_to plus_orders_path(id: product.master.id), remote: true do %>
               <%= image_tag("icons/icon-add-to-cart.svg") %>
             <% end %>
-        <% end %>
+          <% end %>
         </div>
-        <div class="favourite">
-          <%= image_tag("icons/icon-favourite.svg") %>
+        <div class="favourite" data-favourite-icon="<%= product.id %>">
+          <%= render partial: 'spree/shared/favourite_product_icon', locals: { product: product } %>
         </div>
       </div>
     </div>
