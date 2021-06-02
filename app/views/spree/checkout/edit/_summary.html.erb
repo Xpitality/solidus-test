@@ -19,7 +19,13 @@
               <%= t('store.cart.cart_info_shipping') %>
             </p>
           </div>
-          <p class="price"><%= Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency).to_html %></p>
+          <p class="price">
+            <% if Spree::Promotion::Rules::CountryShippingAddress.new.applicable?(order) %>
+              <%= Spree::Money.new(0.0, currency: order.currency).to_html %>
+            <% else %>
+              <%= Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency).to_html %>
+          <% end %>
+          </p>
         </div>
       <% end %>
       <div class="price-row total-row">
@@ -36,7 +42,7 @@
     <p class="code-title">
       <%= t('store.cart.cart_info_code') %>
     </p>
-      <%= render partial: 'spree/coupon_codes/coupon_code', locals: { order: order } %>
+    <%= render partial: 'spree/coupon_codes/coupon_code', locals: { order: order } %>
   </div>
 
   <%= submit_tag t('store.cart.cart_button'), class: 'btn btn-primary btn-to-checkout checkout primary', id: 'checkout-link', name: 'checkout' %>
