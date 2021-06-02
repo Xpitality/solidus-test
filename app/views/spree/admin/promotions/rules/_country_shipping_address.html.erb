@@ -1,0 +1,6 @@
+<div class="field">
+  <label><%= t("spree.country_shipping_address_rule.choose_countries" ) %></label>
+  <%= select_tag "#{param_prefix}[country_ids][]",
+                 options_from_collection_for_select(available_countries, :id, :name, promotion_rule.country_ids),
+                 multiple: true, class: "select2 fullwidth" %>
+</div>

@@ -8,3 +8,19 @@ en:
         import_export:
           title: "Batch Import/Export functions"
           tab_label: "Import/Export"
+    country_shipping_address_rule:
+      choose_countries: "Choose countries"
+    country_rule:
+      label: Choose must be shipped to this country
+    eligibility_errors:
+      messages:
+        no_matching_shipping_countries: Not applicable for set shipping country.
+        wrong_country: Not applicable for set shipping country.
+  activerecord:
+    attributes:
+      spree/promotion/rules/country_shipping_address:
+        description: Order includes shipping address with one of these countries
+        name: Country(s)
+      spree/promotion/rules/country:
+        description: Order is shipped to proper (or default) country
+        name: Country

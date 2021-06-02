@@ -118,7 +118,8 @@ Spree.config do |config|
   config.allow_guest_checkout = false
 end
 
-Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::ItalianShippingAddress
+Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::CountryShippingAddress
+Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::Country
 
 #
 # Spree::Frontend::Config.configure do |config|
