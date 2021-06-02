@@ -117,6 +117,9 @@ Spree.config do |config|
 
   config.allow_guest_checkout = false
 end
+
+Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::ItalianShippingAddress
+
 #
 # Spree::Frontend::Config.configure do |config|
 #   config.locale = 'it'
@@ -143,7 +146,6 @@ Spree::Backend::Config.configure do |config|
       url: :import_export_admin_diagnostics_path,
       match_path: '/admin/diagnostics/import_export'
   )
-
 
   config.locale = 'en'
 #
