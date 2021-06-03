@@ -44,7 +44,7 @@
                 <div class="row">
                   <%= t(method.name, scope: 'spree.shipping_rates', default: method.name) %>
                   <span class="rate-cost">
-                      <% if Spree::Promotion::Rules::CountryShippingAddress.new.applicable?(ship_form.object.order) %>
+                      <% if free_shipping?(ship_form.object.order) %>
                         <%= Spree::Money.new(0.0, currency: ship_form.object.order.currency).to_html %>
                       <% else %>
                       <%= method.display_cost %>

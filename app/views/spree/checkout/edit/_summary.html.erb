@@ -20,7 +20,7 @@
             </p>
           </div>
           <p class="price">
-            <% if Spree::Promotion::Rules::CountryShippingAddress.new.applicable?(order) %>
+            <% if free_shipping?(order) %>
               <%= Spree::Money.new(0.0, currency: order.currency).to_html %>
             <% else %>
               <%= Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency).to_html %>

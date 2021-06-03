@@ -41,5 +41,10 @@ module Spree
       end
       content_tag('ol', raw(items.join("\n")), class: 'progress-steps', id: "checkout-step-#{@order.state}")
     end
+
+    def free_shipping?(order)
+      free_shipping_category = Spree::PromotionCategory.where(name: 'Spedizione gratuita').first
+      free_shipping_category.promotions.any? { |promotion| promotion.rules.all? { |rule| rule.eligible?(order) } }
+    end
   end
 end
