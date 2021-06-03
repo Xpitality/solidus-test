@@ -14,9 +14,16 @@
     <% end %>
     <p>
       <%= t("store.shared.footer.contact.write_us") %>
-      <% if store_email2 %>
+      <% if defined?info_mail %>
+       <% if store_email2 %>
         <a class="info-mail" href="mailto:<%= store_email2 %>"><%= store_email2 %></a>
+        <% end %>
+      <% else %>
+        <% if store_email %>
+          <a class="info-mail" href="mailto:<%= store_email %>"><%= store_email %></a>
+        <% end %>
       <% end %>
+      
       <br>
       <%= t("store.home.who_we_are.write_as") %>
       <% if store_instagram %>
