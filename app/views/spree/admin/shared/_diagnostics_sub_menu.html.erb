@@ -1,5 +1,6 @@
 <ul class="admin-subnav">
   <% if can?(:edit, Spree::Store) %>
     <%= tab :import_export, label: :import_export, url: import_export_admin_diagnostics_path %>
+    <%= tab :temp_command, label: :temp_command, url: temp_command_admin_diagnostics_path %>
   <% end %>
 </ul>

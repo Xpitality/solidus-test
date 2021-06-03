@@ -16,6 +16,7 @@ Spree::Core::Engine.routes.draw do
   namespace :admin do
     resources :diagnostics, only: [] do
       get :import_export, on: :collection
+      get :temp_command, on: :collection
       post :products_import, on: :collection
     end
   end
