@@ -1,5 +1,5 @@
 module MailHelper
   def current_store
-    Spree::Store.first
+    @current_store ||= Spree::Config.current_store_selector_class.new(request).store
   end
 end
