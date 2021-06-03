@@ -99,6 +99,15 @@
               @media (max-width: $medium){
                 color: #333
               }
+              a{
+                font-weight: 300;
+              font-size: 16px;
+              line-height: 20px;
+              color: #fff;
+              @media (max-width: $medium){
+                color: #333
+              }
+              }
             }
             .phone {
               a {

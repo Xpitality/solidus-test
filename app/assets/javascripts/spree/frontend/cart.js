@@ -2,7 +2,7 @@ Spree.ready(function($) {
   if ($("form#update-cart").is("*")) {
     $("form#update-cart a.delete")
       .show()
-      .one("click", function() {
+      .one("s", function() {
         $(this)
           .parents(".line-item")
           .first()

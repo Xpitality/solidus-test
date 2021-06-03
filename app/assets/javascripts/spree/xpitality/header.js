@@ -45,7 +45,7 @@ const handleHeader = () => {
 
   //hide the drop
   dropdown.forEach((drop) => {
-    drop.addEventListener("mouseleave", (e) => {
+    drop.addEventListener("mouseleave", () => {
       drop.classList.remove("show");
     });
   });

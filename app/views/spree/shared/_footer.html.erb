@@ -29,9 +29,6 @@
           <% if store_email %>
             <a class="info-mail" href="mailto:<%= store_email %>"><%= store_email %></a>
           <% end %>
-          <% if store_phone %>
-            <p class="info-text"><%= t('store.shared.footer.contact.phone_text_html', phone: store_phone) %></p>
-          <% end %>
         </div>
       </div>
     </div>
@@ -67,7 +64,7 @@
               <br>
               <a href='https://www.iubenda.com/privacy-policy/57534398/cookie-policy' class='iubenda-nostyle no-brand iubenda-embed' title='Cookie Policy'>Cookie
                 Policy</a>
-              <a href="https://www.iubenda.com/termini-e-condizioni/57534398" class='iubenda-nostyle no-brand iubenda-embed' title='Terms & Conditions'>Terms & Conditions</a>
+              <a href="https://www.iubenda.com/termini-e-condizioni/57534398" class='iubenda-nostyle no-brand iubenda-embed' title='Terms & Conditions'><%= t('store.shared.footer.info.terms') %></a>
             </p>
             <p class="nav-text">&copy; 2020, enoteca naturale</p>
           </div>
@@ -88,7 +85,7 @@
           <p class="nav-title"><%= t('store.shared.footer.info.title') %></p>
           <div class="nav">
             <%= link_to t('store.shared.footer.info.about_us'), '/p/chi-siamo', locals: { widget: false } %>
-            <%= link_to t('store.shared.footer.info.faq'), "/p/faq" %>
+            <!-- <%= link_to t('store.shared.footer.info.faq'), "/p/faq" %> -->
             <%= link_to t('store.shared.footer.info.shipping'), "/p/spedizione" %>
             <%= link_to t('store.shared.footer.info.contacts'), "/p/contatti" %>
           </div>
