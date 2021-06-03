@@ -21,6 +21,8 @@ module Spree
 
     before_action :setup_for_current_state, only: [:edit, :update]
 
+    before_action :set_default_title
+
     helper 'spree/orders'
 
     rescue_from Spree::Core::GatewayError, with: :rescue_from_spree_gateway_error
@@ -277,6 +279,11 @@ module Spree
         end
       end
     end
+
+    def set_default_title
+      @title ||= I18n.t('store.cart.cart_title').capitalize
+    end
+
 
     # This method returns payment sources of the current user. It is no more
     # used into our frontend. We used to assign the content of this method
