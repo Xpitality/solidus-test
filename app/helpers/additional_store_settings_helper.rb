@@ -3,6 +3,10 @@ module AdditionalStoreSettingsHelper
     current_store.additional_store_settings.find_by_label(:store_email)&.text_value
   end
 
+  def store_email2
+    current_store.additional_store_settings.find_by_label(:store_email2)&.text_value
+  end
+
   def store_phone
     current_store.additional_store_settings.find_by_label(:store_phone)&.text_value
   end

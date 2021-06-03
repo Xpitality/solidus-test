@@ -4,6 +4,10 @@ it:
       title: "Store email"
       attributes:
         text_value: "Store email"
+    store_email2:
+      title: "Store email2"
+      attributes:
+        text_value: "Store email2"
     store_phone:
       title: "Store phone"
       attributes:

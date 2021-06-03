@@ -5,6 +5,7 @@ module Spree
       def index
         @store = Spree::Store.find params['store_id']
         @store_email = @store.additional_store_settings.find_by_label(:store_email) || @store.additional_store_settings.new(label: :store_email)
+        @store_email2 = @store.additional_store_settings.find_by_label(:store_email2) || @store.additional_store_settings.new(label: :store_email2)
         @store_phone = @store.additional_store_settings.find_by_label(:store_phone) || @store.additional_store_settings.new(label: :store_phone)
         @store_instagram = @store.additional_store_settings.find_by_label(:store_instagram) || @store.additional_store_settings.new(label: :store_instagram)
         @store_facebook = @store.additional_store_settings.find_by_label(:store_facebook) || @store.additional_store_settings.new(label: :store_facebook)
