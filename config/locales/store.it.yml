@@ -89,15 +89,15 @@ it:
         button: SCOPRI I PRODOTTI
       who_we_are:
         title: chi siamo
-        subtitle: Una selezione <i>croccante</i>, in continua evoluzione, disponibile on-line in pronta consegna.
-        text: "Il nostro è un lavoro di selezione continuo e costante: scoprire nuovi produttori, nuove storie, è una cosa che amiamo e continuiamo a fare tutti i giorni. Abbiamo deciso di rendere disponibile il risultato di questo lavoro on-line per tutti."
+        subtitle: e/n enoteca naturale
+        text: "Il marchio e/n enoteca naturale fa riferimento a Società Benefit, che destinano parte del loro fatturato per progetti sociali.  Offriamo percorsi di tirocinio a richiedenti asilo e destina parte delle entrate dell’enoteca a Emergency."
         write_as: O scrivici su Instagram      
       follow_us:
-        title: SEGUICI SUI SOCIAL
-        button: FOLLOW US ON INSTAGRAM
+        title: E/N ENOTECA NATURALE SU INSTAGRAM
+        button: SEGUICI SU INSTAGRAM
     product:
       open : Apri
-      new : new
+      new : Nuovo
       see_more: Leggi tutto
       add_to_cart_button: AGGIUNGI AL CARRELLO
       region:
