@@ -55,11 +55,12 @@ RUN curl https://deb.nodesource.com/setup_12.x | bash \
     
 COPY --from=build-env $HOME $HOME
 
-RUN chmod +x docker/app/entrypoint.sh
+RUN chmod +x docker/app/entrypoint.sh docker/app/cmd-wrapper.sh
 
 ENV RAILS_ENV=$RAILS_ENV
 ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
 ENTRYPOINT ["docker/app/entrypoint.sh"]
 
 EXPOSE 3000
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+CMD ["sh" "-c" "docker/app/cmd-wrapper.sh"]
+#CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
