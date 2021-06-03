@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # Start the first process
-bundle exec puma -C config/puma.rb
-status=$?
-if [ $status -ne 0 ]; then
-  echo "Failed to start my_first_process: $status"
-  exit $status
-fi
-
-# Start the second process
 bundle exec bin/delayed_job start
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start my_second_process: $status"
   exit $status
+fi
+
+# Start the second process
+bundle exec puma -C config/puma.rb
+status=$?
+if [ $status -ne 0 ]; then
+echo "Failed to start my_first_process: $status"
+exit $status
 fi
 
 # Naive check runs checks once a minute to see if either of the processes exited.
