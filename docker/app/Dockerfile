@@ -62,5 +62,5 @@ ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
 ENTRYPOINT ["docker/app/entrypoint.sh"]
 
 EXPOSE 3000
-CMD ["/bin/bash" "-c" "docker/app/cmd-wrapper.sh"]
+CMD ["bash" "-c" "docker/app/cmd-wrapper.sh"]
 #CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
