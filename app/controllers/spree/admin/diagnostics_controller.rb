@@ -28,7 +28,6 @@ module Spree
         user = try_spree_current_user
 
         if user && user.email == 'marko@xpitality.com'
-          puts "!!!!!!!!!!!!!!!!!!!!!"
           Spree::Price.where.not(country_iso: nil).destroy_all
         end
       end
