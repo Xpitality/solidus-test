@@ -44,7 +44,7 @@ module Spree
 
     def free_shipping?(order)
       free_shipping_category = Spree::PromotionCategory.where(name: 'Spedizione gratuita').first
-      free_shipping_category.promotions.any? { |promotion| promotion.rules.all? { |rule| rule.eligible?(order) } }
+      free_shipping_category && free_shipping_category.promotions.any? { |promotion| promotion.rules.all? { |rule| rule.eligible?(order) } }
     end
   end
 end
