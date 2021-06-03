@@ -3,6 +3,7 @@
 module Spree
   class BaseMailer < ActionMailer::Base
     add_template_helper(AdditionalStoreSettingsHelper)
+    add_template_helper(MailHelper)
 
     def from_address(store)
       store.mail_from_address
