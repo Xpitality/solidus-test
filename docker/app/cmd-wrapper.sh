@@ -9,7 +9,7 @@ if [ $status -ne 0 ]; then
 fi
 
 # Start the second process
-bin/delayed_job start
+bundle exec bin/delayed_job start
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start my_second_process: $status"
