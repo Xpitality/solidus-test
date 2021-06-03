@@ -10,6 +10,18 @@
   </fieldset>
 <% end %>
 
+<%= form_for [:admin, @store, @store_email2], url: @store_email2.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @store_email2.id) do |f| %>
+  <h4><%= t('additional_store_settings.store_email2.title') %></h4>
+  <fieldset class="no-border-top">
+    <%= render 'store_email2_form', f: f %>
+    <% if can? :update, @store %>
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button_tag t('spree.actions.update'), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </fieldset>
+<% end %>
+
 <%= form_for [:admin, @store, @store_phone], url: @store_phone.new_record? ? admin_store_additional_store_settings_path(store_id: @store.id) : admin_store_additional_store_setting_path(store_id: @store.id, id: @store_phone.id) do |f| %>
   <h4><%= t('additional_store_settings.store_phone.title') %></h4>
   <fieldset class="no-border-top">
