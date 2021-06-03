@@ -93,8 +93,8 @@ Spree.config do |config|
   config.static_model_preferences.add(
     Spree::PaymentMethod::StripeCreditCard,
     'stripe_env_credentials',
-    secret_key: ENV['STRIPE_SECRET_KEY'],
-    publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
+    secret_key: Rails.application.credentials.config[:stripe_secret_key],
+    publishable_key: Rails.application.credentials.config[:stripe_publishable_key],
     stripe_country: 'IT',
     server: Rails.env.production? ? 'production' : 'test',
     test_mode: !Rails.env.production?,
