@@ -35,5 +35,10 @@
         <% end %>
       <% end %>
     </div>
+    <%if defined?hasEmergency %>
+      <div class="emergency">
+        <%= image_tag("home/who-we-are/who-we-are-emergency.png") %>
+      </div>
+    <% end %>
   </div>
 </div>

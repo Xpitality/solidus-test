@@ -1,7 +1,7 @@
 <%= render partial: "spree/shared/breadcrumbs", locals: { name: t("store.shared.main_menu.label.locale") } %>
 
 <div class="illocale">
-  <div class="who-we-are-background"></div>
+  <div class="who-we-are-background-locale"></div>
   <div class="container">
     <h1 class="title">
       <%= t("store.shared.main_menu.label.locale") %>
@@ -9,10 +9,8 @@
     <h3 class="subtitle"><%== t("store.home.who_we_are.title_illocale") %></h3>
 
     <div class="content-holder">
-      <%= render partial: "spree/pages/show/social_and_about_us_content" %>
-      <div class="col col-right">
-      <%= image_tag("home/who-we-are/who-we-are-emergency.png") %>
-      </div>
+      <%= render partial: "spree/pages/show/social_and_about_us_content",locals:{hasEmergency: true}%>
+      
       <div class="content-bottom">
         <div class="title-holder">
           <h1 class="title"><%= t("store.home.follow_us.title") %></h1>
