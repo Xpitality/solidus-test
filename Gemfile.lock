@@ -270,6 +270,7 @@ GEM
     crass (1.0.6)
     css_parser (1.9.0)
       addressable
+    daemons (1.4.0)
     database_cleaner (1.99.0)
     deface (1.8.1)
       nokogiri (>= 1.6)
@@ -862,6 +863,7 @@ DEPENDENCIES
   bugsnag
   byebug
   capybara (>= 2.15)
+  daemons
   delayed_job_active_record
   execjs (= 2.7.0)
   fog-aws
