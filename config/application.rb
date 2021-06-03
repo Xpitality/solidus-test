@@ -38,5 +38,7 @@ module SolidusTest
     # the framework and any gems in your application.
 
     config.time_zone = 'Rome'
+
+    config.active_job.queue_adapter = :delayed_job
   end
 end

@@ -15,9 +15,9 @@
             <%= link_to "https://twitter.com/intent/tweet?text='#{@product.name}'&url=#{url_encode product_url(@product)}", class: 'twitter-share-button' do %>
               <%= image_tag("icons/social/icon-twitter-original.svg") %>
             <% end %>
-            <%#= link_to "https://www.twitter.com" do %>
-            <%#= image_tag("icons/icon-favourite.svg") %>
-            <%# end %>
+            <div class="favourite" data-favourite-icon="<%= @product.id %>">
+              <%= render partial: 'spree/shared/favourite_product_icon', locals: { product: @product } %>
+            </div>
           </div>
           <div class="product-image-holder">
             <% if @product.gallery.images.first %>

@@ -7,6 +7,7 @@ const handleHeader = () => {
   const titleOrigin = originDiv.querySelectorAll(".drop-title");
   const dropdown = document.querySelectorAll(".nav-dropdown");
   const searchWrapper = document.querySelector(".header-content");
+  const navHolder = document.querySelectorAll(".nav-link");
 
   hamburger.addEventListener("click", () => {
     if (navBar.classList.contains("show")) {
@@ -25,13 +26,15 @@ const handleHeader = () => {
       const allDrops = [...document.querySelectorAll(".nav-dropdown")];
       const drop = event.target.parentElement.querySelector(".nav-dropdown");
 
-      if (drop.classList.contains("show")) {
-        drop.classList.remove("show");
-      } else {
-        allDrops.forEach((el) => {
-          el.classList.remove("show");
-        });
-        drop.classList.add("show");
+      if(drop){
+        if (drop.classList.contains("show")) {
+          drop.classList.remove("show");
+        } else {
+          allDrops.forEach((el) => {
+            el.classList.remove("show");
+          });
+          drop.classList.add("show");
+        }
       }
     });
     link.addEventListener("click", (e) => {
@@ -42,10 +45,20 @@ const handleHeader = () => {
 
   //hide the drop
   dropdown.forEach((drop) => {
-    drop.addEventListener("mouseleave", (e) => {
+    drop.addEventListener("mouseleave", () => {
       drop.classList.remove("show");
     });
   });
+  navHolder.forEach((link)=>{
+    link.addEventListener("mouseover",()=>{
+      if(!link.classList.contains('nav-link-with-drop')){
+        const allDrops = [...document.querySelectorAll(".nav-dropdown")];
+        allDrops.forEach((el) => {
+          el.classList.remove("show");
+        });
+      }
+    })
+  })
 
   //Handling regions sidebar
   titleOrigin.forEach((title) => {
@@ -62,7 +75,7 @@ const handleHeader = () => {
   });
 
   //hide search on scroll
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
   if (isMobile) {
     window.onscroll = function () {
       if (window.scrollY > 0) {

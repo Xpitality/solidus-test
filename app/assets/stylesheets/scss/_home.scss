@@ -4,25 +4,33 @@
     .home-hero-image {
       width: 100%;
     }
-    .home-button-holder {
+    .home-title-holder {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      @media (max-width: $small) {
-        opacity: 0.9;
-        padding: 20px;
-        background: $primary;
-      }
-      .btn {
-        padding: 25px 40px;
+      .home-subtitle {
+        font-family: "chainprinter", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
         letter-spacing: 2px;
-        white-space: nowrap;
-        font-family: 'chainprinter', sans-serif;
+        color: #ffffff;
+        margin-bottom: 30px;
+        @media (max-width: $small){
+          margin-bottom: 15px;
+        }
+      }
+      .home-title {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 60px;
+        line-height: 64px;
+        color: #ffffff;
         @media (max-width: $small) {
-          padding: 15px 30px;
-          border: 3px solid $white;
-          background: rgba(255, 255, 255, 0.37);
+          font-size: 30px;
+          line-height: 34px;
         }
       }
     }

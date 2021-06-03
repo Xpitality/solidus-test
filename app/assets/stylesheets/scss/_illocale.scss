@@ -58,7 +58,7 @@
               }
             }
             .text-holder {
-              padding: 70px 100px 50px 100px;
+              padding: 120px 100px 50px 100px;
               @media (max-width: $medium) {
                 padding: 40px 40px 50px 40px;
               }
@@ -98,6 +98,15 @@
               color: #fff;
               @media (max-width: $medium){
                 color: #333
+              }
+              a{
+                font-weight: 300;
+              font-size: 16px;
+              line-height: 20px;
+              color: #fff;
+              @media (max-width: $medium){
+                color: #333
+              }
               }
             }
             .phone {

@@ -1,0 +1,14 @@
+<div class="profile-favourites" profile-nav="profile-favourites">
+  <div class="favourites-title">
+    <p>
+      <%= t('store.user.profile.favourites') %>
+    </p>
+  </div>
+  <div class="products-holder">
+    <% try_spree_current_user.product_likes.each do |product_like| %>
+      <div class="product-col">
+        <%= render partial: 'spree/shared/product_card', locals: { product: product_like.product, css_classes: 'zoom-effect' } %>
+      </div>
+    <% end %>
+  </div>
+</div>

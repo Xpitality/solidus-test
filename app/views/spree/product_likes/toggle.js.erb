@@ -1,0 +1,1 @@
+$('*[data-favourite-icon="<%= params['product_id'] %>"]').html("<%= escape_javascript(render partial: 'spree/shared/favourite_product_icon', locals: { product: @product }) %>");

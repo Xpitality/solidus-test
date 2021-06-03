@@ -1,0 +1,20 @@
+<!-- You can override this template to design your own footer. -->
+<div class="footer-address">
+  <div class="address">
+    <% t('store.shared.footer.address').each do |adr| %>
+      <%= content_tag :p, adr %>
+    <% end %>
+  </div>
+  <div class="footer-address-social">
+    <% if store_instagram %>
+      <%= link_to store_instagram, target: :_blank do %>
+        <%= image_tag("icons/social/icon-instagram-black.svg") %>
+      <% end %>
+    <% end %>
+    <% if store_facebook %>
+      <%= link_to store_facebook, target: :_blank do %>
+        <%= image_tag("icons/social/icon-facebook-black.svg") %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

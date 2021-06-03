@@ -13,3 +13,4 @@
 //= require spree/xpitality/checkoutReg
 //= require spree/xpitality/priceSlider
 //= require spree/xpitality/descriptionSeeAll
+//= require spree/xpitality/reloadOfPage

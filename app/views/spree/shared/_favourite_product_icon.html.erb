@@ -1,0 +1,11 @@
+<% if try_spree_current_user %>
+  <%= link_to toggle_product_product_likes_path(product_id: product.id), remote: true do %>
+    <% if product.liked_by?(try_spree_current_user) %>
+      <%= image_tag("icons/favourite/liked.svg") %>
+    <% else %>
+      <%= image_tag("icons/favourite/not-liked.svg") %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= image_tag("icons/favourite/disabled.svg") %>
+<% end %>

@@ -4,8 +4,8 @@
 //= require spree/frontend/checkout/payment
 //= require spree/frontend/checkout/coupon-code
 
-Spree.disableSaveOnClick = function() {
-  $("form.edit_order").submit(function() {
+Spree.disableSaveOnClick = function () {
+  $("form.edit_order").submit(function () {
     $(this)
       .find(":submit, :image")
       .attr("disabled", true)
@@ -14,11 +14,19 @@ Spree.disableSaveOnClick = function() {
   });
 };
 
-Spree.ready(function($) {
+Spree.ready(function ($) {
   var termsCheckbox = $("#accept_terms_and_conditions");
-  termsCheckbox.change(function() {
-    var submitBtn = $(this.closest("form")).find(":submit");
-    submitBtn.prop("disabled", !this.checked);
-    submitBtn.toggleClass("disabled", !this.checked);
+  var privacyCheckbox = $("#accept_terms_and_privacy");
+  termsCheckbox.change(function () {
+      var submitBtn = $(this.closest("form")).find(":submit");
+      submitBtn.prop("disabled", !this.checked && !privacyCheckbox.checked);
+      submitBtn.toggleClass("disabled", !this.checked && !privacyCheckbox.checked);
+      submitBtn.unbind();
+      submitBtn.click(function (event){
+        event.preventDefault();
+        if(termsCheckbox.prop("checked") && privacyCheckbox.prop("checked")){
+          $(this.closest("form")).submit()
+        }
+      })
   });
 });

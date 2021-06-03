@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_205019) do
+ActiveRecord::Schema.define(version: 2021_06_03_090017) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -365,6 +365,21 @@ ActiveRecord::Schema.define(version: 2021_05_27_205019) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
   create_table "friendly_id_slugs", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -407,6 +422,15 @@ ActiveRecord::Schema.define(version: 2021_05_27_205019) do
     t.string "refund_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "promotion_rules_shipping_countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "country_id", null: false
+    t.bigint "promotion_rule_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_promotion_rules_shipping_countries_on_country_id"
+    t.index ["promotion_rule_id"], name: "index_promotion_rules_shipping_countries_on_promotion_rule_id"
   end
 
   create_table "spree_additional_store_settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -1670,6 +1694,15 @@ ActiveRecord::Schema.define(version: 2021_05_27_205019) do
     t.integer "stock_location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "xpitality_product_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_xpitality_product_likes_on_product_id"
+    t.index ["user_id"], name: "index_xpitality_product_likes_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -115,6 +115,19 @@
                 font-weight: 700;
               }
             }
+            .profile-favourites {
+              display: none;
+
+              &.active {
+                display: block;
+              }
+
+              .favourites-title {
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 30px;
+              }
+            }
             .profile-orders {
               display: none;
               &.active {

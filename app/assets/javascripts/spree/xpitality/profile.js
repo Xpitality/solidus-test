@@ -25,6 +25,7 @@ const checkForActive = (links) => {
     if (navLink.classList.contains("active")) {
       document.querySelector(".profile-info").classList.remove("active");
       document.querySelector(".profile-orders").classList.remove("active");
+      document.querySelector(".profile-favourites").classList.remove("active");
       document
         .querySelector(
           `[profile-nav=${navLink.getAttribute("profile-nav-for")}]`

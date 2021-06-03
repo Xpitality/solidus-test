@@ -90,6 +90,9 @@ gem 'premailer-rails'
 gem "roo", "~> 2.8.0"
 gem 'roo-xls'
 
+gem 'delayed_job_active_record'
+gem 'daemons'
+
 group :staging, :production do
   gem 'fog-aws'
 end

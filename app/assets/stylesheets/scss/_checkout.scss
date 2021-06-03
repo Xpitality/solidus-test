@@ -83,7 +83,7 @@
                   }
                 }
                 .stock-shipping-method-title {
-                  margin: 40px 0;
+                  padding: 40px 0;
                   font-weight: bold;
                   font-size: 16px;
                 }
@@ -108,7 +108,7 @@
             padding-inline-start: 0;
             .field-wrapper {
               display: flex;
-              @media (max-width: $small){
+              @media (max-width: 1024px){
                 flex-direction: column;
               }
             }
@@ -210,6 +210,7 @@
   justify-content: space-between;
   border-bottom: 3px solid $text-color;
   margin-bottom: 40px;
+  margin-top: 20px;
   li {
     padding: 10px 0;
     color: #c4c4c4;
@@ -316,6 +317,9 @@
     a {
       color: $primary;
       text-decoration: underline;
+    }
+    @media (max-width: $small){
+      padding: 20px;
     }
   }
 }

@@ -21,7 +21,7 @@
         <% end %>
         <h1 class="title"><%= t("store.home.featured_producer.title") %></h1>
         <h3 class="subtitle"><%= producer.name %></h3>
-        <p class="text"><%= producer.description %></p>
+        <p class="text"><%== producer.description %></p>
         <%= link_to t("store.home.featured_producer.button"), seo_url(producer), class: "btn btn-white-transparent align-self-start" %>
       </div>
     </div>

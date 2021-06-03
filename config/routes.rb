@@ -6,6 +6,13 @@ Rails.application.routes.draw do
 end
 
 Spree::Core::Engine.routes.draw do
+  resources :products, only: [] do
+    resources :product_likes, only: [] do
+      get :toggle, on: :collection
+    end
+  end
+
+
   namespace :admin do
     resources :diagnostics, only: [] do
       get :import_export, on: :collection

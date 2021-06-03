@@ -8,7 +8,7 @@ Spree.config do |config|
   config.currency = "EUR"
 
   # from address for transactional emails
-  config.mails_from = "store@example.com"
+  config.mails_from = "shop@enotecanaturale.it"
 
   # Use combined first and last name attribute in HTML views and API responses
   config.use_combined_first_and_last_name_in_address = true
@@ -82,7 +82,7 @@ Spree.config do |config|
   # Admin:
 
   # Custom logo for the admin
-  # config.admin_interface_logo = "logo/solidus.svg"
+  config.admin_interface_logo = "logo/logo.svg"
 
   # Gateway credentials can be configured statically here and referenced from
   # the admin. They can also be fully configured from the admin.
@@ -117,6 +117,10 @@ Spree.config do |config|
 
   config.allow_guest_checkout = false
 end
+
+Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::CountryShippingAddress
+Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::Country
+
 #
 # Spree::Frontend::Config.configure do |config|
 #   config.locale = 'it'
@@ -130,7 +134,7 @@ Spree::Backend::Config.configure do |config|
     label: :cms,
     condition: -> { can?(:index, :alchemy_admin_dashboard) },
     partial: 'spree/admin/shared/alchemy_sub_menu',
-    url: '/admin/pages',
+    url: '/alchemy/admin/pages',
     match_path: '/pages'
   )
 
@@ -143,7 +147,6 @@ Spree::Backend::Config.configure do |config|
       url: :import_export_admin_diagnostics_path,
       match_path: '/admin/diagnostics/import_export'
   )
-
 
   config.locale = 'en'
 #

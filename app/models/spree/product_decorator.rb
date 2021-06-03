@@ -27,6 +27,9 @@ Spree::Product.class_eval do
     end
   end
 
+  def liked_by?(user)
+    Xpitality::ProductLike.where(user_id: user.id, product_id: self.id).exists?
+  end
 
   def quantity_limit(store:)
     quantity_limit_parent_taxon = Spree::Taxon.quantity_limit_taxon(store: store)

@@ -40,6 +40,7 @@ it:
           title: "Serve aiuto?"
           phone_text_html: "o chiama al <a href='tel:%{phone}'>%{phone}</a>"
           phone_number: "Telefono : <a href='tel:%{phone}'>%{phone}</a>"
+          write_us: Scrivici via e-mail a
         address:
           - "Dati societari"
           - "Gnuco srl Società"
@@ -57,8 +58,9 @@ it:
           title: "Info"
           about_us: "Chi siamo"
           faq: "FAQ"
-          shipping: "Spedizione"
+          shipping: "Spedizioni"
           contacts: "Contatti"
+          terms: Termini e condizioni
         about_us:
           title: "Chi siamo"
           text: "Attraverso questo sito, si possono ordinare con consegna a domicilio  vini della selezione di e/n enoteca naturale. Consegna a domicilio su Milano città."
@@ -67,25 +69,27 @@ it:
           text: "e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà"
     home:
       header:
-        delivery_time_web: consegna gratuita a partire da 89 €
-        delivery_time_mob: consegna gratuita a partire da 89 €
+        delivery_time_web: CONSEGNA GRATUITA IN TUTTA ITALIA A PARTIRE DA 89 €
+        delivery_time_mob: CONSEGNA GRATUITA IN TUTTA ITALIA A PARTIRE DA 89 €
         hello_message: "Ciao, %{username}"
       hero:
         catalog_button: "vai al catalogo"
+        subtitle: "BENVENUTI DA enoteca naturale"
+        title: "La selezione più <i>croccante</i>, on-line e al nostro bancone"
       new_products:
         title: GLI ULTIMI ARRIVI
-        subtitle: questo mese abbiamo assaggiato
+        subtitle: Questo mese abbiamo assaggiato
         button: NOVITÀ
       featured_collection:
         title: LA NOSTRA SELEZIONE
         button: SCOPRI I PRODOTTI
       featured_producer:
-        title: LA CANTINA DEL MESE
+        title: La cantina in evidenza
         button: SCOPRI I PRODOTTI
       who_we_are:
         title: chi siamo
-        subtitle: Serviamo da bere vini veri, promuoviamo l’inclusione sociale di richiedenti asilo e sosteniamo Emergency.
-        text: e/n è una Società Benefit che offre percorsi di tirocinio a richiedenti asilo e devolve parte delle proprie entrate a Emergency. Emergency offre cure medico-chirurgiche gratuite alle vittime di guerre, delle mine antiuomo e della povertà
+        subtitle: Una selezione <i>croccante</i>, in continua evoluzione, disponibile on-line in pronta consegna.
+        text: "Il nostro è un lavoro di selezione continuo e costante: scoprire nuovi produttori, nuove storie, è una cosa che amiamo e continuiamo a fare tutti i giorni. Abbiamo deciso di rendere disponibile il risultato di questo lavoro on-line per tutti."
         write_as: O scrivici su Instagram      
       follow_us:
         title: SEGUICI SUI SOCIAL
@@ -137,6 +141,8 @@ it:
         total: TOTALE
         button: PROSEGUI
     checkout:
+      agree_to_terms_of_privacy: Accetto le condizioni della privacy
+      agree_to_terms_of_services: Accetto termini e condizioni del servizio
       coupon_placeholder: Inserisci codice
       confirmed:
         cheers: "Cheers!"
@@ -159,4 +165,5 @@ it:
         welcome: Ciao
         my_profile: Il mio profilo
         my_orders: I miei ordini
+        favourites: I miei prodotti preferiti
         saved_address: Indirizzi salvati

@@ -5,53 +5,60 @@
       <%= form.fields_for :shipments do |ship_form| %>
 
         <div class="shipment">
-          <h3 class="stock-location" data-hook="stock-location">
-            <%= t('spree.package_from') %>
-            <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %></strong>
-          </h3>
 
           <table class="stock-contents" data-hook="stock-contents">
             <colgroup>
-              <col style="width: 10%;" />
-              <col style="width: 40%;" />
-              <col style="width: 20%;" />
-              <col style="width: 20%;" />
+              <col style="width: 10%;"/>
+              <col style="width: 40%;"/>
+              <col style="width: 20%;"/>
+              <col style="width: 20%;"/>
             </colgroup>
             <thead>
-              <th></th>
-              <th align='left'><%= t('spree.item') %></th>
-              <th align='center'><%= t('spree.qty') %></th>
-              <th align='center'><%= t('spree.price') %></th>
+            <th></th>
+            <th align='left'><%= t('spree.item') %></th>
+            <th align='center'><%= t('spree.qty') %></th>
+            <th align='center'><%= t('spree.price') %></th>
             </thead>
             <tbody>
-              <% ship_form.object.manifest.each do |item| %>
-                <tr class="stock-item">
-                  <td class="item-image">
-                    <%= render 'spree/shared/image',
-                      image: (item.variant.gallery.images.first || item.variant.product.gallery.images.first),
-                      size: :mini %>
-                  </td>
-                  <td class="item-name"><%= item.variant.name %></td>
-                  <td class="item-qty"><%= item.quantity %></td>
-                  <td class="item-price"><%= display_price(item.variant) %></td>
-                </tr>
-              <% end %>
+            <% ship_form.object.manifest.each do |item| %>
+              <tr class="stock-item">
+                <td class="item-image">
+                  <%= render 'spree/shared/image',
+                             image: (item.variant.gallery.images.first || item.variant.product.gallery.images.first),
+                             size: :mini %>
+                </td>
+                <td class="item-name"><%= item.variant.name %></td>
+                <td class="item-qty"><%= item.quantity %></td>
+                <td class="item-price"><%= display_price(item.variant) %></td>
+              </tr>
+            <% end %>
             </tbody>
           </table>
 
+
           <h5 class="stock-shipping-method-title"><%= t('spree.shipping_method') %></h5>
           <div data-hook="">
+
             <% ship_form.object.shipping_rates.each do |method| %>
-            <label class="radio-container">
-              <div class="row">
-                <%= t(method.name, scope: 'spree.shipping_rates', default: method.name) %>
-                <span class="rate-cost"><%= method.display_cost %></span>
-              </div>
-              <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
-              <span class="checkmark"></span>
-            </label>
+              <label class="radio-container">
+                <div class="row">
+                  <%= t(method.name, scope: 'spree.shipping_rates', default: method.name) %>
+                  <span class="rate-cost">
+                      <% if Spree::Promotion::Rules::CountryShippingAddress.new.applicable?(ship_form.object.order) %>
+                        <%= Spree::Money.new(0.0, currency: ship_form.object.order.currency).to_html %>
+                      <% else %>
+                      <%= method.display_cost %>
+                        <% end %>
+                    </span>
+                </div>
+                <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first, required: true %>
+                <span class="checkmark"></span>
+              </label>
+
             <% end %>
           </div>
+
+
         </div>
 
       <% end %>
@@ -63,30 +70,30 @@
           </h3>
           <table class="stock-contents" data-hook="stock-missing">
             <colgroup>
-              <col style="width: 10%;" />
-              <col style="width: 60%;" />
-              <col style="width: 10%;" />
-              <col style="width: 20%;" />
+              <col style="width: 10%;"/>
+              <col style="width: 60%;"/>
+              <col style="width: 10%;"/>
+              <col style="width: 20%;"/>
             </colgroup>
             <thead>
-              <th></th>
-              <th align='left'><%= t('spree.item') %></th>
-              <th><%= t('spree.qty') %></th>
-              <th><%= t('spree.price') %></th>
+            <th></th>
+            <th align='left'><%= t('spree.item') %></th>
+            <th><%= t('spree.qty') %></th>
+            <th><%= t('spree.price') %></th>
             </thead>
             <tbody>
-              <% @differentiator.missing.each do |variant, quantity| %>
-                <tr class="stock-item">
-                  <td class="item-image">
-                    <%= render 'spree/shared/image',
-                      image: (variant.gallery.images.first || variant.product.gallery.images.first),
-                      size: :mini %>
-                  </td>
-                  <td class="item-name"><%= variant.name %></td>
-                  <td class="item-qty"><%= quantity %></td>
-                  <td class="item-price"><%= display_price(variant) %></td>
-                </tr>
-              <% end %>
+            <% @differentiator.missing.each do |variant, quantity| %>
+              <tr class="stock-item">
+                <td class="item-image">
+                  <%= render 'spree/shared/image',
+                             image: (variant.gallery.images.first || variant.product.gallery.images.first),
+                             size: :mini %>
+                </td>
+                <td class="item-name"><%= variant.name %></td>
+                <td class="item-qty"><%= quantity %></td>
+                <td class="item-price"><%= display_price(variant) %></td>
+              </tr>
+            <% end %>
             </tbody>
           </table>
         </div>
@@ -95,15 +102,15 @@
     </div>
     <% if Spree::Config[:shipping_instructions] %>
       <p id="minstrs" data-hook>
-        <%= form.label :special_instructions, t('spree.shipping_instructions') %><br />
+        <%= form.label :special_instructions, t('spree.shipping_instructions') %><br/>
         <%= form.text_area :special_instructions, cols: 40, rows: 7 %>
       </p>
     <% end %>
   </div>
 </fieldset>
 
-<br />
+<br/>
 
 <!--<div class="form-buttons" data-hook="buttons">-->
-  <%#= submit_tag t('spree.save_and_continue'), class: 'continue button primary' %>
+<%#= submit_tag t('spree.save_and_continue'), class: 'continue button primary' %>
 <!--</div>-->
