@@ -12,6 +12,7 @@ it:
       catalog: "Catalogo"
       filters: "FILTRI"
       see_all: "Vedi tutti"
+      orders: "Ordini"
     shared:
       main_menu:
         label:

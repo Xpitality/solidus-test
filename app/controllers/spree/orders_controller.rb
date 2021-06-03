@@ -12,6 +12,7 @@ module Spree
     around_action :lock_order, only: :update
     before_action :apply_coupon_code, only: :update
     skip_before_action :verify_authenticity_token, only: [:populate]
+    before_action :set_default_title
 
     def show
       @order = Spree::Order.find_by!(number: params[:id])
@@ -209,6 +210,10 @@ module Spree
           flash[:success] = handler.success
         end
       end
+    end
+
+    def set_default_title
+      @title ||= I18n.t('store.general.orders').capitalize
     end
   end
 end
