@@ -7,8 +7,8 @@
     .home-title-holder {
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 40%;
+      transform: translate(-40%, -50%);
       .home-subtitle {
         font-family: "chainprinter", sans-serif;
         font-style: normal;
@@ -18,7 +18,7 @@
         letter-spacing: 2px;
         color: #ffffff;
         margin-bottom: 30px;
-        @media (max-width: $small){
+        @media (max-width: $small) {
           margin-bottom: 15px;
         }
       }
@@ -35,4 +35,8 @@
       }
     }
   }
+}
+.search-results-title {
+  padding: 20px 0;
+  font-size: 14px;
 }

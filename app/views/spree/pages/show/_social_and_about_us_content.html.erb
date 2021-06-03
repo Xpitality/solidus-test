@@ -6,19 +6,25 @@
     <div class="text-holder">
       <p class="text"><%= t("store.home.who_we_are.text") %></p>
     </div>
+    <div class="col col-right">
+      <%= image_tag("home/who-we-are/who-we-are-emergency.png") %>
+    </div>
   </div>
   <div class="col col-right">
-    <h2><%= t('store.shared.footer.info.contacts') %></h2>
+    <h2><%= t("store.shared.footer.info.contacts") %></h2>
     <% if store_phone %>
-      <p class="phone"><%== t('store.shared.footer.contact.phone_number', phone: store_phone) %></p>
+      <p class="phone"><%== t("store.shared.footer.contact.phone_number", phone: store_phone) %></p>
     <% end %>
     <p>
-      <%= t('store.shared.footer.contact.write_us') %>
-      <% if store_email %>
-        <a class="info-mail" href="mailto:<%= store_email %>"><%= store_email %></a>
+      <%= t("store.shared.footer.contact.write_us") %>
+      <% if store_email2 %>
+        <a class="info-mail" href="mailto:<%= store_email2 %>"><%= store_email2 %></a>
       <% end %>
       <br>
       <%= t("store.home.who_we_are.write_as") %>
+      <% if store_instagram %>
+        <%= link_to "@#{store_instagram.to_s.split("/").last}", store_instagram %>
+      <% end %>
     </p>
     <div class="social">
       <% if store_instagram %>

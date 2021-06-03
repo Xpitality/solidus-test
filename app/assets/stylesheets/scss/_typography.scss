@@ -58,10 +58,14 @@ p {
 }
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="tel"] {
   color: #666666;
   padding: 0 16px;
   font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 input[type="submit"] {

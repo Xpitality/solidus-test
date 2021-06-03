@@ -15,6 +15,9 @@ $colPadding: 10px;
   align-items: center;
   justify-content: center;
   padding: 54px 0 88px 0;
+  .btn{
+    font-family: "chainprinter", sans-serif;
+  }
 }
 
 .product-col {
@@ -162,6 +165,7 @@ $colPadding: 10px;
           text-align: center;
           color: #fff;
           font-size: 12px;
+          font-family: "chainprinter", sans-serif;
         }
       }
       .new-mark-bottom {
