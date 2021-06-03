@@ -1678,30 +1678,30 @@ it:
     order_information: Informazioni sull'Ordine
     order_mailer:
       cancel_email:
-        dear_customer: Gentile Cliente,
-        instructions: Il tuo ordine è stato ANNULLATO. Per favore conserva queste
+        dear_customer: Ciao,
+        instructions: Il tuo ordine è stato annullato. Per favore conserva queste
           informazioni per attestare l'annullamento.
         order_summary_canceled: Riassunto Ordine [ANNULLATO]
         subject: Annullamento Ordine
         subtotal: 'Subtotale:'
         total: 'Totale Ordine:'
       confirm_email:
-        dear_customer: Gentile Cliente,
-        instructions: Per favore rivedi queste informazioni e conservale come riferimento.
+        dear_customer: Ciao! Grazie dell’ordine
+        instructions: Qui di seguito trovi i dettagli del tuo ordine. Ci occuperemo presto di spedirlo e ti manderemo la conferma della spedizione.
         order_summary: Riassunto Ordine
         subject: Conferma Ordine
         subtotal: 'Subtotale:'
-        thanks: Grazie per il tuo ordine.
+        thanks: Grazie!
         total: 'Totale Ordine:'
       inventory_cancellation:
-        dear_customer: Gentile Cliente,
+        dear_customer: Ciao,
         instructions: Alcuni articoli nel tuo ordine sono stati CANCELLATI. Per favore
           mantieni questa informativa per i tuoi documenti.
         order_summary_canceled: Articoli cancellati
         subject: Cancellazione di articoli
-    order_mutex_admin_error: L'ordine è stato modificato da qualcun altro. Per favore riprova ancora.
-    order_mutex_error: Qualcosa è andato storto. Per favore riprova ancora.
-    order_not_found: Non abbiamo trovato il tuo ordine. Per favore riprova ancora.
+    order_mutex_admin_error: L'ordine è stato modificato da qualcun altro. Per favore riprova.
+    order_mutex_error: Qualcosa è andato storto. Per favore riprova.
+    order_not_found: Non abbiamo trovato il tuo ordine. Per favore riprova.
     order_number: Ordine %{number}
     order_please_refresh: L'ordine non è pronto per essere completato. Per favore aggiorna i totali.
     order_processed_successfully: Il tuo ordine è stato processato con successo
