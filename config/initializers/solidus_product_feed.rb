@@ -1,7 +1,7 @@
 SolidusProductFeed.configure do |config|
-  config.title = 'My Awesome Store'
-  config.link = 'https://www.awesomestore.com'
-  config.description = 'Find out about new products on https://www.awesomestore.com first!'
+  config.title = 'e/n enoteca naturale'
+  config.link = 'https://www.enotecanaturale.it'
+  config.description = 'La selezione più croccante di vini naturali, on-line e al nostro bancone'
   config.language = 'it'
 end
 
