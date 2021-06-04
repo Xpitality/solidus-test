@@ -16,7 +16,7 @@
   .summery-title{
     font-weight: bold;
   }
-  .products{
+  .products-end{
     border-bottom: 1px solid #333;
   }
   .table-titles{
@@ -49,7 +49,7 @@
             <td><%= item.variant.options_text %></td>
           </tr>
         <% end %>
-        <tr class="products"></tr>
+        <tr class="products-end"></tr>
       </table>
       <p>
         <%= t('spree.shipment_mailer.shipped_email.track_information', tracking: @carton.tracking) if @carton.tracking %>
