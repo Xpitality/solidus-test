@@ -13,7 +13,6 @@
       <table>
         <% @order.line_items.each do |item| %>
           <tr>
-            <td><%= item.variant.sku %></td>
             <td>
               <%= item.variant.product.name %>
               <%= item.variant.options_text -%>

@@ -1692,6 +1692,7 @@ it:
         subject: Conferma Ordine
         subtotal: 'Subtotale:'
         thanks: Grazie!
+        ive: di cui IVA
         total: 'Totale Ordine:'
       inventory_cancellation:
         dear_customer: Ciao,
