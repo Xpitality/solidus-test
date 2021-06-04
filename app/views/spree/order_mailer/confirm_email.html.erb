@@ -1,4 +1,19 @@
-<table>
+<style>
+  .title-table{
+    text-transform: uppercase;
+  }
+  .table-order{
+   border-top: 1px solid #333;
+   border-bottom: 1px solid #333;
+  }
+  .confirm-mail-wrapper{
+    padding: 10px;
+  }
+  .thanks{
+    padding: 20px 0;
+  }
+</style>
+<table class="confirm-mail-wrapper">
   <tr>
     <td>
       <p class="lede">
@@ -7,13 +22,13 @@
       <p>
         <%= t('.instructions') %>
       </p>
-      <p>
+      <p class="title-table">
         <%= t('.order_summary') %>
       </p>
-      <table>
+      <table class="table-order">
         <% @order.line_items.each do |item| %>
           <tr>
-            <td><%= item.variant.sku %></td>
+            <td></td>
             <td>
               <%= item.variant.product.name %>
               <%= item.variant.options_text -%>
@@ -75,7 +90,7 @@
           </td>
         </tr>
       </table>
-      <p>
+      <p class="thanks">
         <%= t('.thanks') %>
       </p>
     </td>

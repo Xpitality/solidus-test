@@ -1,7 +1,11 @@
 <div class="content-top">
   <div class="col col-left">
     <div class="img-holder">
-      <%= image_tag("home/illocale.png") %>
+      <% if has_info_mail %>
+        <%= image_tag("home/illocale.png") %>
+      <% else %>
+        <%= image_tag("home/who_we_are.png") %>
+      <% end %>
     </div>
     <div class="text-holder">
       <p class="text"><%= t("store.home.who_we_are.text_illocale") %></p>
