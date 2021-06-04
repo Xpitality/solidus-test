@@ -1,3 +1,32 @@
+<style>
+  .title-table{
+    text-transform: uppercase;
+  }
+  .table-order{
+   margin-top: 20px;
+   margin-bottom: 20px;
+   width: 100%;
+  }
+  .confirm-mail-wrapper{
+    padding: 10px;
+  }
+  .cell-text{
+    text-align: center;
+  }
+  .summery-title{
+    font-weight: bold;
+  }
+  .products{
+    border-bottom: 1px solid #333;
+  }
+  .table-titles{
+   border-bottom: 1px solid #333;
+  }
+  .table-order td,th{
+    white-space: nowrap;
+    padding: 5px !important;
+  }
+</style>
 <table>
   <tr>
     <td>
@@ -17,7 +46,7 @@
         <p>
           <%= t('.exchange_summary') %>
         </p>
-        <table>
+        <table class='table-order'>
           <% @reimbursement.return_items.exchange_requested.each do |return_item| %>
             <tr>
               <td>
