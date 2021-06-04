@@ -129,6 +129,7 @@
                 align-items: flex-start;
                 justify-content: flex-start;
                 flex-direction: column;
+                width: 100%;
                 @media (max-width: $small){
                   margin-top: 10px
                 }
