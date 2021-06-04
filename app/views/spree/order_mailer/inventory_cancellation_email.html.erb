@@ -16,7 +16,7 @@
   .summery-title{
     font-weight: bold;
   }
-  .products{
+  .products-end{
     border-bottom: 1px solid #333;
   }
   .table-titles{
@@ -42,6 +42,7 @@
       <table class="table-order">
         <tr class="table-titles">
           <th class="title"><%= t('spree.item') %></th>
+          <th></th>
         </tr>
         <% @inventory_units.each do |item| %>
           <tr>
@@ -49,7 +50,7 @@
             <td><%= item.variant.options_text -%></td>
           </tr>
         <% end %>
-        <tr class="products"></tr>
+        <tr class="products-end"></tr>
       </table>
       <p>
     </td>
