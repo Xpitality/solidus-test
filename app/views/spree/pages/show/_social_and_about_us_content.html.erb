@@ -2,13 +2,17 @@
   <div class="col col-left">
     <div class="img-holder">
       <% if has_info_mail %>
-        <%= image_tag("home/illocale.png") %>
+        <%= image_tag("home/illocale.jpg") %>
       <% else %>
         <%= image_tag("home/who_we_are.png") %>
       <% end %>
     </div>
     <div class="text-holder">
-      <p class="text"><%= t("store.home.who_we_are.text_illocale") %></p>
+      <% if has_info_mail %>
+        <p class="text"><%= t("store.home.who_we_are.text_illocale") %></p>
+      <% else %>
+        <p class="text"><%= t("store.home.who_we_are.text") %></p>
+      <% end %>
     </div>
   </div>
   <div class="col col-right <%= has_info_mail ? "locale" : "who_we_are_position" %>" >
