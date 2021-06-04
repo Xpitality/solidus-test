@@ -9,9 +9,9 @@
   </div>
 
   <div data-hook="homepage_products" class="all-available-products">
-    <% cache(cache_key_for_products) do %>
+    <%# cache(cache_key_for_products) do %>
       <%= render partial: 'spree/shared/products', locals: { products: @products, hide_pagination: true } %>
-    <% end %>
+    <%# end %>
   </div>
   <div class="products-button-holder">
     <%= link_to t('store.home.hero.catalog_button'), products_path, class: "btn btn-primary" %>
