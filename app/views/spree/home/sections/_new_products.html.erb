@@ -1,7 +1,7 @@
 <% taxon_new = taxon_by_key(:new) %>
 <% products = @searcher.new_products(taxon_new) if taxon_new %>
 <% if taxon_new && !products.empty? %>
-  <% cache(cache_key_for_home_products(:new_products)) do %>
+  <%# cache(cache_key_for_home_products(:new_products)) do %>
     <div class="container">
       <div class="col info-col">
         <%= image_tag("home/featured-collection-background.png") %>
@@ -18,5 +18,5 @@
         <% end %>
       </div>
     </div>
-  <% end %>
+  <%# end %>
 <% end %>
