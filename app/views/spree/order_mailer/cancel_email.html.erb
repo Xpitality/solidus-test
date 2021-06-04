@@ -1,3 +1,32 @@
+<style>
+  .title-table{
+    text-transform: uppercase;
+  }
+  .table-order{
+   margin-top: 20px;
+   margin-bottom: 20px;
+   width: 100%;
+  }
+  .confirm-mail-wrapper{
+    padding: 10px;
+  }
+  .cell-text{
+    text-align: center;
+  }
+  .summery-title{
+    font-weight: bold;
+  }
+  .products{
+    border-bottom: 1px solid #333;
+  }
+  .table-titles{
+   border-bottom: 1px solid #333;
+  }
+  .table-order td,th{
+    white-space: nowrap;
+    padding: 5px !important;
+  }
+</style>
 <table>
   <tr>
     <td>
@@ -10,31 +39,44 @@
       <p>
         <%= t('.order_summary_canceled') %>
       </p>
-      <table>
+      <table class="title-table">
+        <tr class="table-titles">
+          <th class="title"><%= t('spree.item') %></th>
+          <th class="cell-text"><%= t('spree.price') %></th>
+          <th class="cell-text"><%= t('spree.qty') %></th>
+          <th class="cell-text"><span><%= t('spree.total') %></span></th>
+        </tr>
         <% @order.line_items.each do |item| %>
           <tr>
             <td>
               <%= item.variant.product.name %>
               <%= item.variant.options_text -%>
             </td>
-            <td>(<%=item.quantity%>) @ <%= item.single_money %> = <%= item.display_amount %></td>
+            <td class="cell-text"><%=item.quantity%></td>
+            <td class="cell-text"><%= item.single_money %></td>
+            <td class="cell-text"><%= item.display_amount %></td>
           </tr>
         <% end %>
         <tr>
-          <td></td>
           <td><%= t('.subtotal') %></td>
+          <td></td>
+          <td></td>
           <td><%= @order.display_item_total %></td>
         </tr>
         <% @order.adjustments.eligible.each do |adjustment| %>
           <tr>
-            <td></td>
             <td><%= sanitize(adjustment.label) %></td>
+            <td></td>
+            <td></td>
             <td><%= adjustment.display_amount %></td>
           </tr>
         <% end %>
+        <tr class="products"></tr>
         <tr>
           <td></td>
           <td><%= t('.total') %></td>
+          <td></td>
+          <td></td>
           <td><%= @order.display_total %></td>
         </tr>
       </table>
