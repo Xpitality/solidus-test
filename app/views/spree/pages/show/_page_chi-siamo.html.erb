@@ -1,7 +1,6 @@
 <%= render partial: 'spree/shared/breadcrumbs', locals: { name: t('store.shared.footer.info.about_us') } %>
 
 <div class="illocale">
-  <div class="who-we-are-background"></div>
   <div class="container">
     <h1 class="title">
       <%= t("store.home.who_we_are.title") %>
@@ -9,7 +8,8 @@
     <h3 class="subtitle"><%== t("store.home.who_we_are.subtitle") %></h3>
 
     <div class="content-holder">
-      <%= render partial: 'spree/pages/show/social_and_about_us_content' %>
+      <div class="who-we-are-background"></div>
+      <%= render partial: 'spree/pages/show/social_and_about_us_content',locals:{hasEmergency: false, info_mail:false} %>
     </div>
   </div>
 </div>

@@ -72,13 +72,19 @@ const handleFilterForm = () => {
     const form = sidemenu.getElementsByTagName("form")[0];
     if (form) {
       sidemenu.addEventListener("change", () => {;
-        const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
-        const filters = document.querySelector(".filters");
-        if (isMobile) {
-          filters.classList.remove("show");
-        }
-        Rails.fire(form, 'submit');
-      });
+        const hideAfterTime = setInterval(function(){
+          const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+          const filters = document.querySelector(".filters");
+          if (isMobile) {
+            filters.classList.remove("show");
+          }
+          clearInterval(hideAfterTime)
+        },1000)
+        const time = setInterval(function(){
+          Rails.fire(form, 'submit');
+        }, 1000);
+        clearInterval(time)
+        });
     }
   }
 };
