@@ -7,14 +7,14 @@
       <p class="text"><%= t("store.home.who_we_are.text_illocale") %></p>
     </div>
   </div>
-  <div class="col col-right <%= info_mail ? "locale" : "who_we_are_position" %>" >
+  <div class="col col-right <%= has_info_mail ? "locale" : "who_we_are_position" %>" >
     <h2><%= t("store.shared.footer.info.contacts") %></h2>
     <% if store_phone %>
       <p class="phone"><%== t("store.shared.footer.contact.phone_number", phone: store_phone) %></p>
     <% end %>
     <p>
       <%= t("store.shared.footer.contact.write_us") %>
-      <% if info_mail %>
+      <% if has_info_mail %>
        <% if store_email2 %>
         <a class="info-mail" href="mailto:<%= store_email2 %>"><%= store_email2 %></a>
         <% end %>
@@ -42,7 +42,7 @@
         <% end %>
       <% end %>
     </div>
-    <%if hasEmergency %>
+    <%if has_emergency %>
       <div class="emergency">
         <%= image_tag("home/who-we-are/who-we-are-emergency.png") %>
       </div>
