@@ -8,4 +8,5 @@ window.addEventListener("load", () => {
   handleFilterOptions();
   goOnTopOnReaload();
   handleSeeMoreOptions();
+  preventRightClick();
 });

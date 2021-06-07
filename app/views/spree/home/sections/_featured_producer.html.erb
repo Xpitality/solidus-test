@@ -19,6 +19,7 @@
         <% else %>
           <%= image_tag("producers/default-image.jpg") %>
         <% end %>
+        <div class="image-overlayer"></div>
         <h1 class="title"><%= t("store.home.featured_producer.title") %></h1>
         <h3 class="subtitle"><%= producer.name %></h3>
         <p class="text"><%== producer.description %></p>

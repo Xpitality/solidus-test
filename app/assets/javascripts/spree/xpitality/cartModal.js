@@ -14,3 +14,19 @@ const handleCartModal = () => {
     cartModal.classList.remove("show");
   })
 };
+const preventRightClick = () =>{
+  const plusButtons = document.querySelectorAll('.plus');
+  const minusButtons = document.querySelectorAll('.minus');
+  
+  if(plusButtons){
+    plusButtons.forEach((btn)=>{
+      btn.addEventListener('contextmenu', event => event.preventDefault());
+    } )
+  }
+
+  if(minusButtons){
+    plusButtons.forEach((btn)=>{
+      btn.addEventListener('contextmenu', event => event.preventDefault());
+    } )
+  }  
+}

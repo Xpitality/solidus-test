@@ -117,10 +117,14 @@
             fieldset {
               display: flex;
               align-items: flex-start;
-              justify-content: center;
-              flex-direction: column;
+              justify-content: flex-start;
+              flex-wrap: wrap;
+              @media (max-width: $small) {
+                flex-direction: column;
+              }
               img {
                 padding: 20px 0;
+                margin-right: 100%;
               }
               .field {
                 flex: 0 0 30%;
