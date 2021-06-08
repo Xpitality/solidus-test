@@ -79,11 +79,8 @@ const handleFilterForm = () => {
             filters.classList.remove("show");
           }
           clearInterval(hideAfterTime)
-        },1000)
-        const time = setInterval(function(){
-          Rails.fire(form, 'submit');
-        }, 1000);
-        clearInterval(time)
+        },400)
+        Rails.fire(form, 'submit');
         });
     }
   }
