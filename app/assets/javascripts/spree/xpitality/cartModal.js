@@ -17,16 +17,28 @@ const handleCartModal = () => {
 const preventRightClick = () =>{
   const plusButtons = document.querySelectorAll('.plus');
   const minusButtons = document.querySelectorAll('.minus');
+  const deleteButtons = document.querySelectorAll('.close-button');
   
-  if(plusButtons){
-    plusButtons.forEach((btn)=>{
-      btn.addEventListener('contextmenu', event => event.preventDefault());
-    } )
-  }
+  plusButtons.forEach(item=>{
+    item.addEventListener('contextmenu', event => {
+      event.preventDefault()
+      return false
+    });
+  })
+  minusButtons.forEach(item=>{
+    item.addEventListener('contextmenu', event => {
+      event.preventDefault()
+      return false
+    });
+  })
 
-  if(minusButtons){
-    plusButtons.forEach((btn)=>{
-      btn.addEventListener('contextmenu', event => event.preventDefault());
-    } )
-  }  
+  deleteButtons.forEach(item =>{
+    item.addEventListener('contextmenu', event => {
+      event.preventDefault()
+      return false
+    });
+  })
+  window.addEventListener("auxclick", (event) => {
+    if (event.button === 1) event.preventDefault();
+  });
 }
