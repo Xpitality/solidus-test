@@ -1686,7 +1686,7 @@ it:
         subtotal: 'Subtotale:'
         total: 'Totale Ordine:'
       confirm_email:
-        dear_customer: Ciao! Grazie dell’ordine
+        dear_customer: Ciao! Grazie dell’ordine.
         instructions: Qui di seguito trovi i dettagli del tuo ordine. Ci occuperemo presto di spedirlo e ti manderemo la conferma della spedizione.
         order_summary: Riassunto Ordine
         subject: Conferma Ordine

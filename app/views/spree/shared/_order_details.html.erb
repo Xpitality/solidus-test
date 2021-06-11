@@ -41,7 +41,6 @@
   <% end %>
 </div>
 
-<hr/>
 <% if showTableDetails %>
   <table id='line-items' class="index columns alpha omega sixteen" data-hook="order_details">
     <col width="15%" valign="middle" halign="center">
@@ -59,9 +58,9 @@
     </tr>
     </thead>
 
-    <tbody data-hook>
+    <tbody data-hook class='order-tbody'>
     <% order.line_items.each do |item| %>
-      <tr data-hook="order_details_line_item_row">
+      <tr class="order-item-info" data-hook="order_details_line_item_row">
         <td data-hook="order_item_image">
           <%= link_to(render('spree/shared/image',
                              image: (item.variant.gallery.images.first || item.variant.product.gallery.images.first),
