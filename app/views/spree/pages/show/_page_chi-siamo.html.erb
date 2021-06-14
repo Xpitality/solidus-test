@@ -9,7 +9,44 @@
 
     <div class="content-holder">
       <div class="who-we-are-background"></div>
-      <%= render partial: 'spree/pages/show/social_and_about_us_content',locals:{has_emergency: false, has_info_mail:false} %>
+
+      <div class="content-top">
+        <div class="col col-left">
+          <div class="img-holder">
+            <%= image_tag("home/who_we_are.png") %>
+          </div>
+          <div class="text-holder">
+            <p class="text"><%= t("store.home.who_we_are.text") %></p>
+          </div>
+        </div>
+        <div class="col col-right who_we_are_position">
+          <h2><%= t("store.shared.footer.info.contacts") %></h2>
+          <p>
+            <%= t("store.shared.footer.contact.write_us") %>
+            <% if store_email %>
+              <a class="info-mail" href="mailto:<%= store_email %>"><%= store_email %></a>
+            <% end %>
+
+            <br>
+            <%= t("store.home.who_we_are.write_as") %>
+            <% if store_instagram %>
+              <%= link_to "@#{store_instagram.to_s.split("/").last}", store_instagram %>
+            <% end %>
+          </p>
+          <div class="social">
+            <% if store_instagram %>
+              <%= link_to store_instagram, target: :_blank do %>
+                <%= image_tag("icons/social/icon-instagram-white.svg") %>
+              <% end %>
+            <% end %>
+            <% if store_facebook %>
+              <%= link_to store_facebook, target: :_blank do %>
+                <%= image_tag("icons/social/icon-facebook-white.svg") %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
