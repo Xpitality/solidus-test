@@ -165,7 +165,18 @@ module Spree
         @order.errors.add(:base, error.record.errors.full_messages.join(", "))
       end
 
-      render :update_cart
+      respond_with(@order) do |format|
+        format.html do
+          if @order.errors.any?
+            redirect_to cart_path, flash: { error: @order.errors.messages }
+          else
+            redirect_to cart_path
+          end
+        end
+        format.js do
+          render :update_cart
+        end
+      end
     end
 
     def refresh
