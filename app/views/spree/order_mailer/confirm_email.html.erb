@@ -13,7 +13,7 @@
   .cell-text{
     text-align: center;
   }
-  .summery-title{
+  .summary-title{
     font-weight: bold;
   }
   .products-end{
@@ -59,7 +59,7 @@
         <% end %>
         <tr class="products-end"></tr>
         <tr>
-          <td class='summery-title'>
+          <td class='summary-title'>
             <%= t('.subtotal') %>
           </td>
           <td></td>
@@ -72,7 +72,7 @@
           <% if @order.all_adjustments.promotion.eligible.exists? %>
             <% @order.all_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
               <tr>
-                <td class='summery-title'><%= t('spree.promotion') %> <%= label %>:</td>
+                <td class='summary-title'><%= t('spree.promotion') %> <%= label %>:</td>
                 <td></td>
                 <td></td>
                 <td class="cell-text"><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></td>
@@ -82,7 +82,7 @@
         <% end %>
         <% @order.shipments.group_by { |s| s.selected_shipping_rate.try(:name) }.each do |name, shipments| %>
           <tr>
-            <td class='summery-title'><%= t('spree.shipping') %> <%= name %>:</td>
+            <td class='summary-title'><%= t('spree.shipping') %> <%= name %>:</td>
             <td></td>
             <td></td>
             <td class="cell-text"><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: @order.currency) %></td>
@@ -91,7 +91,7 @@
         <% if @order.all_adjustments.eligible.tax.exists? %>
           <% @order.all_adjustments.eligible.tax.group_by(&:label).each do |label, adjustments| %>
             <tr>
-              <td class='summery-title'><%= t('spree.tax') %> <%= label %>:</td>
+              <td class='summary-title'><%= t('spree.tax') %> <%= label %>:</td>
               <td></td>
               <td></td>
               <td class="cell-text"><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></td>
@@ -101,14 +101,14 @@
         <% @order.adjustments.eligible.each do |adjustment| %>
           <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
           <tr>
-            <td class='summery-title'><%= adjustment.label %>:</td>
+            <td class='summary-title'><%= adjustment.label %>:</td>
             <td></td>
             <td></td>
             <td class="cell-text"><%= adjustment.display_amount %></td>
           </tr>
         <% end %>
         <tr>
-          <td class='summery-title'>
+          <td class='summary-title'>
             <%= t('.total') %>
           </td>
           <td></td>
