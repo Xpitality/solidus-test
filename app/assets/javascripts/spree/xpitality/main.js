@@ -1,12 +1,12 @@
 window.addEventListener("load", () => {
-    handleCartModal();
-    handleHeader();
-    handleSwiper();
-    handleProfile();
-    handleToggleForm();
-    handlePriceSlider();
-    handleFilterOptions();
-    goOnTopOnReaload();
-    handleSeeMoreOptions();
-    preventRightClickOnNewlyAddedToDOM();
+  handleCartModal();
+  preventRightClickOnCartModal();
+  handleHeader();
+  handleSwiper();
+  handleProfile();
+  handleToggleForm();
+  handlePriceSlider();
+  handleFilterOptions();
+  goOnTopOnReaload();
+  handleSeeMoreOptions();
 });
