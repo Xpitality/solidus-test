@@ -9,4 +9,5 @@ window.addEventListener("load", () => {
   goOnTopOnReaload();
   handleSeeMoreOptions();
   preventRightClick();
+  detectDomChanges();
 });

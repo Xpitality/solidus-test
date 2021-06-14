@@ -35,7 +35,7 @@
       <% if line_item.quantity == 1 %>
         <span class="btn btn-control-cart disabled">-</span>
       <% else %>
-        <%= link_to minus_orders_path(id: variant.id), remote: true do %>
+        <%= link_to minus_orders_path(id: variant.id), remote: true, class: 'minus-btn' do %>
           <span class="btn btn-control-cart minus">-</span>
         <% end %>
       <% end %>
@@ -45,7 +45,7 @@
       <% if line_item.quantity >= max_product_quantity(variant) %>
         <span class="btn btn-control-cart disabled">+</span>
       <% else %>
-        <%= link_to plus_orders_path(id: variant.id), remote: true do %>
+        <%= link_to plus_orders_path(id: variant.id), remote: true, class: 'plus-btn' do %>
           <span class="btn btn-control-cart plus">+</span>
         <% end %>
       <% end %>
