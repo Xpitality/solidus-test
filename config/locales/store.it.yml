@@ -170,3 +170,5 @@ it:
         my_orders: I miei ordini
         favourites: I miei prodotti preferiti
         saved_address: Indirizzi salvati
+    errors:
+      product_not_found: Product not found

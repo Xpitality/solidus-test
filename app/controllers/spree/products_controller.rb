@@ -4,7 +4,6 @@ require 'xpitality/core/search/base'
 
 module Spree
   class ProductsController < Spree::StoreController
-    before_action :load_product, only: :show
     before_action :load_taxon, only: [:index, :filter]
     skip_forgery_protection only: :filter
 
@@ -30,6 +29,7 @@ module Spree
     end
 
     def show
+      load_product
       @variants = @product.
         variants_including_master.
         display_includes.
@@ -38,6 +38,8 @@ module Spree
 
       @product_properties = @product.product_properties.includes(:property)
       @taxon = Spree::Taxon.find(params[:taxon_id]) if params[:taxon_id]
+    rescue ActiveRecord::RecordNotFound
+      redirect_to products_path, flash: { error: I18n.t('store.errors.product_not_found') }
     end
 
     private
