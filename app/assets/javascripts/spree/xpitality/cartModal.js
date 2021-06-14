@@ -19,8 +19,7 @@ const preventRightClickOnNewlyAddedToDOM = () => {
         const plusButtons = document.querySelectorAll('.plus');
         const minusButtons = document.querySelectorAll('.minus');
         const deleteButtons = document.querySelectorAll('.delete');
-        const plusButtonsLinks = document.querySelectorAll('.plus-btn');
-        const minusButtonsLinks = document.querySelectorAll('.minus-btn');
+
         plusButtons.forEach(item => {
             item.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
@@ -32,16 +31,6 @@ const preventRightClickOnNewlyAddedToDOM = () => {
             }, false);
         })
         deleteButtons.forEach(item => {
-            item.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-            }, false);
-        })
-        plusButtonsLinks.forEach(item => {
-            item.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-            }, false);
-        })
-        minusButtonsLinks.forEach(item => {
             item.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
             }, false);
