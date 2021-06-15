@@ -14,7 +14,7 @@ const handleCartModal = () => {
         cartModal.classList.remove("show");
     })
 };
-const preventRightClickOnNewlyAddedToDOM = () => {
+const preventRightClickOnCartModal = () => {
     document.addEventListener("DOMNodeInserted", function(e) {
         const plusButtons = document.querySelectorAll('.plus');
         const minusButtons = document.querySelectorAll('.minus');
