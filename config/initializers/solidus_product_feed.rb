@@ -3,6 +3,8 @@ SolidusProductFeed.configure do |config|
   config.link = 'https://www.enotecanaturale.it'
   config.description = 'La selezione più croccante di vini naturali, on-line e al nostro bancone'
   config.language = 'it'
+
+  config.feed_product_class = 'Xpitality::FeedProduct'
 end
 
 # SolidusProductFeed.configure do |config|
