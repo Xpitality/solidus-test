@@ -114,6 +114,7 @@ Spree.config do |config|
   )
 
   config.searcher_class = 'Xpitality::Core::Search::Base'
+  config.variant_vat_prices_generator_class = 'Spree::Variant::CustomVatPriceGenerator'
 
   config.allow_guest_checkout = false
 end
