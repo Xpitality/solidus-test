@@ -720,7 +720,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_114209) do
     t.string "approver_name"
     t.boolean "frontend_viewable", default: true, null: false
     t.datetime "abandoned_cart_email_sent_at"
-    t.string "fiscal_code", null: false
+    t.string "fiscal_code"
     t.index ["approver_id"], name: "index_spree_orders_on_approver_id"
     t.index ["bill_address_id"], name: "index_spree_orders_on_bill_address_id"
     t.index ["completed_at"], name: "index_spree_orders_on_completed_at"
