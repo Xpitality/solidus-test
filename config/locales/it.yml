@@ -115,6 +115,7 @@ it:
         coupon_code: Codice Coupon
         created_at: Data Ordine
         email: E-mail Cliente
+        fiscal_code: Codice Fiscale
         included_tax_total: Tasse (incl.)
         ip_address: Indirizzo IP
         item_total: Totale Articoli

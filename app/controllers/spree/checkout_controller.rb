@@ -93,19 +93,19 @@ module Spree
       case params[:state].to_sym
       when :address
         massaged_params.require(:order).permit(
-          permitted_checkout_address_attributes
+          permitted_checkout_address_attributes + [:fiscal_code]
         )
       when :delivery
         massaged_params.require(:order).permit(
-          permitted_checkout_delivery_attributes
+          permitted_checkout_delivery_attributes + [:fiscal_code]
         )
       when :payment
         massaged_params.require(:order).permit(
-          permitted_checkout_payment_attributes
+          permitted_checkout_payment_attributes + [:fiscal_code]
         )
       else
         massaged_params.fetch(:order, {}).permit(
-          permitted_checkout_confirm_attributes
+          permitted_checkout_confirm_attributes + [:fiscal_code]
         )
       end
     end
