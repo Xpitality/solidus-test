@@ -18,7 +18,7 @@ module Spree
 
       def validate_each(record, attribute, value)
         unless cf_is_valid?(value)
-          record.errors[attribute] << (options[:message] || "Italian fiscal code not valid")
+          record.errors[attribute] << (options[:message] || "Italian fiscal code not valid or underage")
         end
       end
 
@@ -27,8 +27,19 @@ module Spree
       def cf_is_valid?(str)
         return false unless str
         str.upcase!
-        return false unless str =~ FORMAT
+        if str !=~ FORMAT || underage?($2, $3, $4)
+          return false
+        end
         true
+      end
+
+      def underage?(year, month, day)
+        if year.to_i < 30
+          year = "20#{year}"
+        else
+          year = "19#{year}"
+        end
+        ((Date.today - Date.parse("#{day}-#{month}-#{year}"))/365).to_i < 18
       end
     end
   end
