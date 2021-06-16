@@ -40,5 +40,9 @@ module SolidusTest
     config.time_zone = 'Rome'
 
     config.active_job.queue_adapter = :delayed_job
+
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+      r301 %r{^/(.*)/$}, '/$1'
+    end
   end
 end

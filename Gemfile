@@ -93,6 +93,8 @@ gem 'roo-xls'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
+gem 'rack-rewrite'
+
 group :staging, :production do
   gem 'fog-aws'
 end
