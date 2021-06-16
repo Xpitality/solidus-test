@@ -17,19 +17,19 @@ module Xpitality
         # end
 
         def new_products(taxon_new = nil)
-          Spree::Product.new_products(taxon_new).descend_by_updated_at
+          Spree::Product.new_products(taxon_new, limit: 12)
         end
 
         def producer_products(producer_taxon)
-          Spree::Product.producer_products(producer_taxon).descend_by_updated_at
+          Spree::Product.producer_products(producer_taxon, limit: 2)
         end
 
         def collection_products(collection_taxon)
-          Spree::Product.collection_products(collection_taxon).descend_by_updated_at
+          Spree::Product.collection_products(collection_taxon, limit: 2)
         end
 
-        def featured_collection_products
-          Spree::Product.featured_collection_products.descend_by_updated_at
+        def home_products
+          Spree::Product.display_includes.available.descend_by_updated_at.limit(12)
         end
 
         protected
