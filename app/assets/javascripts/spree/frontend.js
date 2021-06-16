@@ -14,3 +14,4 @@
 //= require spree/xpitality/priceSlider
 //= require spree/xpitality/descriptionSeeAll
 //= require spree/xpitality/reloadOfPage
+//= require spree/xpitality/fiscalCode
