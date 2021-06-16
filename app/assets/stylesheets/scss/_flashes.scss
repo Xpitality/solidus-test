@@ -1,54 +1,75 @@
-.flash{
-  padding: 10px;
-  margin-bottom: 10px;
-  &.alert{
-    background-color: #fff9ef;
-    color: #ffc937;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: "Roboto";
-  }
-  &.notice{
-    background-color: #d9edf7;
-    color: #317499;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: "Roboto";
-  }
-  &.error{
-    background-color: #f2dede;
-    color: #ac5d65;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: "Roboto";
-  }
-  &.success {
-    background-color: #dff0d8;
-    color: #3c7e65;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: "Roboto";
-  }
-  &.added_to_cart{
-    // this flash is used for SEO purposes, the text should be present but not visible (the color should match the background color
-    color: white;
-  }
+.flash {
+    padding: 10px;
+    margin-bottom: 10px;
+    &.alert {
+        background-color: #fff9ef;
+        color: #ffc937;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: "Roboto";
+    }
+    &.notice {
+        background-color: #d9edf7;
+        color: #317499;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: "Roboto";
+    }
+    &.error {
+        background-color: #f2dede;
+        color: #ac5d65;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: "Roboto";
+    }
+    &.success {
+        background-color: #dff0d8;
+        color: #3c7e65;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: "Roboto";
+    }
+    &.added_to_cart {
+        // this flash is used for SEO purposes, the text should be present but not visible (the color should match the background color
+        color: white;
+    }
 }
 
-.field_with_errors{
-  input:invalid{
-    border: 1px solid #ff3860
-  }
+.field_with_errors {
+    input:invalid {
+        border: 1px solid #ff3860
+    }
 }
-#billing,#shipping,#new_spree_user,#new_spree_user1{
-  input:invalid{
-    border: 1px solid #ff3860
-  }
-  select:invalid{
-    border: 1px solid #ff3860
-  }
+
+#billing,
+#shipping,
+#new_spree_user,
+#new_spree_user1 {
+    input:invalid {
+        border: 1px solid #ff3860
+    }
+    select:invalid {
+        border: 1px solid #ff3860
+    }
+}
+
+.errorExplanation {
+    background-color: #f2dede;
+    padding: 10px;
+    margin-bottom: 20px;
+    p {
+        color: #ac5d65;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    ul {
+        list-style: none;
+        li {
+            color: #ac5d65;
+        }
+    }
 }
