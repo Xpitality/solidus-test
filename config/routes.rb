@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   mount SolidusPaypalCommercePlatform::Engine, at: '/solidus_paypal_commerce_platform'
   mount Spree::Core::Engine, at: '/'
   mount Alchemy::Engine => '/alchemy/'
+
+  match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: {subdomain: 'www'}
 end
 
 Spree::Core::Engine.routes.draw do
