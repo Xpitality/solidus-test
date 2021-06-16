@@ -1,3 +1,4 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
 
 <fieldset id="billing" data-hook>
   <%= form.fields_for :bill_address, class: 'address-form' do |bill_form| %>
