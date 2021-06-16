@@ -108,7 +108,7 @@
       <div class="form-col">
         <div class="input-holder" %>
           <%= parent_form.label :fiscal_code %><br/>
-          <%= parent_form.text_field :fiscal_code, required: true %>
+          <%= parent_form.text_field :fiscal_code, required: form.object&.country&.iso == 'IT' %>
         </div>
       </div>
     </div>

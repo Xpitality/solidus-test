@@ -27,9 +27,8 @@ module Spree
       def cf_is_valid?(str)
         return false unless str
         str.upcase!
-        if str !=~ FORMAT || underage?($2, $3, $4)
-          return false
-        end
+        return false unless str =~ FORMAT
+        return false if underage?($2, $3, $4)
         true
       end
 
@@ -39,7 +38,39 @@ module Spree
         else
           year = "19#{year}"
         end
-        ((Date.today - Date.parse("#{day}-#{month}-#{year}"))/365).to_i < 18
+        case month
+          when 'A'
+            month = "01"
+          when 'B'
+            month = "02"
+          when 'C'
+            month = "03"
+          when 'D'
+            month = "04"
+          when 'E'
+            month = "05"
+          when 'H'
+            month = "06"
+          when 'L'
+            month = "07"
+          when 'M'
+            month = "08"
+          when 'P'
+            month = "09"
+          when 'R'
+            month = "10"
+          when 'S'
+            month = "11"
+          when 'T'
+            month = "12"
+          else
+            month = "01"
+        end
+        if day.to_i > 31
+          day = day.to_i - 40
+          day = "0#{day}" if day < 10
+        end
+        ((Date.today - Date.parse("#{day}-#{month}-#{year}")) / 365).to_i < 18
       end
     end
   end
