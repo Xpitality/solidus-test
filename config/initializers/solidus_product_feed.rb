@@ -1,6 +1,6 @@
 SolidusProductFeed.configure do |config|
   config.title = 'e/n enoteca naturale'
-  config.link = 'https://www.enotecanaturale.it'
+  config.link = 'https://enotecanaturale.it'
   config.description = 'La selezione più croccante di vini naturali, on-line e al nostro bancone'
   config.language = 'it'
 
