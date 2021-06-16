@@ -765,6 +765,9 @@ it:
       not_saved:
         one: '1 errore ha impedito di salvare %{resource}:'
         other: "%{count} errori hanno impedito di salvare %{resource}:"
+      fiscal_code:
+        wrong_format: "invalid format"
+        underage: "underage"
   spree:
     abbreviation: Abbreviazione
     accept: Accetta

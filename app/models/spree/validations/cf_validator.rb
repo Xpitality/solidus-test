@@ -17,8 +17,10 @@ module Spree
       FORMAT = /#{FORMAT_NO_CHECK_DIGIT}([A-Z])/
 
       def validate_each(record, attribute, value)
-        unless cf_is_valid?(value)
-          record.errors[attribute] << (options[:message] || "Italian fiscal code not valid or underage")
+        if !cf_is_valid?(value)
+          record.errors[attribute] << I18n.t('errors.messages.fiscal_code.wrong_format')
+        elsif underage?(value)
+          record.errors[attribute] << I18n.t('errors.messages.fiscal_code.underage')
         end
       end
 
@@ -28,17 +30,17 @@ module Spree
         return false unless str
         str.upcase!
         return false unless str =~ FORMAT
-        return false if underage?($2, $3, $4)
         true
       end
 
-      def underage?(year, month, day)
-        if year.to_i < 30
-          year = "20#{year}"
+      def underage?(str)
+        str =~ FORMAT
+        if $2.to_i < 30
+          year = "20#{$2}"
         else
-          year = "19#{year}"
+          year = "19#{$2}"
         end
-        case month
+        case $3
           when 'A'
             month = "01"
           when 'B'
@@ -66,6 +68,7 @@ module Spree
           else
             month = "01"
         end
+        day = $4
         if day.to_i > 31
           day = day.to_i - 40
           day = "0#{day}" if day < 10
