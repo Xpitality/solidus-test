@@ -1,25 +1,25 @@
 Spree::Product.class_eval do
 
   class << self
-    def new_products(taxon_new)
+    def new_products(taxon_new, limit: nil, order: 'DESC')
       taxon_new ||= Spree::Taxon.find_by_key(:new)
-      self.products_for_taxon(taxon: taxon_new, limit: 4)
+      self.products_for_taxon(taxon: taxon_new, limit: limit, order: order)
     end
 
-    def producer_products(producer_taxon)
-      self.products_for_taxon(taxon: producer_taxon)
+    def producer_products(producer_taxon, limit: nil, order: 'DESC')
+      self.products_for_taxon(taxon: producer_taxon, limit: limit, order: order)
     end
 
-    def collection_products(collection_taxon)
-      self.products_for_taxon(taxon: collection_taxon)
+    def collection_products(collection_taxon, limit: nil, order: 'DESC')
+      self.products_for_taxon(taxon: collection_taxon, limit: limit, order: order)
     end
 
     def products_for_taxon(taxon:, limit: nil, order: 'DESC')
       if taxon
         if limit
-          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}").limit(limit)
+          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("updated_at #{order}").limit(limit)
         else
-          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}")
+          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("updated_at #{order}")
         end
       else
         Spree::Product.where('0=1')
@@ -92,7 +92,6 @@ Spree::Product.class_eval do
     tree.reverse!
     tree[Spree::Taxon.tree[taxonomy].index(key)]
   end
-
 
 
 end
