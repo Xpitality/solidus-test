@@ -17,9 +17,9 @@ Spree::Product.class_eval do
     def products_for_taxon(taxon:, limit: nil, order: 'DESC')
       if taxon
         if limit
-          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("updated_at #{order}").limit(limit)
+          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}").limit(limit)
         else
-          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("updated_at #{order}")
+          Spree::Product.joins(:taxons).where(Spree::Taxon.table_name => { id: taxon.id }).available.order("created_at #{order}")
         end
       else
         Spree::Product.where('0=1')
