@@ -3,10 +3,10 @@
     $('.infinite-scroll-container').infinitePages({
       // debug: true,
       loading: function () {
-        return $(this).text('Loading next page...');
+        return $(this).text('Caricamento altri prodotti...');
       },
       error: function () {
-        return $(this).button('There was an error, please try again');
+        return $(this).button('Si è verificato un errore, ti preghiamo di riprovare.');
       }
     });
   });
