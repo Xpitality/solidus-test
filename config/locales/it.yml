@@ -1734,7 +1734,7 @@ it:
     overview: Panoramica
     package_from: pacco da
     pagination:
-      next_page: pagina successiva &raquo;
+      next_page: pagina successiva >>
       previous_page: "&laquo; pagina precedente"
       truncate: "&hellip;"
     password: Password
