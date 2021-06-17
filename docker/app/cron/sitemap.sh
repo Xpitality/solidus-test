@@ -1,3 +1,2 @@
 #!/bin/bash
-bundle exec rake sitemap:refresh
-echo "Refreshed sitemap"
+cd /app && bundle exec rake sitemap:refresh &> /dev/null && echo "Refreshed sitemap"
