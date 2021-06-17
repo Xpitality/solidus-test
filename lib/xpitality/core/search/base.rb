@@ -17,7 +17,7 @@ module Xpitality
         # end
 
         def new_products(taxon_new = nil)
-          Spree::Product.new_products(taxon_new, limit: 12)
+          Spree::Product.new_products(taxon_new, limit: 4)
         end
 
         def producer_products(producer_taxon)
@@ -25,7 +25,7 @@ module Xpitality
         end
 
         def collection_products(collection_taxon)
-          Spree::Product.collection_products(collection_taxon, limit: 2)
+          Spree::Product.collection_products(collection_taxon, limit: 4)
         end
 
         def home_products
