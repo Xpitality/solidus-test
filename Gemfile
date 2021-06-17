@@ -95,8 +95,6 @@ gem 'daemons'
 
 gem 'rack-rewrite'
 
-gem 'whenever', require: false
-
 group :staging, :production do
   gem 'fog-aws'
 end
