@@ -5,7 +5,7 @@ set -e
 touch /etc/crontab /etc/cron.*/*
 
 # Setup a cron schedule
-echo "30 15 * * * /app/docker/app/cron/sitemap.sh >> /var/log/cron.log 2>&1
+echo "5 * * * * /app/docker/app/cron/sitemap.sh >> /var/log/cron.log 2>&1
 # This extra line makes it a valid cron" > /app/docker/app/crontab.txt
 
 crontab /app/docker/app/crontab.txt
