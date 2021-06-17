@@ -15,3 +15,5 @@
 //= require spree/xpitality/descriptionSeeAll
 //= require spree/xpitality/reloadOfPage
 //= require spree/xpitality/fiscalCode
+//= require spree/vendor/jquery.infinite-pages
+//= require spree/xpitality/infinite_products

@@ -10,7 +10,7 @@
 
   <div data-hook="homepage_products" class="all-available-products">
     <%# cache(cache_key_for_products) do %>
-      <%= render partial: 'spree/shared/products', locals: { products: @products, hide_pagination: true } %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products } %>
     <%# end %>
   </div>
   <div class="products-button-holder">

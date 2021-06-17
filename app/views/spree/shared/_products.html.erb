@@ -4,14 +4,14 @@
 %>
 
 <% content_for :head do %>
-  <% if (!defined?(hide_pagination) || !hide_pagination) && paginated_products.respond_to?(:total_pages) %>
+  <% if paginated_products.respond_to?(:total_pages) %>
     <%= rel_next_prev_link_tags paginated_products %>
   <% end %>
 <% end %>
 
 <div class="container">
   <div data-hook="products_search_results_heading">
-    <% if products.empty? %>
+    <% if paginated_products.empty? %>
       <div data-hook="products_search_results_heading_no_results_found">
         <%= t('spree.no_products_found') %>
       </div>
@@ -23,26 +23,26 @@
   </div>
 </div>
 
-<div class="container">
-  <% if products.any? %>
+<div class="container infinite-scroll-container">
+  <% if paginated_products.any? %>
 
     <div class="products-holder">
-      <% products.each do |product| %>
-        <div class="product-col">
-          <%# cache(@taxon.present? ? [I18n.locale, :products, current_pricing_options, @taxon, product] : [I18n.locale, :products, current_pricing_options, product]) do %>
-            <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'zoom-effect'} %>
-          <%# end %>
-        </div>
-      <% end %>
-      <% reset_cycle("classes") %>
+      <%= render partial: 'spree/shared/product_cards', locals: { products: paginated_products } %>
+
     </div>
+
+    <% if paginated_products.respond_to?(:total_pages) %>
+      <p class="pagination">
+        <%= link_to_next_page(paginated_products, t('spree.pagination.next_page'), remote: true) %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
 
-<% if (!defined?(hide_pagination) || !hide_pagination) && paginated_products.respond_to?(:total_pages) %>
-  <div class="container">
-    <%= paginate paginated_products %>
-  </div>
-<% end %>
+<%# if paginated_products.respond_to?(:total_pages) %>
+<!--  <div class="container">-->
+    <%#= paginate paginated_products %>
+<!--  </div>-->
+<%# end %>
 <% jsonld_list(products) %>

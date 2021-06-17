@@ -1,0 +1,14 @@
+<%
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+  paginated_products ||= @products
+%>
+// Append new data
+$("<%=j render(partial: 'spree/shared/product_cards', locals: { products: paginated_products }) %>")
+  .appendTo($(".products-holder"));
+
+// Update pagination link
+<% if paginated_products.last_page? %>
+  $('.pagination').html("");
+<% else %>
+  $('.pagination').html("<%=j link_to_next_page(paginated_products, t('spree.pagination.next_page'), remote: true) %>");
+<% end %>
