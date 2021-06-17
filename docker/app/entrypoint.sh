@@ -2,10 +2,14 @@
 set -e
 
 # Fix link-count, as cron is being a pain, and docker is making hardlink count >0 (very high)
-touch /etc/crontab /etc/cron.*/*
+#touch /etc/crontab /etc/cron.*/*
+
+declare -p | grep -Ev 'BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID' > /app/docker/app/container.env
 
 # Setup a cron schedule
-echo "5 * * * * /app/docker/app/cron/sitemap.sh >> /var/log/cron.log 2>&1
+echo "SHELL=/bin/bash
+BASH_ENV=/app/docker/app/container.env
+*/5 * * * * /app/docker/app/cron/sitemap.sh >> /var/log/cron.log 2>&1
 # This extra line makes it a valid cron" > /app/docker/app/crontab.txt
 
 crontab /app/docker/app/crontab.txt
