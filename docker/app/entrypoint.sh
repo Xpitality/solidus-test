@@ -13,7 +13,8 @@ BASH_ENV=/app/docker/app/container.env
 # This extra line makes it a valid cron" > /app/docker/app/crontab.txt
 
 crontab /app/docker/app/crontab.txt
-cron -f
+service cron start
+#cron -f
 
 # Remove a potentially pre-existing server.pid for Rails.
 if [ -f "/app/tmp/pids/server.pid" ] ; then
