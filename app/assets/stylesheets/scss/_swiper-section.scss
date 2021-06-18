@@ -1,26 +1,29 @@
 .swiper-section {
-  .swiper-title {
-    font-family: "chainprinter", sans-serif;
-    margin-bottom: 30px;
-  }
-  .swiper-container {
-    .swiper-navigation {
-      position: absolute;
-      top: 50%;
-      left: 1px;
-      transform: translateY(-50%);
-      width: calc(100% - 2px);
-      z-index: 1;
-      display: flex;
-      justify-content: space-between;
-      cursor: pointer;
-      .swiper-button {
-        padding: 14px;
-        background: $white;
-        -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 1);
-        -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 1);
-        box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 1);
-      }
+    .swiper-title {
+        font-family: "chainprinter", sans-serif;
+        margin-bottom: 30px;
     }
-  }
+    .swiper-container {
+        .swiper-navigation {
+            position: absolute;
+            top: 50%;
+            left: 1px;
+            transform: translateY(-50%);
+            width: calc(100% - 2px);
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            .swiper-button {
+                padding: 14px;
+                background: $white;
+                -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 1);
+                -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 1);
+                box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 1);
+            }
+            @media (max-width: $small) {
+                display: none;
+            }
+        }
+    }
 }
