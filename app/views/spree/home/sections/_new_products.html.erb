@@ -11,30 +11,14 @@
         <%= link_to t("store.home.new_products.button"), seo_url(taxon_new), class: "btn btn-white-transparent" %>
       </div>
       <div class="col products-col">
-        <div class="swiper-section">
-          <!-- Slider main container -->
-          <div class="swiper-container">
-           <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-            <!-- Slides -->
-              <% Spree::Product.new_products(taxon_new, limit: 20).each do |product| %>
-                <div class="swiper-slide ">
-                  <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'new-product zoom-effect' } %>
-                </div>
-              <% end %>
-            </div>
-            <div class="swiper-navigation">
-            <!-- If we need navigation buttons -->
-              <div class="swiper-button swiper-button-prev">
-                <%= image_tag("icons/icon-chevron-left.svg") %>
-              </div>
-              <div class="swiper-button swiper-button-next">
-                <%= image_tag("icons/icon-chevron-right.svg") %>
-              </div>
+        <% products.each do |product| %>
+          <div class="product-wrapper">
+            <%= render partial: 'spree/shared/product_card', locals: { product: product, css_classes: 'new-product product-side zoom-effect' } %>
           </div>
-         </div>
-        </div>
+        <% end %>
       </div>
     </div>
-  <%# end %>
+  </div>
+</div>
+<%# end %>
 <% end %>
