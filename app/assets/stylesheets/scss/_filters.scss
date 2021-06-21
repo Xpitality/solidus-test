@@ -67,6 +67,15 @@
       @media (max-width: $mobileHeader) {
         flex-wrap: wrap;
       }
+      @media (max-width: 1499px){
+        width: 27%;
+      }
+      @media (min-width: 1500px){
+        width: 20%;
+      }
+      @media (min-width: 2000px){
+        width: 15%;
+      }
 
       @media (max-width: $small) {
         position: fixed;
@@ -220,7 +229,7 @@
           }
         }
 
-        @media (max-width: $mobileHeader) {
+        @media (max-width: $small) {
           display: flex;
         }
       }

@@ -91,7 +91,7 @@ const handleSideMenuScroll = () => {
   const filterMobileBtn = document.querySelector(".filters-mobile-btn-holder");
   const footer = document.querySelector("#footer");
 
-  function checkOffset() {
+  function checkOffsetFilterBar() {
     function getRectTop(el) {
       const rect = el.getBoundingClientRect();
       return rect.top;
@@ -106,28 +106,26 @@ const handleSideMenuScroll = () => {
     if (innerHeightArea < heightFromFooterToTop) {
       filtersBar.style.position = "fixed"; // restore when you scroll up
     }
-  }
+  };
   const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
   if (isMobile) {
     document.addEventListener("scroll", function() {
       if (window.scrollY <= 115) {
         filterMobileBtn.style.position = "relative";
         filterMobileBtn.style.width = "100%";
-      } else {
-        filterMobileBtn.style.position = "fixed";
+      } else {       
+        filterMobileBtn.style.position = "fixed"; // restore when you scroll up
         filterMobileBtn.style.width = "40%";
       }
     });
-  } else {
-    if (filtersBar) {
+  } else if (filtersBar) {
       document.addEventListener("scroll", function() {
-        checkOffset();
+        checkOffsetFilterBar();
         if (window.scrollY > 100) {
           filtersBar.style.top = "35%";
         } else {
           filtersBar.style.top = "inherit";
         }
       });
-    }
   }
 }
