@@ -3,6 +3,7 @@ const handleFilterOptions = () => {
   handleFiltersMobile();
   handleCountryCheck();
   handleFilterForm();
+  handleSideMenuScroll();
 };
 
 const handleFilters = () => {
@@ -85,3 +86,53 @@ const handleFilterForm = () => {
     }
   }
 };
+const handleSideMenuScroll = () => {
+  const filtersBar = document.querySelector(".filters");
+  const filterMobileBtn = document.querySelector(".filters-mobile-btn-holder");
+  const footer = document.querySelector("#footer");
+
+  function checkOffset() {
+    function getRectTop(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top;
+    }
+
+    if (
+      getRectTop(filtersBar) +
+        document.body.scrollTop +
+        filtersBar.offsetHeight >=
+      getRectTop(footer) + document.body.scrollTop - 10
+    ) {
+      filtersBar.style.position = "absolute";
+    }
+    if (
+      document.body.scrollTop + window.innerHeight <
+      getRectTop(footer) + document.body.scrollTop
+    ) {
+      filtersBar.style.position = "fixed"; // restore when you scroll up
+    }
+  }
+  const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    document.addEventListener("scroll", function () {
+      if (window.scrollY <= 115) {
+        filterMobileBtn.style.position = "relative";
+        filterMobileBtn.style.width = "100%";
+      } else {
+        filterMobileBtn.style.position = "fixed";
+        filterMobileBtn.style.width = "40%";
+      }
+    });
+  } else {
+    if (filtersBar) {
+      document.addEventListener("scroll", function () {
+        checkOffset();
+        if (window.scrollY > 100) {
+          filtersBar.style.top = "35%";
+        } else {
+          filtersBar.style.top = "inherit";
+        }
+      });
+    }
+  }
+}
