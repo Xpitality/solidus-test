@@ -3,6 +3,7 @@ const handleFilterOptions = () => {
   handleFiltersMobile();
   handleCountryCheck();
   handleFilterForm();
+  handleSideMenuScroll();
 };
 
 const handleFilters = () => {
@@ -72,16 +73,59 @@ const handleFilterForm = () => {
     const form = sidemenu.getElementsByTagName("form")[0];
     if (form) {
       sidemenu.addEventListener("change", () => {;
-        const hideAfterTime = setInterval(function(){
+        const hideAfterTime = setInterval(function() {
           const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
           const filters = document.querySelector(".filters");
           if (isMobile) {
             filters.classList.remove("show");
           }
           clearInterval(hideAfterTime)
-        },400)
+        }, 400)
         Rails.fire(form, 'submit');
-        });
+      });
     }
   }
 };
+const handleSideMenuScroll = () => {
+  const filtersBar = document.querySelector(".filters");
+  const filterMobileBtn = document.querySelector(".filters-mobile-btn-holder");
+  const footer = document.querySelector("#footer");
+
+  function checkOffsetFilterBar() {
+    function getRectTop(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top;
+    }
+    const heightOfFilterBar = getRectTop(filtersBar) + document.body.scrollTop + filtersBar.offsetHeight;
+    const heightOfAreaFromTopToFooter = getRectTop(footer) + document.body.scrollTop - 10;
+    const innerHeightArea = document.body.scrollTop + window.innerHeight;
+    const heightFromFooterToTop = getRectTop(footer) + document.body.scrollTop;
+    if (heightOfFilterBar >= heightOfAreaFromTopToFooter) {
+      filtersBar.style.position = "absolute";
+    }
+    if (innerHeightArea < heightFromFooterToTop) {
+      filtersBar.style.position = "fixed"; // restore when you scroll up
+    }
+  };
+  const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    document.addEventListener("scroll", function() {
+      if (window.scrollY <= 115) {
+        filterMobileBtn.style.position = "relative";
+        filterMobileBtn.style.width = "100%";
+      } else {       
+        filterMobileBtn.style.position = "fixed"; // restore when you scroll up
+        filterMobileBtn.style.width = "40%";
+      }
+    });
+  } else if (filtersBar) {
+      document.addEventListener("scroll", function() {
+        checkOffsetFilterBar();
+        if (window.scrollY > 100) {
+          filtersBar.style.top = "35%";
+        } else {
+          filtersBar.style.top = "inherit";
+        }
+      });
+  }
+}
