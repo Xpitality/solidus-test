@@ -9,12 +9,11 @@ declare -p | grep -Ev 'BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID' > /app/do
 # Setup a cron schedule
 echo "SHELL=/bin/bash
 BASH_ENV=/app/docker/app/container.env
-0 5 * * * /app/docker/app/cron/sitemap.sh >> /var/log/cron.log 2>&1
+0 * * * * /app/docker/app/cron/sitemap.sh >> /var/log/cron.log 2>&1
 # This extra line makes it a valid cron" > /app/docker/app/crontab.txt
 
 crontab /app/docker/app/crontab.txt
-service cron start
-#cron -f
+cron -f &
 
 # Remove a potentially pre-existing server.pid for Rails.
 if [ -f "/app/tmp/pids/server.pid" ] ; then
