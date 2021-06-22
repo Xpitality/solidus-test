@@ -15,6 +15,8 @@ BASH_ENV=/app/docker/app/container.env
 crontab /app/docker/app/crontab.txt
 cron -f &
 
+/app/docker/app/cron/sitemap.sh
+
 # Remove a potentially pre-existing server.pid for Rails.
 if [ -f "/app/tmp/pids/server.pid" ] ; then
     rm -f /app/tmp/pids/server.pid
