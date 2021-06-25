@@ -25,7 +25,7 @@ Spree::Core::Engine.routes.draw do
 
   get '/p/:id', to: 'pages#show'
 
-  post '/filter_products', to: 'products#filter'
+  match '/filter_products', to: 'products#filter', via: [:get, :post]
 
   resources :producers, only: :index
 
