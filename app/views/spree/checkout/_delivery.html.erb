@@ -44,23 +44,15 @@
                 <div class="row">
                   <%= t(method.name, scope: 'spree.shipping_rates', default: method.name) %>
                   <span class="rate-cost">
-                      <% if free_shipping?(ship_form.object.order) %>
-                        <%= Spree::Money.new(0.0, currency: ship_form.object.order.currency).to_html %>
-                      <% else %>
-                      <%= method.display_cost %>
-                        <% end %>
-                    </span>
+                    <%= method.display_cost %>
+                  </span>
                 </div>
                 <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first, required: true %>
                 <span class="checkmark"></span>
               </label>
-
             <% end %>
           </div>
-
-
         </div>
-
       <% end %>
 
       <% if @differentiator.try(:missing?) %>
@@ -110,7 +102,3 @@
 </fieldset>
 
 <br/>
-
-<!--<div class="form-buttons" data-hook="buttons">-->
-<%#= submit_tag t('spree.save_and_continue'), class: 'continue button primary' %>
-<!--</div>-->

@@ -11,15 +11,14 @@ module Spree
       if params[:coupon_code].present?
         @order.coupon_code = params[:coupon_code]
         handler = PromotionHandler::Coupon.new(@order).apply
+        @order.update_attribute(:state, 'payment') if @order.state == 'confirm'
 
         respond_with(@order) do |format|
           format.html do
             if handler.successful?
-              flash[:success] = handler.success
-              redirect_to cart_path
+              redirect_to checkout_path, flash: { success: handler.success }
             else
-              flash.now[:error] = handler.error
-              render 'spree/coupon_codes/new'
+              redirect_to checkout_path, flash: { error: handler.error }
             end
           end
         end

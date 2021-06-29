@@ -24,15 +24,30 @@
         </div>
         <% if @order.state != 'confirm' %>
           <div id="checkout-summary">
-            <%= render partial: 'spree/checkout/edit/summary', locals: { order: @order } %>
+            <div class="summary">
+
+              <%= render partial: 'spree/orders/shared/summary_prices', locals: { order: @order } %>
+
+              <%= submit_tag t('store.cart.cart_button'), class: 'btn btn-primary btn-to-checkout checkout primary', id: 'checkout-link', name: 'checkout' %>
+            </div>
           </div>
         <% end %>
       <% end %>
+
+      <% if @order.state == 'payment' %>
+        <div class="code-holder">
+          <p class="code-title">
+            <%= t('store.cart.cart_info_code') %>
+          </p>
+          <%= render partial: 'spree/coupon_codes/coupon_code', locals: { order: @order } %>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
 
 <script>
-  Spree.current_order_id = "<%= @order.number %>"
+  Spree.current_order_id = "<%= @order.number %>";
   Spree.current_order_token = "<%= @order.guest_token %>"
 </script>

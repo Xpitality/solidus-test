@@ -1,0 +1,87 @@
+<div class="info-holder">
+  <p class="info-title">
+    <%= t('store.cart.cart_info_title') %>
+  </p>
+  <div class="info-prices">
+    <div class="price-row">
+      <div class="text-holder">
+        <p>
+          <%= t('store.cart.cart_info_subtotal') %>
+        </p>
+      </div>
+      <p class="price"><%= order.display_item_total.to_html %></p>
+    </div>
+
+    <% if order.line_item_adjustments.nonzero.exists? %>
+      <% order.line_item_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+        <div class="price-row">
+          <div class="text-holder">
+            <p><%= label %></p>
+          </div>
+          <p class="price"><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% order.all_adjustments.nonzero.tax.eligible.group_by(&:label).each do |label, adjustments| %>
+      <div class="price-row">
+        <div class="text-holder">
+          <p><%= label %></p>
+        </div>
+        <p class="price"><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html %></p>
+      </div>
+    <% end %>
+
+    <% if order.passed_checkout_step?("delivery") && order.shipments.any? %>
+      <div class="price-row">
+        <div class="text-holder">
+          <p>
+            <%= t('store.cart.cart_info_shipping') %>
+          </p>
+        </div>
+        <p class="price"><%= Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency).to_html %></p>
+      </div>
+
+      <% if order.shipment_adjustments.nonzero.exists? %>
+        <% order.shipment_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+          <div class="price-row">
+            <div class="text-holder">
+              <p><%= label %></p>
+            </div>
+            <p class="price"><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html %></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if order.adjustments.nonzero.eligible.exists? %>
+      <% order.adjustments.nonzero.eligible.each do |adjustment| %>
+        <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
+        <div class="price-row">
+          <div class="text-holder">
+            <p><%= adjustment.label %></p>
+          </div>
+          <p class="price"><%= adjustment.display_amount.to_html %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if order.total_applicable_store_credit > 0.0 %>
+      <div class="price-row">
+        <div class="text-holder">
+          <p><%= t('spree.store_credit.store_credit') %></p>
+        </div>
+        <p class="price"><%= order.display_total_applicable_store_credit.to_html %></p>
+      </div>
+    <% end %>
+
+    <div class="price-row total-row">
+      <div class="text-holder">
+        <p>
+          <%= t('store.cart.cart_info_total') %>
+        </p>
+      </div>
+      <p class="price"><%= order.display_order_total_after_store_credit.to_html %></p>
+    </div>
+  </div>
+</div>
