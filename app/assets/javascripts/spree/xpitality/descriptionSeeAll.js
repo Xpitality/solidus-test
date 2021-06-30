@@ -1,7 +1,6 @@
 const handleSeeMoreOptions = () => {
   seeMoreProducerPage();
   seeMoreSinglePage();
-  cutHiddenPartOfCard();
 };
 const seeMoreProducerPage = () => {
   const maxCharacters = 930;
@@ -35,13 +34,5 @@ const seeMoreSinglePage = () =>{
         seeMore.style.display = "none";
       });
     }
-  }
-}
-const cutHiddenPartOfCard = () =>{
-  const cardnumber = document.querySelectorAll('.card-number-c');
-  if(cardnumber){
-    cardnumber.forEach((card)=>{
-      card.innerHTML = card.innerHTML.slice(15,20)
-    })
   }
 }
