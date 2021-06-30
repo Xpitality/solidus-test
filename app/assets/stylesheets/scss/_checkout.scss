@@ -124,8 +124,8 @@
                 flex-direction: column;
               }
               img {
-                padding: 20px 0;
                 margin-right: 100%;
+                margin-bottom: 24px;
               }
               .field {
                 flex: 0 0 30%;
@@ -135,9 +135,9 @@
                 justify-content: flex-start;
                 flex-direction: column;
                 width: 100%;
-                margin-top: 10px;
+                margin-top: 16px;
                 label {
-                  margin-bottom: 10px;
+                  margin-bottom: 16px;
                   font-size: 14px;
                 }
                 input {
@@ -170,7 +170,7 @@
           }
         }
       }
-      form {
+      .edit_order {
         display: flex;
         @media (max-width: $small) {
           flex-direction: column;
@@ -293,7 +293,10 @@
   .step-three-title {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
+  }
+  #payment-method-fields{
+    margin-bottom: 24px;
   }
   .radio-container {
     max-width: 70%;
