@@ -9,5 +9,7 @@
     <%= image_tag image_url, { itemprop: itemprop }.merge(options) %>
   <% end %>
 <% else %>
-  <span class="image-placeholder <%= size %>"></span>
+  <span class="image-placeholder <%= size %>">
+    <%= image_tag("product/product-placeholder.jpg") %>
+  </span>
 <% end %>

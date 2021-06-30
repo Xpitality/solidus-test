@@ -17,3 +17,4 @@
 //= require spree/xpitality/fiscalCode
 //= require spree/vendor/jquery.infinite-pages
 //= require spree/xpitality/infinite_products
+//= require spree/xpitality/summaryPosition

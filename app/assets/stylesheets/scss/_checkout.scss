@@ -37,7 +37,7 @@
               display: flex;
               flex-wrap: wrap;
               flex: 0 0 50%;
-              padding-right: 10px;
+              padding-right: 24px;
               .form-col {
                 display: flex;
                 flex-wrap: wrap;
@@ -300,6 +300,35 @@
   }
   .radio-container {
     max-width: 70%;
+    @media (max-width: $small){
+      max-width: 100%;
+    }
+  }
+  #existing_cards{
+    margin-top: 24px;
+    padding-left: 36px;
+    margin-bottom: 24px;
+    @media (max-width: $small){
+      padding-left: 12px;
+    }
+    .card-details{
+      .name,.card-number,.expire-time{
+        padding: 10px;
+      }
+      .checkbox{
+        padding: 20px;
+      }
+    }
+    .checkbox-c,.name-c,.card-number-c,.expire-time-c{
+      padding: 10px;
+      border-top: 1px solid #333;
+    }
+  }
+  #payment-method-fields{
+    padding-left: 36px;
+    @media(max-width: $small){
+      padding-left: 12px;
+    }
   }
 }
 

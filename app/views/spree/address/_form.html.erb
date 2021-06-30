@@ -101,13 +101,13 @@
     <div class="form-row">
       <div class="form-col">
         <div class="input-holder" %>
-          <%= parent_form.label :email %><br/>
+          <%= parent_form.label :email %>
           <%= parent_form.email_field :email, required: true %>
         </div>
       </div>
       <div class="form-col">
         <div class="input-holder" %>
-          <%= parent_form.label :fiscal_code %><br/>
+          <%= parent_form.label :fiscal_code %>
           <%= parent_form.text_field :fiscal_code, required: form.object&.country&.iso == 'IT' %>
         </div>
       </div>

@@ -9,12 +9,14 @@ Spree.ready(function($) {
           $("#payment-method-fields").hide();
           $("#payment-methods").hide();
           $(".existing-cc-radio").prop("disabled", false);
+          $('#existing_cards').show();
         });
 
         $("#use_existing_card_no").click(function() {
           $("#payment-method-fields").show();
           $("#payment-methods").show();
           $(".existing-cc-radio").prop("disabled", true);
+          $('#existing_cards').hide();
         });
       }
 
@@ -33,8 +35,10 @@ Spree.ready(function($) {
         'input[type="radio"][name="order[payments_attributes][][payment_method_id]"]'
       ).click(function() {
         $("#payment-methods li").hide();
+        $("#payment-methods").hide();
         if (this.checked) {
           $("#payment_method_" + this.value).show();
+          $("#payment-methods").show();
         }
       });
 
