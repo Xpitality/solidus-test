@@ -37,7 +37,7 @@
           <%= render @order.state, form: form %>
         </div>
         <% if @order.state != 'confirm' %>
-          <div id="checkout-summary">
+          <div id="checkout-summary" class="<%= 'abstract' if @order.state == 'payment' %>">
             <div class="summary">
 
               <%= render partial: 'spree/orders/shared/summary_prices', locals: { order: @order } %>
