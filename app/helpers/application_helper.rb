@@ -31,4 +31,24 @@ module ApplicationHelper
 
     link_to text.html_safe, '#', class: "cart-info #{css_class}"
   end
+
+
+
+  def link_to_next_page_xpt(scope, name, **options)
+    next_page = next_page_path_xpt(scope, options)
+
+    options.except! :params, :param_name
+    options[:rel] ||= 'next'
+
+    if next_page
+      link_to name, next_page, options
+    elsif block_given?
+      yield
+    end
+  end
+
+  def next_page_path_xpt(scope, options = {})
+    Kaminari::Helpers::NextPage.new(self, **options.reverse_merge(current_page: scope.current_page, params: params)).url if scope.next_page
+  end
+
 end
