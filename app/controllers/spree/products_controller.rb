@@ -26,6 +26,9 @@ module Spree
       respond_to do |format|
         format.js
       end
+      if params['page']
+        render :index
+      end
     end
 
     def show
