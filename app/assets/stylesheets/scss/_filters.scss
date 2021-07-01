@@ -54,29 +54,17 @@
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      position: fixed;
-      width: 25%;
-      height: 400px;
-      overflow-y: auto;
+      position: relative;
+      width: 100%;
+      overflow-y: scroll;
       overflow-x: hidden;
+      height: 74%;
+      padding-bottom:1%;
       scrollbar-width: none;
-      /* Firefox 64 */
       -ms-overflow-style: none;
-
-      /* Internet Explorer 11 */
       @media (max-width: $mobileHeader) {
         flex-wrap: wrap;
       }
-      @media (max-width: 1499px){
-        width: 27%;
-      }
-      @media (min-width: 1500px){
-        width: 20%;
-      }
-      @media (min-width: 2000px){
-        width: 15%;
-      }
-
       @media (max-width: $small) {
         position: fixed;
         transform: translateY(-400%);
@@ -234,7 +222,18 @@
         }
       }
     }
-
+    .filter-resize{
+      width: 38%;
+      @media (max-width: 1499px){
+        width: 25%;
+      }
+      @media (min-width: 1500px){
+        width: 22%;
+      }
+      @media (min-width: 2000px){
+        width: 15%;
+      }
+    }
     .filters::-webkit-scrollbar {
       display: none;
     }
@@ -376,7 +375,9 @@
   }
 
   .slider-value {
-    display: inline-block;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     position: relative;
     height: 1.5em;
 
