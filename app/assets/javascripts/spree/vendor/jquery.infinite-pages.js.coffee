@@ -57,7 +57,8 @@ Released under the MIT License
 # Check the distance of the nav selector from the bottom of the window and fire
 # load event if close enough
     check: ->
-      nav = @$container.find(@options.navSelector)
+#      nav = @$container.find(@options.navSelector)
+      nav = $('a[rel="next"]')
       if nav.size() == 0
         @_log "No more pages to load"
       else
@@ -80,7 +81,8 @@ Released under the MIT License
       else
         @_loading()
 
-        $.getScript(@$container.find(@options.navSelector).attr('href'))
+#        $.getScript(@$container.find(@options.navSelector).attr('href'))
+        $.getScript($('a[rel="next"]').attr('href'))
           .done(=> @_success())
           .fail(=> @_error())
 

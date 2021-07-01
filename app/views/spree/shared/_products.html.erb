@@ -33,7 +33,7 @@
 
     <% if paginated_products.respond_to?(:total_pages) %>
       <p class="pagination">
-        <%= link_to_next_page(paginated_products, t('spree.pagination.next_page'), remote: true) %>
+        <%= link_to_next_page_xpt(paginated_products, t('spree.pagination.next_page'), remote: true) %>
       </p>
     <% end %>
   <% end %>
