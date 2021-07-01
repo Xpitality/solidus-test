@@ -1,8 +1,6 @@
 <tr id="<%= dom_id(wallet_payment_source, 'spree')%>" class="<%= cycle('even', 'odd') %>">
   <td class="checkbox-c">
-  <label for="order[wallet_payment_source_id]">
     <%= radio_button_tag "order[wallet_payment_source_id]", wallet_payment_source.id, default, class: "existing-cc-radio" %>
-  </label>
   </td>
   <td class='name-c'><%= wallet_payment_source.payment_source.name %></td>
   <td class='card-number-c'><%= wallet_payment_source.payment_source.last_digits %></td>
