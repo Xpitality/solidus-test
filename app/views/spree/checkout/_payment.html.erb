@@ -47,14 +47,14 @@
         <label class="radio-container">
           <div class="row">
             <%= t(method.name, scope: 'spree.payment_methods', default: method.name) %>
-            <% if method.name == 'Credit Card' %>
+            <% if method.type == "Spree::PaymentMethod::StripeCreditCard" %>
               <%= image_tag 'credit_cards/credit_card.gif', id: 'credit-card-image' %>
             <% end %>
           </div>
           <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
           <span class="checkmark"></span>
         </label>
-        <ul id="payment-methods" class="payment-methods-list">
+        <ul class="payment-methods payment-methods-list">
           <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>">
             <fieldset>
               <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: method } %>
