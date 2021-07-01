@@ -314,6 +314,7 @@
     .card-details{
       .name,.card-number,.expire-time{
         padding: 10px;
+        font-weight: bold;
       }
       .checkbox{
         padding: 20px;
@@ -321,7 +322,29 @@
     }
     .checkbox-c,.name-c,.card-number-c,.expire-time-c{
       padding: 10px;
-      border-top: 1px solid #333;
+    }
+    .card-number-c,.expire-time-c{
+      text-align: center;
+    }
+    .card-number,.expire-time{
+      text-align: center;
+    }
+    input[type="radio"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      padding: 6px;
+      background-clip: content-box;
+      border: 1px solid #bbbbbb;
+      background-color: #e7e6e7;
+      border-radius: 50%;
+    }
+    input[type="radio"]:checked {
+      border: 1px solid $primary;
+      background-color: $primary;
     }
   }
   #payment-method-fields{
