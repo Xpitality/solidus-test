@@ -29,7 +29,7 @@ module Xpitality
         end
 
         def home_products
-          Spree::Product.display_includes.available.descend_by_updated_at.limit(12)
+          Spree::Product.display_includes.available.order("created_at DESC").limit(12)
         end
 
         protected

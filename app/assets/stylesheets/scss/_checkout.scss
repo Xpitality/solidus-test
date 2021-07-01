@@ -37,7 +37,7 @@
               display: flex;
               flex-wrap: wrap;
               flex: 0 0 50%;
-              padding-right: 10px;
+              padding-right: 24px;
               .form-col {
                 display: flex;
                 flex-wrap: wrap;
@@ -119,13 +119,12 @@
               display: flex;
               align-items: flex-start;
               justify-content: flex-start;
-              flex-wrap: wrap;
               @media (max-width: $small) {
                 flex-direction: column;
               }
               img {
-                padding: 20px 0;
                 margin-right: 100%;
+                margin-bottom: 24px;
               }
               .field {
                 flex: 0 0 30%;
@@ -135,9 +134,9 @@
                 justify-content: flex-start;
                 flex-direction: column;
                 width: 100%;
-                margin-top: 10px;
+                margin-top: 16px;
                 label {
-                  margin-bottom: 10px;
+                  margin-bottom: 16px;
                   font-size: 14px;
                 }
                 input {
@@ -170,7 +169,7 @@
           }
         }
       }
-      form {
+      .edit_order {
         display: flex;
         @media (max-width: $small) {
           flex-direction: column;
@@ -293,10 +292,65 @@
   .step-three-title {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
+  }
+  #payment-method-fields{
+    margin-bottom: 24px;
   }
   .radio-container {
     max-width: 70%;
+    @media (max-width: $small){
+      max-width: 100%;
+    }
+  }
+  #existing_cards{
+    margin-top: 24px;
+    padding-left: 36px;
+    margin-bottom: 24px;
+    @media (max-width: $small){
+      padding-left: 12px;
+    }
+    .card-details{
+      .name,.card-number,.expire-time{
+        padding: 10px;
+        font-weight: bold;
+      }
+      .checkbox{
+        padding: 20px;
+      }
+    }
+    .checkbox-c,.name-c,.card-number-c,.expire-time-c{
+      padding: 10px;
+    }
+    .card-number-c,.expire-time-c{
+      text-align: center;
+    }
+    .card-number,.expire-time{
+      text-align: center;
+    }
+    input[type="radio"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      padding: 6px;
+      background-clip: content-box;
+      border: 1px solid #bbbbbb;
+      background-color: #e7e6e7;
+      border-radius: 50%;
+    }
+    input[type="radio"]:checked {
+      border: 1px solid $primary;
+      background-color: $primary;
+    }
+  }
+  #payment-method-fields{
+    padding-left: 36px;
+    @media(max-width: $small){
+      padding-left: 12px;
+    }
   }
 }
 

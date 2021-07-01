@@ -3,5 +3,12 @@
   <div id="line_items" class="col items-col" data-hook>
     <%= render partial: 'spree/orders/shared/line_item', collection: order.line_items, as: :line_item, locals: { source: :order } %>
   </div>
-  <%= render partial: 'spree/orders/edit/summary', locals: { order: order } %>
+
+  <div class="summary">
+    <%= render partial: 'spree/orders/shared/summary_prices', locals: { order: order } %>
+
+    <div class="submit-holder">
+      <%= link_to t('store.cart.cart_button'), checkout_state_path(order.checkout_steps.first), class: 'btn btn-primary btn-to-checkout' %>
+    </div>
+  </div>
 </div>

@@ -161,6 +161,9 @@ it:
       region: 'Regione'
     payment:
       information: Scegli un metodo di pagamento
+      name: Intestazione
+      card_number: Ultime cifre
+      expire_time: Scadenza
     swiper:
       title: DALLA STESSA CANTINA
     user:
