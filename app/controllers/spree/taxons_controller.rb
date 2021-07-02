@@ -19,6 +19,13 @@ module Spree
       else
         @title = "Catalogo"
       end
+
+      respond_to do |format|
+        format.html
+        format.js {
+          render template: 'spree/products/index'
+        }
+      end
     end
 
     private
