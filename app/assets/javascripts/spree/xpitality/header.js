@@ -75,7 +75,7 @@ const handleHeader = () => {
   });
 
   //hide search on scroll
-  const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+  const isMobile = /iPhone|Android/i.test(navigator.userAgent);
   if (isMobile) {
     window.onscroll = function () {
       if (window.scrollY > 0) {

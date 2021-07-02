@@ -101,10 +101,16 @@ const handleSideMenuScroll = () => {
     const innerHeightArea = document.body.scrollTop + window.innerHeight;
     const heightFromFooterToTop = getRectTop(footer) + document.body.scrollTop;
     if (heightOfFilterBar >= heightOfAreaFromTopToFooter) {
-      filtersBar.style.position = "absolute";
+      filtersBar.style.position = "relative";
+      filtersBar.classList.remove('filter-resize');
     }
     if (innerHeightArea < heightFromFooterToTop) {
       filtersBar.style.position = "fixed"; // restore when you scroll up
+      filtersBar.classList.add('filter-resize');
+    }
+    if (window.scrollY==0){
+      filtersBar.style.position = "relative"; // default
+      filtersBar.classList.remove('filter-resize');
     }
   };
   const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
@@ -121,8 +127,8 @@ const handleSideMenuScroll = () => {
   } else if (filtersBar) {
       document.addEventListener("scroll", function() {
         checkOffsetFilterBar();
-        if (window.scrollY > 100) {
-          filtersBar.style.top = "35%";
+        if (window.scrollY > 150) {
+          filtersBar.style.top = "24%";
         } else {
           filtersBar.style.top = "inherit";
         }
