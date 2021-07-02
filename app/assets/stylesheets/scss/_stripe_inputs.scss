@@ -4,3 +4,11 @@
     border: 1px solid #333;
     padding: 13px 16px; 
 }
+#payment-request-button{
+    height: auto;
+    border: none;
+    padding: 0;
+    .__PrivateStripeElement{
+        width: 150px;
+    }
+}

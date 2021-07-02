@@ -116,12 +116,14 @@ const handleSideMenuScroll = () => {
   const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
   if (isMobile) {
     document.addEventListener("scroll", function() {
-      if (window.scrollY <= 115) {
-        filterMobileBtn.style.position = "relative";
-        filterMobileBtn.style.width = "100%";
-      } else {       
-        filterMobileBtn.style.position = "fixed"; // restore when you scroll up
-        filterMobileBtn.style.width = "40%";
+      if(filterMobileBtn){
+        if (window.scrollY <= 115) {
+          filterMobileBtn.style.position = "relative";
+          filterMobileBtn.style.width = "100%";
+        } else {       
+          filterMobileBtn.style.position = "fixed"; // restore when you scroll up
+          filterMobileBtn.style.width = "40%";
+        }
       }
     });
   } else if (filtersBar) {
