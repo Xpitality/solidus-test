@@ -185,6 +185,12 @@
 .summary {
   flex: 0 0 30%;
   max-width: 30%;
+  @media (max-width: $medium){
+    padding-top: 26px;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
   .info-holder {
     background: $light-grey;
     padding: 20px 15px;
