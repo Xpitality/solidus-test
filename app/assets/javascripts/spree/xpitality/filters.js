@@ -127,7 +127,6 @@ const handleSideMenuScroll = () => {
   } else if (filtersBar) {
       document.addEventListener("scroll", function() {
         checkOffsetFilterBar();
-        console.log(window.scrollY)
         if (window.scrollY > 150) {
           filtersBar.style.top = "24%";
         } else {
