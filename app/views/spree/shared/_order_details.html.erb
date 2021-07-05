@@ -68,10 +68,6 @@
         </td>
         <td data-hook="order_item_description">
           <h4 class="text-holder"><%= item.variant.product.name %></h4>
-          <p class="text-holder">
-            <%== truncated_product_description(item.variant.product) %>
-            <%= "(" + item.variant.options_text + ")" unless item.variant.option_values.empty? %>
-          </p>
         </td>
         <td data-hook="order_item_price" class="price"><span class="text-holder"><%= item.single_money.to_html %></span>
         </td>
