@@ -228,10 +228,13 @@
         width: 25%;
       }
       @media (min-width: 1500px){
-        width: 22%;
+        width: 18%;
       }
       @media (min-width: 2000px){
         width: 15%;
+      }
+      @media (min-width: 3000px){
+        width: 11%;
       }
     }
     .filters::-webkit-scrollbar {
