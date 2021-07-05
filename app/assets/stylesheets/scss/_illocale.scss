@@ -9,8 +9,12 @@
     background-color: #ac4729;
     object-fit: cover;
     z-index: -1;
-    @media (max-width: $medium) {
-      display: none;
+    @media (max-width: 768px){
+      top: 7%;
+    }
+    @media (max-width: $small){
+      height: 35%;
+      top: 66%;
     }
   }
   .who-we-are-background-locale {
@@ -23,11 +27,11 @@
     object-fit: cover;
     z-index: -1;
     @media (max-width: 768px){
-      height: 35%;
-      top: 5%;
+      top: 7%;
     }
-    @media (max-width: $medium) {
-      display: none;
+    @media (max-width: $small){
+      height: 35%;
+      top: 37%;
     }
   }
   .container {
@@ -94,35 +98,23 @@
             width: 60%;
             flex-direction: column;
             padding: 10px 10px 0 10px;
-            @media (max-width: $medium) {
-              display: none;
-            }
             h2 {
               font-weight: bold;
               font-size: 22px;
               line-height: 26px;
               color: #fff;
               margin-bottom: 20px;
-              @media (max-width: $medium){
-                color: #333
-              }
             }
             p {
               font-weight: 300;
               font-size: 16px;
               line-height: 20px;
               color: #fff;
-              @media (max-width: $medium){
-                color: #333
-              }
               a{
                 font-weight: 300;
               font-size: 16px;
               line-height: 20px;
               color: #fff;
-              @media (max-width: $medium){
-                color: #333
-              }
               }
             }
             .phone {
@@ -132,9 +124,6 @@
                 font-size: 16px;
                 color: #fff;
                 line-height: 20px;
-                @media (max-width: $medium){
-                  color: #333
-                }
               }
             }
             .social {
@@ -145,16 +134,14 @@
               img {
                 padding-right: 5px;
               }
-              @media (max-width: $small){
-                img{
-                  display: none;
-                }
-              }
             }
             .emergency{
               margin-top: 100px;
               @media (max-width: 1024px){
                 margin-top: 52px
+              }
+              @media (max-width: $small){
+                margin-top: 24px;
               }
             }
           }
@@ -163,6 +150,9 @@
             margin-top: -200px;
             @media (max-width: 768px){
               margin-top: -120px;
+            }
+            @media (max-width: $small){
+              margin-top: 0;
             }
           }
           &.locale {

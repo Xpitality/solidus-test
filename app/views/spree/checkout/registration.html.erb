@@ -34,7 +34,6 @@
         <button id="login_btn_show" class="btn btn-dark-transparent">
           <%= t('store.general.sign_in') %>
         </button>
-        <p class="or"><%= t('store.general.oppure') %></p>
         <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
       </div>
     </div>
@@ -59,7 +58,6 @@
         <button id="reg_btn_show" class="btn btn-primary">
           <%= t('store.general.registration_btn') %>
         </button>
-        <p class="or"><%= t('store.general.oppure') %></p>
         <%= render partial: 'spree/shared/devise/social_buttons' unless session[:omniauth] %>
       </div>
     </div>
