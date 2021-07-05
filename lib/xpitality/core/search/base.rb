@@ -82,7 +82,7 @@ module Xpitality
           if @properties[:price_lte]
             base_scope = base_scope.master_price_lte(@properties[:price_lte]).descend_by_master_price
           else
-            base_scope = base_scope.order('created_at DESC')
+            base_scope = base_scope.order('spree_products.created_at DESC')
           end
           base_scope
         end
