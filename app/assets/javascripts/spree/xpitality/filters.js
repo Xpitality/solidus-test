@@ -114,15 +114,24 @@ const handleSideMenuScroll = () => {
     }
   };
   const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+  const headerTop = document.querySelector('.header-top-bar');
   if (isMobile) {
     document.addEventListener("scroll", function() {
       if(filterMobileBtn){
         if (window.scrollY <= 115) {
           filterMobileBtn.style.position = "relative";
           filterMobileBtn.style.width = "100%";
+          headerTop.style.display = 'flex';
+          filterMobileBtn.style.top = '0';
+          filterMobileBtn.style.left = '0';
+          filterMobileBtn.querySelector('.btn').classList.remove('btn-scroll-style');
         } else {       
           filterMobileBtn.style.position = "fixed"; // restore when you scroll up
           filterMobileBtn.style.width = "40%";
+          headerTop.style.display = 'none';
+          filterMobileBtn.style.top = '92px';
+          filterMobileBtn.style.left = '34%';
+          filterMobileBtn.querySelector('.btn').classList.add('btn-scroll-style');
         }
       }
     });

@@ -24,7 +24,9 @@
             <%= image_tag("icons/icon-chevron-right-primary.svg") %>
           </div>
           <div class="logout-btn-holder">
-            <a href=""><%= t('store.general.sign_out') %></a>
+          <%= link_to spree.logout_path, method: Devise.sign_out_via do %>
+            <%= content_tag :p, t('store.general.sign_out') %>
+          <% end %>
           </div>
         </div>
       </div>

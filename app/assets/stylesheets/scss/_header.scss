@@ -106,7 +106,7 @@ header#header {
           }
         }
         @media (max-width: $small) {
-          top: 102px;
+          top: 121px;
           padding-left: 0;
         }
         @media (max-width: 1000px) {
@@ -337,7 +337,7 @@ header#header {
               right: 0;
               @media (max-width: $mobile) {
                 right: -56.5px;
-                top: 185%;
+                top: 99%
               }
             }
           }

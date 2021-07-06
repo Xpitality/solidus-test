@@ -61,10 +61,14 @@
               }
               .logout-btn-holder {
                 a {
-                  text-decoration: underline;
-                  color: $primary;
-                  font-size: 14px;
-                  font-weight: 700;
+                  p{
+                    color: $primary;
+                    font-size: 14px;
+                    font-weight: 700;
+                  }
+                  p:hover{
+                    text-decoration: underline;
+                  }
                 }
               }
             }

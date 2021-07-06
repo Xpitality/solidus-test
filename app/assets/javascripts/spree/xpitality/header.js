@@ -8,6 +8,8 @@ const handleHeader = () => {
   const dropdown = document.querySelectorAll(".nav-dropdown");
   const searchWrapper = document.querySelector(".header-content");
   const navHolder = document.querySelectorAll(".nav-link");
+  const isCheckout = document.querySelector('.checkout');
+  const isLogin = document.querySelector('.login');
 
   hamburger.addEventListener("click", () => {
     if (navBar.classList.contains("show")) {
@@ -77,8 +79,20 @@ const handleHeader = () => {
   //hide search on scroll
   const isMobile = /iPhone|Android/i.test(navigator.userAgent);
   if (isMobile) {
+    if (isCheckout) {
+      searchHolder.style.display = 'none';
+      searchWrapper.style.height = "88px";
+    }
+    if(isLogin){
+      searchHolder.style.display = 'none';
+      searchWrapper.style.height = "88px";
+    }
     window.onscroll = function () {
-      if (window.scrollY > 0) {
+      if (isCheckout) {
+        //default
+      } else if (isLogin){
+        //default
+      } else if (window.scrollY > 0) {
         searchHolder.style.display = 'none';
         searchWrapper.style.height = "88px";
       } else {
