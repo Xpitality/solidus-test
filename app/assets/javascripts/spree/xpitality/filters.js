@@ -75,13 +75,13 @@ const handleFilterForm = () => {
     if (form) {
       sidemenu.addEventListener("change", () => {;
         const hideAfterTime = setInterval(function() {
-        const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
-        const filters = document.querySelector(".filters");
-        if (isMobile) {
-          filters.classList.remove("show");
-        }
-        clearInterval(hideAfterTime)
-        }, 400)
+          const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+          const filters = document.querySelector(".filters");
+          if (isMobile) {
+            filters.classList.remove("show");
+          }
+          clearInterval(hideAfterTime);
+          }, 400)
         Rails.fire(form, 'submit');
       });
       resetBtn.addEventListener('click',()=>{
@@ -89,10 +89,10 @@ const handleFilterForm = () => {
         const slider  = document.getElementById('price_lte');
         const filters = document.querySelector(".filters");
         checkboxs.forEach(input => {
-          input.checked = false
-        })
-        slider.value= 50
-        slider.click()
+          input.checked = false;
+        });
+        slider.value= 50;
+        slider.click();
         filters.classList.remove("show");
         Rails.fire(form, 'submit');
       });
