@@ -84,9 +84,9 @@ const handleFilterForm = () => {
         Rails.fire(form, 'submit');
       });
       resetBtn.addEventListener('click',()=>{
-        const checkboxs  = form.querySelectorAll('input[type=checkbox]');
+        const checkbox  = form.querySelectorAll('input[type=checkbox]');
         const slider  = document.getElementById('price_lte');
-        checkboxs.forEach(input => {
+        checkbox.forEach(input => {
           input.checked = false;
         });
         slider.value= 50;
