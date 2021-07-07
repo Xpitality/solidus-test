@@ -2200,7 +2200,7 @@ it:
     use_billing_address: Usa Indirizzo di Fatturazione
     use_existing_cc: Utilizza carta esistente
     use_new_cc: Usa una nuova carta
-    use_new_cc_or_payment_method: Usa un nuova metodo di pagamento
+    use_new_cc_or_payment_method: Usa un nuovo metodo di pagamento
     user: Utente
     user_role_rule:
       choose_roles: Scegli ruoli
