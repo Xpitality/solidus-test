@@ -207,12 +207,11 @@
         display: none;
         width: 100%;
         background-color: $primary-light;
-        padding: 20px 32px;
-        font-family: "chainprinter", sans-serif;
-        align-items: center;
+        padding: 20px 32px;     
         span {
           color: #fff;
-
+          font-family: "chainprinter", sans-serif;
+          align-items: center;
           img {
             cursor: pointer;
             width: 17px;
@@ -220,9 +219,14 @@
             margin-right: 15px;
           }
         }
-
+        p{
+          color: #fff;
+          text-decoration: underline;
+        }
         @media (max-width: $small) {
           display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
         }
       }
     }

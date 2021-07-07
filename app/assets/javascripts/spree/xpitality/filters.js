@@ -69,6 +69,7 @@ const handleCountryCheck = () => {
 };
 const handleFilterForm = () => {
   const sidemenu = document.querySelector(".filters");
+  const resetBtn = document.getElementById('reset_btn');
   if (sidemenu) {
     const form = sidemenu.getElementsByTagName("form")[0];
     if (form) {
@@ -84,6 +85,20 @@ const handleFilterForm = () => {
         Rails.fire(form, 'submit');
       });
     }
+    resetBtn.addEventListener('click',()=>{
+    if(form){
+      const checkboxs  = form.querySelectorAll('input[type=checkbox]');
+      const slider  = document.getElementById('price_lte');
+      const filters = document.querySelector(".filters");
+      checkboxs.forEach(input => {
+        input.checked = false
+      })
+      slider.value= 50
+      slider.click()
+      filters.classList.remove("show");
+      Rails.fire(form, 'submit');
+      }
+    });
   }
 };
 const handleSideMenuScroll = () => {
