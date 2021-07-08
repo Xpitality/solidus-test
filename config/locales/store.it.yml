@@ -14,7 +14,7 @@ it:
       see_all: "Vedi tutti"
       orders: "Ordini"
       reset_filters: "Azzera filtri"
-      resultat: "RISULTATI PER:"
+      results_for: "RISULTATI PER:"
     shared:
       main_menu:
         label:
