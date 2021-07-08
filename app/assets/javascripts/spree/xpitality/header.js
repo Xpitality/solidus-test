@@ -82,20 +82,22 @@ const handleHeader = () => {
     if (isCheckout) {
       searchHolder.style.display = 'none';
       searchWrapper.style.height = "88px";
-    }
-    if(isLogin){
+    } else if(isLogin){
       searchHolder.style.display = 'none';
       searchWrapper.style.height = "88px";
     }
     window.onscroll = function () {
+      console.log(window.scrollY)
       if (isCheckout) {
-        //default
-      } else if (isLogin){
-        //default
-      } else if (window.scrollY > 0) {
         searchHolder.style.display = 'none';
         searchWrapper.style.height = "88px";
-      } else {
+      } else if (isLogin){
+        searchHolder.style.display = 'none';
+        searchWrapper.style.height = "88px";
+      } else if (window.scrollY > 100) {
+        searchHolder.style.display = 'none';
+        searchWrapper.style.height = "88px";
+      } else if (window.scrollY == 0){
         searchHolder.style.display = 'flex';
         searchWrapper.style.height = "163px";
       }
