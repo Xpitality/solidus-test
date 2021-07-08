@@ -88,10 +88,7 @@ const handleHeader = () => {
         searchHolder.style.display = 'none';
         searchWrapper.style.height = "88px";
       } else if (window.scrollY == 0){
-        if (CheckoutPage) {
-          searchHolder.style.display = 'none';
-          searchWrapper.style.height = "88px";
-        } else if (CheckoutPageLogin){
+        if (CheckoutPage || CheckoutPageLogin) {
           searchHolder.style.display = 'none';
           searchWrapper.style.height = "88px";
         } else {
