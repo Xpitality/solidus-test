@@ -8,8 +8,8 @@ const handleHeader = () => {
   const dropdown = document.querySelectorAll(".nav-dropdown");
   const searchWrapper = document.querySelector(".header-content");
   const navHolder = document.querySelectorAll(".nav-link");
-  const isCheckout = document.querySelector('.checkout');
-  const isLogin = document.querySelector('.login');
+  const CheckoutPage = document.querySelector('.checkout');
+  const CheckoutPageLogin = document.querySelector('.login');
 
   hamburger.addEventListener("click", () => {
     if (navBar.classList.contains("show")) {
@@ -79,27 +79,25 @@ const handleHeader = () => {
   //hide search on scroll
   const isMobile = /iPhone|Android/i.test(navigator.userAgent);
   if (isMobile) {
-    if (isCheckout) {
-      searchHolder.style.display = 'none';
-      searchWrapper.style.height = "88px";
-    } else if(isLogin){
+    if (CheckoutPage || CheckoutPageLogin) {
       searchHolder.style.display = 'none';
       searchWrapper.style.height = "88px";
     }
     window.onscroll = function () {
-      console.log(window.scrollY)
-      if (isCheckout) {
-        searchHolder.style.display = 'none';
-        searchWrapper.style.height = "88px";
-      } else if (isLogin){
-        searchHolder.style.display = 'none';
-        searchWrapper.style.height = "88px";
-      } else if (window.scrollY > 100) {
+      if (window.scrollY > 100) {
         searchHolder.style.display = 'none';
         searchWrapper.style.height = "88px";
       } else if (window.scrollY == 0){
-        searchHolder.style.display = 'flex';
-        searchWrapper.style.height = "163px";
+        if (CheckoutPage) {
+          searchHolder.style.display = 'none';
+          searchWrapper.style.height = "88px";
+        } else if (CheckoutPageLogin){
+          searchHolder.style.display = 'none';
+          searchWrapper.style.height = "88px";
+        } else {
+          searchHolder.style.display = 'flex';
+          searchWrapper.style.height = "163px";
+        }
       }
     };
   }
