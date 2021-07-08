@@ -13,6 +13,8 @@ it:
       filters: "FILTRI"
       see_all: "Vedi tutti"
       orders: "Ordini"
+      reset_filters: "Azzera filtri"
+      results_for: "RISULTATI PER:"
     shared:
       main_menu:
         label:

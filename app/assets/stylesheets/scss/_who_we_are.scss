@@ -4,17 +4,12 @@
   .who-we-are-background {
     position: absolute;
     width: 100%;
-    height: 400px;
-    top: 12%;
+    height: 100%;
+    top: 200px;
     left: 0;
     background-color: #ac4729;
-    transform: translateY(-50%);
     object-fit: cover;
     z-index: -1;
-    @media (max-width: $mobile) {
-      top: 12%;
-      height: 15%;
-    }
   }
   .container {
     display: flex;

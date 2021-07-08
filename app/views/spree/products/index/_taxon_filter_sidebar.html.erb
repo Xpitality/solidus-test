@@ -1,6 +1,8 @@
 <div class="filters-holder">
   <div class="container title-container">
-    <h1 class="title-small">RISULTATI PER:</h1>
+    <h1 class="title-small">
+      <%= t('store.general.results_for') %>
+    </h1>
     <h1 class="title-big">
       <%= t("store.general.catalog") %>
     </h1>
@@ -20,6 +22,9 @@
           <%= image_tag("icons/taxon_filter/X.svg", class: "close-btn") %>
           <%= t("store.general.filters") %>
         </span>
+        <p id="reset_btn">
+          <%= t('store.general.reset_filters') %>
+        </p>
       </div>
       <%= form_tag filter_products_path, method: :post, remote: true, format: :js do %>
         <% with_grandchildren = [:country] %>
