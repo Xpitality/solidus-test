@@ -153,7 +153,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     acts_as_list (1.0.4)
       activerecord (>= 4.2)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     alchemy-solidus (2.4.0)
       alchemy_cms (>= 4.1.0, < 5.0)
