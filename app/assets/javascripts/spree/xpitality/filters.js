@@ -78,6 +78,7 @@ const handleFilterForm = () => {
           const isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
           if (isMobile) {
             sidemenu.classList.remove("show");
+
           }
           clearInterval(hideAfterTime);
           }, 400)
