@@ -6,7 +6,7 @@ header#header {
   &.sticky {
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 1000;
   }
   .header-top-bar {
     background: $primary-light;
@@ -106,8 +106,9 @@ header#header {
           }
         }
         @media (max-width: $small) {
-          top: 121px;
+          top: 64px;
           padding-left: 0;
+          height: 100%;
         }
         @media (max-width: 1000px) {
           padding-left: 10px;
